@@ -1,92 +1,55 @@
 package Game;
 
-
+import java.util.ArrayList;
+/***
+ * The hero object represent the main protaganist of the game, 
+ * and models the data associated with them.
+ * 
+ * @author Aaron & Caleb
+ *
+ */
 public class Hero extends Character {
 
-	private String StatusCondition;
-
-	private Weapon EquipedWeapon;
-
-	private Armor EquippedArmor;
-
-	private int Defense;
-
-	private Artifact Inventory;
-
-	private Monster monster;
-
-	private Artifact artifact;
-
-	private Puzzle puzzle;
-
-	private Room room;
-
-	private Game game;
-
-	private Inventory inventory;
-
-	public void useItem() {
-
-	}
-
-	public void changeLocation() {
-
-	}
-
-	public void itemPickUp() {
-
-	}
-
-	public void fleeEncounter() {
-
-	}
-
-	public void equipArmor() {
-
-	}
-
-	public void equipWeapon() {
-
-	}
-
-	public String getStatusCondition() {
-		return null;
-	}
-
-	public void setStatusCondition() {
-
-	}
-
+	private ArrayList<String> statusConditions;
+	private Weapon equippedWeapon;
+	private Armor equippedArmor;
+	private int defenseValue;
+	private ArrayList<Artifact> playerInventory;
+	
+	
 	public Weapon getEquippedWeapon() {
-		return null;
+		return equippedWeapon;
 	}
-
-	public void setEquippedWeapon() {
-
+	public void setEquippedWeapon(Weapon equippedWeapon) {
+		this.equippedWeapon = equippedWeapon;
 	}
-
 	public Armor getEquippedArmor() {
-		return null;
+		return equippedArmor;
 	}
-
-	public void setEquippedArmor() {
-
+	public void setEquippedArmor(Armor equippedArmor) {
+		this.equippedArmor = equippedArmor;
 	}
-
-	public int getDefense() {
-		return 0;
+	public int getDefenseValue() {
+		return defenseValue;
 	}
-
-	public void setDefense() {
-
+	public void setDefenseValue(int defenseValue) {
+		this.defenseValue = defenseValue;
 	}
-
-	public int getInventory() {
-		return 0;
+	public ArrayList<String> getStatusConditions() {
+		return statusConditions;
 	}
-
-	public void setInventory() {
-
+	public void addStatusCondition(String statusCondition) {
+		this.statusConditions.add(statusCondition);
 	}
+	public ArrayList<Artifact> getPlayerInventory() {
+		return playerInventory;
+	}
+	public void addArtifactToInventory(Artifact item) {
+		this.playerInventory.add(item);
+	}
+	
+	
+
+	
 
 }
