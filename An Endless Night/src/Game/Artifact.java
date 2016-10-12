@@ -9,26 +9,16 @@ public class Artifact {
 
 	private int ArtifactID;
 
-	private Hero hero;
-
-	private Room room;
-
-	private Game game;
-
-	private Inventory inventory;
-
-	
-
 	public String getName() {
-		return null;
+		return Name;
 	}
 
 	public String getDescription() {
-		return null;
+		return Description;
 	}
 
 	public int getArtifactID() {
-		return 0;
+		return ArtifactID;
 	}
 
 }
