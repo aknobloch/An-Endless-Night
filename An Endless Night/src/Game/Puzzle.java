@@ -4,7 +4,7 @@ package Game;
 
 public class Puzzle {
 
-	private String Description;
+	private String description;
 
 	private String solution;
 
@@ -12,56 +12,67 @@ public class Puzzle {
 
 	private int attemptsMade;
 
-	private String Hint;
+	private String hint;
 
-	private int PuzzleID;
+	private int puzzleID;
 
 	private int attemptsAllowed;
-
-	private Room room;
-
-	public String getDescription() {
-		return null;
+	
+	public Puzzle(String description, String solution, boolean isSolved, int attemptsMade, String hint, int puzzleID,
+			int attemptsAllowed) {
+		this.description = description;
+		this.solution = solution;
+		this.isSolved = isSolved;
+		this.attemptsMade = attemptsMade;
+		this.hint = hint;
+		this.puzzleID = puzzleID;
+		this.attemptsAllowed = attemptsAllowed;
 	}
 
-	public void setDescription() {
+	public String getDescription() {
+		return description;
+	}
 
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getSolution() {
-		return null;
+		return solution;
 	}
 
 	public boolean getIsSolved() {
-		return false;
+		return isSolved;
 	}
 
-	public void setIsSolved() {
+	
 
+	public void setIsSolved(boolean isSolved) {
+		this.isSolved = isSolved;
 	}
 
 	public String getHint() {
-		return null;
+		return hint;
 	}
 
-	public void setHint() {
-
+	public void setHint(String hint) {
+		this.hint = hint;
 	}
 
 	public int getPuzzleID() {
-		return 0;
+		return puzzleID;
 	}
 
 	public int getAttemptsMade() {
-		return 0;
+		return attemptsMade;
 	}
 
 	public void incrementAttemptsMade() {
-
+		attemptsMade = attemptsMade + 1;
 	}
 
 	public int getAttemptsAllowed() {
-		return 0;
+		return attemptsAllowed;
 	}
 
 }

@@ -2,10 +2,17 @@ package Game;
 
 public class Weapon extends Artifact {
 
-	private int Strength;
+	
 
+	private int strength;
+
+	public Weapon(String name, String description, int artifactID, int strength) {
+		super(name, description, artifactID);
+		this.strength = strength;
+	}
+	
 	public int getStrength() {
-		return 0;
+		return strength;
 	}
 
 }

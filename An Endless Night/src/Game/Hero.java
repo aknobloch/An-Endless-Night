@@ -23,8 +23,6 @@ public class Hero extends Character {
 
 	private Game game;
 
-	private Inventory inventory;
-
 	public void useItem() {
 
 	}

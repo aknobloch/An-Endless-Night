@@ -1,17 +1,24 @@
 package Game;
 
+import java.util.ArrayList;
+
 public class Door {
 
-	private int ConnectedRooms;
+	private ArrayList<Integer> connectedRooms = new ArrayList<Integer>();
 
-	private Room room;
+	private int doorID;
+	
+	public Door(ArrayList<Integer> connectedRooms, int doorID) {
+		this.connectedRooms = connectedRooms;
+		this.doorID = doorID;
+	}
 
-	public Door getConnectedRooms() {
-		return null;
+	public ArrayList<Integer> getConnectedRooms() {
+		return connectedRooms;
 	}
 
 	public int getDoorID() {
-		return 0;
+		return doorID;
 	}
 
 }

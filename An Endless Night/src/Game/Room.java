@@ -1,77 +1,93 @@
 package Game;
 
-
+import java.util.ArrayList;
 
 public class Room {
 
-	private Monster Monster;
 
-	private Puzzle Puzzle;
+	private String description;
 
-	private String Description;
+	private ArrayList<Door> doors = new ArrayList<Door>();
 
-	private Door Doors;
+	private int roomID;
 
-	private int RoomID;
+	private boolean visited;
 
-	private boolean Visited;
-
-	private String Name;
-
-	private Hero hero;
+	private String name;
 
 	private Puzzle puzzle;
 
 	private Monster monster;
 
-	private Artifact artifact;
+	private ArrayList<Artifact> artifact = new ArrayList<>();
+	
 
-	public Monster getMonster() {
-		return null;
+	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, Puzzle puzzle,
+			Monster monster, ArrayList<Artifact> artifact) {
+		this.description = description;
+		this.doors = doors;
+		this.roomID = roomID;
+		this.visited = visited;
+		this.name = name;
+		this.puzzle = puzzle;
+		this.monster = monster;
+		this.artifact = artifact;
 	}
 
-	public void setMonster() {
+	public Monster getMonster() {
+		return monster;
+	}
 
+	public void setMonster(Monster monster) {
+		this.monster = monster;
 	}
 
 	public Puzzle getPuzzle() {
-		return null;
+		return puzzle;
 	}
 
-	public void setPuzzle() {
-
+	public void setPuzzle(Puzzle puzzle) {
+		this.puzzle = puzzle;
 	}
 
 	public String getDescription() {
-		return null;
+		return description;
 	}
 
-	public Door getDoors() {
-		return null;
+	public ArrayList<Door> getDoors() {
+		return doors;
 	}
 
-	public Artifact getArtifact() {
-		return null;
+	public ArrayList<Artifact> getArtifact() {
+		return artifact;
 	}
 
-	public void setArtifact() {
-
+	public void addArtifacts(Artifact artifact) {
+		this.artifact.add(artifact);
+	}
+	
+	public void addAllArtifacts(ArrayList<Artifact> artifact)
+	{
+		for(int i = 0;i < this.artifact.size();i++)
+		{
+			this.artifact.add(artifact.get(i));
+		}
 	}
 
 	public int getRoomID() {
-		return 0;
+		return roomID;
 	}
 
 	public boolean getVisited() {
-		return false;
+		return visited;
 	}
 
-	public void setVisited() {
-
+	public void setVisited(boolean visited) {
+		this.visited = visited;
 	}
 
 	public String getName() {
-		return null;
+		return name;
 	}
 
 }
