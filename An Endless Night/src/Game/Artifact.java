@@ -8,6 +8,12 @@ public class Artifact {
 	private String Description;
 
 	private int ArtifactID;
+	
+	public Artifact(String name, String description, int artifactID) {
+		Name = name;
+		Description = description;
+		ArtifactID = artifactID;
+	}
 
 	public String getName() {
 		return Name;
