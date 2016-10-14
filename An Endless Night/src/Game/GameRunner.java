@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class GameRunner {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(System.in);
 		StartMenu start = new StartMenu();
-		Game g1;
 		boolean tracker = true;
 		String userIn = "";
 		while(tracker)
@@ -16,13 +15,13 @@ public class GameRunner {
 			userIn = input.next();
 			if(userIn.equals("1"))
 			{
-				g1 = start.startNewGame();
+				start.startNewGame();
 				System.out.println("A new Game has been started");
 				tracker = false;
 			}
 			else if(userIn.equals("2"))
 			{
-				g1 = start.loadGame();
+				start.loadGame();
 				System.out.println("Game has been loaded");
 				tracker = false;
 			}

@@ -21,36 +21,27 @@ public class StartMenu {
 	}
 	
 	// TODO Make A populated arrayList of rooms 
-	public Game startNewGame()
+	public void startNewGame()
 	{
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		Hero h1 = new Hero();
-		Game g1 = new Game(rooms, h1);
-		return g1;
+		Game.initializeGame(rooms, h1);
 	}
 	
-	public Game loadGame()
+	public void loadGame() throws Exception
 	{
-		ObjectInputStream input;
-		Game g1 = startNewGame();
-		try {
-			input = new ObjectInputStream(new FileInputStream("Endless.dat"));
-			
-			while(true)
-			{
-				g1 = (Game) input.readObject();
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
-		} catch (IOException e) {
-			
-		} catch (ClassNotFoundException e) {
-			
-			System.out.println("Thats a bummur your save data is corrupt a new game will be created for you");
+		boolean x = Game.loadGame();
+		
+		if(x == true)
+		{
+			System.out.println("Game loaded");
+		}
+		else
+		{
+			startNewGame();
 		}
 		
-		return g1;
+		
 	}
 	
 	public void exitGame()
