@@ -10,12 +10,14 @@ import java.util.ArrayList;
  */
 public class Hero extends Character {
 
-	private ArrayList<String> statusConditions;
+	public enum StatusCondition {
+		// TODO: Add possible status conditions
+	}
+	
+	private ArrayList<StatusCondition> statusConditions;
 	private Weapon equippedWeapon;
 	private Armor equippedArmor;
-	private int defenseValue;
 	private ArrayList<Artifact> playerInventory;
-	
 	
 	public Weapon getEquippedWeapon() {
 		return equippedWeapon;
@@ -33,20 +35,12 @@ public class Hero extends Character {
 		this.equippedArmor = equippedArmor;
 	}
 	
-	public int getDefenseValue() {
-		return defenseValue;
-	}
-	
-	public void setDefenseValue(int defenseValue) {
-		this.defenseValue = defenseValue;
-	}
-	
-	public ArrayList<String> getStatusConditions() {
+	public ArrayList<StatusCondition> getStatusConditions() {
 		return statusConditions;
 	}
 	
-	public void addStatusCondition(String statusCondition) {
-		this.statusConditions.add(statusCondition);
+	public void addStatusCondition(StatusCondition newCondition) {
+		this.statusConditions.add(newCondition);
 	}
 	
 	public ArrayList<Artifact> getPlayerInventory() {
