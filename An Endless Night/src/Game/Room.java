@@ -3,8 +3,7 @@ package Game;
 import java.util.ArrayList;
 
 public class Room {
-
-
+	
 	private String description;
 
 	private ArrayList<Door> doors = new ArrayList<Door>();

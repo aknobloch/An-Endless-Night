@@ -18,7 +18,7 @@ public final class Game {
 		this.hero = hero;
 	}
 
-	public Hero getHero() {
+	public static Hero getHero() {
 		return game.hero;
 	}
 	

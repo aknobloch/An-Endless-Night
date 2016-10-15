@@ -26,14 +26,11 @@ public class GameMenu {
 	
 	public void searchRoom()
 	{
-		SearchRoomControl search = new SearchRoomControl(game);
-		search.searchRoom();
+		SearchRoomControl.searchRoom();
 	}
 	
 	public void changeRooms(Room x)
 	{
-		
-		ChangeRoomControl change = new ChangeRoomControl(x);
-		change.changeRoom();
+		ChangeRoomControl.changeRoom();
 	}
 }
