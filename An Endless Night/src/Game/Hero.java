@@ -24,6 +24,7 @@ public class Hero extends Character {
 	}
 	
 	public void setEquippedWeapon(Weapon equippedWeapon) {
+		// TODO: handle case if weapon is already equipped
 		this.equippedWeapon = equippedWeapon;
 	}
 	
@@ -32,6 +33,7 @@ public class Hero extends Character {
 	}
 	
 	public void setEquippedArmor(Armor equippedArmor) {
+		// TODO: handle case if armor is already equipped
 		this.equippedArmor = equippedArmor;
 	}
 	
@@ -40,7 +42,15 @@ public class Hero extends Character {
 	}
 	
 	public void addStatusCondition(StatusCondition newCondition) {
-		this.statusConditions.add(newCondition);
+		if( ! this.statusConditions.contains(newCondition)) {
+			statusConditions.add(newCondition);
+		}
+	}
+	
+	public void removeStatusCondition(StatusCondition condition) {
+		if(this.statusConditions.contains(condition)) {
+			statusConditions.remove(condition);
+		}
 	}
 	
 	public ArrayList<Artifact> getPlayerInventory() {
@@ -48,6 +58,7 @@ public class Hero extends Character {
 	}
 	
 	public void addArtifactToInventory(Artifact item) {
+		// TODO: handle case if inventory is full
 		this.playerInventory.add(item);
 	}
 	
