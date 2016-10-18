@@ -1,7 +1,7 @@
 package Game;
 
 
-public class Artifact {
+public class Artifact implements Comparable {
 
 	private String Name;
 
