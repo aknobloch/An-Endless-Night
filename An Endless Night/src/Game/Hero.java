@@ -19,6 +19,15 @@ public class Hero extends Character {
 	private Armor equippedArmor;
 	private ArrayList<Artifact> playerInventory;
 	
+	
+	public Hero(int ID, int health, int strength, int defense, String name) {
+		super(ID, health, strength, defense, name);
+		statusConditions = new ArrayList<>();
+		equippedWeapon = null;
+		equippedArmor = null;
+		playerInventory = new ArrayList<>();
+	}
+	
 	public Weapon getEquippedWeapon() {
 		return equippedWeapon;
 	}
