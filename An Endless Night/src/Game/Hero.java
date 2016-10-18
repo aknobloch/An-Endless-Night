@@ -1,6 +1,7 @@
 package Game;
 
 import java.util.ArrayList;
+import java.util.Map;
 /***
  * The hero object represent the main protaganist of the game, 
  * and models the data associated with them.
@@ -17,7 +18,9 @@ public class Hero extends Character {
 	private ArrayList<StatusCondition> statusConditions;
 	private Weapon equippedWeapon;
 	private Armor equippedArmor;
-	private ArrayList<Artifact> playerInventory;
+	private ArrayList<InventoryItem> playerInventory;
+	// the maximum number of UNIQUE items a player can hold
+	private final int MAX_INVENTORY = 15;
 	
 	
 	public Hero(int ID, int health, int strength, int defense, String name) {
@@ -62,13 +65,29 @@ public class Hero extends Character {
 		}
 	}
 	
-	public ArrayList<Artifact> getPlayerInventory() {
+	public ArrayList<InventoryItem> getPlayerInventory() {
+		// TODO: Handle outside modification of inventory.
 		return playerInventory;
 	}
 	
-	public void addArtifactToInventory(Artifact item) {
-		// TODO: handle case if inventory is full
-		this.playerInventory.add(item);
+	public void addArtifactToInventory(Artifact newItem) {
+		
+		if(playerInventory.size() >= MAX_INVENTORY) {
+			// TODO: handle case if inventory is full
+		}
+		else {
+			
+			for(InventoryItem item : playerInventory) {
+				
+				if(item.equals(newItem)) {
+					item.incrementCount();
+				}
+			}
+			
+			playerInventory.add(new InventoryItem(newItem));
+			
+		}
+		
 	}
 	
 	
