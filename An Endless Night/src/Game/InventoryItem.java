@@ -7,7 +7,8 @@ package Game;
  *
  */
 
-public class InventoryItem {
+public class InventoryItem 
+{
 	
 	private Artifact item;
 	private int count;
@@ -18,28 +19,35 @@ public class InventoryItem {
 	 * specifies the largest amount this item can have.
 	 * @param item The item associated with this object.
 	 */
-	public InventoryItem(Artifact item, int maxCount) {
+	public InventoryItem(Artifact item, int maxCount)
+	{
 		this.item = item;
 		this.count = 1;
 		this.maxStack = maxCount;
 	}
 	
-	public int getCount() {
+	public int getCount() 
+	{
 		return count;
 	}
-	public void setCount(int count) {
+	public void setCount(int count) 
+	{
 		this.count = count;
 	}
-	public int getMaxStack() {
+	public int getMaxStack() 
+	{
 		return this.maxStack;
 	}
-	public void setMaxStack(int count) {
+	public void setMaxStack(int count) 
+	{
 		this.maxStack = count;
 	}
-	public Artifact getItem() {
+	public Artifact getItem() 
+	{
 		return item;
 	}
-	public void incrementCount() throws InventoryStackFullError {
+	public void incrementCount() throws InventoryStackFullError 
+	{
 		if(this.count == maxStack) 
 		{
 			throw new InventoryStackFullError();
@@ -49,8 +57,8 @@ public class InventoryItem {
 			incrementCount();
 		}
 	}
-	public boolean equals(InventoryItem inItem) {
+	public boolean equals(InventoryItem inItem) 
+	{
 		return this.item.equals(inItem.item);
 	}
-	
 }

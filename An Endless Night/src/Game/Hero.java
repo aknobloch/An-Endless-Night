@@ -9,12 +9,8 @@ import java.util.Map;
  * @author Aaron & Caleb
  *
  */
-public class Hero extends Character {
-
-	public enum StatusCondition {
-		// TODO: Add possible status conditions
-	}
-	
+public class Hero extends Character 
+{
 	private ArrayList<StatusCondition> statusConditions;
 	private Weapon equippedWeapon;
 	private Armor equippedArmor;
@@ -25,7 +21,8 @@ public class Hero extends Character {
 	private final int MAX_STACK = 5;
 	
 	
-	public Hero(int ID, int health, int strength, int defense, String name) {
+	public Hero(int ID, int health, int strength, int defense, String name) 
+	{
 		super(ID, health, strength, defense, name);
 		statusConditions = new ArrayList<>();
 		equippedWeapon = null;
@@ -33,76 +30,82 @@ public class Hero extends Character {
 		playerInventory = new ArrayList<>();
 	}
 	
-	public Weapon getEquippedWeapon() {
+	public Weapon getEquippedWeapon()
+	{
 		return equippedWeapon;
 	}
 	
-	public void setEquippedWeapon(Weapon equippedWeapon) {
+	public void setEquippedWeapon(Weapon equippedWeapon) 
+	{
 		// TODO: handle case if weapon is already equipped
 		this.equippedWeapon = equippedWeapon;
 	}
 	
-	public Armor getEquippedArmor() {
+	public Armor getEquippedArmor() 
+	{
 		return equippedArmor;
 	}
 	
-	public void setEquippedArmor(Armor equippedArmor) {
+	public void setEquippedArmor(Armor equippedArmor) 
+	{
 		// TODO: handle case if armor is already equipped
 		this.equippedArmor = equippedArmor;
 	}
 	
-	public ArrayList<StatusCondition> getStatusConditions() {
+	public ArrayList<StatusCondition> getStatusConditions() 
+	{
 		return statusConditions;
 	}
 	
-	public void addStatusCondition(StatusCondition newCondition) {
-		if( ! this.statusConditions.contains(newCondition)) {
+	public void addStatusCondition(StatusCondition newCondition) 
+	{
+		if( ! this.statusConditions.contains(newCondition)) 
+		{
 			statusConditions.add(newCondition);
 		}
 	}
 	
-	public void removeStatusCondition(StatusCondition condition) {
-		if(this.statusConditions.contains(condition)) {
+	public void removeStatusCondition(StatusCondition condition) 
+	{
+		if(this.statusConditions.contains(condition)) 
+		{
 			statusConditions.remove(condition);
 		}
 	}
 	
-	public ArrayList<InventoryItem> getPlayerInventory() {
+	public ArrayList<InventoryItem> getPlayerInventory() 
+	{
 		// TODO: Handle outside modification of inventory.
 		return playerInventory;
 	}
 	
-	public void addArtifactToInventory(Artifact newItem) {
+	public void addArtifactToInventory(Artifact newItem) 
+	{
 		
-		if(playerInventory.size() >= MAX_INVENTORY) {
+		if(playerInventory.size() >= MAX_INVENTORY) 
+		{
 			// TODO: handle case if inventory is full
 		}
-		else {
+		else 
+		{
 			
 			// check if item already exists in player inventory. if so, try to increment the count
-			for(InventoryItem item : playerInventory) {
+			for(InventoryItem item : playerInventory) 
+			{
 				
-				if(item.equals(newItem)) {
-					try {
-						
+				if(item.equals(newItem)) 
+				{
+					try 
+					{
 						item.incrementCount();
-						
-					} catch(InventoryStackFullError isfe) {
-						
+					} catch(InventoryStackFullError isfe) 
+					{
 						// TODO: What happens if inventory stack is full?
-						
 					}
 				}
 			}
 			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
-			
 		}
-		
 	}
-	
-	
-
-	
-
 }
