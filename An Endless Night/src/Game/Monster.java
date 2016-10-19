@@ -5,22 +5,26 @@ package Game;
  * @author Aaron
  *
  */
-public class Monster extends Character {
+public class Monster extends Character
+{
 
 	private double probabilityOfAppearance;
 	private Artifact droppedItem;
 	
-	public Monster(int ID, int health, int strength, int defense, String name, double appearanceProbability, Artifact droppedItem) {
+	public Monster(int ID, int health, int strength, int defense, String name, double appearanceProbability, Artifact droppedItem) 
+	{
 		super(ID, health, strength, defense, name);
 		this.probabilityOfAppearance = appearanceProbability;
 		this.droppedItem = droppedItem;
 	}
 	
-	public double getProbabilityOfAppearance() {
+	public double getProbabilityOfAppearance() 
+	{
 		return this.probabilityOfAppearance;
 	}
 	
-	public Artifact getDroppedItem() {
+	public Artifact getDroppedItem() 
+	{
 		return this.droppedItem;
 	}
 

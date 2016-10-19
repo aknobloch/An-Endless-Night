@@ -54,7 +54,7 @@ public class InventoryItem
 		}
 		else 
 		{
-			incrementCount();
+			this.count++;
 		}
 	}
 	public boolean equals(InventoryItem inItem) 
