@@ -2,27 +2,20 @@ package Game;
 
 import java.util.ArrayList;
 
-public class Room {
-	
+public class Room 
+{
 	private String description;
-
 	private ArrayList<Door> doors = new ArrayList<Door>();
-
 	private int roomID;
-
 	private boolean visited;
-
 	private String name;
-
 	private Puzzle puzzle;
-
 	private Monster monster;
-
 	private ArrayList<Artifact> artifact = new ArrayList<>();
-	
 
 	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, Puzzle puzzle,
-			Monster monster, ArrayList<Artifact> artifact) {
+			Monster monster, ArrayList<Artifact> artifact) 
+	{
 		this.description = description;
 		this.doors = doors;
 		this.roomID = roomID;
@@ -33,35 +26,43 @@ public class Room {
 		this.artifact = artifact;
 	}
 
-	public Monster getMonster() {
+	public Monster getMonster() 
+	{
 		return monster;
 	}
 
-	public void setMonster(Monster monster) {
+	public void setMonster(Monster monster) 
+	{
 		this.monster = monster;
 	}
 
-	public Puzzle getPuzzle() {
+	public Puzzle getPuzzle() 
+	{
 		return puzzle;
 	}
 
-	public void setPuzzle(Puzzle puzzle) {
+	public void setPuzzle(Puzzle puzzle) 
+	{
 		this.puzzle = puzzle;
 	}
 
-	public String getDescription() {
+	public String getDescription() 
+	{
 		return description;
 	}
 
-	public ArrayList<Door> getDoors() {
+	public ArrayList<Door> getDoors() 
+	{
 		return doors;
 	}
 
-	public ArrayList<Artifact> getArtifact() {
+	public ArrayList<Artifact> getArtifact() 
+	{
 		return artifact;
 	}
 
-	public void addArtifacts(Artifact artifact) {
+	public void addArtifacts(Artifact artifact) 
+	{
 		this.artifact.add(artifact);
 	}
 	
@@ -73,19 +74,23 @@ public class Room {
 		}
 	}
 
-	public int getRoomID() {
+	public int getRoomID() 
+	{
 		return roomID;
 	}
 
-	public boolean getVisited() {
+	public boolean getVisited() 
+	{
 		return visited;
 	}
 
-	public void setVisited(boolean visited) {
+	public void setVisited(boolean visited) 
+	{
 		this.visited = visited;
 	}
 
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
 
