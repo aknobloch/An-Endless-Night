@@ -1,7 +1,7 @@
 package Game;
 
 
-public class Artifact implements Comparable {
+public class Artifact {
 
 	private String Name;
 
@@ -25,6 +25,18 @@ public class Artifact implements Comparable {
 
 	public int getArtifactID() {
 		return ArtifactID;
+	}
+	
+	public boolean equals(Artifact inItem) {
+		
+		if(this.ArtifactID == inItem.ArtifactID) 
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
 	}
 
 }

@@ -33,6 +33,8 @@ public class InventoryItem {
 	public void incrementCount() {
 		this.count++;
 	}
-	
+	public boolean equals(InventoryItem inItem) {
+		return this.item.equals(inItem.item);
+	}
 	
 }
