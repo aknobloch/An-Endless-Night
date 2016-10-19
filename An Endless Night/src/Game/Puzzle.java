@@ -1,25 +1,18 @@
 package Game;
 
-
-
-public class Puzzle {
-
+public class Puzzle 
+{
 	private String description;
-
 	private String solution;
-
 	private boolean isSolved;
-
 	private int attemptsMade;
-
 	private String hint;
-
 	private int puzzleID;
-
 	private int attemptsAllowed;
 	
 	public Puzzle(String description, String solution, boolean isSolved, int attemptsMade, String hint, int puzzleID,
-			int attemptsAllowed) {
+			int attemptsAllowed) 
+	{
 		this.description = description;
 		this.solution = solution;
 		this.isSolved = isSolved;
@@ -29,49 +22,58 @@ public class Puzzle {
 		this.attemptsAllowed = attemptsAllowed;
 	}
 
-	public String getDescription() {
+	public String getDescription() 
+	{
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(String description) 
+	{
 		this.description = description;
 	}
 
-	public String getSolution() {
+	public String getSolution() 
+	{
 		return solution;
 	}
 
-	public boolean getIsSolved() {
+	public boolean getIsSolved() 
+	{
 		return isSolved;
 	}
 
-	
-
-	public void setIsSolved(boolean isSolved) {
+	public void setIsSolved(boolean isSolved) 
+	{
 		this.isSolved = isSolved;
 	}
 
-	public String getHint() {
+	public String getHint() 
+	{
 		return hint;
 	}
 
-	public void setHint(String hint) {
+	public void setHint(String hint) 
+	{
 		this.hint = hint;
 	}
 
-	public int getPuzzleID() {
+	public int getPuzzleID() 
+	{
 		return puzzleID;
 	}
 
-	public int getAttemptsMade() {
+	public int getAttemptsMade() 
+	{
 		return attemptsMade;
 	}
 
-	public void incrementAttemptsMade() {
+	public void incrementAttemptsMade() 
+	{
 		attemptsMade = attemptsMade + 1;
 	}
 
-	public int getAttemptsAllowed() {
+	public int getAttemptsAllowed() 
+	{
 		return attemptsAllowed;
 	}
 
