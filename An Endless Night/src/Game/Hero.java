@@ -98,6 +98,7 @@ public class Hero extends Character
 					try 
 					{
 						item.incrementCount();
+						
 					} catch(InventoryStackFullError isfe) 
 					{
 						// TODO: What happens if inventory stack is full?
