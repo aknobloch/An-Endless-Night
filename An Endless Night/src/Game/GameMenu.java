@@ -2,7 +2,8 @@ package Game;
 
 import java.util.ArrayList;
 
-public class GameMenu {
+public class GameMenu 
+{
 	
 	private Game game;
 	private String description;

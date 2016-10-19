@@ -8,8 +8,8 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StartMenu {
-	
+public class StartMenu 
+{
 	private String menu;
 	
 	public StartMenu()

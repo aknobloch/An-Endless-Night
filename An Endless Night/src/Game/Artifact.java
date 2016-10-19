@@ -1,6 +1,5 @@
 package Game;
 
-
 public class Artifact 
 {
 	private String Name;

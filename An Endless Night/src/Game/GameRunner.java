@@ -2,9 +2,11 @@ package Game;
 
 import java.util.Scanner;
 
-public class GameRunner {
+public class GameRunner 
+{
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception 
+	{
 		Scanner input = new Scanner(System.in);
 		StartMenu start = new StartMenu();
 		boolean tracker = true;
@@ -34,10 +36,7 @@ public class GameRunner {
 			{
 				System.out.println("Invalid Input! \n Please try agian");
 			}
-			
-			
 		}
-
 	}
 
 }

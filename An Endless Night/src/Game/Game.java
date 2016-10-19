@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-public final class Game {
+public final class Game 
+{
 
 	private static Game game;
 	private ArrayList<Room> rooms;
@@ -18,13 +19,16 @@ public final class Game {
 		this.hero = hero;
 	}
 
-	public static Hero getHero() {
+	public static Hero getHero() 
+	{
 		return game.hero;
 	}
 	
-	public static boolean initializeGame(ArrayList<Room> rooms, Hero hero) {
+	public static boolean initializeGame(ArrayList<Room> rooms, Hero hero) 
+	{
 		
-		if(game == null) {
+		if(game == null) 
+		{
 			game = new Game(rooms, hero);
 			return true;
 		}
@@ -34,7 +38,8 @@ public final class Game {
 		}
 	}
 	
-	public static ArrayList<Room> getRooms() {
+	public static ArrayList<Room> getRooms() 
+	{
 		
 		return game.rooms;
 		
@@ -44,26 +49,26 @@ public final class Game {
 	{
 		if(game != null) throw new Exception();
 		ObjectInputStream input;
-		try {
+		try 
+		{
 			input = new ObjectInputStream(new FileInputStream("Endless.dat"));
 			
 			while(true)
 			{
 				game = (Game) input.readObject();
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) 
+		{
 			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
 			return false;
-		} catch (IOException e) {
-			
-		} catch (ClassNotFoundException e) {
-			
-			System.out.println("Thats a bummur your save data is corrupt a new game will be created for you");
+		} catch (IOException e) 
+		{
+		} catch (ClassNotFoundException e) 
+		{
+			System.out.println("Thats a bummer your save data is corrupt a new game will be created for you");
 			return false;
 		}
 		return true;
-		
 	}
 
 }

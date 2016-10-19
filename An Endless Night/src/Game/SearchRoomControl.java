@@ -2,8 +2,8 @@ package Game;
 
 import java.util.ArrayList;
 
-public class SearchRoomControl {
-	
+public class SearchRoomControl 
+{
 	
 	public static void searchRoom()
 	{
