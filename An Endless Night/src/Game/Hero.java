@@ -21,6 +21,8 @@ public class Hero extends Character {
 	private ArrayList<InventoryItem> playerInventory;
 	// the maximum number of UNIQUE items a player can hold
 	private final int MAX_INVENTORY = 15;
+	// max stack of a single item a player can hold
+	private final int MAX_STACK = 5;
 	
 	
 	public Hero(int ID, int health, int strength, int defense, String name) {
@@ -77,14 +79,23 @@ public class Hero extends Character {
 		}
 		else {
 			
+			// check if item already exists in player inventory. if so, try to increment the count
 			for(InventoryItem item : playerInventory) {
 				
 				if(item.equals(newItem)) {
-					item.incrementCount();
+					try {
+						
+						item.incrementCount();
+						
+					} catch(InventoryStackFullError isfe) {
+						
+						// TODO: What happens if inventory stack is full?
+						
+					}
 				}
 			}
 			
-			playerInventory.add(new InventoryItem(newItem));
+			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 			
 		}
 		
