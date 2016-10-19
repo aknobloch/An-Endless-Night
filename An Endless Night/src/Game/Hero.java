@@ -20,7 +20,7 @@ public class Hero extends Character
 	// max stack of a single item a player can hold
 	private final int MAX_STACK = 5;
 	
-	
+	//TODO add Description?
 	public Hero(int ID, int health, int strength, int defense, String name) 
 	{
 		super(ID, health, strength, defense, name);
