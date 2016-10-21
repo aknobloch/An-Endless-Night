@@ -14,25 +14,7 @@ public abstract class Character
 	private int defense;
 	private String name;
 	private Room currentRoom;
-	
-	/***
-	 * Constructs a Character from the specified params.
-	 * @param ID  The ID of the character.
-	 * @param health The health of the character.
-	 * @param strength The strength of the character (before modifiers).
-	 * @param defense The defense of the character (before modifiers).
-	 * @param name The human readable name of the character.
-	 */
-	public Character(int ID, int health, int strength, int defense, String name) 
-	{
-		
-		this.characterID = ID;
-		this.health = health;
-		this.strength = strength;
-		this.defense = defense;
-		this.name = name;
-		
-	}
+
 	
 	/***
 	 * Attacks the character with the amount of damage specified. Subtracts
