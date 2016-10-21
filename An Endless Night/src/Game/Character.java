@@ -13,7 +13,7 @@ public abstract class Character
 	private int strength;
 	private int defense;
 	private String name;
-	private int currentRoomID;
+	private Room currentRoom;
 	
 	/***
 	 * Constructs a Character from the specified params.
@@ -88,16 +88,16 @@ public abstract class Character
 	 * is currently in.
 	 * @return ID of room
 	 */
-	public int getLocation() 
+	public Room getLocation() 
 	{
-		return this.currentRoomID;
+		return this.currentRoom;
 	}
 	
-	public void setLocation(int roomID) 
+	public void setLocation(Room newRoom) 
 	{
 		// TODO: error handling if room id does not exist or 
 		//       is not logically feasible
-		this.currentRoomID = roomID;
+		this.currentRoom = newRoom;
 	}
 	
 }
