@@ -8,7 +8,7 @@ public class SearchRoomControl
 	public static void searchRoom()
 	{
 		ArrayList<Room> r1 = Game.getRooms();
-		int location = Game.getHero().getLocation();
+		int location = Game.getHero().getRoom();
 		for(int i = 0;i < r1.size();i++)
 		{
 			if(location == r1.get(i).getRoomID())

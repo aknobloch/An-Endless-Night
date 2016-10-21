@@ -88,7 +88,7 @@ public abstract class Character
 	 * is currently in.
 	 * @return ID of room
 	 */
-	public Room getLocation() 
+	public Room getRoom() 
 	{
 		return this.currentRoom;
 	}
