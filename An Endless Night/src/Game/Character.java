@@ -11,7 +11,6 @@ public abstract class Character
 	private int characterID;
 	private int health;
 	private int strength;
-	private int defense;
 	private String name;
 	private Room currentRoom;
 	
@@ -29,7 +28,6 @@ public abstract class Character
 		this.characterID = ID;
 		this.health = health;
 		this.strength = strength;
-		this.defense = defense;
 		this.name = name;
 		
 	}
@@ -71,11 +69,6 @@ public abstract class Character
 	public int getStrength() 
 	{
 		return this.strength;
-	}
-	
-	public int getDefense() 
-	{
-		return this.defense;
 	}
 	
 	public String getName() 

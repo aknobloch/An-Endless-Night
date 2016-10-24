@@ -6,7 +6,7 @@ import java.util.Map;
  * The hero object represent the main protaganist of the game, 
  * and models the data associated with them.
  * 
- * @author Aaron & Caleb
+ * @author Aaron
  *
  */
 public class Hero extends Character 
@@ -19,6 +19,7 @@ public class Hero extends Character
 	private final int MAX_INVENTORY = 15;
 	// max stack of a single item a player can hold
 	private final int MAX_STACK = 5;
+	private int defense;
 	
 	/***
 	 * Constructs a Hero based on the listed parameters
@@ -35,6 +36,7 @@ public class Hero extends Character
 		equippedWeapon = null;
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
+		defense = 0;
 	}
 	
 	public Weapon getEquippedWeapon()
@@ -57,6 +59,12 @@ public class Hero extends Character
 	{
 		// TODO: handle case if armor is already equipped
 		this.equippedArmor = equippedArmor;
+		this.defense = this.equippedArmor.getDefense();
+	}
+	
+	public void unequipArmor() {
+		this.addArtifactToInventory(this.equippedArmor);
+		this.defense = 0;
 	}
 	
 	public ArrayList<StatusCondition> getStatusConditions() 
@@ -115,5 +123,18 @@ public class Hero extends Character
 			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
+	}
+	
+	public int getDefense() 
+	{
+		return this.defense;
+	}
+	
+	@Override
+	public int attack(int damage) {
+		
+		damage = damage - this.defense;
+		return super.attack(damage);
+		
 	}
 }
