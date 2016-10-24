@@ -12,11 +12,13 @@ public final class Game
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
+	private static int score;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
 		this.rooms = rooms;
 		this.hero = hero;
+		this.score = 0;
 	}
 
 	public static Hero getHero() 
@@ -69,6 +71,16 @@ public final class Game
 			return false;
 		}
 		return true;
+	}
+
+	public static int getScore() 
+	{
+		return score;
+	}
+
+	public void setScore(int score) 
+	{
+		this.score = score;
 	}
 
 }

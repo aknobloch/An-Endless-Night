@@ -13,8 +13,8 @@ public class Room
 	private Monster monster;
 	private ArrayList<Artifact> artifact = new ArrayList<>();
 
-	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, Puzzle puzzle,
-			Monster monster, ArrayList<Artifact> artifact) 
+	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, 
+			Puzzle puzzle, Monster monster, ArrayList<Artifact> artifact) 
 	{
 		this.description = description;
 		this.doors = doors;

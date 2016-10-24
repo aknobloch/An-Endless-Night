@@ -10,7 +10,8 @@ public class Puzzle
 	private int puzzleID;
 	private int attemptsAllowed;
 	
-	public Puzzle(String description, String solution, boolean isSolved, int attemptsMade, String hint, int puzzleID,
+	public Puzzle(String description, String solution, boolean isSolved, int attemptsMade, 
+			String hint, int puzzleID,
 			int attemptsAllowed) 
 	{
 		this.description = description;
