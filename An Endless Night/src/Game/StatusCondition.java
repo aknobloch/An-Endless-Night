@@ -2,6 +2,23 @@ package Game;
 
 public enum StatusCondition
 {
-	// TODO: Add possible status conditions
+	/***
+	 * IMMOBOLIZED:		Described by Mon_02.
+	 * 					Makes the hero unable to perform action for one turn.
+	 * 
+	 * KITSUNE_DEBUFF:	Described by Boss_02.
+	 * 					Lowers the hero's attack strength by 5%
+	 * 
+	 * RYU_DEBUFF:		Described by Boss_03.
+	 * 					Lowers the hero's attack strength by 25%
+	 * 
+	 * TENGU_FAN:		Described by Art_17.
+	 * 					Increases the chance of escaping battle by 10%
+	 * 
+	 * KITSUNE_TAIL:	Described by Art_18.
+	 * 					All attacks have a 15% chance of missing player.
+	 */
+	IMMOBILIZED, KITSUNE_DEBUFF, RYU_DEBUFF,
+	TENGU_FAN, KITSUNE_TAIL
 }
 
