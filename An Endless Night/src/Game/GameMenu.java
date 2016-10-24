@@ -30,8 +30,8 @@ public class GameMenu
 		SearchRoomControl.searchRoom();
 	}
 	
-	public void changeRooms(Room x)
-	{
-		ChangeRoomControl.changeRoom();
+	public void changeRooms()
+	{	
+		ChangeRoomControl.changeRoom(x);
 	}
 }

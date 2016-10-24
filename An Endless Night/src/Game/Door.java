@@ -14,7 +14,7 @@ public class Door
 		this.doorID = doorID;
 	}
 
-	public ArrayList<Integer> getConnectedRooms() 
+	public ArrayList<Integer> getConnectedRoomId() 
 	{
 		return connectedRooms;
 	}
@@ -22,6 +22,25 @@ public class Door
 	public int getDoorID() 
 	{
 		return doorID;
+	}
+	
+	public ArrayList<Room> getConnectedRooms()
+	{
+		ArrayList<Integer> ids = getConnectedRoomId();
+		ArrayList<Room> gameRooms = Game.getRooms();
+		ArrayList<Room> connectedRooms = new ArrayList<Room>();
+		for(Integer x: ids)
+		{
+			for(Room y: gameRooms)
+			{
+				if(y.getRoomID() == x)
+				{
+					connectedRooms.add(y);
+				}
+			}
+		}
+		return connectedRooms;
+		
 	}
 
 }
