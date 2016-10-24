@@ -29,10 +29,17 @@ public class GameMenu
 	{
 		SearchRoomControl.searchRoom();
 	}
+<<<<<<< HEAD
 
 	public void changeRooms(Room x)
 	{
 		ChangeRoomControl.changeRoom();
+=======
+	
+	public void changeRooms()
+	{	
+		ChangeRoomControl.changeRoom(x);
+>>>>>>> 5c09a412163b6d83008c315acf2f55acc75718d3
 	}
 
 	public void showScore()

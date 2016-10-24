@@ -7,10 +7,15 @@ public class SearchRoomControl
 
 	public static void searchRoom()
 	{
-		ArrayList<Room> r1 = Game.getRooms();
-		int location = Game.getHero().getRoom();
-		for(int i = 0;i < r1.size();i++)
+		Room location = Game.getHero().getRoom();
+		ArrayList<Artifact> artifacts = location.getArtifact();
+		
+		System.out.println(location.getDescription());
+		
+		System.out.println("The items found in this room are:");
+		for(Artifact x: artifacts)
 		{
+<<<<<<< HEAD
 			if(location == r1.get(i).getRoomID())
 			{
 				System.out.println(r1.get(i).getDescription());
@@ -27,6 +32,13 @@ public class SearchRoomControl
 			}
 		}
 
+=======
+			System.out.println(x.getDescription());
+		}
+			
+		
+		
+>>>>>>> 5c09a412163b6d83008c315acf2f55acc75718d3
 	}
 
 }

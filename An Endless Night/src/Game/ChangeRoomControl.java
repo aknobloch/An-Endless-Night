@@ -4,10 +4,23 @@ import java.util.ArrayList;
 
 public class ChangeRoomControl 
 {
-	//todo implement change room logic
-	public static void changeRoom()
-	{	
+	public static boolean changeRoom(String destination)
+	{
+		ArrayList<Room> rooms = Game.getRooms();
+		
+		for(Room x : rooms)
+		{
+			if(x.getName().equals(destination))
+			{
+				Game.getHero().setLocation(x);
+				return true;
+			}
+		}
+		
+		return false;
 		
 	}
+	
+	
 
 }
