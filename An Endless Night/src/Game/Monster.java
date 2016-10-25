@@ -36,7 +36,7 @@ public class Monster extends Character
 		return this.droppedItem;
 	}
 
-	public boolean getIsBoss() 
+	public boolean isBoss() 
 	{
 		return this.isBoss;
 	}
