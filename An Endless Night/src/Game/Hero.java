@@ -57,7 +57,10 @@ public class Hero extends Character
 	
 	public void setEquippedArmor(Armor equippedArmor) 
 	{
-		// TODO: handle case if armor is already equipped
+		if(this.equippedArmor != null) {
+			this.unequipArmor();
+		}
+		
 		this.equippedArmor = equippedArmor;
 		this.defense = this.equippedArmor.getDefense();
 	}
