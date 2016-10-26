@@ -8,11 +8,11 @@ package Game;
 public abstract class Character 
 {
 
-	private int characterID;
-	private int health;
-	private int strength;
-	private String name;
-	private Room currentRoom;
+	protected int characterID;
+	protected int health;
+	protected int strength;
+	protected String name;
+	protected Room currentRoom;
 	
 	/***
 	 * Constructs a Character from the specified params.
@@ -44,11 +44,19 @@ public abstract class Character
 		return health;
 	}
 	
+	/**
+	 * Returns the ID of this character.
+	 * @return The ID of the character.
+	 */
 	public int getID() 
 	{
 		return this.characterID;
 	}
 	
+	/**
+	 * Returns the health of the character.
+	 * @return The health of the character.
+	 */
 	public int getHealth() 
 	{
 		return this.health;
@@ -66,11 +74,19 @@ public abstract class Character
 		return health;
 	}
 	
+	/**
+	 * Returns the strength of the character.
+	 * @return The strength of the character.
+	 */
 	public int getStrength() 
 	{
 		return this.strength;
 	}
 	
+	/**
+	 * Returns the human-readable name of the character.
+	 * @return The name of the character.
+	 */
 	public String getName() 
 	{
 		return this.name;
@@ -86,6 +102,11 @@ public abstract class Character
 		return this.currentRoom;
 	}
 	
+	/**
+	 * Sets the current location of the character to the paramartized 
+	 * Room. 
+	 * @param newRoom The new room to place this character in.
+	 */
 	public void setLocation(Room newRoom) 
 	{
 		// TODO: error handling if room id does not exist or 
