@@ -11,25 +11,20 @@ public class Monster extends Character
 	private double probabilityOfAppearance;
 	private double probabilityOfDroppingItem;
 	private Artifact droppedItem;
-	private boolean isBoss;
-	
-<<<<<<< HEAD
-	public Monster(int ID, int health, int strength, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
-=======
+	private boolean isBoss; 
+
 	/***
 	 * Constructs a Monster based off the paramartized values.
 	 * @param ID The unique ID of the Monster.
 	 * @param health The base health of the Monster.
 	 * @param strength The base strength of the Monster.
-	 * @param defense The base defense of the Monster.
 	 * @param name The human-readable name of the Monster.
 	 * @param appearanceProbability The probability of the Monster appearing in a Room.
 	 * @param droppedItem The item that the Monster could possible drop.
 	 * @param probabilityOfDroppingItem The probability of the Monster dropping their item.
 	 * @param isBoss Whether or not this Monster is a boss.
 	 */
-	public Monster(int ID, int health, int strength, int defense, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
->>>>>>> a3d9cffed570f168eb503fb9eaf0e674e22fe0cc
+	public Monster(int ID, int health, int strength, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
 	{
 		super(ID, health, strength, name);
 		this.probabilityOfAppearance = appearanceProbability;
