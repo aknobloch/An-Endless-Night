@@ -31,7 +31,7 @@ public class Hero extends Character
 	 */
 	public Hero(int ID, int health, int strength, int defense, String name) 
 	{
-		super(ID, health, strength, defense, name);
+		super(ID, health, strength, name);
 		statusConditions = new ArrayList<>();
 		equippedWeapon = null;
 		equippedArmor = null;

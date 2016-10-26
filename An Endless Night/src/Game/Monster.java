@@ -13,9 +13,9 @@ public class Monster extends Character
 	private Artifact droppedItem;
 	private boolean isBoss;
 	
-	public Monster(int ID, int health, int strength, int defense, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
+	public Monster(int ID, int health, int strength, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
 	{
-		super(ID, health, strength, defense, name);
+		super(ID, health, strength, name);
 		this.probabilityOfAppearance = appearanceProbability;
 		this.droppedItem = droppedItem;
 		this.isBoss = isBoss;

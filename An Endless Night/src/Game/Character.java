@@ -19,10 +19,9 @@ public abstract class Character
 	 * @param ID  The ID of the character.
 	 * @param health The health of the character.
 	 * @param strength The strength of the character (before modifiers).
-	 * @param defense The defense of the character (before modifiers).
 	 * @param name The human readable name of the character.
 	 */
-	protected Character(int ID, int health, int strength, int defense, String name) 
+	protected Character(int ID, int health, int strength, String name) 
 	{
 		
 		this.characterID = ID;
