@@ -1,4 +1,7 @@
 package Game;
+
+import java.util.ArrayList;
+
 /***
  * Monster is a beast that appears in rooms based on it's probability of
  * appearance. They are optionally engageable, and upon defeat drop an artifact.
@@ -10,27 +13,21 @@ public class Monster extends Character
  // TODO turn droppedItem into an arrayList of possibly dropped items.
 	private double probabilityOfAppearance;
 	private double probabilityOfDroppingItem;
-	private Artifact droppedItem;
+	private ArrayList<Artifact> droppedItem;
 	private boolean isBoss;
-	
-<<<<<<< HEAD
-	public Monster(int ID, int health, int strength, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
-=======
+
 	/***
-	 * Constructs a Monster based off the paramartized values.
+	 * Constructs a Monster based off the parameterized values.
 	 * @param ID The unique ID of the Monster.
 	 * @param health The base health of the Monster.
 	 * @param strength The base strength of the Monster.
-	 * @param defense The base defense of the Monster.
 	 * @param name The human-readable name of the Monster.
 	 * @param appearanceProbability The probability of the Monster appearing in a Room.
-	 * @param droppedItem The item that the Monster could possible drop.
-	 * @param probabilityOfDroppingItem The probability of the Monster dropping their item.
+	 * @param droppedItem The item(s) that the Monster could possibly drop.
 	 * @param isBoss Whether or not this Monster is a boss.
 	 */
-	public Monster(int ID, int health, int strength, int defense, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
->>>>>>> a3d9cffed570f168eb503fb9eaf0e674e22fe0cc
-	{
+	public Monster(int ID, int health, int strength, String name, double appearanceProbability, ArrayList<Artifact> droppedItem, boolean isBoss)
+	{ 
 		super(ID, health, strength, name);
 		this.probabilityOfAppearance = appearanceProbability;
 		this.droppedItem = droppedItem;
@@ -59,7 +56,7 @@ public class Monster extends Character
 	 * Gets the item that the Monster drops.
 	 * @return The item that the Monster drops.
 	 */
-	public Artifact getDroppedItem() 
+	public ArrayList<Artifact> getDroppedItem() 
 	{
 		return this.droppedItem;
 	}

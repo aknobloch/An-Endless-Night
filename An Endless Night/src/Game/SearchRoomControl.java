@@ -15,7 +15,6 @@ public class SearchRoomControl
 		System.out.println("The items found in this room are:");
 		for(Artifact x: artifacts)
 		{
-<<<<<<< HEAD
 			if(location == r1.get(i).getRoomID())
 			{
 				System.out.println(r1.get(i).getDescription());
@@ -31,14 +30,7 @@ public class SearchRoomControl
 				break;
 			}
 		}
-
-=======
-			System.out.println(x.getDescription());
-		}
 			
-		
-		
->>>>>>> 5c09a412163b6d83008c315acf2f55acc75718d3
 	}
 
 }

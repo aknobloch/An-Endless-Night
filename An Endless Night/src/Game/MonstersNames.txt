@@ -1,11 +1,11 @@
-Maneki-neko
-Karakasa
-Futakuchi-onna
-Kappa
-Tanuki
-Yatagarasu
-Oni
-Shisa
-Tengu
-Kitsune
-Ryu
+Maneki-neko art05 10 art14 60 art15 30
+Karakasa art05 15
+Futakuchi-onna art05 15
+Kappa art05 15
+Tanuki art05 20
+Yatagarasu art05 15
+Oni art05 25
+Shisa art05 30
+Tengu art14 100 art05 100 art17 100
+Kitsune art14 100 art05 100 art18 100
+Ryu art05 0

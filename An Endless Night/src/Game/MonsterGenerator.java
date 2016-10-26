@@ -11,16 +11,16 @@ import java.util.ArrayList;
 
 public class MonsterGenerator 
 {
-	public MonsterGenerator(Artifact[] item, double[] itemPercentChance)
+	public MonsterGenerator(ArrayList<Artifact> artifactAl)
 	{
 		ArrayList<Monster> monsterList = new ArrayList<Monster>();
 
 		// TODO: artifacts
-		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 0.01, item[0], itemPercentChance[0], false);
+		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 0.01, artifactAl, false);
 		monsterList.add(mon);
-		mon = new Monster(2, 15, 3, "Karakasa", 0.30, item[1], itemPercentChance[0], false);
+		mon = new Monster(2, 15, 3, "Karakasa", 0.30, artifactAl, false);
 		monsterList.add(mon);
-		mon = new Monster(3, 25, 5, "Futakuchi-onna", 0.40, item[2], itemPercentChance[0], false);
+		mon = new Monster(3, 25, 5, "Futakuchi-onna", 0.40, artifactAl, false);
 		monsterList.add(mon);
 		mon = new Monster(4, 35, 8, "Kappa", 0.30, item[3], itemPercentChance[0], false);
 		monsterList.add(mon);

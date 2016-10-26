@@ -33,11 +33,7 @@ public class Hero extends Character
 	 */
 	public Hero(int ID, int health, int strength, String name) 
 	{
-<<<<<<< HEAD
 		super(ID, health, strength, name);
-=======
-		super(ID, health, strength, 0, name);
->>>>>>> a3d9cffed570f168eb503fb9eaf0e674e22fe0cc
 		statusConditions = new ArrayList<>();
 		equippedWeapon = null;
 		equippedArmor = null;
