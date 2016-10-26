@@ -13,8 +13,13 @@ public class Monster extends Character
  // TODO turn droppedItem into an arrayList of possibly dropped items.
 	private double probabilityOfAppearance;
 	private double probabilityOfDroppingItem;
+<<<<<<< HEAD
 	private ArrayList<Artifact> droppedItem;
 	private boolean isBoss;
+=======
+	private Artifact droppedItem;
+	private boolean isBoss; 
+>>>>>>> af69b8a55cb434fcbe93a1e42445c7bf773082d2
 
 	/***
 	 * Constructs a Monster based off the parameterized values.
@@ -26,8 +31,13 @@ public class Monster extends Character
 	 * @param droppedItem The item(s) that the Monster could possibly drop.
 	 * @param isBoss Whether or not this Monster is a boss.
 	 */
+<<<<<<< HEAD
 	public Monster(int ID, int health, int strength, String name, double appearanceProbability, ArrayList<Artifact> droppedItem, boolean isBoss)
 	{ 
+=======
+	public Monster(int ID, int health, int strength, String name, double appearanceProbability, Artifact droppedItem, double probabilityOfDroppingItem, boolean isBoss) 
+	{
+>>>>>>> af69b8a55cb434fcbe93a1e42445c7bf773082d2
 		super(ID, health, strength, name);
 		this.probabilityOfAppearance = appearanceProbability;
 		this.droppedItem = droppedItem;

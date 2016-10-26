@@ -24,7 +24,7 @@ public class StartMenu
 	public void startNewGame()
 	{
 		ArrayList<Room> rooms = new ArrayList<Room>();
-		Hero h1 = new Hero(12345,20,5,0,"Allen");
+		Hero h1 = new Hero(20,5);
 		Game.initializeGame(rooms, h1);
 	}
 	

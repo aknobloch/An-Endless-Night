@@ -30,7 +30,8 @@ public class SearchRoomControl
 				break;
 			}
 		}
-			
+
+
 	}
 
 }

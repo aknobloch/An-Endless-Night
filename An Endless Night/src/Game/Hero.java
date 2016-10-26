@@ -31,9 +31,9 @@ public class Hero extends Character
 	 * @param strength - Starting strength of Hero
 	 * @param name - Human-readable name of this Hero
 	 */
-	public Hero(int ID, int health, int strength, String name) 
+	public Hero(int health, int strength) 
 	{
-		super(ID, health, strength, name);
+		super(1, health, strength,"Steve");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = null;
 		equippedArmor = null;
