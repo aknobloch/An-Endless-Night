@@ -1,8 +1,15 @@
 package Game;
 
+/***
+ * Enumerated types of all the status effects that can possibly 
+ * effect the Hero.
+ * @author Aaron
+ *
+ */
+
 public enum StatusCondition
 {
-	/***
+	/*
 	 * IMMOBOLIZED:		Described by Mon_02.
 	 * 					Makes the hero unable to perform action for one turn.
 	 * 

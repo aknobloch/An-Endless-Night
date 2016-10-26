@@ -18,6 +18,11 @@ public class DamageHandler
 	private Monster battleMonster;
 	private Room battleRoom;
 	
+	/***
+	 * Constructs a damage handler for the current battle. The Hero
+	 * and the opposing monster are both automatically derived from 
+	 * the current room that the Hero is in.
+	 */
 	public DamageHandler() 
 	{
 		
