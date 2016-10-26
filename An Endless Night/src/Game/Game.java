@@ -26,12 +26,11 @@ public final class Game
 		return game.hero;
 	}
 	
-	public static boolean initializeGame(ArrayList<Room> rooms, Hero hero) 
+	public static boolean initializeGame() 
 	{
 		
 		if(game == null) 
 		{
-			game = new Game(rooms, hero);
 			return true;
 		}
 		else
