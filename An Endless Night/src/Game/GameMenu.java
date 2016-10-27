@@ -1,6 +1,9 @@
 package Game;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class GameMenu 
 {
@@ -27,16 +30,36 @@ public class GameMenu
 
 	public void searchRoom()
 	{
-		SearchRoomControl.searchRoom();
+		ArrayList<String> descriptions = SearchRoomControl.searchRoom();
+		
+		System.out.println(descriptions.get(0));
+		System.out.println();
+		System.out.println("You notice the following items:");
+		for(int i = 1; i < descriptions.size();i++)
+		{
+			System.out.println(descriptions.get(i));
+		}
 	}
 
-	public void changeRooms(Room x)
-	{
-		ChangeRoomControl.changeRoom();
-		
 	public void changeRooms()
-	{	
-		ChangeRoomControl.changeRoom(x);
+	{
+		ArrayList<Door> doors = Game.getHero().getRoom().getDoors();
+		Set<Room> room = new HashSet<Room>();
+		for(Door potentials: doors)
+		{
+			room.addAll(potentials.getConnectedRooms());
+		}
+		Scanner input = new Scanner(System.in);
+		System.out.println("Which room would you like to move to? \n"
+				+ "please math the name of the room");
+		for(Room x: room)
+		{
+			System.out.println(x.getName());
+		}
+		String choice = input.next();
+		
+		ChangeRoomControl.changeRoom(choice);
+		input.close();
 	}
 
 	public void showScore()

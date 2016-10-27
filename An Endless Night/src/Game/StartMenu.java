@@ -25,7 +25,7 @@ public class StartMenu
 	{
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		Hero h1 = new Hero(20,5);
-		Game.initializeGame(rooms, h1);
+		Game.initializeGame();
 	}
 	
 	public void loadGame() throws Exception

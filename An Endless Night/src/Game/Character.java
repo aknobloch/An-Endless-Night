@@ -94,7 +94,7 @@ public abstract class Character
 	/***
 	 * Returns the unique ID of the room that this Character
 	 * is currently in.
-	 * @return ID of room
+	 * @return room object hero is currently in
 	 */
 	public Room getRoom() 
 	{
