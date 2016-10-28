@@ -78,12 +78,12 @@ public class GameMenu extends AbstractMenu
 	/**
 	 * opens the inventory menu
 	 */
-	private void openInventory() {
+	public void openInventory() {
 		new InventoryMenu(this);
 		
 	}
 	
-	private void help() {
+	public void help() {
 		System.out.println("In order to input to the game enter the number next"
 				+ "to the option that you would like to perform");
 		
@@ -94,7 +94,7 @@ public class GameMenu extends AbstractMenu
 		System.out.println("Your current score is: " + Game.getScore());
 	}
 	
-	private void exitGame() {
+	public void exitGame() {
 		System.exit(0);
 		
 	}
