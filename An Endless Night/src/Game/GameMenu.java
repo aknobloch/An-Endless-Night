@@ -8,10 +8,10 @@ import java.util.Set;
 public class GameMenu 
 {
 
-	private Game game;
+	
 	private String description;
 
-	public GameMenu(Game game)
+	public GameMenu()
 	{
 		description = "Please Enter a number based on your Command \n"
 				+ "1. Search Room \n"
@@ -20,7 +20,7 @@ public class GameMenu
 				+ "4. View Score \n"
 				+ "5. View Help \n";
 
-		this.game = game;
+		
 	}
 
 	public String toString()

@@ -48,13 +48,13 @@ public final class Game
 		
 	}
 	
-	public static boolean loadGame() throws Exception
+	public static boolean loadGame(String file) throws Exception
 	{
 		if(game != null) throw new Exception();
 		ObjectInputStream input;
 		try 
 		{
-			input = new ObjectInputStream(new FileInputStream("Endless.dat"));
+			input = new ObjectInputStream(new FileInputStream(file));
 			
 			while(true)
 			{
