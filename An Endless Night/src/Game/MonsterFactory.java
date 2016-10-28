@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Caleb and Aaron
+ *
+ */
 public class MonsterFactory 
 {
 	private String[] monsterNameA = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};

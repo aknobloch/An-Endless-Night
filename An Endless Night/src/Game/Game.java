@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public final class Game 
 {
@@ -19,7 +20,7 @@ public final class Game
 	{
 		this.rooms = rooms;
 		this.hero = hero;
-		this.score = 0;
+		score = 0;
 	}
 
 	public static Hero getHero() 
