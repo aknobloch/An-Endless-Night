@@ -50,16 +50,16 @@ public final class Game
 	
 	public static boolean loadGame(String file) throws Exception
 	{
+		Hero h1;
+		ArrayList<Room> rooms;
 		if(game != null) throw new Exception();
 		ObjectInputStream input;
 		try 
 		{
 			input = new ObjectInputStream(new FileInputStream(file));
-			
-			while(true)
-			{
-				game = (Game) input.readObject();
-			}
+			h1  = (Hero) input.readObject();
+			rooms = (ArrayList<Room>) input.readObject();
+			game = new Game(rooms,h1);
 		} catch (FileNotFoundException e) 
 		{
 			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");

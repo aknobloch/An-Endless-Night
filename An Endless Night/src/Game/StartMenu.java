@@ -58,23 +58,22 @@ public class StartMenu extends AbstractMenu
 		System.out.println(toString());
 		
 		String input;
-		boolean check = false;
 		
 		
 		try {
 			input = GameInput.getString();
 			
-			if(input == "1")
+			if(input.equals("1"))
 			{
 				startNewGame();
-				new MainMenu(this);
+				new GameMenu(this);
 			}
-			else if(input == "2")
+			else if(input.equals("2"))
 			{
 				loadGame();
-				new MainMenu(this);
+				new GameMenu(this);
 			}
-			else if(input == "3")
+			else if(input.equals("3"))
 			{
 				exitGame();
 			}
@@ -85,7 +84,11 @@ public class StartMenu extends AbstractMenu
 				mainPrompt();
 			}
 		} catch (IOException e) {
-			System.out.println("You entered bad data");
+			System.out.println("You entered bad data try agian");
+			GameInput.advanceScanner();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Issue loaidng game");
 		}
 		
 		
