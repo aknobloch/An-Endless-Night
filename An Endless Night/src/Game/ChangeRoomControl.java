@@ -13,7 +13,10 @@ public class ChangeRoomControl
 			if(x.getName().equals(destination))
 			{
 				Game.getHero().setLocation(x);
-				return true;
+				if(x.getMonster()!= null)
+				{
+					return true;
+				}
 			}
 		}
 		
