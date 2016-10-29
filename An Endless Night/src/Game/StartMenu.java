@@ -40,8 +40,6 @@ public class StartMenu
 		{
 			startNewGame();
 		}
-		
-		
 	}
 	
 	public void exitGame()

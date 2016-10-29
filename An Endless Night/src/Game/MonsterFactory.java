@@ -31,7 +31,6 @@ public class MonsterFactory
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 
