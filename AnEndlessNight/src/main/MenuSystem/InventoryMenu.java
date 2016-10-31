@@ -1,4 +1,4 @@
-package main.InventorySystem;
+package main.MenuSystem;
 
 import java.io.IOException;
 

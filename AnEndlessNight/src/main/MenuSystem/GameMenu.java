@@ -11,7 +11,6 @@ import java.util.Set;
 
 import main.Game;
 import main.GameInput;
-import main.InventorySystem.InventoryMenu;
 import main.RoomSystem.ChangeRoomControl;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
@@ -125,16 +124,16 @@ public class GameMenu extends AbstractMenu
 			out.writeObject(Game.getHero());
 			out.writeObject(Game.getRooms());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 	}
 
-	@Override
+	
 	void mainPrompt() {
 
 		System.out.println(toString());
@@ -147,7 +146,7 @@ public class GameMenu extends AbstractMenu
 			if(input.equals("1"))
 			{
 				searchRoom();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("2"))
 			{
@@ -155,38 +154,38 @@ public class GameMenu extends AbstractMenu
 				
 				if(isMonster)
 				{
-					new CombatMenu(this);
+					MenuLoader.loadCombatMenu(this);
 				}
 				else
 				{
-					new GameMenu(this);
+					MenuLoader.loadGameMenu(this);
 				}
 			}
 			else if(input.equals("3"))
 			{
-				openInventory();
+				MenuLoader.loadInventoryMenu(this);
 			}
 			else if(input.equals("4"))
 			{
 				showScore();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("5"))
 			{
 				help();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("6"))
 			{
 				saveGame();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("7"))
 			{
 				exitGame();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			System.out.println("You entered bad input");
 		}
 		
@@ -197,7 +196,7 @@ public class GameMenu extends AbstractMenu
 
 	@Override
 	void onDestroy() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

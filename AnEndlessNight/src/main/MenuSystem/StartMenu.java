@@ -73,12 +73,12 @@ public class StartMenu extends AbstractMenu
 			if(input.equals("1"))
 			{
 				startNewGame();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("2"))
 			{
 				loadGame();
-				new GameMenu(this);
+				MenuLoader.loadGameMenu(this);
 			}
 			else if(input.equals("3"))
 			{

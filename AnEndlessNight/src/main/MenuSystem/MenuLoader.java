@@ -19,5 +19,20 @@ public class MenuLoader {
 		
 		
 	}
+
+	public static void loadGameMenu(AbstractMenu gameMenu) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void loadCombatMenu(AbstractMenu gameMenu) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void loadInventoryMenu(AbstractMenu gameMenu) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
