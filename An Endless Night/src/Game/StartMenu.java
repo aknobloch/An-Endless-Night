@@ -10,14 +10,16 @@ import java.util.Scanner;
 
 public class StartMenu extends AbstractMenu
 {
-	private String menu = "Please Enter A number based on your command \n"
-				+ "1. Start New Game \n"
-				+ "2. Load Game \n"
-				+ "3. Exit System";
+	private String menu;
 	
 	public StartMenu(AbstractMenu callingMenu)
 	{
 		super(callingMenu);
+		menu = "Please Enter A number based on your command \n"
+				+ "1. Start New Game \n"
+				+ "2. Load Game \n"
+				+ "3. Exit System";
+		
 	}
 	// TODO Make A populated arrayList of rooms 
 	public void startNewGame()
@@ -50,9 +52,13 @@ public class StartMenu extends AbstractMenu
 	
 	public String toString()
 	{
-		return menu;
+		return "Please Enter A number based on your command \n"
+				+ "1. Start New Game \n"
+				+ "2. Load Game \n"
+				+ "3. Exit System";
 	}
 
+	@Override
 	public void mainPrompt()
 	{
 		System.out.println(toString());
