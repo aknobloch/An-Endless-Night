@@ -41,8 +41,6 @@ public class StartMenu extends AbstractMenu
 		{
 			startNewGame();
 		}
-		
-		
 	}
 	
 	public void exitGame()
