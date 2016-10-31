@@ -21,15 +21,7 @@ public class GameMenu extends AbstractMenu
 {
 
 	
-	private String description = 
-			"Please Enter a number based on your Command \n"
-			+ "1. Search Room \n"
-			+ "2. Move Rooms \n"
-			+ "3. View Inventory \n"
-			+ "4. View Score \n"
-			+ "5. View Help \n"
-			+ "6. Save Game \n"
-			+ "7. Exit Game \n";
+	private String description;
 
 	public GameMenu(AbstractMenu callingMenu)
 	{
@@ -40,7 +32,14 @@ public class GameMenu extends AbstractMenu
 
 	public String toString()
 	{
-		return description;
+		return "Please Enter a number based on your Command \n"
+				+ "1. Search Room \n"
+				+ "2. Move Rooms \n"
+				+ "3. View Inventory \n"
+				+ "4. View Score \n"
+				+ "5. View Help \n"
+				+ "6. Save Game \n"
+				+ "7. Exit Game \n";
 	}
 
 	public void searchRoom()

@@ -36,10 +36,10 @@ public final class Game
 		
 		if(game == null) 
 		{
+			game = new Game(new ArrayList<Room>(), new Hero(score, score));
 			return true;
 		}
-		else
-		{
+		else {
 			return false;
 		}
 	}
