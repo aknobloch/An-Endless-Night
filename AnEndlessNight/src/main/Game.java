@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -63,6 +64,8 @@ public final class Game
 			h1  = (Hero) input.readObject();
 			rooms = (ArrayList<Room>) input.readObject();
 			game = new Game(rooms,h1);
+			score = input.readInt();
+			setScore(score);
 		} catch (FileNotFoundException e) 
 		{
 			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
@@ -82,9 +85,9 @@ public final class Game
 		return score;
 	}
 
-	public void setScore(int score) 
+	public static void setScore(int newScore) 
 	{
-		this.score = score;
+		score = newScore;
 	}
 
 }

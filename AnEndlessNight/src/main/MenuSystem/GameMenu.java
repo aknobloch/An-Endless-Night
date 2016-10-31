@@ -123,6 +123,7 @@ public class GameMenu extends AbstractMenu
 			
 			out.writeObject(Game.getHero());
 			out.writeObject(Game.getRooms());
+			out.writeInt(Game.getScore());
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
