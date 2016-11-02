@@ -5,7 +5,8 @@ import java.io.IOException;
 public class InventoryMenu extends AbstractMenu
 {
 	
-	public InventoryMenu(AbstractMenu lastMenu) {
+	public InventoryMenu(AbstractMenu lastMenu) 
+	{
 		super(lastMenu);
 		// TODO Auto-generated constructor stub
 	}
@@ -18,13 +19,15 @@ public class InventoryMenu extends AbstractMenu
 			+ "4. View Help \n";
 
 	@Override
-	void mainPrompt() {
+	void mainPrompt() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void onDestroy() {
+	void onDestroy() 
+	{
 		// TODO Auto-generated method stub
 		
 	}

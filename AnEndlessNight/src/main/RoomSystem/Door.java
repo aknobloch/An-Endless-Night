@@ -9,6 +9,7 @@ public class Door
 
 	private ArrayList<Integer> connectedRooms = new ArrayList<Integer>();
 	private int doorID;
+	//private boolean locked;
 	
 	public Door(ArrayList<Integer> connectedRooms, int doorID) 
 	{
