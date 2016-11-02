@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import main.InventorySystem.Artifact;
+
 /**
  * 
  * @author Caleb and Aaron
@@ -39,6 +41,8 @@ public class MonsterFactory
 				e.printStackTrace();
 			}
 		}
+		
+		MonsterGenerator(monsterItemAssignments);
 	}
 
 	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 

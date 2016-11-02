@@ -1,18 +1,18 @@
-Magic-Mirror 1
-Katana 2
-Odachi 3
-Bo/Jo 4
-Healing-Potion 5
-Journal 6
-Celestial-Globe 7
-Study-Room-Key 8
-Kegutsu 9
-Kikko 10
-Mempo 11
-Kaiken 12
-Kusarigama 13
-Daruma-Doll 14
-Kokeshi-Doll 15
-Ladder 16
-Tengu’s-Fan 17
-Kitsune’s-Tail 18
+Magic Mirror  Key  1  A mirror that reflects brightly.  666
+Katana  Weapon  2  A sword with a wide blade, used for cutting rather than thrusting.  16
+Odachi  Weapon  3  A larger and longer form of a kanata.  27
+Bo/Jo  Weapon  4  Two handed Staffs  1
+Healing Potion  Consumable  5  A liquid with healing and magical properties.  666
+Journal  Key  6  Book to keep track of clues/events.  666
+Celestial Globe  Key  7  Globe which shows constellations for each season.  5
+Study Room Key  Key  8  An old silver key.  666
+Kegutsu  Armor and Key  9  Heavy Boots.  666
+Kikko  Armor  10  Light Armor.  666
+Mempo  Armor  11  Facial Armor.  666
+Kaiken  Weapon  12  Long Knife.  3
+Kusarigama  Weapon  13  Chain-Sickle  7
+Daruma Doll  Consumable  14  A round doll modeled after Zen founder Bodhidharma.  666
+Kokeshi Doll  Consumable  15  A wooden doll depicting a maiden.  666
+Ladder  Key  16  A ladder used for climbing.  666
+Tengu’s Fan  Armor  17  Accessory  666
+Kitsune’s Tail  Armor  18  Accessory  666
