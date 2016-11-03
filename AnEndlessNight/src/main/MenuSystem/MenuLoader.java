@@ -39,7 +39,16 @@ public class MenuLoader {
 	public static void loadCombatMenu(AbstractMenu currentMenu) {
 		
 		currentMenu.onDestroy();
-		combatMenu.mainPrompt();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				combatMenu.mainPrompt();
+				
+			}
+			
+		}).start();
 		
 	}
 	
@@ -54,7 +63,17 @@ public class MenuLoader {
 	public static void loadGameMenu(AbstractMenu currentMenu) {
 		
 		currentMenu.onDestroy();
-		gameMenu.mainPrompt();
+		
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				gameMenu.mainPrompt();
+				
+			}
+			
+		}).start();
 		
 	}
 
@@ -69,7 +88,17 @@ public class MenuLoader {
 	public static void loadInventoryMenu(AbstractMenu currentMenu) {
 		
 		currentMenu.onDestroy();
-		inventoryMenu.mainPrompt();
+		
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				inventoryMenu.mainPrompt();
+				
+			}
+			
+		}).start();
 		
 	}
 	
@@ -84,7 +113,17 @@ public class MenuLoader {
 	public static void loadJournalMenu(AbstractMenu currentMenu) {
 		
 		currentMenu.onDestroy();
-		journalMenu.mainPrompt();
+		
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				journalMenu.mainPrompt();
+				
+			}
+			
+		}).start();
 		
 	}
 	
@@ -99,7 +138,17 @@ public class MenuLoader {
 	public static void loadStartMenu(AbstractMenu currentMenu) {
 		
 		currentMenu.onDestroy();
-		startMenu.mainPrompt();
+		
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				startMenu.mainPrompt();
+				
+			}
+			
+		}).start();
 		
 	}
 	
