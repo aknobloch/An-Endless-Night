@@ -2,9 +2,9 @@ package main.MenuSystem;
 
 public class JournalMenu extends AbstractMenu{
 
-	public JournalMenu(AbstractMenu lastMenu) {
-		super(lastMenu);
-		// TODO Auto-generated constructor stub
+
+	public JournalMenu(MenuLoader menuLoader) {
+		super(menuLoader);
 	}
 
 	@Override

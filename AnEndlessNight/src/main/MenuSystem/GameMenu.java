@@ -10,7 +10,6 @@ import java.util.Scanner;
 import java.util.Set;
 
 import main.Game;
-import main.GameInput;
 import main.RoomSystem.ChangeRoomControl;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
@@ -20,14 +19,11 @@ public class GameMenu extends AbstractMenu
 {
 
 	
-	private String description;
-
-	public GameMenu(AbstractMenu callingMenu)
-	{
-		super(callingMenu);
-
-		
+	public GameMenu(MenuLoader menuLoader) {
+		super(menuLoader);
 	}
+
+	private String description;
 
 	public String toString()
 	{
@@ -85,7 +81,6 @@ public class GameMenu extends AbstractMenu
 	 * opens the inventory menu
 	 */
 	public void openInventory() {
-		new InventoryMenu(this);
 		
 	}
 	

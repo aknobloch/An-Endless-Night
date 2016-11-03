@@ -1,23 +1,16 @@
 package main.MenuSystem;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import main.Game;
-import main.GameInput;
 
 public class StartMenu extends AbstractMenu
 {
 	private String menu;
 	
-	public StartMenu(AbstractMenu callingMenu)
+	public StartMenu(MenuLoader menuLoader)
 	{
-		super(callingMenu);
+		super(menuLoader);
 		menu = "Please Enter A number based on your command \n"
 				+ "1. Start New Game \n"
 				+ "2. Load Game \n"

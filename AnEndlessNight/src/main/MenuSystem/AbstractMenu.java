@@ -8,11 +8,18 @@ package main.MenuSystem;
 public abstract class AbstractMenu {
 	
 	
+	@SuppressWarnings("unused")
+	private AbstractMenu() {
+		// prevents subclasses from trying to make a default constructor.
+	}
+	
 	/**
-	 * Creates a new main menu. 
+	 * Creates a new main menu. Accepts a MenuLoader, which is the only 
+	 * class that can instantiate a menu. If you are seeing this message, chances
+	 * are that you are trying to create a menu. And you're probably scratching your 
+	 * head as to why you cannot. Try using MenuLoader.loadDesiredMenu();
 	 */
-	public AbstractMenu(AbstractMenu lastMenu) {
-		
+	public AbstractMenu(MenuLoader menuLoader) {
 		
 	}
 	
@@ -31,13 +38,5 @@ public abstract class AbstractMenu {
 	 */
 	abstract void onDestroy();
 	
-	/**
-	 * Calls the onDestroy() method.
-	 */
-	public final void exitMenu() {
-		
-		this.onDestroy();
-		
-	}
 	
 }

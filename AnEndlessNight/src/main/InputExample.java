@@ -2,6 +2,8 @@ package main;
 
 import java.io.IOException;
 
+import main.MenuSystem.GameInput;
+
 public class InputExample {
 	
 	public static void main(String[] args) 

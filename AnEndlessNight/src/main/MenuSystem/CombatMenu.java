@@ -2,9 +2,9 @@ package main.MenuSystem;
 
 public class CombatMenu extends AbstractMenu {
 
-	public CombatMenu(AbstractMenu lastMenu) {
-		super(lastMenu);
-		
+
+	public CombatMenu(MenuLoader menuLoader) {
+		super(menuLoader);
 	}
 
 	@Override
