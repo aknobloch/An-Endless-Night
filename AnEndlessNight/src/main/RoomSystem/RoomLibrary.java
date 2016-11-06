@@ -7,7 +7,6 @@ import main.InventorySystem.Artifact;
 
 public class RoomLibrary 
 {
-
 	public ArrayList<Room> roomGen()
 	{
 		ArrayList<Integer> doors = new ArrayList<Integer>();
