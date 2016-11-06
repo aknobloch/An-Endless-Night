@@ -13,6 +13,9 @@ public class RoomLibrary
 		ArrayList<Integer> doors = new ArrayList<Integer>();
 		ArrayList<Door> doorObj = new ArrayList<Door>();
 		
+		ArrayList<Integer> rooms = new ArrayList<Integer>();
+		ArrayList<Room> roomObj = new ArrayList<Room>();
+		
 		//FLOOR 1
 		//adding doors to rooms, 00 and 01 are the rooms the doors go into
 		doors.add(100);
@@ -195,57 +198,216 @@ public class RoomLibrary
 		doorObj.add(d_TD);
 		doors.clear();
 		
-		//FLOOR 2
-		doors.add();
-		Door d_TD = new Door(doors, 666);
-		doorObj.add(d_TD);
+		//FLOOR 2********
+		doors.add(118);
+		doors.add(126);
+		Door d_30 = new Door(doors, 130);
+		doorObj.add(d_30);
 		doors.clear();
 		
-		Room room0 = new Room("Large Hallway with wooden floors and pillars", );
+		doors.add(126);
+		doors.add(127);
+		Door d_31 = new Door(doors, 131);
+		doorObj.add(d_31);
+		doors.clear();
+		
+		doors.add(124);
+		doors.add(126);
+		Door d_32 = new Door(doors, 132);
+		doorObj.add(d_32);
+		doors.clear();
+		
+		doors.add(124);
+		doors.add(125);
+		Door d_33 = new Door(doors, 133);
+		doorObj.add(d_33);
+		doors.clear();
+		
+		doors.add(121);
+		doors.add(126);
+		Door d_34 = new Door(doors, 134);
+		doorObj.add(d_34);
+		doors.clear();
+		
+		doors.add(122);
+		doors.add(126);
+		Door d_35 = new Door(doors, 135);
+		doorObj.add(d_35);
+		doors.clear();
+		
+		doors.add(123);
+		doors.add(122);
+		Door d_36 = new Door(doors, 136);
+		doorObj.add(d_36);
+		doors.clear();
+		
+		doors.add(121);
+		doors.add(122);
+		Door d_37 = new Door(doors, 137);
+		doorObj.add(d_37);
+		doors.clear();
+		
+		doors.add(119);
+		doors.add(126);
+		Door d_38 = new Door(doors, 138);
+		doorObj.add(d_38);
+		doors.clear();
+		
+		doors.add(119);
+		doors.add(120);
+		Door d_39 = new Door(doors, 139);
+		doorObj.add(d_39);
+		doors.clear();
+		
+		doors.add(126);
+		Door d_F1 = new Door(doors, 601);
+		doorObj.add(d_F1);
+		doors.clear();
+		
+		doors.add(126);
+		doors.add(128);
+		Door d_F2 = new Door(doors, 602);
+		doorObj.add(d_F2);
+		doors.clear();
+		
+		//DOORS FLOOR 3
+		doors.add(129);
+		doors.add(128);
+		Door d_40 = new Door(doors, 140);
+		doorObj.add(d_40);
+		doors.clear();
+		
+
+		//ROOMS FLOOR 1
+		
+		Room rm_00 = new Room("Large Hallway with wooden floors and pillars", null, 100, false, "Main Hallway", null, null, null);
+		roomObj.add(rm_00);
+		rooms.clear();
+		
+		Room rm_01 = new Room("The entrance garden, it contains a few trees and hydrangea flowers.", null, 101, false, "South Garden", null, null, null);
+		roomObj.add(rm_01);
+		rooms.clear();
+		
+		Room rm_02 = new Room("A plain garden with bamboo trees.", null, 102, false, "West Garden", null, null, null);
+		roomObj.add(rm_02);
+		rooms.clear();
+		
+		Room rm_03 = new Room("A garden with a small pond filled with lotus flowers", null, 103, false, "North Garden", null, null, null);
+		roomObj.add(rm_03);
+		rooms.clear();
+		
+		Room rm_04 = new Room("A garden normally used an outside training, it has a cherry blossom tree in the middle.", null, 104, false, "Northeast Garden", null, null, null);
+		roomObj.add(rm_04);
+		rooms.clear();
+		
+		Room rm_05 = new Room("A garden with beautiful stone and plant arrangement ", null, 105, false, "Southeast Garden", null, null, null);
+		roomObj.add(rm_05);
+		rooms.clear();
+		
+		Room rm_06 = new Room("Many tools lie here, most of them are used to care for the gardens. There’s a ladder here.", null, 106, false, "Northwest Shed", null, null, null);
+		roomObj.add(rm_06);
+		rooms.clear();
+		
+		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", null, 107, false, "Southeast Shed", null, null, null);
+		roomObj.add(rm_07);
+		rooms.clear();
+		
+		Room rm_08 = new Room("Beautifully crafted deck, looks like a gazebo. It has the best view of the moon.", null, 108, false, "Moon viewing deck", null, null, null);
+		roomObj.add(rm_08);
+		rooms.clear();
+		
+		Room rm_09 = new Room("Tables are clothed with fine materials and everything is neatly placed.", null, 109, false, "Tea Room", null, null, null);
+		roomObj.add(rm_09);
+		rooms.clear();
+		
+		Room rm_10 = new Room("A room before then outdoor bath. Guest and travelers here wash themselves before bathing.", null, 110, false, "Wash Room", null, null, null);
+		roomObj.add(rm_10);
+		rooms.clear();
+		
+		Room rm_11 = new Room("An unexpectedly clean room.", null, 111, false, "Toilet", null, null, null);
+		roomObj.add(rm_11);
+		rooms.clear();
+		
+		Room rm_12 = new Room("An outdoor bath, it looks like someone recently used it.", null, 112, false, "Outdoor Bath", null, null, null);
+		roomObj.add(rm_12);
+		rooms.clear();
+		
+		Room rm_13 = new Room("A small table lies in the middle of the room. The room is large enough to fit two big families.", null, 113, false, "Dining Room", null, null, null);
+		roomObj.add(rm_13);
+		rooms.clear();
+		
+		Room rm_14 = new Room("Many baskets lay around with fruits in them. On the table is a knife and some red meat.", null, 114, false, "Kitchen", null, null, null);
+		roomObj.add(rm_14);
+		rooms.clear();
+		
+		Room rm_15 = new Room("A small room used to store foods to last one winter. Contains a lot of closed baskets of food.", null, 115, false, "Pantry", null, null, null);
+		roomObj.add(rm_15);
+		rooms.clear();
+		
+		Room rm_16 = new Room("A hallway with 2 doors and 2 wooden steps, not really interesting here.", null, 116, false, "Small Hallway", null, null, null);
+		roomObj.add(rm_16);
+		rooms.clear();
+		
+		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", null, 117, false, "Dojo (Training Hall)", null, null, null);
+		roomObj.add(rm_17);
+		rooms.clear();
+		
+		//ROOMS FLOOR 2
+		
+		Room rm_18 = new Room("A vast view of the outside the castle with a hallway that splits the two gardens.", null, 118, false, "Dojo Roof", null, null, null);
+		roomObj.add(rm_18);
+		rooms.clear();
+		
+		Room rm_19 = new Room("An L-shaped room with at least a quarter of the room taken up for an unnecessarily big closet...", null, 119, false, "Servant Room", null, null, null);
+		roomObj.add(rm_19);
+		rooms.clear();
+		
+		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", null, 120, false, "Servant Closet", null, null, null);
+		roomObj.add(rm_20);
+		rooms.clear();
+		
+		Room rm_21 = new Room("A considerable medium size room with tatami mats and a neatly placed futon in the middle against the west wall.", null, 121, false, "Guest room 1", null, null, null);
+		roomObj.add(rm_21);
+		rooms.clear();
+		
+		Room rm_22 = new Room("The second guest room is a smaller sized room compared to the guest room to make room for the closet. The layout is the same with a futon on top of tatami mats.", null, 122, false, "Guest Room 2", null, null, null);
+		roomObj.add(rm_22);
+		rooms.clear();
+		
+		Room rm_23 = new Room("A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks.", null, 123, false, "Guest room 2 - Closet", null, null, null);
+		roomObj.add(rm_23);
+		rooms.clear();
+		
+		Room rm_24 = new Room("A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door.", null, 124, false, "Bedroom", null, null, null);
+		roomObj.add(rm_24);
+		rooms.clear();
+		
+		Room rm_25 = new Room("A small room enough to fit two adults. It contains some clothes.", null, 125, false, "Bedroom Closet", null, null, null);
+		roomObj.add(rm_25);
+		rooms.clear();
+		
+		Room rm_26 = new Room("An enormous hallway that leads to multiple rooms: servant, guests, bedroom, study room, and a roof that leads outside on top of the dojo.", null, 126, false, "Second Floor Hall Way", null, null, null);
+		roomObj.add(rm_26);
+		rooms.clear();
+		
+		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", null, 127, false, "Study Room", null, null, null);
+		roomObj.add(rm_27);
+		rooms.clear();
+		
+		//ROOMS FLOOR 3
+		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", null, 128, false, "Observatory", null, null, null);
+		roomObj.add(rm_28);
+		rooms.clear();
+		
+		Room rm_29 = new Room("A large open platform protruding from the back of the house, with a bamboo railing of intricate lattice work.", null, 129, false, "Third Floor Balcony", null, null, null);
+		roomObj.add(rm_29);
+		rooms.clear();
+
 		return roomGen();
 		
 	}
-	
 }
 
 //output to a .dat file
 //generate method and load method 
-
-
-//FLOOR 1
-//Rm_00 Main Hallway  "Large Hallway with wooden floors and pillars"
-//Rm_01 South Garden "The entrance garden, it contains a few trees and hydrangea flowers"
-//Rm_02 West Garden "A plain garden with bamboo trees."
-//Rm_03 North Garden "A garden with a small pond filled with lotus flowers"
-//Rm_04 Northeast Garden "A garden normally used an outside training, it has a cherry blossom tree in the middle."
-//Rm_05 Southeast Garden "A garden with beautiful stone and plant arrangement"
-//Rm_06 Northwest Shed "Many tools lie here, most of them are used to care for the gardens. There’s a ladder here"
-//Rm_07 Southeast Shed "Multiple tools that are used to care the garden and a bucket"
-//Rm_08 Moon viewing Deck "Beautifully crafted deck, looks like a gazebo. It has the best view of the moon." 
-//Rm_09 Tea Room "Tables are clothed with fine materials and everything is neatly placed."
-//Rm_10 Wash Room "A room before then outdoor bath. Guest and travelers here wash themselves before bathing."
-//Rm_11 Toilet "An unexpected clean room"
-//Rm_12 Outdoor Bath "An outdoor bath, it looks like someone recently used it."
-//Rm_13 Dining Room "A small table lies in the middle of the room. The room is large enough to fit two big families."
-//Rm_14 Kitchen "Many baskets lay around with fruits in them. On the table is a knife and some red meat."
-//Rm_15 Pantry "A small room used to store foods to last one winter. Contains a lot of closed baskets of food."
-//Rm_16 Small Hallway "A hallway with 2 doors and 2 wooden steps,  not really interesting here."
-//Rm_17 Training Hall "A large training hall to practice kendo. The floors are clean and there is an odd smell."
-
-//FLOOR 2 
-//Rm_18 Dojo Roof "A vast view of the outside the castle with a hallway that splits the two gardens."
-//Rm_19 Servant Room "An L-shaped room with at least a quarter of the room taken up for an unnecessarily big closet..."
-//Rm_20 Servant Closet "The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached..."
-//Rm_21 Guest 1 Room "A considerable medium size room with tatami mats and a neatly placed futon in the middle against the west wall."
-//Rm_22 Guest 2 Room "The second guest room is a smaller sized room compared to the guest room to make room for the closet. The layout is the same with a futon on top of tatami mats"
-//Rm_23 Guest 2 Closet "A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks."
-//Rm_24 Bedroom "A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door."
-//Rm_25 Bedroom closet "A small room enough to fit two adults. It contains some clothes"
-//Rm_26 F2 Hallway "An enormous hallway that leads to multiple rooms: servant, guests, bedroom, study room, and a roof that leads outside on top of the dojo."
-//Rm_27 Study Room "The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess"
-
-//FLOOR 3
-//Rm_28 Observatory "A large, circular, room with large windows and instruments to view the heavens."
-//Rm_29 F3 Balcony "A large open platform protruding from the back of the house, with a bamboo railing of intricate lattice work."
-
 
