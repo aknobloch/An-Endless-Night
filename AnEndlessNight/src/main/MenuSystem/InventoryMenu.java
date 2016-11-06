@@ -4,12 +4,10 @@ import java.io.IOException;
 
 public class InventoryMenu extends AbstractMenu
 {
-	public InventoryMenu(MenuLoader menuLoader) {
+	public InventoryMenu(MenuLoader menuLoader) 
+	{
 		super(menuLoader);
 	}
-
-
-
 
 	private String description = 
 			"Please Enter a number based on your Command \n"
@@ -19,39 +17,37 @@ public class InventoryMenu extends AbstractMenu
 			+ "4. View Item \n"
 			+ "5. Main Menu";
 
-	private void viewItem() {
+	private void viewItem() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
-
-
-	private void dropItem() {
+	private void dropItem() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
-
-
-	private void unEquipItem() {
+	private void unEquipItem() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
-
-
-	private void equipItem() {
+	private void equipItem() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
-
 
 	public String toString()
 	{
 		return description;
 	}
 	@Override
-	void mainPrompt() {
+	void mainPrompt() 
+	{
 		
 		System.out.println(toString());
 		
@@ -92,11 +88,7 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println("Issue reading input");
 			MenuLoader.loadInventoryMenu(this);
 		}
-		
 	}
-
-	
-
 
 	@Override
 	void onDestroy() 
@@ -104,6 +96,4 @@ public class InventoryMenu extends AbstractMenu
 		// TODO Auto-generated method stub
 		
 	}
-		
-
 }
