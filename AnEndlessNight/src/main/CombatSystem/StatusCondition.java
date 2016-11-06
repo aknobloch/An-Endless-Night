@@ -26,6 +26,6 @@ public enum StatusCondition
 	 * 					All attacks have a 15% chance of missing player.
 	 */
 	IMMOBILIZED, KITSUNE_DEBUFF, RYU_DEBUFF,
-	TENGU_FAN, KITSUNE_TAIL
+	TENGU_FAN, KITSUNE_TAIL, DEFENSE_BUFF
 }
 

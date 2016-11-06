@@ -57,6 +57,13 @@ public class DamageHandler
 		}
 		
 		int damage = battleMonster.getStrength() - gameHero.getDefense();
+		
+		// defending lowers damage by one third
+		if(gameHero.getStatusConditions().contains(StatusCondition.DEFENSE_BUFF)) 
+		{
+			damage = damage - (damage / 3);
+		}
+		
 		int remainingHealth = gameHero.attack(damage);
 		
 		if(remainingHealth <= 0) 

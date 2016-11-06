@@ -75,7 +75,12 @@ public class CombatMenu extends AbstractMenu {
 
 	private void defend(Monster currentMonster) {
 		
+		DamageHandler combatManager = new DamageHandler();
+		int monsterDamage = currentMonster.getStrength();
+		// defending reduces monster damage by 1/3
+		monsterDamage = monsterDamage - (monsterDamage / 3);
 		
+		System.out.println("You brace yourself for an attack.");
 		
 	}
 
@@ -96,16 +101,22 @@ public class CombatMenu extends AbstractMenu {
 			System.out.println("You try to escape, but the " + battleMonster.getName() + " is too fast.");
 			
 			DamageHandler combat = new DamageHandler();
-			int heroHealth = combat.attackHero();
+			int combatResult = combat.attackHero();
 			
-			if(heroHealth <= 0) {
+			if(combatResult == -1) {
 				
 				heroDeath();
 				
 			}
+			else if(combatResult == 0) {
+				
+				System.out.println("The creature attempts to attack, but you swiftly dodge.");
+				System.out.println();
+				
+			}
 			else {
 				
-				System.out.println("It attacks you, leaving you with " + heroHealth + " left.");
+				System.out.println("It attacks you, leaving you with " + combatResult + " left.");
 				System.out.println();
 				
 			}
