@@ -11,7 +11,12 @@ import java.util.Scanner;
 
 import main.CombatSystem.Hero;
 import main.RoomSystem.Room;
-
+import main.RoomSystem.RoomLibrary;
+/**
+ * 
+ * @author Aaron and Jory
+ *
+ */
 public final class Game 
 {
 
@@ -37,7 +42,11 @@ public final class Game
 		
 		if(game == null) 
 		{
-			game = new Game(new ArrayList<Room>(), new Hero(score, score));
+			ArrayList<Room> newMap = RoomLibrary.roomGen();
+			Hero newHero = new Hero();
+			newHero.setLocation(newMap.get(0));
+			
+			game = new Game(newMap, newHero);
 			return true;
 		}
 		else {
