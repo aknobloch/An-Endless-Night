@@ -106,7 +106,7 @@ public class DamageHandler
 		
 		if(remainingHealth <= 0) 
 		{
-			// TODO: Handle case if monster dies
+			Game.getHero().getRoom().setMonster(null);
 			return -1;
 		}
 		else 
