@@ -27,18 +27,14 @@ public class Hero extends Character
 	private int defense;
 	
 	/***
-	 * Constructs a Hero based on the listed parameters.
+	 * Constructs a Hero.
 	 * A Hero starts with no equipped weapon or armor, 
+	 * 100 health, 1 strength
 	 * and a defense value of zero. 
-	 * 
-	 * @param ID - Unique ID associated with this Hero
-	 * @param health - Starting health of this Hero
-	 * @param strength - Starting strength of Hero
-	 * @param name - Human-readable name of this Hero
 	 */
-	public Hero(int health, int strength) 
+	public Hero() 
 	{
-		super(1, health, strength,"Steve");
+		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = null;
 		equippedArmor = null;
