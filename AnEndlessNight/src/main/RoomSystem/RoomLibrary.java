@@ -278,7 +278,15 @@ public class RoomLibrary
 		
 
 		//ROOMS FLOOR 1
-		
+		// d_01, d_06, d_13, d_21, d_22, d_25, d_27, d_29
+		ArrayList<Door> rm_00_doors = new ArrayList<>();
+		rm_00_doors.add(d_01);
+		rm_00_doors.add(d_06);
+		rm_00_doors
+		rm_00_doors
+		rm_00_doors
+		rm_00_doors
+		rm_00_doors
 		Room rm_00 = new Room("Large Hallway with wooden floors and pillars", null, 100, false, "Main Hallway", null, null, null);
 		roomObj.add(rm_00);
 		rooms.clear();

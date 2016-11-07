@@ -1,15 +1,13 @@
 package main;
 
-import java.util.Scanner;
-
-import main.MenuSystem.StartMenu;
+import main.MenuSystem.MenuLoader;
 
 public class GameRunner 
 {
 
 	public static void main(String[] args) throws Exception 
 	{
-		new StartMenu(null);
+		MenuLoader.loadStartMenu(null);
 	}
 
 }
