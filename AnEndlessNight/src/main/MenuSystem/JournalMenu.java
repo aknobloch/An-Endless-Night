@@ -9,7 +9,7 @@ public class JournalMenu extends AbstractMenu{
 
 	@Override
 	void mainPrompt() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
