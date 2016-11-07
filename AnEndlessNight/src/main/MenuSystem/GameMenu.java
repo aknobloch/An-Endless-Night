@@ -34,7 +34,8 @@ public class GameMenu extends AbstractMenu
 				+ "4. View Score \n"
 				+ "5. View Help \n"
 				+ "6. Save Game \n"
-				+ "7. Exit Game \n";
+				+ "7. View Journal"
+				+ "8. Exit Game \n";
 	}
 
 	public void searchRoom()
@@ -100,7 +101,7 @@ public class GameMenu extends AbstractMenu
 		
 	}
 
-	private void saveGame() {
+	public void saveGame() {
 		String input = "";
 		
 		System.out.println("What would you like to name your save file?");
@@ -178,11 +179,15 @@ public class GameMenu extends AbstractMenu
 			}
 			else if(input.equals("7"))
 			{
+				MenuLoader.loadJournalMenu(this);
+			}
+			else if(input.equals("8"))
+			{
 				exitGame();
 			}
 		} catch (IOException e) {
 			
-			System.out.println("You entered bad input");
+			System.out.println("You mumble to yourself.");
 		}
 		
 	}
