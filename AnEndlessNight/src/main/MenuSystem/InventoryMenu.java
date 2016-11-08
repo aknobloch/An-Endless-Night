@@ -17,8 +17,7 @@ public class InventoryMenu extends AbstractMenu
 	}
 
 	private String description = 
-			"Please Enter a number based on your Command \n"
-			+ "1. Equip Item \n"
+			"1. Equip Item \n"
 			+ "2. Unequip Item \n"
 			+ "3. Drop Item \n"
 			+ "4. View Item \n"
@@ -161,7 +160,7 @@ public class InventoryMenu extends AbstractMenu
 	{
 		boolean inInventory = true;
 		
-		
+		System.out.println("You take a look at your belongings. What would you like to do?");
 		System.out.println(toString());
 		while(inInventory)
 		{
