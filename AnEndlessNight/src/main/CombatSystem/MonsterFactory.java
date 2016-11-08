@@ -25,7 +25,7 @@ public class MonsterFactory
 	private String[] monsterNameArray = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
 	private ArrayList<String> monsterDropList;
 	private ArrayList<ArrayList<Artifact>> monsterItemAssignments;
-	private ArrayList<Monster> monsterList;
+	private static ArrayList<Monster> monsterList;
 	private ArrayList<Artifact> artifactList;
 
 
@@ -186,7 +186,7 @@ public class MonsterFactory
 		}
 	}
 
-	public Monster setRoomMonster(int roomID) 
+	public static Monster setRoomMonster(int roomID) 
 	{
 		int winningMonster = 0;
 
