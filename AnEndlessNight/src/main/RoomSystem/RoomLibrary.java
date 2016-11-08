@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class RoomLibrary 
 {
-	public ArrayList<Room> roomGen()
+	public static ArrayList<Room> roomGen()
 	{
 		ArrayList<Integer> doors = new ArrayList<Integer>();
 		ArrayList<Door> doorObj = new ArrayList<Door>();

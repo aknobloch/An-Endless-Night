@@ -1,5 +1,6 @@
 package main.CombatSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import main.InventorySystem.Weapon;
  * @author Aaron
  *
  */
-public class Hero extends Character 
+public class Hero extends Character implements Serializable
 {
 	private ArrayList<StatusCondition> statusConditions;
 	private Weapon equippedWeapon;

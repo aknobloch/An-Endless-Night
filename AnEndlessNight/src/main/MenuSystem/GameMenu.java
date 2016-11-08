@@ -120,6 +120,7 @@ public class GameMenu extends AbstractMenu
 			out.writeObject(Game.getHero());
 			out.writeObject(Game.getRooms());
 			out.writeInt(Game.getScore());
+			out.writeObject(Game.getJournal());
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
@@ -136,58 +137,60 @@ public class GameMenu extends AbstractMenu
 		System.out.println(toString());
 		
 		String input;
-		
-		try {
-			input = GameInput.getString();
+		boolean check = true;
+		while(check)
+		{
+			try {
+				input = GameInput.getString();
 			
-			if(input.equals("1"))
-			{
-				searchRoom();
-				MenuLoader.loadGameMenu(this);
-			}
-			else if(input.equals("2"))
-			{
-				 boolean isMonster = changeRooms();
+				if(input.equals("1"))
+				{
+					searchRoom();
+					
+				}
+				else if(input.equals("2"))
+				{
+				 	boolean isMonster = changeRooms();
 				
-				if(isMonster)
-				{
-					MenuLoader.loadCombatMenu(this);
+				 	if(isMonster)
+				 		{
+				 			check = false;
+				 			MenuLoader.loadCombatMenu(this);
+				 		}
 				}
-				else
+				else if(input.equals("3"))
 				{
-					MenuLoader.loadGameMenu(this);
+					check = false;
+					MenuLoader.loadInventoryMenu(this);
+				}	
+				else if(input.equals("4"))
+				{
+					showScore();
 				}
-			}
-			else if(input.equals("3"))
-			{
-				MenuLoader.loadInventoryMenu(this);
-			}
-			else if(input.equals("4"))
-			{
-				showScore();
-				MenuLoader.loadGameMenu(this);
-			}
-			else if(input.equals("5"))
-			{
-				help();
-				MenuLoader.loadGameMenu(this);
-			}
-			else if(input.equals("6"))
-			{
-				saveGame();
-				MenuLoader.loadGameMenu(this);
-			}
-			else if(input.equals("7"))
-			{
-				MenuLoader.loadJournalMenu(this);
-			}
-			else if(input.equals("8"))
-			{
-				exitGame();
-			}
-		} catch (IOException e) {
+				else if(input.equals("5"))
+				{
+					help();
+					;
+				}
+				else if(input.equals("6"))
+				{
+					saveGame();
+					;
+				}
+				else if(input.equals("7"))
+				{
+					check = false;
+					MenuLoader.loadJournalMenu(this);
+				}
+				else if(input.equals("8"))
+				{
+					check = false;
+					exitGame();
+				}
+			} catch (IOException e) {
 			
-			System.out.println("You mumble to yourself.");
+				System.out.println("You mumble to yourself.");
+			}
 		}
 		
 	}
