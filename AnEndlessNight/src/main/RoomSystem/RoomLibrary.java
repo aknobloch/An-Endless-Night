@@ -396,7 +396,7 @@ public class RoomLibrary
 		Room rm_12 = new Room("An outdoor bath, it looks like someone recently used it.", rm_12_doors, 112, false, "Outdoor Bath", null, null, null);
 		roomObj.add(rm_12);
 		rooms.clear();
-		
+
 		// d_20, d_26, d_27
 		ArrayList<Door> rm_13_doors = new ArrayList<>();
 		rm_13_doors.add(d_20);
@@ -406,71 +406,141 @@ public class RoomLibrary
 		roomObj.add(rm_13);
 		rooms.clear();
 
-		Room rm_14 = new Room("Many baskets lay around with fruits in them. On the table is a knife and some red meat.", null, 114, false, "Kitchen", null, null, null);
+		// d_25, d_26, d_28 
+		ArrayList<Door> rm_14_doors = new ArrayList<>();
+		rm_14_doors.add(d_25);
+		rm_14_doors.add(d_26);
+		rm_14_doors.add(d_28);
+		Room rm_14 = new Room("Many baskets lay around with fruits in them. On the table is a knife and some red meat.", rm_14_doors, 114, false, "Kitchen", null, null, null);
 		roomObj.add(rm_14);
 		rooms.clear();
 
-		Room rm_15 = new Room("A small room used to store foods to last one winter. Contains a lot of closed baskets of food.", null, 115, false, "Pantry", null, null, null);
+		// d_28, d_TD  
+		ArrayList<Door> rm_15_doors = new ArrayList<>();
+		rm_15_doors.add(d_28);
+		rm_15_doors.add(d_TD);
+		Room rm_15 = new Room("A small room used to store foods to last one winter. Contains a lot of closed baskets of food.", rm_15_doors, 115, false, "Pantry", null, null, null);
 		roomObj.add(rm_15);
 		rooms.clear();
 
-		Room rm_16 = new Room("A hallway with 2 doors and 2 wooden steps, not really interesting here.", null, 116, false, "Small Hallway", null, null, null);
+		// d_10, d_11, d_12, d_13
+		ArrayList<Door> rm_16_doors = new ArrayList<>();
+		rm_16_doors.add(d_10);
+		rm_16_doors.add(d_11);
+		rm_16_doors.add(d_12);
+		rm_16_doors.add(d_13);
+		Room rm_16 = new Room("A hallway with 2 doors and 2 wooden steps, not really interesting here.", rm_16_doors, 116, false, "Small Hallway", null, null, null);
 		roomObj.add(rm_16);
 		rooms.clear();
 
-		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", null, 117, false, "Dojo (Training Hall)", null, null, null);
+		// d_08, d_09, d_10
+		ArrayList<Door> rm_17_doors = new ArrayList<>();
+		rm_17_doors.add(d_08);
+		rm_17_doors.add(d_09);
+		rm_17_doors.add(d_10);
+		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", null, null, null);
 		roomObj.add(rm_17);
 		rooms.clear();
 
 		//ROOMS FLOOR 2
 
-		Room rm_18 = new Room("A vast view of the outside the castle with a hallway that splits the two gardens.", null, 118, false, "Dojo Roof", null, null, null);
+		// d_30
+		ArrayList<Door> rm_18_doors = new ArrayList<>();
+		rm_18_doors.add(d_30);
+		Room rm_18 = new Room("A vast view of the outside the castle with a hallway that splits the two gardens.", rm_18_doors, 118, false, "Dojo Roof", null, null, null);
 		roomObj.add(rm_18);
 		rooms.clear();
 
-		Room rm_19 = new Room("An L-shaped room with at least a quarter of the room taken up for an unnecessarily big closet...", null, 119, false, "Servant Room", null, null, null);
+		// d_38, d_39
+		ArrayList<Door> rm_19_doors = new ArrayList<>();
+		rm_19_doors.add(d_38);
+		rm_19_doors.add(d_39);
+		Room rm_19 = new Room("An L-shaped room with at least a quarter of the room taken up for an unnecessarily big closet...", rm_19_doors, 119, false, "Servant Room", null, null, null);
 		roomObj.add(rm_19);
 		rooms.clear();
 
-		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", null, 120, false, "Servant Closet", null, null, null);
+		// d_39, d_TD
+		ArrayList<Door> rm_20_doors = new ArrayList<>();
+		rm_20_doors.add(d_39);
+		rm_20_doors.add(d_TD);
+		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", rm_20_doors, 120, false, "Servant Closet", null, null, null);
 		roomObj.add(rm_20);
 		rooms.clear();
 
-		Room rm_21 = new Room("A considerable medium size room with tatami mats and a neatly placed futon in the middle against the west wall.", null, 121, false, "Guest room 1", null, null, null);
+		// d_34, d_37
+		ArrayList<Door> rm_21_doors = new ArrayList<>();
+		rm_21_doors.add(d_34);
+		rm_21_doors.add(d_37);
+		Room rm_21 = new Room("A considerable medium size room with tatami mats and a neatly placed futon in the middle against the west wall.", rm_21_doors, 121, false, "Guest room 1", null, null, null);
 		roomObj.add(rm_21);
 		rooms.clear();
 
-		Room rm_22 = new Room("The second guest room is a smaller sized room compared to the guest room to make room for the closet. The layout is the same with a futon on top of tatami mats.", null, 122, false, "Guest Room 2", null, null, null);
+		// d_35, d_36, d_37
+		ArrayList<Door> rm_22_doors = new ArrayList<>();
+		rm_22_doors.add(d_35);
+		rm_22_doors.add(d_36);
+		rm_22_doors.add(d_37);
+		Room rm_22 = new Room("The second guest room is a smaller sized room compared to the guest room to make room for the closet. The layout is the same with a futon on top of tatami mats.", rm_22_doors, 122, false, "Guest Room 2", null, null, null);
 		roomObj.add(rm_22);
 		rooms.clear();
 
-		Room rm_23 = new Room("A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks.", null, 123, false, "Guest room 2 - Closet", null, null, null);
+		// d_36
+		ArrayList<Door> rm_23_doors = new ArrayList<>();
+		rm_23_doors.add(d_36);
+		Room rm_23 = new Room("A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks.", rm_23_doors, 123, false, "Guest room 2 - Closet", null, null, null);
 		roomObj.add(rm_23);
 		rooms.clear();
 
-		Room rm_24 = new Room("A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door.", null, 124, false, "Bedroom", null, null, null);
+		// d_32, d_33
+		ArrayList<Door> rm_24_doors = new ArrayList<>();
+		rm_24_doors.add(d_32);
+		rm_24_doors.add(d_33);
+		Room rm_24 = new Room("A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door.", rm_24_doors, 124, false, "Bedroom", null, null, null);
 		roomObj.add(rm_24);
 		rooms.clear();
 
-		Room rm_25 = new Room("A small room enough to fit two adults. It contains some clothes.", null, 125, false, "Bedroom Closet", null, null, null);
+		// d_33
+		ArrayList<Door> rm_25_doors = new ArrayList<>();
+		rm_25_doors.add(d_33);
+		Room rm_25 = new Room("A small room enough to fit two adults. It contains some clothes.", rm_25_doors, 125, false, "Bedroom Closet", null, null, null);
 		roomObj.add(rm_25);
 		rooms.clear();
 
-		Room rm_26 = new Room("An enormous hallway that leads to multiple rooms: servant, guests, bedroom, study room, and a roof that leads outside on top of the dojo.", null, 126, false, "Second Floor Hall Way", null, null, null);
+		// d_30, d_31, d_32, d_34, d_35, d_38, d_F1, d_F2
+		ArrayList<Door> rm_26_doors = new ArrayList<>();
+		rm_26_doors.add(d_30);
+		rm_26_doors.add(d_31);
+		rm_26_doors.add(d_32);
+		rm_26_doors.add(d_34);
+		rm_26_doors.add(d_35);
+		rm_26_doors.add(d_38);
+		rm_26_doors.add(d_F1);
+		rm_26_doors.add(d_F2);
+		Room rm_26 = new Room("An enormous hallway that leads to multiple rooms: servant, guests, bedroom, study room, and a roof that leads outside on top of the dojo.", rm_26_doors, 126, false, "Second Floor Hall Way", null, null, null);
 		roomObj.add(rm_26);
 		rooms.clear();
 
-		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", null, 127, false, "Study Room", null, null, null);
+		// d_31
+		ArrayList<Door> rm_27_doors = new ArrayList<>();
+		rm_27_doors.add(d_31);
+		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", null, null, null);
 		roomObj.add(rm_27);
 		rooms.clear();
 
 		//ROOMS FLOOR 3
 
-		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", null, 128, false, "Observatory", null, null, null);
+		// d_40, d_F2
+		ArrayList<Door> rm_28_doors = new ArrayList<>();
+		rm_28_doors.add(d_40);
+		rm_28_doors.add(d_F2);
+		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", rm_28_doors, 128, false, "Observatory", null, null, null);
 		roomObj.add(rm_28);
 		rooms.clear();
 
-		Room rm_29 = new Room("A large open platform protruding from the back of the house, with a bamboo railing of intricate lattice work.", null, 129, false, "Third Floor Balcony", null, null, null);
+		// d_40
+		ArrayList<Door> rm_29_doors = new ArrayList<>();
+		rm_29_doors.add(d_40);
+		Room rm_29 = new Room("A large open platform protruding from the back of the house, with a bamboo railing of intricate lattice work.", rm_29_doors, 129, false, "Third Floor Balcony", null, null, null);
 		roomObj.add(rm_29);
 		rooms.clear();
 
