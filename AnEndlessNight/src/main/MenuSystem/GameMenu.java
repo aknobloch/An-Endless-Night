@@ -34,7 +34,7 @@ public class GameMenu extends AbstractMenu
 				+ "4. View Score \n"
 				+ "5. View Help \n"
 				+ "6. Save Game \n"
-				+ "7. View Journal"
+				+ "7. View Journal \n"
 				+ "8. Exit Game \n";
 	}
 
