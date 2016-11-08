@@ -7,9 +7,11 @@ import main.Game;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 
-public class CombatInventoryMenu {
+public class CombatInventoryMenu 
+{
 
-	public static void openMenu() {
+	public static void openMenu() 
+	{
 		
 		int userInput;
 		boolean validInput = false;

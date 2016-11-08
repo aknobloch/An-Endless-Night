@@ -16,23 +16,27 @@ import main.InventorySystem.InventoryItem;
  * @author Aaron
  *
  */
-public class CombatMenu extends AbstractMenu {
+public class CombatMenu extends AbstractMenu 
+{
 
 	static boolean battleContinuing;
 
-	public CombatMenu(MenuLoader menuLoader) {
+	public CombatMenu(MenuLoader menuLoader) 
+	{
 		super(menuLoader);
 	}
 
 	@Override
-	void mainPrompt() {
+	void mainPrompt() 
+	{
 		
 		Monster currentMonster = Game.getHero().getRoom().getMonster();
 		System.out.println("A " + currentMonster.getName() + " stares you down.");
 		battleContinuing = true;
 		
 		
-		while(battleContinuing) {
+		while(battleContinuing) 
+		{
 			
 			System.out.println("What is your next move?");
 			System.out.println();
@@ -47,12 +51,15 @@ public class CombatMenu extends AbstractMenu {
 			boolean validInput = false;
 
 			do {
-				try {
+				try 
+				{
 
 					userChoice = GameInput.getInt();
 					validInput = true;
 
-				} catch (IOException e) {
+				} 
+				catch (IOException e) 
+				{
 
 					System.out.println("You mumble incoherently. You should be wary of nonsensical babbling, ");
 					System.out.println("else you be labeled insane.");
@@ -63,27 +70,32 @@ public class CombatMenu extends AbstractMenu {
 
 			} while( ! validInput);
 
-			if(userChoice == 1) {
+			if(userChoice == 1) 
+			{
 
 				attack(currentMonster);
 
 			}
-			else if(userChoice == 2) {
+			else if(userChoice == 2) 
+			{
 
 				defend(currentMonster);
 
 			}
-			else if(userChoice == 3) {
+			else if(userChoice == 3) 
+			{
 
 				flee(currentMonster);
 
 			}
-			else if(userChoice == 4) {
+			else if(userChoice == 4) 
+			{
 				
 				CombatInventoryMenu.openMenu();
 				
 			}
-			else {
+			else 
+			{
 				// something went wrong
 				this.mainPrompt();
 			}
@@ -91,7 +103,8 @@ public class CombatMenu extends AbstractMenu {
 		
 	}
 
-	private void attack(Monster currentMonster) {
+	private void attack(Monster currentMonster) 
+	{
 		
 		DamageHandler combatManager = new DamageHandler();
 		System.out.println("You raise your " + Game.getHero().getEquippedWeapon().getName() + 
@@ -125,7 +138,8 @@ public class CombatMenu extends AbstractMenu {
 		
 	}
 
-	private void defend(Monster currentMonster) {
+	private void defend(Monster currentMonster) 
+	{
 		
 		Game.getHero().addStatusCondition(StatusCondition.DEFENSE_BUFF);
 		
@@ -142,7 +156,8 @@ public class CombatMenu extends AbstractMenu {
 		EscapeController escape = new EscapeController();
 		
 		// 
-		if(escape.attemptEscape()) {
+		if(escape.attemptEscape()) 
+		{
 		
 			System.out.println("You feign an attack, and dart off while the " + battleMonster.getName() + " attempts to brace itself.");
 			System.out.println();
@@ -150,7 +165,8 @@ public class CombatMenu extends AbstractMenu {
 			MenuLoader.loadGameMenu(this);
 			
 		}
-		else {
+		else 
+		{
 			
 			System.out.println("You try to escape, but the " + battleMonster.getName() + " is too fast.");
 			
@@ -159,26 +175,30 @@ public class CombatMenu extends AbstractMenu {
 		}
 	}
 
-	private void monsterAttack() {
+	private void monsterAttack() 
+	{
 		
 		System.out.println("The creature attacks!");
 		
 		DamageHandler combat = new DamageHandler();
 		int combatResult = combat.attackHero();
 		
-		if(combatResult == -1) {
+		if(combatResult == -1) 
+		{
 			
 			battleContinuing = false;
 			heroDeath();
 			
 		}
-		else if(combatResult == 0) {
+		else if(combatResult == 0) 
+		{
 			
 			System.out.println("The creature lunges, but you swiftly dodge.");
 			System.out.println();
 			
 		}
-		else {
+		else 
+		{
 			
 			System.out.println("It attacks you, leaving you with " + combatResult + " health left.");
 			System.out.println();
@@ -187,7 +207,8 @@ public class CombatMenu extends AbstractMenu {
 		
 	}
 
-	private void heroDeath() {
+	private void heroDeath() 
+	{
 		
 		System.out.println("Your knees crumple and your vision fades as your wounds become too much to bear.");
 		System.out.println();
@@ -197,7 +218,8 @@ public class CombatMenu extends AbstractMenu {
 	}
 
 	@Override
-	void onDestroy() {
+	void onDestroy() 
+	{
 		// TODO Auto-generated method stub
 		
 	}
