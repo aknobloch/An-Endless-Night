@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import main.InventorySystem.Artifact;
+import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 import main.InventorySystem.InventoryStackFullError;
 import main.InventorySystem.Weapon;
@@ -206,6 +207,24 @@ public class Hero extends Character implements Serializable
 			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
+	}
+	
+	public void useConsumable(Consumable usedItem) {
+		
+		for(InventoryItem item : playerInventory) 
+		{
+			// if item is in the inventory, decrement count
+			if(item.getItem().equals(usedItem)) 
+			{
+				int countLeft = item.decrementCount();
+				// if none left after decrement, remove.
+				if(countLeft <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+			}
+		}
+		
 	}
 	
 	/**
