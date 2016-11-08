@@ -152,4 +152,13 @@ public class MenuLoader {
 		
 	}
 	
+	/***
+	 * Starts the game by calling invoking the mainPrompt function of the start menu.
+	 */
+	public static void startGame() {
+		
+		startMenu.mainPrompt();
+		
+	}
+	
 }
