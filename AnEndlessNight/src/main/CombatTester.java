@@ -7,7 +7,7 @@ public class CombatTester {
 	public static void main(String[] args) {
 		
 		Game.initializeGame();
-		MenuLoader.loadStartMenu(null);
+		MenuLoader.debugCombat();
 		
 	}
 	

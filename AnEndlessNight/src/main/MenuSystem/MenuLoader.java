@@ -160,5 +160,11 @@ public class MenuLoader {
 		startMenu.mainPrompt();
 		
 	}
+
+	public static void debugCombat() {
+		
+		combatMenu.mainPrompt();
+		
+	}
 	
 }
