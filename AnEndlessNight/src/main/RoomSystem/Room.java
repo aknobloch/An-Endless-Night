@@ -1,11 +1,12 @@
 package main.RoomSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.CombatSystem.Monster;
 import main.InventorySystem.Artifact;
 
-public class Room 
+public class Room implements Serializable 
 {
 	private String description;
 	private ArrayList<Door> doors = new ArrayList<Door>();

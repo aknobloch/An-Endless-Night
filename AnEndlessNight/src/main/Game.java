@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import main.CombatSystem.Hero;
+import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
 import main.RoomSystem.RoomLibrary;
 /**
@@ -17,19 +18,21 @@ import main.RoomSystem.RoomLibrary;
  * @author Aaron and Jory
  *
  */
-public final class Game 
+public final class Game implements Serializable
 {
 
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
 	private static int score;
+	private static Journal journal;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
 		this.rooms = rooms;
 		this.hero = hero;
 		score = 0;
+		journal = new Journal();
 	}
 
 	public static Hero getHero() 
@@ -65,6 +68,7 @@ public final class Game
 	{
 		Hero h1;
 		ArrayList<Room> rooms;
+		Journal oldJournal;
 		if(game != null) throw new Exception();
 		ObjectInputStream input;
 		try 
@@ -72,9 +76,11 @@ public final class Game
 			input = new ObjectInputStream(new FileInputStream(file));
 			h1  = (Hero) input.readObject();
 			rooms = (ArrayList<Room>) input.readObject();
+			oldJournal = (Journal) input.readObject();
 			game = new Game(rooms,h1);
 			score = input.readInt();
 			setScore(score);
+			setJournal(oldJournal);
 		} catch (FileNotFoundException e) 
 		{
 			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
@@ -97,6 +103,21 @@ public final class Game
 	public static void setScore(int newScore) 
 	{
 		score = newScore;
+	}
+	
+	public static Journal getJournal()
+	{
+		return journal;
+	}
+	
+	public static void setJournal(Journal x)
+	{
+		journal = x;
+	}
+	
+	public Game getGame()
+	{
+		return this;
 	}
 
 }
