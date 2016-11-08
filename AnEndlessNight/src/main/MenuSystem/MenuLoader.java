@@ -11,13 +11,13 @@ package main.MenuSystem;
 public class MenuLoader {
 	
 	// the one, the only....
-	public static final MenuLoader johnCena = new MenuLoader();
+	private static final MenuLoader johnCena = new MenuLoader();
 	
-	public static final CombatMenu combatMenu = new CombatMenu(johnCena);
-	public static final GameMenu gameMenu = new GameMenu(johnCena);
-	public static final InventoryMenu inventoryMenu = new InventoryMenu(johnCena);
-	public static final JournalMenu journalMenu = new JournalMenu(johnCena);
-	public static final StartMenu startMenu = new StartMenu(johnCena);
+	private static final CombatMenu combatMenu = new CombatMenu(johnCena);
+	private static final GameMenu gameMenu = new GameMenu(johnCena);
+	private static final InventoryMenu inventoryMenu = new InventoryMenu(johnCena);
+	private static final JournalMenu journalMenu = new JournalMenu(johnCena);
+	private static final StartMenu startMenu = new StartMenu(johnCena);
 	
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
@@ -149,6 +149,21 @@ public class MenuLoader {
 			}
 			
 		}).start();
+		
+	}
+	
+	/***
+	 * Starts the game by calling invoking the mainPrompt function of the start menu.
+	 */
+	public static void startGame() {
+		
+		startMenu.mainPrompt();
+		
+	}
+
+	public static void debugCombat() {
+		
+		combatMenu.mainPrompt();
 		
 	}
 	

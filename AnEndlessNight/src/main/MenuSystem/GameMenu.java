@@ -34,7 +34,7 @@ public class GameMenu extends AbstractMenu
 				+ "4. View Score \n"
 				+ "5. View Help \n"
 				+ "6. Save Game \n"
-				+ "7. View Journal"
+				+ "7. View Journal \n"
 				+ "8. Exit Game \n";
 	}
 
@@ -61,7 +61,10 @@ public class GameMenu extends AbstractMenu
 			room.addAll(potentials.getConnectedRooms());
 		}
 		System.out.println("Which room would you like to move to? \n"
-				+ "please math the name of the room");
+				+ "please type the name of the room");
+		// TODO: No confirmation or error message. Text based input leaves 
+		// lots of errors like misspelling, typo or case sensitivities. Probably best
+		// to have a list of options. Option 1, 2, 3, etc.
 		for(Room x: room)
 		{
 			System.out.println(x.getName());
