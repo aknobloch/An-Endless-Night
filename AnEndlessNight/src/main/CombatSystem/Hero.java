@@ -38,7 +38,7 @@ public class Hero extends Character implements Serializable
 	{
 		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
-		equippedWeapon = null;
+		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
 		defense = 0;
@@ -84,7 +84,7 @@ public class Hero extends Character implements Serializable
 		
 		this.strength = this.strength - equippedWeapon.getStrength();
 		this.addArtifactToInventory(equippedWeapon);
-		this.equippedWeapon = null;
+		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 	}
 	
 	/***
