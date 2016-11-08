@@ -100,7 +100,9 @@ public class JournalMenu extends AbstractMenu{
 				{
 					System.out.println("You mumble nonsense to yourself. You think to yourself that you should not say nonense into the void");
 				}
-			} catch (IOException e) {
+			} 
+			catch (IOException e) 
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -112,7 +114,8 @@ public class JournalMenu extends AbstractMenu{
 
 
 	@Override
-	void onDestroy() {
+	void onDestroy() 
+	{
 		// TODO Auto-generated method stub
 		
 	}

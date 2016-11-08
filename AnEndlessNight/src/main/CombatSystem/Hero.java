@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import main.InventorySystem.Artifact;
+import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 import main.InventorySystem.InventoryStackFullError;
 import main.InventorySystem.Weapon;
@@ -37,7 +38,7 @@ public class Hero extends Character implements Serializable
 	{
 		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
-		equippedWeapon = null;
+		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
 		defense = 0;
@@ -83,7 +84,7 @@ public class Hero extends Character implements Serializable
 		
 		this.strength = this.strength - equippedWeapon.getStrength();
 		this.addArtifactToInventory(equippedWeapon);
-		this.equippedWeapon = null;
+		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 	}
 	
 	/***
@@ -205,6 +206,24 @@ public class Hero extends Character implements Serializable
 			}
 			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
+		}
+	}
+	
+	public void useConsumable(Consumable usedItem) {
+		
+		for(InventoryItem item : playerInventory) 
+		{
+			// if item is in the inventory, decrement count
+			if(item.getItem().equals(usedItem)) 
+			{
+				this.heal(usedItem.getHealAmount());
+				int countLeft = item.decrementCount();
+				// if none left after decrement, remove.
+				if(countLeft <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+			}
 		}
 	}
 	

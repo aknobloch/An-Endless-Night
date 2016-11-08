@@ -79,6 +79,18 @@ public class InventoryItem
 	}
 	
 	/**
+	 * Decrements the count, or stack number, of this InventoryItem. 
+	 * @return The count, or stack, left after decrementation.
+	 */
+	public int decrementCount() 
+	{
+		
+		this.count--;
+		return count;
+		
+	}
+	
+	/**
 	 * Checks to see if two InventoryItems are equal. Equality is based on the Artifact
 	 * that the InventoryItem holds. If the Artifacts of the two are the same, they are 
 	 * considered equal.
