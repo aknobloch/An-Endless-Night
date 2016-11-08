@@ -216,6 +216,7 @@ public class Hero extends Character implements Serializable
 			// if item is in the inventory, decrement count
 			if(item.getItem().equals(usedItem)) 
 			{
+				this.heal(usedItem.getHealAmount());
 				int countLeft = item.decrementCount();
 				// if none left after decrement, remove.
 				if(countLeft <= 0) 
@@ -224,7 +225,6 @@ public class Hero extends Character implements Serializable
 				}
 			}
 		}
-		
 	}
 	
 	/**
