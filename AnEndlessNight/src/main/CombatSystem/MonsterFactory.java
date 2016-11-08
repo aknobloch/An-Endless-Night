@@ -45,6 +45,12 @@ public class MonsterFactory
 		MonsterGenerator(monsterItemAssignments);
 	}
 
+	public Monster getMonsterForRoom(int roomID) {
+		
+		return new Monster(0, 100, 5, "Generic Monster", 100, null, false);
+		
+	}
+	
 	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 
 	{
 		File f = new File("MonstersNames.txt");

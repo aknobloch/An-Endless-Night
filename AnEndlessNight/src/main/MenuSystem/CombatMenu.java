@@ -1,15 +1,12 @@
 package main.MenuSystem;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import main.Game;
 import main.CombatSystem.DamageHandler;
 import main.CombatSystem.EscapeController;
 import main.CombatSystem.Monster;
 import main.CombatSystem.StatusCondition;
-import main.InventorySystem.Consumable;
-import main.InventorySystem.InventoryItem;
 
 /**
  * 
