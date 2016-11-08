@@ -16,7 +16,7 @@ public class RoomLibrary
 		//adding doors to rooms, 00 and 01 are the rooms the doors go into
 		doors.add(100);
 		doors.add(101);
-		//passing in doors and doorID
+		//passing in doors A.L. and doorID
 		Door d_01 = new Door(doors, 101);
 		doorObj.add(d_01);
 		doors.clear();
@@ -193,7 +193,7 @@ public class RoomLibrary
 		doorObj.add(d_TD);
 		doors.clear();
 
-		//FLOOR 2********
+		//FLOOR 2
 		doors.add(118);
 		doors.add(126);
 		Door d_30 = new Door(doors, 130);
@@ -271,6 +271,13 @@ public class RoomLibrary
 		Door d_40 = new Door(doors, 140);
 		doorObj.add(d_40);
 		doors.clear();
+
+
+/*for monsters
+//monsterfactory.getsomething(room);
+
+for artifacts
+//all artifacts that are in that room*/
 
 		//ROOMS FLOOR 1
 
