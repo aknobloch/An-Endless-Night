@@ -26,79 +26,80 @@ public class CombatMenu extends AbstractMenu
 	@Override
 	void mainPrompt() 
 	{
-		
+
 		Monster currentMonster = Game.getHero().getRoom().getMonster();
 		System.out.println("A " + currentMonster.getName() + " stares you down.");
 		battleContinuing = true;
-		
-		
+
+
 		while(battleContinuing) 
 		{
-			
-			System.out.println("What is your next move?");
-			System.out.println();
-			System.out.println("1. Attack Monster");
-			System.out.println("2. Brace Yourself");
-			System.out.println("3. Attempt to Flee");
-			System.out.println("4. Use Item");
-			System.out.println();
-
 
 			int userChoice = -1;
 			boolean validInput = false;
+			
 
 			do {
+				
 				try 
 				{
-
+					
+					System.out.println("What is your next move?");
+					System.out.println();
+					System.out.println("1. Attack Monster");
+					System.out.println("2. Brace Yourself");
+					System.out.println("3. Attempt to Flee");
+					System.out.println("4. Use Item");
+					System.out.println();
+					
 					userChoice = GameInput.getInt();
 					validInput = true;
 
-				} 
+					if(userChoice == 1) 
+					{
+
+						attack(currentMonster);
+
+					}
+					else if(userChoice == 2) 
+					{
+
+						defend(currentMonster);
+
+					}
+					else if(userChoice == 3) 
+					{
+
+						flee(currentMonster);
+
+					}
+					else if(userChoice == 4) 
+					{
+
+						CombatInventoryMenu.openMenu();
+
+					}
+					else 
+					{
+						throw new IOException();
+					}
+				}
 				catch (IOException e) 
 				{
 
 					System.out.println("You mumble incoherently. You should be wary of nonsensical babbling, ");
 					System.out.println("else you be labeled insane.");
 					System.out.println();
+					GameInput.advanceScanner();
 					validInput = false;
 
 				}
-
+				
 			} while( ! validInput);
 
-			if(userChoice == 1) 
-			{
-
-				attack(currentMonster);
-
-			}
-			else if(userChoice == 2) 
-			{
-
-				defend(currentMonster);
-
-			}
-			else if(userChoice == 3) 
-			{
-
-				flee(currentMonster);
-
-			}
-			else if(userChoice == 4) 
-			{
-				
-				CombatInventoryMenu.openMenu();
-				
-			}
-			else 
-			{
-				// something went wrong
-				this.mainPrompt();
-			}
 		}
-		
 	}
+		
 
 	private void attack(Monster currentMonster) 
 	{
