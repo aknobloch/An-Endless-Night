@@ -1,5 +1,7 @@
 package main.CombatSystem;
 
+import java.io.Serializable;
+
 import main.RoomSystem.Room;
 
 /***
@@ -8,7 +10,7 @@ import main.RoomSystem.Room;
  * @author Aaron
  *
  */
-public abstract class Character 
+public abstract class Character implements Serializable
 {
 
 	protected int characterID;

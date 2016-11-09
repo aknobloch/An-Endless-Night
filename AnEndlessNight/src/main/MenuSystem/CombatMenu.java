@@ -84,6 +84,7 @@ public class CombatMenu extends AbstractMenu
 						throw new IOException();
 					}
 				}
+				
 				catch (IOException e) 
 				{
 

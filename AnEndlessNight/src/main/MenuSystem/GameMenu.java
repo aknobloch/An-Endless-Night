@@ -44,11 +44,19 @@ public class GameMenu extends AbstractMenu
 		
 		System.out.println(descriptions.get(0));
 		System.out.println();
-		System.out.println("You notice the following items:");
-		for(int i = 1; i < descriptions.size();i++)
-		{
-			System.out.println(descriptions.get(i));
+		// if there are items, print items list
+		if(descriptions.size() >= 1) {
+			System.out.println("You notice the following items:");
+			for(int i = 1; i < descriptions.size();i++)
+			{
+				System.out.println(descriptions.get(i));
+			}
 		}
+		// otherwise...
+		else {
+			System.out.println("There doesn't appear to be anything else notable.");
+		}
+		
 	}
 
 	public boolean changeRooms()

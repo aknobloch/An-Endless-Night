@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import main.CombatSystem.Hero;
+import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
 import main.RoomSystem.RoomLibrary;
@@ -45,6 +45,7 @@ public final class Game implements Serializable
 		
 		if(game == null) 
 		{
+			ArtifactFactory.initializeArtifacts();
 			ArrayList<Room> newMap = RoomLibrary.roomGen();
 			Hero newHero = new Hero();
 			newHero.setLocation(newMap.get(0));

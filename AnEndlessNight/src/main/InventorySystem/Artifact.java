@@ -1,6 +1,8 @@
 package main.InventorySystem;
 
-public class Artifact 
+import java.io.Serializable;
+
+public class Artifact implements Serializable
 {
 	private String Name;
 	private String Description;

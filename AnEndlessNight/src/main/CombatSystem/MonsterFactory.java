@@ -22,14 +22,18 @@ import main.InventorySystem.Artifact;
 public class MonsterFactory 
 {
 	//TODO create map for monsters and the rooms they can appear in.
-	private String[] monsterNameArray = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
-	private ArrayList<String> monsterDropList;
-	private ArrayList<ArrayList<Artifact>> monsterItemAssignments;
+	private static String[] monsterNameArray = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
+	private static ArrayList<String> monsterDropList;
+	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
 	private static ArrayList<Monster> monsterList;
-	private ArrayList<Artifact> artifactList;
+	private static ArrayList<Artifact> artifactList;
 
-	public MonsterFactory()
-	{
+	private MonsterFactory() {
+		// prevents instantiation
+	}
+	
+	private static void initializeFactory() {
+		
 		monsterDropList = new ArrayList<String>();
 		monsterItemAssignments = new ArrayList<ArrayList<Artifact>>();
 		monsterList = new ArrayList<Monster>();
@@ -49,7 +53,7 @@ public class MonsterFactory
 		MonsterGenerator(monsterItemAssignments);
 	}
 	
-	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 
+	private static  void getItemForMonster(String generatedMonster) throws FileNotFoundException 
 	{
 		File f = new File("MonstersNames.txt");
 		Scanner scan = new Scanner(f);
@@ -79,7 +83,7 @@ public class MonsterFactory
 		scan.close();
 	}
 
-	public ArrayList<Artifact> readArtifacts(ArrayList<String> artifact) 
+	private static ArrayList<Artifact> readArtifacts(ArrayList<String> artifact) 
 	{
 		// open up artifacts.dat and read into an arrayList of artifacts.
 		ObjectInputStream input = null;
@@ -131,7 +135,7 @@ public class MonsterFactory
 		return artifactList;
 	}
 
-	public void MonsterGenerator(ArrayList<ArrayList<Artifact>> artifactAl)
+	public static void MonsterGenerator(ArrayList<ArrayList<Artifact>> artifactAl)
 	{
 
 		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 0.01, artifactAl.get(0), false);
@@ -178,8 +182,11 @@ public class MonsterFactory
 		}
 	}
 
-	public Monster setRoomMonster(int roomID) 
+	public static Monster setRoomMonster(int roomID) 
 	{
+		if(monsterList == null) {
+			initializeFactory();
+		}
 		int winningMonster = 0;
 
 		switch (roomID)

@@ -14,7 +14,7 @@ import main.CombatSystem.Armor;
  */
 public class ArtifactFactory 
 {
-	private String[] artifactNameArray = {
+	private static String[] artifactNameArray = {
 			"Magic Mirror",
 			"Katana",
 			"Odachi",
@@ -34,9 +34,9 @@ public class ArtifactFactory
 			"Tengu's Fan",
 	"Kitsune's Tail"};
 
-	private ArrayList<Artifact> artifactsList = new ArrayList<Artifact>();
+	private static ArrayList<Artifact> artifactsList = new ArrayList<Artifact>();
 
-	public ArtifactFactory()
+	public static void initializeArtifacts() 
 	{
 		for (int i = 0; i < artifactNameArray.length; i++)
 		{
@@ -51,7 +51,7 @@ public class ArtifactFactory
 		writeToFile(artifactsList);
 	}
 
-	private void getArtifactInfo(String artifactName) throws FileNotFoundException 
+	private static void getArtifactInfo(String artifactName) throws FileNotFoundException 
 	{
 		File f = new File("ArtifactID.txt");
 		Scanner scan = new Scanner(f);
@@ -63,10 +63,8 @@ public class ArtifactFactory
 
 			if(parts[0].equals(artifactName)) 
 			{
-				for(int i = 1; i < parts.length; i++)
-				{
-					int itemID = Integer.parseInt(parts[i + 1]);
-					String itemDesc = parts[i + 2];
+					int itemID = Integer.parseInt(parts[2]);
+					String itemDesc = parts[3];
 					int healAmount;
 					int strength;
 					int defense;
@@ -79,24 +77,24 @@ public class ArtifactFactory
 						isKey = true;
 					}
 
-					switch (parts[i])
+					switch (parts[1])
 					{
 					case "Key":
 						//TODO add puzzleID to ArtifactID.txt
-						puzzleID = Integer.parseInt(parts[i + 3]);
+						puzzleID = Integer.parseInt(parts[4]);
 						item = new KeyArtifact(artifactName, itemDesc, itemID, puzzleID, isKey);
 						break;
 					case "Consumable": 
-						healAmount = Integer.parseInt(parts[i + 3]);
+						healAmount = Integer.parseInt(parts[4]);
 						item = new Consumable(artifactName, itemDesc, itemID, healAmount);
 						break;
 					case "Weapon": 
-						strength = Integer.parseInt(parts[i + 3]);
+						strength = Integer.parseInt(parts[4]);
 						item = new Weapon(artifactName, itemDesc, itemID, strength);
 						break;
 					case "Armor": 
 						//TODO add defense values into ArtifactID.txt
-						defense = Integer.parseInt(parts[i + 3]);
+						defense = Integer.parseInt(parts[4]);
 						item = new Armor(artifactName, itemDesc, itemID, defense);
 						break;
 					case "Armor and Key": 
@@ -105,13 +103,13 @@ public class ArtifactFactory
 						break;
 					}
 					artifactsList.add(item);
-				}
+				
 			}
 		}
 		scan.close();
 	}
 
-	public void writeToFile(ArrayList<Artifact> artifactsList)
+	private static void writeToFile(ArrayList<Artifact> artifactsList)
 	{
 		// open file for writing
 		try
