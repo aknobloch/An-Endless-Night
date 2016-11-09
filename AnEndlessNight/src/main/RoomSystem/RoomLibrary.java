@@ -3,6 +3,7 @@ package main.RoomSystem;
 import java.util.ArrayList;
 
 import main.CombatSystem.MonsterFactory;
+import main.InventorySystem.Artifact;
 
 public class RoomLibrary 
 {
@@ -14,10 +15,10 @@ public class RoomLibrary
 		ArrayList<Integer> rooms = new ArrayList<Integer>();
 		ArrayList<Room> roomObj = new ArrayList<Room>();
 
-		ArrayList<Integer> puzzle = new ArrayList<Integer>();
-		ArrayList<Puzzle> puzzleObj = new ArrayList<Puzzle>();
-		
-		
+		ArrayList<Integer> artifact = new ArrayList<Integer>();
+		ArrayList<Artifact> artifactObj = new ArrayList<Artifact>();
+
+
 		//FLOOR 1 Doors
 		//adding doors to rooms, 00 and 01 are the rooms the doors go into
 		doors.add(100);
@@ -277,22 +278,103 @@ public class RoomLibrary
 		Door d_40 = new Door(doors, 140);
 		doorObj.add(d_40);
 		doors.clear();
+
+		//ARTIFACTS
+		//adding artifact to rooms, 08 is the room the puzzle goes into
+		artifact.add(108);
+		Artifact art_01 = new Artifact("Magic Mirror", "A mirror that reflects brightly", 1);
+		artifactObj.add(art_01);
+		artifact.clear();
 		
-		//adding puzzles to rooms, 02 is the room the puzzle goes into
-		//Puzzles
-		puzzle.add(102);
-		Puzzle puz_01 = new Puzzle("I have no eyes, but I once did see. I once had thoughts, but now I’m white and empty. What am I?", "A Skull", false, 0, "Bones!", 1, 3);
-		puzzleObj.add(puz_01);
-		puzzle.clear();
-	
-		puzzle.add(107);
-		Puzzle puz_02 = new Puzzle("description", "solution", false, 0, "hint", 2, 3);
-		puzzleObj.add(puz_02);
-		puzzle.clear();
+		artifact.add(120);
+		Artifact art_02 = new Artifact("Katana", "A sword with a wide blade, used for cutting rather than thrusting", 2);
+		artifactObj.add(art_02);
+		artifact.clear();
 		
-/* 
- * TODO Need --> puzzle factory 
- */
+		artifact.add(125);
+		Artifact art_03 = new Artifact("Odachi", "A larger and longer form of a kanata", 3);
+		artifactObj.add(art_03);
+		artifact.clear();
+		
+		artifact.add(107);
+		Artifact art_04 = new Artifact("Bo/Jo", "Two handed Staffs", 4);
+		artifactObj.add(art_04);
+		artifact.clear();
+		
+		artifact.add(109);
+		Artifact art_05 = new Artifact("Healing Potion", "A liquid with healing and magical properties", 5);
+		artifactObj.add(art_05);
+		artifact.clear();
+		
+		artifact.add(103);
+		Artifact art_06 = new Artifact("Journal", "Book to keep track of clues/events", 6);
+		artifactObj.add(art_06);
+		artifact.clear();
+		
+		artifact.add(128);
+		Artifact art_07 = new Artifact("Celestial Globe", "Globe which shows constellations for each season. \nWinter: Monoceros - The Unicorn \nSpring: Lynx - The Wildcat \nSummer: Draco - The Dragon \nAutumn: Grus - The Crane", 7);
+		artifactObj.add(art_07);
+		artifact.clear();
+
+		artifact.add(102);
+		Artifact art_08 = new Artifact("Study Room Key", "An old silver key", 8);
+		artifactObj.add(art_08);
+		artifact.clear();
+		
+		artifact.add(112);
+		Artifact art_09 = new Artifact("Kegutsu", "Heavy Boots", 9);
+		artifactObj.add(art_09);
+		artifact.clear();
+		
+		artifact.add(125);
+		Artifact art_10 = new Artifact("Kikko", "Light Armor", 10);
+		artifactObj.add(art_10);
+		artifact.clear();
+		
+		artifact.add(113);
+		artifact.add(127);
+		Artifact art_11 = new Artifact("Mempo", "Facial Armor", 11);
+		artifactObj.add(art_11);
+		artifact.clear();
+		
+		artifact.add(114);
+		Artifact art_12 = new Artifact("Kaiken", "Long Knife", 12);
+		artifactObj.add(art_12);
+		artifact.clear();
+		
+		artifact.add(117);
+		Artifact art_13 = new Artifact("Kusarigama", "Chain-Sickle", 13);
+		artifactObj.add(art_13);
+		artifact.clear();
+		
+		artifact.add(115);
+		Artifact art_14 = new Artifact("Daruma Doll", "A round doll modeled after Zen founder Bodhidharma", 14);
+		artifactObj.add(art_14);
+		artifact.clear();
+		
+		artifact.add(119);
+		Artifact art_15 = new Artifact("Kokeshi Doll", "A wooden doll depicting a maiden", 15);
+		artifactObj.add(art_15);
+		artifact.clear();
+		
+		artifact.add(106);
+		Artifact art_16 = new Artifact("Ladder", "A ladder used for climbing.", 16);
+		artifactObj.add(art_16);
+		artifact.clear();
+		
+		artifact.add(122);
+		Artifact art_17 = new Artifact("Tengu’s Fan", "Accessory", 17);
+		artifactObj.add(art_17);
+		artifact.clear();
+
+		artifact.add(100);
+		Artifact art_18 = new Artifact("Kitsune’s Tail", "Accessory", 18);
+		artifactObj.add(art_18);
+		artifact.clear();
+		
+		/* 
+		 * TODO Need --> puzzle factory 
+		 */
 		//PuzzleFactory puzzleFactory = new PuzzleFactory();
 		MonsterFactory monsterFactory = new MonsterFactory();
 
