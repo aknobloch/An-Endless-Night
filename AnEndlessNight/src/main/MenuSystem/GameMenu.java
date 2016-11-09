@@ -162,7 +162,8 @@ public class GameMenu extends AbstractMenu
 				else if(input.equals("2"))
 				{
 				 	boolean isMonster = changeRooms();
-				
+				 	
+				 	// TODO: This shouldn't be, player has a choice whether to engage monster.
 				 	if(isMonster)
 				 		{
 				 			check = false;
