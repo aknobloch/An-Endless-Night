@@ -75,8 +75,8 @@ public class Hero extends Character implements Serializable
 	 * Reduces strength by the value of the equipped weapon, and
 	 * attempts to move the equipped weapon into inventory.
 	 */
-	public void unequipWeapon() {
-		
+	public void unequipWeapon() 
+	{
 		if(equippedWeapon == null) 
 		{
 			return;
@@ -244,10 +244,9 @@ public class Hero extends Character implements Serializable
 	 * @return The remaining health of the hero.
 	 */
 	@Override
-	public int attack(int damage) {
-		
+	public int attack(int damage) 
+	{
 		damage = damage - this.defense;
 		return super.attack(damage);
-		
 	}
 }

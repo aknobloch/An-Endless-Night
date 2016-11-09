@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import main.CombatSystem.Monster;
 import main.InventorySystem.Artifact;
 
+/**
+ * author: Estephanie Gonzalez, Jory Alexander
+ */
+
 public class Room implements Serializable 
 {
 	private String description;
@@ -97,5 +101,4 @@ public class Room implements Serializable
 	{
 		return name;
 	}
-
 }

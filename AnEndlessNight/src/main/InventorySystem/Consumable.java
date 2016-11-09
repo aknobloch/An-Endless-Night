@@ -2,7 +2,6 @@ package main.InventorySystem;
 
 public class Consumable extends Artifact 
 {
-
 	private int healAmount;
 	
 	public Consumable(String name, String description, int artifactID,int healAmount) 
@@ -16,5 +15,4 @@ public class Consumable extends Artifact
 	{
 		return healAmount;
 	}
-
 }

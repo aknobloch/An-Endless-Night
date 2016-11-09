@@ -28,13 +28,12 @@ public class MonsterFactory
 	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
 	private static ArrayList<Monster> monsterList;
 	private static ArrayList<Artifact> artifactList;
-
-	private MonsterFactory() {
-		// prevents instantiation
-	}
 	
-	private static void initializeFactory() {
-		
+	// prevents instantiation
+	private MonsterFactory() {}
+	
+	private static void initializeFactory() 
+	{
 		monsterDropList = new ArrayList<String>();
 		monsterItemAssignments = new ArrayList<ArrayList<Artifact>>();
 		monsterList = new ArrayList<Monster>();
@@ -186,7 +185,8 @@ public class MonsterFactory
 
 	public static Monster setRoomMonster(int roomID) 
 	{
-		if(monsterList == null) {
+		if(monsterList == null) 
+		{
 			initializeFactory();
 		}
 		int winningMonster = 0;
@@ -214,7 +214,6 @@ public class MonsterFactory
 				}
 			};
 			break;
-
 		}
 
 		return monsterList.get(winningMonster);

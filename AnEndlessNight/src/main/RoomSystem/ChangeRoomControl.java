@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import main.Game;
 
+/**
+ * author: Jory Alexander
+ */
+
 public class ChangeRoomControl 
 {
 	public static boolean changeRoom(String destination)
@@ -21,11 +25,6 @@ public class ChangeRoomControl
 				}
 			}
 		}
-		
 		return false;
-		
 	}
-	
-	
-
 }

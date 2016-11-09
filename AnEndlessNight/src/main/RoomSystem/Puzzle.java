@@ -1,5 +1,9 @@
 package main.RoomSystem;
 
+/**
+ * author: Estephanie Gonzalez, Jory Alexander
+ */
+
 public class Puzzle 
 {
 	private String description;

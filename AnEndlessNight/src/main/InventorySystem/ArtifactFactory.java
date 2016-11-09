@@ -9,14 +9,14 @@ import java.util.Scanner;
 
 import main.CombatSystem.Armor;
 
-/*
- * By: Caleb
+/**
+ * author: Caleb Sears
  */
 public class ArtifactFactory 
 {
 	
-	private static String[] artifactNameArray = {
-
+	private static String[] artifactNameArray = 
+		{
 			"Magic Mirror",
 			"Katana",
 			"Odachi",
@@ -106,7 +106,6 @@ public class ArtifactFactory
 						break;
 					}
 					artifactsList.add(item);
-				
 			}
 		}
 		scan.close();

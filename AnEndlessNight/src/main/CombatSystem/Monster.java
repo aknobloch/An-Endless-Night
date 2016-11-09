@@ -61,7 +61,4 @@ public class Monster extends Character
 	{
 		return this.isBoss;
 	}
-
-	
-
 }

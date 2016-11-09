@@ -17,9 +17,8 @@ import main.RoomSystem.SearchRoomControl;
 
 public class GameMenu extends AbstractMenu
 {
-
-	
-	public GameMenu(MenuLoader menuLoader) {
+	public GameMenu(MenuLoader menuLoader) 
+	{
 		super(menuLoader);
 	}
 
@@ -53,10 +52,10 @@ public class GameMenu extends AbstractMenu
 			}
 		}
 		// otherwise...
-		else {
+		else 
+		{
 			System.out.println("There doesn't appear to be anything else notable.");
 		}
-		
 	}
 
 	public boolean changeRooms()
@@ -78,28 +77,26 @@ public class GameMenu extends AbstractMenu
 			System.out.println(x.getName());
 		}
 		String choice;
-		try {
+		try 
+		{
 			choice = GameInput.getString();
 			isMonster = ChangeRoomControl.changeRoom(choice);
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			System.out.println("Invalid input");
 		}
 		return isMonster;
-		
-		
 	}
 	/**
 	 * opens the inventory menu
 	 */
-	public void openInventory() {
-		
-	}
+	public void openInventory() {}
 	
-	public void help() {
+	public void help() 
+	{
 		System.out.println("In order to input to the game enter the number next"
 				+ "to the option that you would like to perform");
-		
 	}
 
 	public void showScore()
@@ -107,51 +104,54 @@ public class GameMenu extends AbstractMenu
 		System.out.println("Your current score is: " + Game.getScore());
 	}
 	
-	public void exitGame() {
+	public void exitGame() 
+	{
 		System.exit(0);
-		
 	}
 
-	public void saveGame() {
+	public void saveGame() 
+	{
 		String input = "";
 		
 		System.out.println("What would you like to name your save file?");
-		try {
+		try 
+		{
 			input = GameInput.getString();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			System.out.println("Invalid Input");
 			return;
 		}
 		input = input +".dat";
 		
-		try {
+		try 
+		{
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(input));
 			
 			out.writeObject(Game.getHero());
 			out.writeObject(Game.getRooms());
 			out.writeInt(Game.getScore());
 			out.writeObject(Game.getJournal());
-		} catch (FileNotFoundException e) {
-			
+		} catch (FileNotFoundException e) 
+		{
 			e.printStackTrace();
-		} catch (IOException e) {
-			
+		} catch (IOException e) 
+		{
 			e.printStackTrace();
 		}
-		
 	}
-
 	
-	void mainPrompt() {
-
+	void mainPrompt() 
+	{
 		System.out.println(toString());
 		
 		String input;
 		boolean check = true;
 		while(check)
 		{
-			try {
+			try 
+			{
 				input = GameInput.getString();
 			
 				if(input.equals("1"))
@@ -198,21 +198,13 @@ public class GameMenu extends AbstractMenu
 					check = false;
 					exitGame();
 				}
-			} catch (IOException e) {
-			
+			} catch (IOException e) 
+			{
 				System.out.println("You mumble to yourself.");
 			}
 		}
-		
 	}
-
-
-	
 
 	@Override
-	void onDestroy() {
-		
-		
-	}
-
+	void onDestroy() {}
 }

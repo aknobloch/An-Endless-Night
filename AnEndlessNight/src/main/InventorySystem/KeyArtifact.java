@@ -2,7 +2,6 @@ package main.InventorySystem;
 
 public class KeyArtifact extends Artifact 
 {
-	
 	private int puzzleID;
 	private boolean isKey;
 
@@ -22,5 +21,4 @@ public class KeyArtifact extends Artifact
 	{
 		return isKey;
 	}
-
 }

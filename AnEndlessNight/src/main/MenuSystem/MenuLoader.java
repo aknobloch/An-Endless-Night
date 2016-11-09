@@ -8,8 +8,8 @@ package main.MenuSystem;
  * @author Aaron
  *
  */
-public class MenuLoader {
-	
+public class MenuLoader 
+{
 	// the one, the only....
 	private static final MenuLoader johnCena = new MenuLoader();
 	
@@ -24,7 +24,8 @@ public class MenuLoader {
 	 * you pass in an object of this class. This ensures that menus are not created or managed
 	 * except through this class.
 	 */
-	private MenuLoader() {
+	private MenuLoader() 
+	{
 		// prevent instantiation.
 	}
 
@@ -36,20 +37,17 @@ public class MenuLoader {
 	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
 	 * this method should be "this". 
 	 */
-	public static void loadCombatMenu(AbstractMenu currentMenu) {
-		
+	public static void loadCombatMenu(AbstractMenu currentMenu) 
+	{
 		currentMenu.onDestroy();
-		new Thread(new Runnable() {
-
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
-				
+			public void run() 
+			{
 				combatMenu.mainPrompt();
-				
 			}
-			
 		}).start();
-		
 	}
 	
 	/***
@@ -60,21 +58,18 @@ public class MenuLoader {
 	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
 	 * this method should be "this". 
 	 */
-	public static void loadGameMenu(AbstractMenu currentMenu) {
-		
+	public static void loadGameMenu(AbstractMenu currentMenu) 
+	{
 		currentMenu.onDestroy();
-		
-		new Thread(new Runnable() {
 
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
-				
+			public void run() 
+			{
 				gameMenu.mainPrompt();
-				
 			}
-			
 		}).start();
-		
 	}
 
 	/***
@@ -85,21 +80,19 @@ public class MenuLoader {
 	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
 	 * this method should be "this". 
 	 */
-	public static void loadInventoryMenu(AbstractMenu currentMenu) {
-		
+	public static void loadInventoryMenu(AbstractMenu currentMenu) 
+	{
 		currentMenu.onDestroy();
 		
-		new Thread(new Runnable() {
-
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
-				
+			public void run() 
+			{
 				inventoryMenu.mainPrompt();
-				
 			}
 			
 		}).start();
-		
 	}
 	
 	/***
@@ -110,21 +103,18 @@ public class MenuLoader {
 	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
 	 * this method should be "this". 
 	 */
-	public static void loadJournalMenu(AbstractMenu currentMenu) {
-		
+	public static void loadJournalMenu(AbstractMenu currentMenu) 
+	{
 		currentMenu.onDestroy();
 		
-		new Thread(new Runnable() {
-
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
-				
+			public void run() 
+			{
 				journalMenu.mainPrompt();
-				
 			}
-			
 		}).start();
-		
 	}
 	
 	/***
@@ -135,36 +125,30 @@ public class MenuLoader {
 	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
 	 * this method should be "this". 
 	 */
-	public static void loadStartMenu(AbstractMenu currentMenu) {
-		
+	public static void loadStartMenu(AbstractMenu currentMenu) 
+	{
 		currentMenu.onDestroy();
 		
-		new Thread(new Runnable() {
-
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
-				
+			public void run() 
+			{
 				startMenu.mainPrompt();
-				
 			}
-			
 		}).start();
-		
 	}
 	
 	/***
 	 * Starts the game by calling invoking the mainPrompt function of the start menu.
 	 */
-	public static void startGame() {
-		
+	public static void startGame() 
+	{
 		startMenu.mainPrompt();
-		
 	}
 
-	public static void debugCombat() {
-		
+	public static void debugCombat() 
+	{
 		combatMenu.mainPrompt();
-		
 	}
-	
 }
