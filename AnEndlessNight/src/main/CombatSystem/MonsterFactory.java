@@ -22,6 +22,7 @@ import main.InventorySystem.Artifact;
 public class MonsterFactory 
 {
 	//TODO create map for monsters and the rooms they can appear in.
+
 	private static String[] monsterNameArray = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
 	private static ArrayList<String> monsterDropList;
 	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
@@ -54,6 +55,7 @@ public class MonsterFactory
 	}
 	
 	private static  void getItemForMonster(String generatedMonster) throws FileNotFoundException 
+
 	{
 		File f = new File("MonstersNames.txt");
 		Scanner scan = new Scanner(f);
@@ -216,7 +218,5 @@ public class MonsterFactory
 		}
 
 		return monsterList.get(winningMonster);
-
 	}
-
 }
