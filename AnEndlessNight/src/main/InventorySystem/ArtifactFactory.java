@@ -14,7 +14,8 @@ import main.CombatSystem.Armor;
  */
 public class ArtifactFactory 
 {
-	private String[] artifactNameArray = {
+	private String[] artifactNameArray = 
+		{
 			"Magic Mirror",
 			"Katana",
 			"Odachi",
@@ -32,7 +33,8 @@ public class ArtifactFactory
 			"Kokeshi Doll", 
 			"Ladder",
 			"Tengu's Fan",
-	"Kitsune's Tail"};
+			"Kitsune's Tail"
+		};
 
 	private ArrayList<Artifact> artifactsList = new ArrayList<Artifact>();
 
@@ -133,6 +135,4 @@ public class ArtifactFactory
 			System.out.println("Problem writing to artifacts.dat");
 		}
 	}
-
-
 }
