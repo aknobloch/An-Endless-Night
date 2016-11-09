@@ -7,8 +7,6 @@ import main.InventorySystem.Artifact;
 
 public class SearchRoomControl 
 {
-	// TODO: Throws null pointer if no artifacts are in room.
-	// 		 Needs to handle, and notify GameMenu/User if no artifacts in room. 
 	public static ArrayList<String> searchRoom()
 	{
 		

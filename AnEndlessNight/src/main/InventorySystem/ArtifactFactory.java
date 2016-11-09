@@ -35,7 +35,7 @@ public class ArtifactFactory
 			"Ladder",
 			"Tengu's Fan",
 			"Kitsune's Tail"
-		};
+	};
 
 	private static ArrayList<Artifact> artifactsList = new ArrayList<Artifact>();
 
