@@ -23,15 +23,28 @@ public class MonsterFactory
 {
 	//TODO create map for monsters and the rooms they can appear in.
 
-	private static String[] monsterNameArray = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
+	private static String[] monsterNameArray = 
+		{
+		"Maneki-neko",
+		"Karakasa", 
+		"Futakuchi-onna", 
+		"Kappa", 
+		"Tanuki", 
+		"Yatagarasu", 
+		"Oni", 
+		"Shisa", 
+		"Tengu", 
+		"Kitsune", 
+		"Ryu"
+		};
 	private static ArrayList<String> monsterDropList;
 	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
 	private static ArrayList<Monster> monsterList;
 	private static ArrayList<Artifact> artifactList;
-	
+
 	// prevents instantiation
 	private MonsterFactory() {}
-	
+
 	private static void initializeFactory() 
 	{
 		monsterDropList = new ArrayList<String>();
@@ -52,7 +65,7 @@ public class MonsterFactory
 
 		MonsterGenerator(monsterItemAssignments);
 	}
-	
+
 	private static  void getItemForMonster(String generatedMonster) throws FileNotFoundException 
 
 	{

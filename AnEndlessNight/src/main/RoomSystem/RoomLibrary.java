@@ -423,7 +423,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_02_art = new ArrayList<>();
 		rm_02_art.add(art_08);
 		
-		Room rm_02 = new Room("A plain garden with bamboo trees.", rm_02_doors, 102, false, "West Garden", puzzleFactory.setRoomPuzzle(2), null, rm_02_art);
+		Room rm_02 = new Room("A plain garden with bamboo trees.", rm_02_doors, 102, false, "West Garden", PuzzleFactory.setRoomPuzzle(2), null, rm_02_art);
 		
 		roomObj.add(rm_02);
 		rooms.clear();
@@ -494,7 +494,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_07_art = new ArrayList<>();
 		rm_07_art.add(art_04);
 		
-		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", rm_07_doors, 107, false, "Southeast Shed", puzzleFactory.setRoomPuzzle(7), null, rm_07_art);
+		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", rm_07_doors, 107, false, "Southeast Shed", PuzzleFactory.setRoomPuzzle(7), null, rm_07_art);
 		
 		roomObj.add(rm_07);
 		rooms.clear();
@@ -570,7 +570,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_13_art = new ArrayList<>();
 		rm_13_art.add(art_11);
 		
-		Room rm_13 = new Room("A small table lies in the middle of the room. The room is large enough to fit two big families.", rm_13_doors, 113, false, "Dining Room", puzzleFactory.setRoomPuzzle(13), null, rm_13_art);
+		Room rm_13 = new Room("A small table lies in the middle of the room. The room is large enough to fit two big families.", rm_13_doors, 113, false, "Dining Room", PuzzleFactory.setRoomPuzzle(13), null, rm_13_art);
 		
 		roomObj.add(rm_13);
 		rooms.clear();
@@ -626,7 +626,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_17_art = new ArrayList<>();
 		rm_17_art.add(art_13);
 		
-		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", puzzleFactory.setRoomPuzzle(17), null, rm_17_art);
+		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", PuzzleFactory.setRoomPuzzle(17), null, rm_17_art);
 		
 		roomObj.add(rm_17);
 		rooms.clear();
@@ -665,7 +665,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_20_art = new ArrayList<>();
 		rm_20_art.add(art_02);
 		
-		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", rm_20_doors, 120, false, "Servant Closet", puzzleFactory.setRoomPuzzle(20), null, rm_20_art);
+		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", rm_20_doors, 120, false, "Servant Closet", PuzzleFactory.setRoomPuzzle(20), null, rm_20_art);
 		
 		roomObj.add(rm_20);
 		rooms.clear();
@@ -752,7 +752,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_27_art = new ArrayList<>();
 		rm_27_art.add(art_11);
 		
-		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", puzzleFactory.setRoomPuzzle(27), null, rm_27_art);
+		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", PuzzleFactory.setRoomPuzzle(27), null, rm_27_art);
 		
 		roomObj.add(rm_27);
 		rooms.clear();
@@ -768,7 +768,7 @@ public class RoomLibrary
 		ArrayList<Artifact> rm_28_art = new ArrayList<>();
 		rm_28_art.add(art_07);
 		
-		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", rm_28_doors, 128, false, "Observatory", puzzleFactory.setRoomPuzzle(28), null, rm_28_art);
+		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", rm_28_doors, 128, false, "Observatory", PuzzleFactory.setRoomPuzzle(28), null, rm_28_art);
 		
 		roomObj.add(rm_28);
 		rooms.clear();
