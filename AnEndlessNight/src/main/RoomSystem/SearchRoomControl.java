@@ -6,7 +6,7 @@ import main.Game;
 import main.InventorySystem.Artifact;
 
 public class SearchRoomControl 
-{
+{		
 	public static ArrayList<String> searchRoom()
 	{
 		

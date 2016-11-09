@@ -106,7 +106,7 @@ public class CombatMenu extends AbstractMenu
 	{
 		
 		DamageHandler combatManager = new DamageHandler();
-		System.out.println("You raise your " + Game.getHero().getEquippedWeapon().getName() + 
+		System.out.println("You raise your " + Game.getHero().getEquippedWeapon().getName().toLowerCase() + 
 						   " and bring it down on the " + currentMonster.getName());
 		
 		int monsterAttackResult = combatManager.attackMonster();
