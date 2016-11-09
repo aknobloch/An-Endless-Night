@@ -28,8 +28,6 @@ public class MonsterFactory
 	private static ArrayList<Monster> monsterList;
 	private ArrayList<Artifact> artifactList;
 
-
-
 	public MonsterFactory()
 	{
 		monsterDropList = new ArrayList<String>();
@@ -49,12 +47,6 @@ public class MonsterFactory
 		}
 
 		MonsterGenerator(monsterItemAssignments);
-	}
-
-	public static Monster getMonsterForRoom(int roomID) {
-		
-		return new Monster(0, 100, 5, "Generic Monster", 100, null, false);
-		
 	}
 	
 	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 
@@ -186,7 +178,7 @@ public class MonsterFactory
 		}
 	}
 
-	public static Monster setRoomMonster(int roomID) 
+	public Monster setRoomMonster(int roomID) 
 	{
 		int winningMonster = 0;
 
