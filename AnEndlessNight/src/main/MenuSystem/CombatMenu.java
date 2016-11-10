@@ -161,6 +161,8 @@ public class CombatMenu extends AbstractMenu
 			System.out.println("You feign an attack, and dart off while the " + battleMonster.getName() + " attempts to brace itself.");
 			System.out.println();
 			battleContinuing = false;
+			// move hero back to last room.
+			Game.getHero().bounceBack();
 			MenuLoader.loadGameMenu(this);
 			
 		}

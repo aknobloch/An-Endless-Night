@@ -294,4 +294,15 @@ public class Hero extends Character implements Serializable
 		// create problems. Therefore, last room is set for the current room.
 		this.lastRoom = currentRoom;
 	}
+
+	/** 
+	 * Bounces the hero back to the last location. This method does not alter the last room.
+	 * Therefore, after this method is called the last location and current room will be the 
+	 * same until the Hero moves again.
+	 */
+	public void bounceBack() {
+		
+		this.currentRoom = lastRoom;
+		
+	}
 }
