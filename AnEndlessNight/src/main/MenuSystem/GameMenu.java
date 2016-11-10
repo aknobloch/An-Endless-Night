@@ -163,7 +163,6 @@ public class GameMenu extends AbstractMenu
 				{
 				 	boolean isMonster = changeRooms();
 				 	
-				 	// TODO: This shouldn't be, player has a choice whether to engage monster.
 				 	if(isMonster)
 				 	{
 				 		check = false;
@@ -172,7 +171,7 @@ public class GameMenu extends AbstractMenu
 				 	else if(Game.getHero().getRoom().getPuzzle() != null)
 				 	{
 				 		check = false;
-				 		MenuLoader.loadPuzzleMenu();
+				 		MenuLoader.loadPuzzleMenu(this);
 				 	}
 				}
 				else if(input.equals("3"))
