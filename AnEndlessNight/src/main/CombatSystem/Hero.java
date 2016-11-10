@@ -211,6 +211,12 @@ public class Hero extends Character implements Serializable
 		}
 	}
 	
+	/**
+	 * Uses a consumable item. This method adds the health of the item to the 
+	 * Hero, and handles decrementing stacks and removing items if no more left.
+	 * 
+	 * @param usedItem The item to use.
+	 */
 	public void useConsumable(Consumable usedItem) {
 		
 		for(InventoryItem item : playerInventory) 
@@ -252,17 +258,35 @@ public class Hero extends Character implements Serializable
 		return super.attack(damage);
 	}
 	
-	public void setLastRoom(Room x)
+	/**
+	 * Set the last room that the hero was in. This 
+	 * 
+	 * @param lastRoom The room that the hero is leaving.
+	 */
+	public void setLastRoom(Room lastRoom)
 	{
-		lastRoom = x;
+		this.lastRoom = lastRoom;
 	}
 	
+	/**
+	 * Gets the last room that the Hero was in. There are a few cases where this 
+	 * will return the current room. If the Hero was bounce-backed in the last turn, or if
+	 * the hero was teleported, then this method will return the current room.
+	 * 
+	 * @return The last room that the Hero was logically in.
+	 */
 	public Room getLastRoom()
 	{
 		return lastRoom;
 	}
 	
-	
+	/**
+	 * Teleports the Hero to a new location. Do not use this method unless you have
+	 * a very specific, very pressing need. 
+	 * 
+	 * @param newLocation The new location to place the hero. Sets the current room and last
+	 * room of the player to be the new location to avoid logical errors.
+	 */
 	public void teleport(Room newLocation) 
 	{
 		this.currentRoom = newLocation;
