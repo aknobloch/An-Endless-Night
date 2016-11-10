@@ -68,8 +68,8 @@ public class GameMenu extends AbstractMenu
 		{
 			room.addAll(potentials.getConnectedRooms());
 		}
-		System.out.println("Which room would you like to move to? \n"
-				+ "please type the name of the room");
+		System.out.println("Which room would you like to move to?"
+				+ "\nplease type the name of the room");
 		// TODO: No confirmation or error message. Text based input leaves 
 		// lots of errors like misspelling, typo or case sensitivities. Probably best
 		// to have a list of options. Option 1, 2, 3, etc.
