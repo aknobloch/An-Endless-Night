@@ -19,10 +19,10 @@ public class Room implements Serializable
 	private String name;
 	private Puzzle puzzle;
 	private Monster monster;
-	private ArrayList<Artifact> artifact = new ArrayList<>();
+	private Artifact artifact;
 
 	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, 
-			Puzzle puzzle, Monster monster, ArrayList<Artifact> artifact) 
+			Puzzle puzzle, Monster monster, Artifact artifact) 
 	{
 		this.description = description;
 		this.doors = doors;
@@ -64,22 +64,9 @@ public class Room implements Serializable
 		return doors;
 	}
 
-	public ArrayList<Artifact> getArtifact() 
+	public Artifact getArtifact() 
 	{
 		return artifact;
-	}
-
-	public void addArtifacts(Artifact artifact) 
-	{
-		this.artifact.add(artifact);
-	}
-	
-	public void addAllArtifacts(ArrayList<Artifact> artifact)
-	{
-		for(int i = 0;i < this.artifact.size();i++)
-		{
-			this.artifact.add(artifact.get(i));
-		}
 	}
 
 	public int getRoomID() 
