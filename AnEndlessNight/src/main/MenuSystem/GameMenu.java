@@ -9,6 +9,12 @@ import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
 
+/**
+ * The main game menu. Allows user to perform a variety of core functions.
+ * 
+ * @author Aaron
+ *
+ */
 public class GameMenu extends AbstractMenu
 {
 	
