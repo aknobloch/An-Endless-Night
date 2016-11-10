@@ -28,7 +28,7 @@ public class CombatMenu extends AbstractMenu
 	@Override
 	void mainPrompt() 
 	{
-
+		
 		Monster currentMonster = Game.getHero().getRoom().getMonster();
 		System.out.println("A " + currentMonster.getName() + " stares you down.");
 		battleContinuing = true;

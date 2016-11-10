@@ -41,6 +41,13 @@ public class MenuLoader
 	public static void loadCombatMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                             COMBAT                               ");
+		System.out.println("==================================================================");
+		System.out.println();
+		
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -61,7 +68,14 @@ public class MenuLoader
 	 */
 	public static void loadGameMenu(AbstractMenu currentMenu) 
 	{
+		
 		currentMenu.onDestroy();
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                             MAIN MENU                            ");
+		System.out.println("==================================================================");
+		System.out.println();
 
 		new Thread(new Runnable() 
 		{
@@ -83,7 +97,14 @@ public class MenuLoader
 	 */
 	public static void loadInventoryMenu(AbstractMenu currentMenu) 
 	{
+		
 		currentMenu.onDestroy();
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                             INVENTORY                            ");
+		System.out.println("==================================================================");
+		System.out.println();
 		
 		new Thread(new Runnable() 
 		{
@@ -107,6 +128,12 @@ public class MenuLoader
 	public static void loadJournalMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                             JOURNAL                              ");
+		System.out.println("==================================================================");
+		System.out.println();
 		
 		new Thread(new Runnable() 
 		{
@@ -148,11 +175,6 @@ public class MenuLoader
 		startMenu.mainPrompt();
 	}
 
-	public static void debugCombat() 
-	{
-		combatMenu.mainPrompt();
-	}
-
 	/***
 	 * Loads the puzzle menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -164,6 +186,12 @@ public class MenuLoader
 	public static void loadPuzzleMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                             PUZZLE                               ");
+		System.out.println("==================================================================");
+		System.out.println();
 		
 		new Thread(new Runnable() 
 		{
