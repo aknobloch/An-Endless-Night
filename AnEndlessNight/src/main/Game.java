@@ -1,6 +1,7 @@
 
 package main;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -73,40 +74,26 @@ public final class Game implements Serializable
 	public static void saveGame(String fileName) throws FileNotFoundException, IOException
 	{
 		// TODO: Check if file with name already exists.
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".save"));
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
 		out.writeObject(game);
 		out.close();
 	}
 	
-	public static boolean loadGame(String file) throws Exception
+	/**
+	 * Loads the game passed in.
+	 * @param saveFile The file location of the game to load.
+	 * 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	public static void loadGame(File saveFile) throws FileNotFoundException, ClassNotFoundException, IOException
 	{
-		Hero h1;
-		ArrayList<Room> rooms;
-		Journal oldJournal;
-		if(game != null) throw new Exception();
-		ObjectInputStream input;
-		try 
-		{
-			input = new ObjectInputStream(new FileInputStream(file));
-			h1  = (Hero) input.readObject();
-			rooms = (ArrayList<Room>) input.readObject();
-			oldJournal = (Journal) input.readObject();
-			game = new Game(rooms,h1);
-			score = input.readInt();
-			setScore(score);
-			setJournal(oldJournal);
-		} catch (FileNotFoundException e) 
-		{
-			System.out.println("There is no Endless Night Save Data on this Computer a new game will be created for you");
-			return false;
-		} catch (IOException e) 
-		{
-		} catch (ClassNotFoundException e) 
-		{
-			System.out.println("Thats a bummer your save data is corrupt a new game will be created for you");
-			return false;
-		}
-		return true;
+		
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(saveFile));
+		game = (Game) in.readObject();
+		in.close();
+		
 	}
 
 	public static int getScore() 

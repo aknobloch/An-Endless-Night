@@ -68,6 +68,7 @@ public final class GameInput
 		try 
 		{
 			int userInput = input.nextInt();
+			System.out.println();
 			advanceScanner();
 			return userInput;
 			
