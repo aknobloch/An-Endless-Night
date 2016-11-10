@@ -5,12 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import main.Game;
-import main.RoomSystem.ChangeRoomControl;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
@@ -58,35 +56,87 @@ public class GameMenu extends AbstractMenu
 		}
 	}
 
-	public boolean changeRooms()
+	public void changeRooms()
 	{
+		
 		ArrayList<Door> doors = Game.getHero().getRoom().getDoors();
-		Set<Room> room = new HashSet<Room>();
-		boolean isMonster = false;
-		for(Door potentials: doors)
+		ArrayList<Room> potentialRooms = new ArrayList<Room>();
+		
+		// finds all the potential rooms that the user could go to
+		for(Door focusDoor : doors) 
 		{
-			room.addAll(potentials.getConnectedRooms());
+			
+			// get the connected rooms for the door. if connected room is not the 
+			// current room, add it to the potential rooms
+			for(Room connectedRoom : focusDoor.getConnectedRooms()) 
+			{
+				if(connectedRoom.getRoomID() != Game.getHero().getRoom().getRoomID()) 
+				{
+					potentialRooms.add(connectedRoom);
+				}
+			}
 		}
-		System.out.println("Which room would you like to move to? \n"
-				+ "please type the name of the room");
-		// TODO: No confirmation or error message. Text based input leaves 
-		// lots of errors like misspelling, typo or case sensitivities. Probably best
-		// to have a list of options. Option 1, 2, 3, etc.
-		for(Room x: room)
-		{
-			System.out.println(x.getName());
-		}
-		String choice;
-		try 
-		{
-			choice = GameInput.getString();
-			isMonster = ChangeRoomControl.changeRoom(choice);
-		} catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			System.out.println("Invalid input");
-		}
-		return isMonster;
+		
+		int userChoice;
+		boolean validInput = false;
+		
+		do {
+			
+			try 
+			{
+				System.out.println("Where would you like to go?");
+				
+				// print all options
+				for(int i = 0; i < potentialRooms.size(); i++) {
+					
+					System.out.println( (i + 1) + ". " + potentialRooms.get(i).getName());
+					
+				}
+				
+				userChoice = GameInput.getInt();
+				
+				// not a valid choice
+				if(userChoice < 1 || userChoice > potentialRooms.size()) 
+				{
+					throw new IOException();
+				}
+				else 
+				{
+					// valid input
+					validInput = true;
+					
+					// decrement by one to account for zero-index array
+					userChoice = userChoice - 1;
+					
+					Room desiredRoom = potentialRooms.get(userChoice);
+					
+					System.out.println("You move cautiously into the next room, weapon at the ready.");
+					System.out.println();
+					
+					Game.getHero().move(desiredRoom);
+					
+					if(Game.getHero().getRoom().getMonster() != null) 
+					{
+						MenuLoader.loadCombatMenu(this);
+					}
+					else 
+					{
+						MenuLoader.loadGameMenu(this);
+					}
+				}
+				
+			}
+			catch(IOException ioe) 
+			{
+				System.out.println("You walk around aimlessly for a moment before realizing that there is no passage.");
+				System.out.println();
+				GameInput.advanceScanner();
+			}
+			
+		} while( ! validInput);
+		
+		
+		
 	}
 	/**
 	 * opens the inventory menu
@@ -161,18 +211,7 @@ public class GameMenu extends AbstractMenu
 				}
 				else if(input.equals("2"))
 				{
-				 	boolean isMonster = changeRooms();
-				 	
-				 	if(isMonster)
-				 	{
-				 		check = false;
-				 		MenuLoader.loadCombatMenu(this);
-				 	}
-				 	else if(Game.getHero().getRoom().getPuzzle() != null)
-				 	{
-				 		check = false;
-				 		MenuLoader.loadPuzzleMenu(this);
-				 	}
+				 	changeRooms();
 				}
 				else if(input.equals("3"))
 				{

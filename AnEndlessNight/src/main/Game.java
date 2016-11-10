@@ -42,7 +42,6 @@ public final class Game implements Serializable
 	
 	public static boolean initializeGame() 
 	{
-		
 		if(game == null) 
 		{
 			ArtifactFactory.initializeArtifacts();

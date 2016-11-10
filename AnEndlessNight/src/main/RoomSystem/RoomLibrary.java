@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import main.CombatSystem.MonsterFactory;
 import main.InventorySystem.Artifact;
@@ -32,251 +34,251 @@ public class RoomLibrary
 		// 117 = door "17" and so on 
 		doors.add(100);
 		doors.add(101);
-		Door d_01 = new Door(doors, 101);
+		Door d_01 = new Door(new ArrayList<Integer>(doors), 101);
 		doorObj.add(d_01);
 		doors.clear();
 
 		doors.add(101);
 		doors.add(102);
-		Door d_02 = new Door(doors, 102);
+		Door d_02 = new Door(new ArrayList<Integer>(doors), 102);
 		doorObj.add(d_02);
 		doors.clear();
 
 		doors.add(101);
 		doors.add(105);
-		Door d_03 = new Door(doors, 103);
+		Door d_03 = new Door(new ArrayList<Integer>(doors), 103);
 		doorObj.add(d_03);
 		doors.clear();
 
 		doors.add(105);
 		doors.add(107);
-		Door d_04 = new Door(doors, 104);
+		Door d_04 = new Door(new ArrayList<Integer>(doors), 104);
 		doorObj.add(d_04);
 		doors.clear();
 
 		doors.add(101);
 		doors.add(107);
-		Door d_05 = new Door(doors, 105);
+		Door d_05 = new Door(new ArrayList<Integer>(doors), 105);
 		doorObj.add(d_05);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(109);
-		Door d_06 = new Door(doors, 106);
+		Door d_06 = new Door(new ArrayList<Integer>(doors), 106);
 		doorObj.add(d_06);
 		doors.clear();
 
 		doors.add(105);
 		doors.add(109);
-		Door d_07 = new Door(doors, 107);
+		Door d_07 = new Door(new ArrayList<Integer>(doors), 107);
 		doorObj.add(d_07);
 		doors.clear();
 
 		doors.add(104);
 		doors.add(117);
-		Door d_08 = new Door(doors, 108);
+		Door d_08 = new Door(new ArrayList<Integer>(doors), 108);
 		doorObj.add(d_08);
 		doors.clear();
 
 		doors.add(105);
 		doors.add(117);
-		Door d_09 = new Door(doors, 109);
+		Door d_09 = new Door(new ArrayList<Integer>(doors), 109);
 		doorObj.add(d_09);
 		doors.clear();
 
 		doors.add(116);
 		doors.add(117);
-		Door d_10 = new Door(doors, 110);
+		Door d_10 = new Door(new ArrayList<Integer>(doors), 110);
 		doorObj.add(d_10);
 		doors.clear();
 
 		doors.add(104);
 		doors.add(116);
-		Door d_11 = new Door(doors, 111);
+		Door d_11 = new Door(new ArrayList<Integer>(doors), 111);
 		doorObj.add(d_11);
 		doors.clear();
 
 		doors.add(105);
 		doors.add(116);
-		Door d_12 = new Door(doors, 112);
+		Door d_12 = new Door(new ArrayList<Integer>(doors), 112);
 		doorObj.add(d_12);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(116);
-		Door d_13 = new Door(doors, 113);
+		Door d_13 = new Door(new ArrayList<Integer>(doors), 113);
 		doorObj.add(d_13);
 		doors.clear();
 
 		doors.add(103);
 		doors.add(104);
-		Door d_14 = new Door(doors, 114);
+		Door d_14 = new Door(new ArrayList<Integer>(doors), 114);
 		doorObj.add(d_14);
 		doors.clear();
 
 		doors.add(104);
 		doors.add(108);
-		Door d_15 = new Door(doors, 115);
+		Door d_15 = new Door(new ArrayList<Integer>(doors), 115);
 		doorObj.add(d_15);
 		doors.clear();
 
 		doors.add(103);
 		doors.add(108);
-		Door d_16 = new Door(doors, 116);
+		Door d_16 = new Door(new ArrayList<Integer>(doors), 116);
 		doorObj.add(d_16);
 		doors.clear();
 
 		doors.add(102);
 		doors.add(106);
-		Door d_17 = new Door(doors, 117);
+		Door d_17 = new Door(new ArrayList<Integer>(doors), 117);
 		doorObj.add(d_17);
 		doors.clear();
 
 		doors.add(102);
 		doors.add(106);
-		Door d_18 = new Door(doors, 118);
+		Door d_18 = new Door(new ArrayList<Integer>(doors), 118);
 		doorObj.add(d_18);
 		doors.clear();
 
 		doors.add(102);
 		doors.add(103);
-		Door d_19 = new Door(doors, 119);
+		Door d_19 = new Door(new ArrayList<Integer>(doors), 119);
 		doorObj.add(d_19);
 		doors.clear();
 
 		doors.add(103);
 		doors.add(113);
-		Door d_20 = new Door(doors, 120);
+		Door d_20 = new Door(new ArrayList<Integer>(doors), 120);
 		doorObj.add(d_20);
 		doors.clear();
 
 		doors.add(103);
-		Door d_21 = new Door(doors, 121);
+		Door d_21 = new Door(new ArrayList<Integer>(doors), 121);
 		doorObj.add(d_21);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(110);
-		Door d_22 = new Door(doors, 122);
+		Door d_22 = new Door(new ArrayList<Integer>(doors), 122);
 		doorObj.add(d_22);
 		doors.clear();
 
 		doors.add(110);
-		Door d_23 = new Door(doors, 123);
+		Door d_23 = new Door(new ArrayList<Integer>(doors), 123);
 		doorObj.add(d_23);
 		doors.clear();
 
 		doors.add(110);
 		doors.add(112);
-		Door d_24 = new Door(doors, 124);
+		Door d_24 = new Door(new ArrayList<Integer>(doors), 124);
 		doorObj.add(d_24);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(114);
-		Door d_25 = new Door(doors, 125);
+		Door d_25 = new Door(new ArrayList<Integer>(doors), 125);
 		doorObj.add(d_25);
 		doors.clear();
 
 		doors.add(113);
 		doors.add(114);
-		Door d_26 = new Door(doors, 126);
+		Door d_26 = new Door(new ArrayList<Integer>(doors), 126);
 		doorObj.add(d_26);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(113);
-		Door d_27 = new Door(doors, 127);
+		Door d_27 = new Door(new ArrayList<Integer>(doors), 127);
 		doorObj.add(d_27);
 		doors.clear();
 
 		doors.add(114);
 		doors.add(115);
-		Door d_28 = new Door(doors, 128);
+		Door d_28 = new Door(new ArrayList<Integer>(doors), 128);
 		doorObj.add(d_28);
 		doors.clear();
 
 		doors.add(100);
 		doors.add(102);
-		Door d_29 = new Door(doors, 129);
+		Door d_29 = new Door(new ArrayList<Integer>(doors), 129);
 		doorObj.add(d_29);
 		doors.clear();
 
 		doors.add(666);
 		doors.add(120);
-		Door d_TD = new Door(doors, 666);
+		Door d_TD = new Door(new ArrayList<Integer>(doors), 666);
 		doorObj.add(d_TD);
 		doors.clear();
 
 		//DOORS FLOOR 2
 		doors.add(118);
 		doors.add(126);
-		Door d_30 = new Door(doors, 130);
+		Door d_30 = new Door(new ArrayList<Integer>(doors), 130);
 		doorObj.add(d_30);
 		doors.clear();
 
 		doors.add(126);
 		doors.add(127);
-		Door d_31 = new Door(doors, 131);
+		Door d_31 = new Door(new ArrayList<Integer>(doors), 131);
 		doorObj.add(d_31);
 		doors.clear();
 
 		doors.add(124);
 		doors.add(126);
-		Door d_32 = new Door(doors, 132);
+		Door d_32 = new Door(new ArrayList<Integer>(doors), 132);
 		doorObj.add(d_32);
 		doors.clear();
 
 		doors.add(124);
 		doors.add(125);
-		Door d_33 = new Door(doors, 133);
+		Door d_33 = new Door(new ArrayList<Integer>(doors), 133);
 		doorObj.add(d_33);
 		doors.clear();
 
 		doors.add(121);
 		doors.add(126);
-		Door d_34 = new Door(doors, 134);
+		Door d_34 = new Door(new ArrayList<Integer>(doors), 134);
 		doorObj.add(d_34);
 		doors.clear();
 
 		doors.add(122);
 		doors.add(126);
-		Door d_35 = new Door(doors, 135);
+		Door d_35 = new Door(new ArrayList<Integer>(doors), 135);
 		doorObj.add(d_35);
 		doors.clear();
 
 		doors.add(123);
 		doors.add(122);
-		Door d_36 = new Door(doors, 136);
+		Door d_36 = new Door(new ArrayList<Integer>(doors), 136);
 		doorObj.add(d_36);
 		doors.clear();
 
 		doors.add(121);
 		doors.add(122);
-		Door d_37 = new Door(doors, 137);
+		Door d_37 = new Door(new ArrayList<Integer>(doors), 137);
 		doorObj.add(d_37);
 		doors.clear();
 
 		doors.add(119);
 		doors.add(126);
-		Door d_38 = new Door(doors, 138);
+		Door d_38 = new Door(new ArrayList<Integer>(doors), 138);
 		doorObj.add(d_38);
 		doors.clear();
 
 		doors.add(119);
 		doors.add(120);
-		Door d_39 = new Door(doors, 139);
+		Door d_39 = new Door(new ArrayList<Integer>(doors), 139);
 		doorObj.add(d_39);
 		doors.clear();
 
 		doors.add(126);
-		Door d_F1 = new Door(doors, 601);
+		Door d_F1 = new Door(new ArrayList<Integer>(doors), 601);
 		doorObj.add(d_F1);
 		doors.clear();
 
 		doors.add(126);
 		doors.add(128);
-		Door d_F2 = new Door(doors, 602);
+		Door d_F2 = new Door(new ArrayList<Integer>(doors), 602);
 		doorObj.add(d_F2);
 		doors.clear();
 
@@ -284,7 +286,7 @@ public class RoomLibrary
 
 		doors.add(129);
 		doors.add(128);
-		Door d_40 = new Door(doors, 140);
+		Door d_40 = new Door(new ArrayList<Integer>(doors), 140);
 		doorObj.add(d_40);
 		doors.clear();
 

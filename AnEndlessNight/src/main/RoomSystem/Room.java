@@ -13,7 +13,7 @@ import main.InventorySystem.Artifact;
 public class Room implements Serializable 
 {
 	private String description;
-	private ArrayList<Door> doors = new ArrayList<Door>();
+	private ArrayList<Door> doors;
 	private int roomID;
 	private boolean visited;
 	private String name;
@@ -32,6 +32,7 @@ public class Room implements Serializable
 		this.puzzle = puzzle;
 		this.monster = monster;
 		this.artifact = artifact;
+		
 	}
 
 	public Monster getMonster() 

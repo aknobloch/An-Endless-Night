@@ -1,6 +1,7 @@
 package main.MenuSystem;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 
 import main.Game;
 import main.CombatSystem.DamageHandler;
@@ -36,68 +37,59 @@ public class CombatMenu extends AbstractMenu
 		{
 
 			int userChoice = -1;
-			boolean validInput = false;
 			
+			try 
+			{
 
-			do {
-				
-				try 
-				{
-					
-					System.out.println("What is your next move?");
-					System.out.println();
-					System.out.println("1. Attack Monster");
-					System.out.println("2. Brace Yourself");
-					System.out.println("3. Attempt to Flee");
-					System.out.println("4. Use Item");
-					System.out.println();
-					
-					userChoice = GameInput.getInt();
-					validInput = true;
+				System.out.println("What is your next move?");
+				System.out.println();
+				System.out.println("1. Attack Monster");
+				System.out.println("2. Brace Yourself");
+				System.out.println("3. Attempt to Flee");
+				System.out.println("4. Use Item");
+				System.out.println();
 
-					if(userChoice == 1) 
-					{
+				userChoice = GameInput.getInt();
 
-						attack(currentMonster);
-
-					}
-					else if(userChoice == 2) 
-					{
-
-						defend(currentMonster);
-
-					}
-					else if(userChoice == 3) 
-					{
-
-						flee(currentMonster);
-
-					}
-					else if(userChoice == 4) 
-					{
-
-						CombatInventoryMenu.openMenu();
-
-					}
-					else 
-					{
-						throw new IOException();
-					}
-				}
-				
-				catch (IOException e) 
+				if(userChoice == 1) 
 				{
 
-					System.out.println("You mumble incoherently. You should be wary of nonsensical babbling, ");
-					System.out.println("else you be labeled insane.");
-					System.out.println();
-					GameInput.advanceScanner();
-					validInput = false;
+					attack(currentMonster);
 
 				}
-				
-			} while( ! validInput);
+				else if(userChoice == 2) 
+				{
 
+					defend(currentMonster);
+
+				}
+				else if(userChoice == 3) 
+				{
+
+					flee(currentMonster);
+
+				}
+				else if(userChoice == 4) 
+				{
+
+					CombatInventoryMenu.openMenu();
+
+				}
+				else 
+				{
+					throw new IOException();
+				}
+			}
+
+			catch (IOException e) 
+			{
+
+				System.out.println("You mumble incoherently. You should be wary of nonsensical babbling, ");
+				System.out.println("else you be labeled insane.");
+				System.out.println();
+				GameInput.advanceScanner();
+
+			}
 		}
 	}
 		

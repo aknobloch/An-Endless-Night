@@ -1,6 +1,7 @@
 package main.MenuSystem;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /***
@@ -81,6 +82,11 @@ public final class GameInput
 	 */
 	public static void advanceScanner() 
 	{
-		input.nextLine();
+		try {
+			input.nextLine();
+		}
+		catch(IndexOutOfBoundsException n) {
+			System.out.println("caught");
+		}
 	}
 }
