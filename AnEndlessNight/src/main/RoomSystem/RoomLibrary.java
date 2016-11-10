@@ -25,7 +25,6 @@ public class RoomLibrary
 
 		ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
 		
-		
 		//FLOOR 1 Doors
 		//adding doors to rooms, 00 and 01 are the rooms the doors go into
 		doors.add(100);
@@ -286,7 +285,6 @@ public class RoomLibrary
 		doors.clear();
 
 		//ARTIFACTS
-	
 			// open up artifacts.dat and read into an arrayList of artifacts.
 			ObjectInputStream input = null;
 
@@ -332,13 +330,13 @@ public class RoomLibrary
 			}
 
 		//PUZZLES
-		Puzzle puz_01 = new Puzzle("descr", "solution", false, 0, "hint", 1, 3);
-		Puzzle puz_02 = new Puzzle("descr", "solution", false, 0, "hint", 2, 3);
-		Puzzle puz_03 = new Puzzle("descr", "solution", false, 0, "hint", 3, 3);
-		Puzzle puz_04 = new Puzzle("descr", "solution", false, 0, "hint", 4, 3);
-		Puzzle puz_05 = new Puzzle("descr", "solution", false, 0, "hint", 5, 3);
-		Puzzle puz_06 = new Puzzle("descr", "solution", false, 0, "hint", 6, 3);
-		Puzzle puz_07 = new Puzzle("descr", "solution", false, 0, "hint", 7, 3);
+		Puzzle puz_01 = new Puzzle("I have no eyes, but I once did see. I once had thoughts, but now I’m white and empty. What am I?", "A Skull", false, 0, "Bones!", 1, 3);
+		Puzzle puz_02 = new Puzzle("When you have me, you want to share me. When you share me, you no longer have me. What am I?", "A Secret", false, 0, "I am not known or seen or not to be known or seen by others", 2, 3);
+		Puzzle puz_03 = new Puzzle("The more of me you take, the more of me you leave behind. What am I?", "Footsteps", false, 0, "Think quick on your feet!", 3, 3);
+		Puzzle puz_04 = new Puzzle("What flies without wings?", "Time", false, 0, "Not a living thing", 4, 3);
+		Puzzle puz_05 = new Puzzle("What constellation is currently seen in the night skies?", "Monoceros", false, 0, "Must Interact with the “Celestial Globe” for answer.", 5, 3);
+		Puzzle puz_06 = new Puzzle("An old man was murdered and left his wealth behind.\nIn his will, he stated that each of his four children would split his gold coins. \nThey should be divided as follows:\nThe eldest should receive 1/2 of the gold pieces.\nThe 2nd child would receive 1/4, and then 3rd child would get 1/5 of the gold.\nFinally, he states that the youngest will get the remaining 49 gold coins. \nHow many gold coins did the old man have at death?", "980 coins", false, 0, "Remaining fraction", 6, 3);
+		Puzzle puz_07 = new Puzzle("You come across a servant’s diary. \nInside it describes the theft of her favorite locket. \nShe knows it was one of the other servants. \nShe asks each servant who took the locket. \nTheir responses were..\nServant 1: It wasn’t Servant 5, it was servant 2!\nServant 2: It wasn’t Servant 3, it wasn’t Servant 5!\nServant 3: It was Servant 5, it wasn’t Servant 1!\nServant 4: It was Servant 3, it was Servant 2!\nServant 5: It was Servant 4, it wasn’t Servant 1!\nEach servant was known to tell exactly one lie.\nWhich servant took her locket?", "Servant 3", false, 0, "Ask 2 and 4", 7, 3);
 		
 		//ROOMS FLOOR 1
 
@@ -378,7 +376,7 @@ public class RoomLibrary
 		rm_02_doors.add(d_19);
 		rm_02_doors.add(d_29);
 		
-		Room rm_02 = new Room("A plain garden with bamboo trees.", rm_02_doors, 102, false, "West Garden", PuzzleFactory.setRoomPuzzle(2), null, artifactList.get(8));
+		Room rm_02 = new Room("A plain garden with bamboo trees.", rm_02_doors, 102, false, "West Garden", puz_01, null, artifactList.get(8));
 		
 		roomObj.add(rm_02);
 		rooms.clear();
@@ -440,7 +438,7 @@ public class RoomLibrary
 		rm_07_doors.add(d_04);
 		rm_07_doors.add(d_05);
 		
-		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", rm_07_doors, 107, false, "Southeast Shed", PuzzleFactory.setRoomPuzzle(7), null, artifactList.get(4));
+		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", rm_07_doors, 107, false, "Southeast Shed", puz_02, null, artifactList.get(4));
 		
 		roomObj.add(rm_07);
 		rooms.clear();
@@ -504,7 +502,7 @@ public class RoomLibrary
 		rm_13_doors.add(d_26);
 		rm_13_doors.add(d_27);
 
-		Room rm_13 = new Room("A small table lies in the middle of the room. The room is large enough to fit two big families.", rm_13_doors, 113, false, "Dining Room", PuzzleFactory.setRoomPuzzle(13), null, artifactList.get(11));
+		Room rm_13 = new Room("A small table lies in the middle of the room. The room is large enough to fit two big families.", rm_13_doors, 113, false, "Dining Room", puz_04, null, artifactList.get(11));
 		
 		roomObj.add(rm_13);
 		rooms.clear();
@@ -551,7 +549,7 @@ public class RoomLibrary
 		rm_17_doors.add(d_09);
 		rm_17_doors.add(d_10);
 
-		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", PuzzleFactory.setRoomPuzzle(17), null, artifactList.get(13));
+		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", puz_03, null, artifactList.get(13));
 		
 		roomObj.add(rm_17);
 		rooms.clear();
@@ -584,7 +582,7 @@ public class RoomLibrary
 		rm_20_doors.add(d_39);
 		rm_20_doors.add(d_TD);
 
-		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", rm_20_doors, 120, false, "Servant Closet", PuzzleFactory.setRoomPuzzle(20), null, artifactList.get(2));
+		Room rm_20 = new Room("The closet is big enough that it could be mistaken for another guest room. Clothes are hanged and multiple dressers are on the mats. On the wall facing south hangs a sword like weapon. You noticed a trap door underneath the tatami mats and a string attached...", rm_20_doors, 120, false, "Servant Closet", puz_07, null, artifactList.get(2));
 		
 		roomObj.add(rm_20);
 		rooms.clear();
@@ -621,21 +619,22 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_32, d_33
+		// art_10
 		ArrayList<Door> rm_24_doors = new ArrayList<>();
 		rm_24_doors.add(d_32);
 		rm_24_doors.add(d_33);
 		
-		Room rm_24 = new Room("A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door.", rm_24_doors, 124, false, "Bedroom", null, MonsterFactory.setRoomMonster(24), null);
+		Room rm_24 = new Room("A luxurious bed in the middle of the room. The wall contains some decorative ornaments and beside that is a closet door.", rm_24_doors, 124, false, "Bedroom", null, MonsterFactory.setRoomMonster(24), artifactList.get(10));
 		
 		roomObj.add(rm_24);
 		rooms.clear();
 
 		// d_33
-		// art_03, art_10
+		// art_03
 		ArrayList<Door> rm_25_doors = new ArrayList<>();
 		rm_25_doors.add(d_33);
 
-		Room rm_25 = new Room("A small room enough to fit two adults. It contains some clothes.", rm_25_doors, 125, false, "Bedroom Closet", null, MonsterFactory.setRoomMonster(25), artifactList.get());
+		Room rm_25 = new Room("A small room enough to fit two adults. It contains some clothes.", rm_25_doors, 125, false, "Bedroom Closet", null, MonsterFactory.setRoomMonster(25), artifactList.get(3));
 		
 		roomObj.add(rm_25);
 		rooms.clear();
@@ -661,7 +660,7 @@ public class RoomLibrary
 		ArrayList<Door> rm_27_doors = new ArrayList<>();
 		rm_27_doors.add(d_31);
 		
-		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", PuzzleFactory.setRoomPuzzle(27), null, artifactList.get(11));
+		Room rm_27 = new Room("The largest room on floor 2. It contains multiple pages lying on the ground with a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", puz_06, null, artifactList.get(11));
 		
 		roomObj.add(rm_27);
 		rooms.clear();
@@ -674,7 +673,7 @@ public class RoomLibrary
 		rm_28_doors.add(d_40);
 		rm_28_doors.add(d_F2);
 
-		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", rm_28_doors, 128, false, "Observatory", PuzzleFactory.setRoomPuzzle(28), null, artifactList.get(7));
+		Room rm_28 = new Room("A large, circular, room with large windows and instruments to view the heavens.", rm_28_doors, 128, false, "Observatory", puz_05, null, artifactList.get(7));
 		
 		roomObj.add(rm_28);
 		rooms.clear();
