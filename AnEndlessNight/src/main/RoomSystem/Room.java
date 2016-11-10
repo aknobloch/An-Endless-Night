@@ -64,7 +64,7 @@ public class Room implements Serializable
 		return doors;
 	}
 
-	public ArrayList<Artifact> getArtifact() 
+	public ArrayList<Artifact> getArtifactList() 
 	{
 		return artifact;
 	}
