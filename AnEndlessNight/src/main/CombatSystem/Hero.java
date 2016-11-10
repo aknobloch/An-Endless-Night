@@ -182,18 +182,15 @@ public class Hero extends Character implements Serializable
 	 */
 	public void addArtifactToInventory(Artifact newItem) 
 	{
-		
 		if(playerInventory.size() >= MAX_INVENTORY) 
 		{
 			// TODO: handle case if inventory is full
 		}
 		else 
 		{
-			
 			// check if item already exists in player inventory. if so, try to increment the count
 			for(InventoryItem item : playerInventory) 
 			{
-				
 				if(item.equals(newItem)) 
 				{
 					try 
@@ -206,7 +203,6 @@ public class Hero extends Character implements Serializable
 					}
 				}
 			}
-			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
 	}
@@ -217,8 +213,8 @@ public class Hero extends Character implements Serializable
 	 * 
 	 * @param usedItem The item to use.
 	 */
-	public void useConsumable(Consumable usedItem) {
-		
+	public void useConsumable(Consumable usedItem) 
+	{
 		for(InventoryItem item : playerInventory) 
 		{
 			// if item is in the inventory, decrement count
@@ -300,14 +296,13 @@ public class Hero extends Character implements Serializable
 	 * Therefore, after this method is called the last location and current room will be the 
 	 * same until the Hero moves again.
 	 */
-	public void bounceBack() {
-		
+	public void bounceBack() 
+	{
 		this.currentRoom = lastRoom;
-		
 	}
 	
-	public void move(Room newRoom) {
-		
+	public void move(Room newRoom) 
+	{
 		// temp because if moving does not work properly, 
 		// we don't want to set last location yet.
 		Room temp = this.currentRoom;
@@ -317,6 +312,5 @@ public class Hero extends Character implements Serializable
 		// if super.move() returns properly, then 
 		// set the last location to be the old one.
 		this.lastRoom = temp;
-		
 	}
 } 

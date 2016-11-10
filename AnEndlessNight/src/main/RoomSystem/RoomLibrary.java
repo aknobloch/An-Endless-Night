@@ -6,7 +6,9 @@ import main.CombatSystem.MonsterFactory;
 import main.InventorySystem.Artifact;
 
 /**
- * author: Estephanie Gonzalez
+ * 
+ * @author Estephanie Gonzalez
+ *
  */
 
 public class RoomLibrary 
@@ -205,6 +207,7 @@ public class RoomLibrary
 		doors.clear();
 
 		//DOORS FLOOR 2
+		
 		doors.add(118);
 		doors.add(126);
 		Door d_30 = new Door(doors, 130);
@@ -285,6 +288,7 @@ public class RoomLibrary
 		doors.clear();
 
 		//ARTIFACTS
+		
 		//adding artifact to rooms, 08 is the room the puzzle goes into
 		artifact.add(108);
 		Artifact art_01 = new Artifact("Magic Mirror", "A mirror that reflects brightly", 1);

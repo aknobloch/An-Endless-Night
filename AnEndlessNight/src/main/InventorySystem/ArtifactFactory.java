@@ -14,7 +14,6 @@ import main.CombatSystem.Armor;
  */
 public class ArtifactFactory 
 {
-	
 	private static String[] artifactNameArray = 
 		{
 			"Magic Mirror",

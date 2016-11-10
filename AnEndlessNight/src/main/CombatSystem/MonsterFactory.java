@@ -43,7 +43,8 @@ public class MonsterFactory
 	private static ArrayList<Artifact> artifactList;
 
 	// prevents instantiation
-	private MonsterFactory() {}
+	private MonsterFactory() 
+	{}
 
 	private static void initializeFactory() 
 	{
@@ -67,7 +68,6 @@ public class MonsterFactory
 	}
 
 	private static  void getItemForMonster(String generatedMonster) throws FileNotFoundException 
-
 	{
 		File f = new File("MonstersNames.txt");
 		Scanner scan = new Scanner(f);
@@ -151,7 +151,6 @@ public class MonsterFactory
 
 	public static void MonsterGenerator(ArrayList<ArrayList<Artifact>> artifactAl)
 	{
-
 		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 0.01, artifactAl.get(0), false);
 		monsterList.add(mon);
 		mon = new Monster(2, 15, 3, "Karakasa", 0.30, artifactAl.get(1), false);

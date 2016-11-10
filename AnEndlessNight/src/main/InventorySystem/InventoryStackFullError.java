@@ -11,7 +11,6 @@ import java.io.IOException;
  */
 public class InventoryStackFullError extends IOException 
 {
-
 	/**
 	 * Creates a new InventoryFullError with a default message.
 	 */

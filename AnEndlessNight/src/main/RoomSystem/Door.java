@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import main.Game;
 
 /**
- * author: Jory Alexander
+ * 
+ * @author Jory Alexander, Estephanie Gonzalez
+ *
  */
 
 public class Door 

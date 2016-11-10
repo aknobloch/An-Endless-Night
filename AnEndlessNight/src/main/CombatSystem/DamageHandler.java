@@ -16,7 +16,6 @@ import main.RoomSystem.Room;
  */
 public class DamageHandler 
 {
-
 	private Hero gameHero;
 	private Monster battleMonster;
 	private Room battleRoom;

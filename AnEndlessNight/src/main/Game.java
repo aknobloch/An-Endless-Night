@@ -20,7 +20,6 @@ import main.RoomSystem.RoomLibrary;
  */
 public final class Game implements Serializable
 {
-
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
@@ -42,7 +41,6 @@ public final class Game implements Serializable
 	
 	public static boolean initializeGame() 
 	{
-		
 		if(game == null) 
 		{
 			ArtifactFactory.initializeArtifacts();

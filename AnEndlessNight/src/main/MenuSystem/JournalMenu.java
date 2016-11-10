@@ -113,5 +113,6 @@ public class JournalMenu extends AbstractMenu
 	}
 
 	@Override
-	void onDestroy() {}
+	void onDestroy() 
+	{}
 }

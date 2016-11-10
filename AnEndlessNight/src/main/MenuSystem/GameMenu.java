@@ -44,7 +44,8 @@ public class GameMenu extends AbstractMenu
 		System.out.println(descriptions.get(0));
 		System.out.println();
 		// if there are items, print items list
-		if(descriptions.size() > 1) {
+		if(descriptions.size() > 1) 
+		{
 			System.out.println("You notice the following items:");
 			for(int i = 1; i < descriptions.size();i++)
 			{
@@ -91,7 +92,8 @@ public class GameMenu extends AbstractMenu
 	/**
 	 * opens the inventory menu
 	 */
-	public void openInventory() {}
+	public void openInventory() 
+	{}
 	
 	public void help() 
 	{
@@ -211,5 +213,6 @@ public class GameMenu extends AbstractMenu
 	}
 
 	@Override
-	void onDestroy() {}
+	void onDestroy() 
+	{}
 }

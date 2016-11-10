@@ -200,7 +200,5 @@ public class InventoryMenu extends AbstractMenu
 	}
 	@Override
 	void onDestroy() 
-	{
-		// TODO Auto-generated method stub
-	}
+	{}
 }

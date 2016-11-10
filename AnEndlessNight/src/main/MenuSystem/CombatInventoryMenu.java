@@ -9,10 +9,8 @@ import main.InventorySystem.InventoryItem;
 
 public class CombatInventoryMenu 
 {
-
 	public static void openMenu() 
 	{
-		
 		int userInput;
 		boolean validInput = false;
 		
@@ -32,7 +30,6 @@ public class CombatInventoryMenu
 			System.out.println("You have no available consumable items.");
 			System.out.println();
 			return;
-			
 		}
 		
 		// prompt user for which item to use
@@ -71,7 +68,6 @@ public class CombatInventoryMenu
 				{
 					throw new IOException();
 				}
-				
 			} 
 			catch (IOException e) 
 			{
@@ -79,9 +75,6 @@ public class CombatInventoryMenu
 				System.out.println("else you be labeled insane.");
 				System.out.println();
 			}
-			
 		}
-		
 	}
-	
 }
