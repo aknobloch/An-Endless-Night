@@ -18,6 +18,7 @@ public class MenuLoader
 	private static final InventoryMenu inventoryMenu = new InventoryMenu(johnCena);
 	private static final JournalMenu journalMenu = new JournalMenu(johnCena);
 	private static final StartMenu startMenu = new StartMenu(johnCena);
+	private static final PuzzleMenu puzzleMenu = new PuzzleMenu(johnCena);
 	
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
@@ -152,9 +153,25 @@ public class MenuLoader
 		combatMenu.mainPrompt();
 	}
 
-	//Jory has no idea how the MenuLoader works.........
-	public static void loadPuzzleMenu() {
-		// TODO Auto-generated method stub
+	/***
+	 * Loads the puzzle menu. The onDestroy() method will first be called for the
+	 * menu that called this object, and then the mainPrompt() will be called for the
+	 * desired menu. 
+	 * 
+	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
+	 * this method should be "this". 
+	 */
+	public static void loadPuzzleMenu(AbstractMenu currentMenu) 
+	{
+		currentMenu.onDestroy();
 		
+		new Thread(new Runnable() 
+		{
+			@Override
+			public void run() 
+			{
+				puzzleMenu.mainPrompt();
+			}
+		}).start();
 	}
 }
