@@ -261,4 +261,11 @@ public class Hero extends Character implements Serializable
 	{
 		return lastRoom;
 	}
+	
+	
+	public void teleport(Room newLocation) 
+	{
+		// TODO: Where should last room be set for, now? 
+		this.currentRoom = newLocation;
+	}
 }
