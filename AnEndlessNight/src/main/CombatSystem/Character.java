@@ -109,7 +109,7 @@ public abstract class Character implements Serializable
 	 * Room. 
 	 * @param newRoom The new room to place this character in.
 	 */
-	public void setLocation(Room newRoom) 
+	public void move(Room newRoom) 
 	{
 		// TODO: error handling if room id does not exist or 
 		//       is not logically feasible

@@ -19,7 +19,7 @@ public class PuzzleMenu extends AbstractMenu{
 	private void flee() {
 		System.out.println("You walk back head hurting from thinking.");
 		
-		Game.getHero().setLocation(Game.getHero().getLastRoom());
+		Game.getHero().bounceBack();
 		
 	}
 

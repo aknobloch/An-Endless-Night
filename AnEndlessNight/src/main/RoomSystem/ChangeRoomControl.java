@@ -18,8 +18,7 @@ public class ChangeRoomControl
 		{
 			if(x.getName().equals(destination))
 			{
-				Game.getHero().setLastRoom(Game.getHero().getRoom());
-				Game.getHero().setLocation(x);
+				Game.getHero().move(x);
 				if(x.getMonster()!= null)
 				{
 					return true;

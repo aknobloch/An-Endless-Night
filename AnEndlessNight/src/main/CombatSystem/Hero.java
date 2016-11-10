@@ -305,4 +305,18 @@ public class Hero extends Character implements Serializable
 		this.currentRoom = lastRoom;
 		
 	}
-}
+	
+	public void move(Room newRoom) {
+		
+		// temp because if moving does not work properly, 
+		// we don't want to set last location yet.
+		Room temp = this.currentRoom;
+		
+		super.move(newRoom);
+		
+		// if super.move() returns properly, then 
+		// set the last location to be the old one.
+		this.lastRoom = temp;
+		
+	}
+} 
