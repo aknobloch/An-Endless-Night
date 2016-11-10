@@ -59,8 +59,8 @@ public class StartMenu extends AbstractMenu
 		
 		String input;
 		
-		
-		try {
+		try 
+		{
 			input = GameInput.getString();
 			
 			if(input.equals("1"))
@@ -83,21 +83,21 @@ public class StartMenu extends AbstractMenu
 						+ "please try agian");
 				mainPrompt();
 			}
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			System.out.println("You entered bad data try agian");
 			GameInput.advanceScanner();
-		} catch (Exception e) {
+		} catch (Exception e) 
+		{
 			// TODO Auto-generated catch block
 			System.out.println("Issue loaidng game");
 		}
-		
-		
 	}
 
 	@Override
-	public void onDestroy() {
+	public void onDestroy() 
+	{
 		System.out.println("we need to put the back story here if you are reading this we did not put in a back story");
 		
 	}
-
 }

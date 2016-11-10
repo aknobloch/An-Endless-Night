@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import main.Game;
 
+/**
+ * author: Jory Alexander
+ */
+
 public class Door 
 {
 
@@ -43,7 +47,5 @@ public class Door
 			}
 		}
 		return connectedRooms;
-		
 	}
-
 }

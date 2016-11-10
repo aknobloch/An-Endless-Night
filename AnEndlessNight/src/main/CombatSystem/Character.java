@@ -28,12 +28,10 @@ public abstract class Character implements Serializable
 	 */
 	protected Character(int ID, int health, int strength, String name) 
 	{
-		
 		this.characterID = ID;
 		this.health = health;
 		this.strength = strength;
 		this.name = name;
-		
 	}
 	
 	/***
@@ -117,5 +115,4 @@ public abstract class Character implements Serializable
 		//       is not logically feasible
 		this.currentRoom = newRoom;
 	}
-	
 }

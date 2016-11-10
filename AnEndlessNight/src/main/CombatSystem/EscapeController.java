@@ -16,7 +16,6 @@ import main.Game;
  */
 public class EscapeController 
 {
-	
 	private Hero gameHero;
 	private Monster battleMonster;
 	
@@ -27,10 +26,8 @@ public class EscapeController
 	 */
 	public EscapeController() 
 	{
-		
 		this.gameHero = Game.getHero();
 		this.battleMonster = gameHero.getRoom().getMonster();
-		
 	}
 	
 	/***
@@ -39,7 +36,6 @@ public class EscapeController
 	 */
 	public boolean attemptEscape() 
 	{
-		
 		if(battleMonster.isBoss()) 
 		{
 			return false;

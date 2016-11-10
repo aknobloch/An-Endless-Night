@@ -4,23 +4,21 @@ import java.io.IOException;
 
 import main.MenuSystem.GameInput;
 
-public class InputExample {
-	
+public class InputExample 
+{
 	public static void main(String[] args) 
 	{
-		
 		double userInput;
 		boolean valid = false;
 		
-		do {
-			
+		do 
+		{
 			System.out.println("Please enter a double.");
 			
-			try {
-				
+			try 
+			{
 				userInput = GameInput.getDouble();
 				valid = true;
-				
 			} catch (IOException e) 
 			{
 				valid = false;
@@ -28,9 +26,6 @@ public class InputExample {
 				
 				GameInput.advanceScanner();
 			}
-			
 		} while( ! valid);
-		
 	}
-	
 }

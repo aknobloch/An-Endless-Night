@@ -9,6 +9,7 @@ import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 import main.InventorySystem.InventoryStackFullError;
 import main.InventorySystem.Weapon;
+import main.RoomSystem.Room;
 /***
  * The hero object represent the main protaganist of the game, 
  * and models the data associated with them.
@@ -27,6 +28,7 @@ public class Hero extends Character implements Serializable
 	// max stack of a single item a player can hold
 	private final int MAX_STACK = 5;
 	private int defense;
+	private Room lastRoom;
 	
 	/***
 	 * Constructs a Hero.
@@ -75,8 +77,8 @@ public class Hero extends Character implements Serializable
 	 * Reduces strength by the value of the equipped weapon, and
 	 * attempts to move the equipped weapon into inventory.
 	 */
-	public void unequipWeapon() {
-		
+	public void unequipWeapon() 
+	{
 		if(equippedWeapon == null) 
 		{
 			return;
@@ -244,10 +246,19 @@ public class Hero extends Character implements Serializable
 	 * @return The remaining health of the hero.
 	 */
 	@Override
-	public int attack(int damage) {
-		
+	public int attack(int damage) 
+	{
 		damage = damage - this.defense;
 		return super.attack(damage);
-		
+	}
+	
+	public void setLastRoom(Room x)
+	{
+		lastRoom = x;
+	}
+	
+	public Room getLastRoom()
+	{
+		return lastRoom;
 	}
 }

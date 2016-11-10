@@ -19,5 +19,4 @@ public class InventoryStackFullError extends IOException
 	{
 		super("This inventory item cannot hold any more. Try setting the maxCount");
 	}
-	
 }

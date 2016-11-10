@@ -1,5 +1,9 @@
 package main.RoomSystem;
 
+/**
+ * author: Estephanie Gonzalez, Jory Alexander
+ */
+
 public class Puzzle 
 {
 	private String description;
@@ -76,6 +80,11 @@ public class Puzzle
 	public int getAttemptsAllowed() 
 	{
 		return attemptsAllowed;
+	}
+	
+	public void setAttemptsMade(int x)
+	{
+		attemptsMade = x;
 	}
 
 }

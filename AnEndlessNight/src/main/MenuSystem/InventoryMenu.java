@@ -42,7 +42,6 @@ public class InventoryMenu extends AbstractMenu
 				System.out.println(x.getItem().getDescription());
 			}
 		}
-		
 	}
 
 	public void dropItem() throws IOException 
@@ -65,7 +64,6 @@ public class InventoryMenu extends AbstractMenu
 				items.remove(x);
 			}
 		}
-		
 	}
 
 	public void unEquipItem() throws IOException 
@@ -115,9 +113,9 @@ public class InventoryMenu extends AbstractMenu
 				}
 			}
 		}
-		
 	}
-	public void useItem() throws IOException {
+	public void useItem() throws IOException 
+	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		System.out.println("Which item would you like to drop");
 		for(InventoryItem x: items)
@@ -144,11 +142,8 @@ public class InventoryMenu extends AbstractMenu
 					int currentHealth = Game.getHero().getHealth();
 					System.out.println("Your Health is now at " + Game.getHero().getHealth());
 				}
-				
 			}
 		}
-		
-		
 	}
 
 	public String toString()
@@ -164,29 +159,25 @@ public class InventoryMenu extends AbstractMenu
 		System.out.println(toString());
 		while(inInventory)
 		{
-			try {
-			
+			try 
+			{
 				String input = GameInput.getString();
 			
 				if(input.equals("1"))
 				{
 					equipItem();
-					
 				}
 				else if(input.equals("2"))
 				{
 					unEquipItem();
-					
 				}
 				else if(input.equals("3"))
 				{
 					dropItem();
-					
 				}
 				else if(input.equals("4"))
 				{
 					viewItem();
-					
 				}
 				else if(input.equals("5"))
 				{
@@ -196,25 +187,20 @@ public class InventoryMenu extends AbstractMenu
 				{
 					inInventory = false;
 					MenuLoader.loadGameMenu(this);
-				
 				}
 				else
 				{
 					System.out.println(input + " is not a valid input please");
-					
 				}
-			} catch (IOException e) {
+			} catch (IOException e) 
+			{
 				System.out.println("Issue reading input");
 			}
 		}
 	}
-
-	
-
 	@Override
 	void onDestroy() 
 	{
 		// TODO Auto-generated method stub
-		
 	}
 }

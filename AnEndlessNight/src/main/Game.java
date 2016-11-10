@@ -53,16 +53,15 @@ public final class Game implements Serializable
 			game = new Game(newMap, newHero);
 			return true;
 		}
-		else {
+		else 
+		{
 			return false;
 		}
 	}
 	
 	public static ArrayList<Room> getRooms() 
 	{
-		
 		return game.rooms;
-		
 	}
 	
 	public static boolean loadGame(String file) throws Exception
@@ -120,5 +119,4 @@ public final class Game implements Serializable
 	{
 		return this;
 	}
-
 }
