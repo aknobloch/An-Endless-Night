@@ -95,9 +95,9 @@ public abstract class Character implements Serializable
 	}
 	
 	/***
-	 * Returns the unique ID of the room that this Character
+	 * Returns the room that this Character
 	 * is currently in.
-	 * @return room object hero is currently in
+	 * @return Room object hero is currently in
 	 */
 	public Room getRoom() 
 	{
