@@ -60,7 +60,7 @@ public class InventoryMenu extends AbstractMenu
 			{
 				System.out.println(input + " has been dropped in the room");
 				Room room = Game.getHero().getRoom();
-				room.addArtifacts(x.getItem());
+				room.getArtifactList().add(x.getItem());
 				items.remove(x);
 			}
 		}
