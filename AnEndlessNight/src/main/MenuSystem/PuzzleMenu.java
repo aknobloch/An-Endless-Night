@@ -3,6 +3,7 @@ package main.MenuSystem;
 import java.io.IOException;
 
 import main.Game;
+import main.GameInput;
 
 /**
  * 

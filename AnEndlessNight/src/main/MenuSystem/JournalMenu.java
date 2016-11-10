@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import main.Game;
+import main.GameInput;
 
 /**
  * author: Jory Alexander

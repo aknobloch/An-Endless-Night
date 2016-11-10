@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import main.Game;
+import main.GameInput;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 

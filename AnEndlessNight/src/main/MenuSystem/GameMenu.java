@@ -1,46 +1,109 @@
 package main.MenuSystem;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import main.Game;
+import main.GameInput;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
 
 public class GameMenu extends AbstractMenu
 {
+	
+	// keep track of if the player is still interacting with this system.
+	static boolean continuing = true;
+	
 	public GameMenu(MenuLoader menuLoader) 
 	{
 		super(menuLoader);
 	}
-
-	private String description;
-
-	public String toString()
-	{
-		return "Please Enter a number based on your Command \n"
-				+ "1. Search Room \n"
-				+ "2. Move Rooms \n"
-				+ "3. View Inventory \n"
-				+ "4. View Score \n"
-				+ "5. View Help \n"
-				+ "6. Save Game \n"
-				+ "7. View Journal \n"
-				+ "8. Exit Game \n";
+	
+	@Override
+	void mainPrompt() {
+		
+		int userInput;
+		continuing = true;
+		
+		do 
+		{
+			try 
+			{
+			System.out.println("What would you like to do?");
+			System.out.println("1. Search Room");
+			System.out.println("2. Move Rooms");
+			System.out.println("3. View Inventory");
+			System.out.println("4. View Score");
+			System.out.println("5. View Help");
+			System.out.println("6. Save Game");
+			System.out.println("7. View Journal");
+			System.out.println("8. Exit Game");
+			
+			userInput = GameInput.getInt();
+			
+			if(userInput == 1)
+			{
+				searchRoom();
+			}
+			else if(userInput == 2)
+			{
+				moveRooms();
+			}
+			else if(userInput == 3)
+			{
+				viewInventory();
+			}
+			else if(userInput == 4)
+			{
+				viewScore();
+			}
+			else if(userInput == 5)
+			{
+				viewHelp();
+			}
+			else if(userInput == 6)
+			{
+				saveGame();
+			}
+			else if(userInput == 7)
+			{
+				continuing = false;
+				MenuLoader.loadJournalMenu(this);
+			}
+			else if(userInput == 8)
+			{
+				exitGame();
+			}
+			else 
+			{
+				// invalid input
+				throw new IOException();
+			}
+			
+			}
+			catch(IOException ioe)
+			{
+				System.out.println("You mumble to yourself, but the only reply is an echo from the walls.");
+			}
+			
+		} while(continuing);
+		
+		
 	}
-
-	public void searchRoom()
+	
+	/**
+	 * Searches the current room, displaying the location name, a description as well as 
+	 * a list of the items located in the room.
+	 */
+	private void searchRoom()
 	{
 		ArrayList<String> descriptions = SearchRoomControl.searchRoom();
 		
-		System.out.println(descriptions.get(0));
+		System.out.println("You must be in the " + Game.getHero().getRoom().getName().toLowerCase() + ".");
+		System.out.println("Looking around, you observe the following: \n" + descriptions.get(0));
 		System.out.println();
+		
 		// if there are items, print items list
 		if(descriptions.size() > 1) {
 			System.out.println("You notice the following items:");
@@ -54,201 +117,216 @@ public class GameMenu extends AbstractMenu
 		{
 			System.out.println("There doesn't appear to be anything else notable.");
 		}
+		
+		System.out.println();
 	}
-
-	public void changeRooms()
-	{
+	
+	/**
+	 * Allows the player to chose a room from the possible choices of rooms.
+	 * If the player moves to a room with a monster, it initiates combat.
+	 * Otherwise, it just loads another game menu for that room.
+	 */
+	private void moveRooms() {
 		
-		ArrayList<Door> doors = Game.getHero().getRoom().getDoors();
-		ArrayList<Room> potentialRooms = new ArrayList<Room>();
+		boolean validInput = false;
 		
-		// finds all the potential rooms that the user could go to
-		for(Door focusDoor : doors) 
+		// stores the possible rooms
+		ArrayList<Room> possibleRooms = new ArrayList<>();
+		
+		// get all the doors in the room
+		for(Door door : Game.getHero().getRoom().getDoors())
 		{
-			
-			// get the connected rooms for the door. if connected room is not the 
-			// current room, add it to the potential rooms
-			for(Room connectedRoom : focusDoor.getConnectedRooms()) 
+			// for every door, get the possible rooms.
+			for(Room connectedRoom : door.getConnectedRooms())
 			{
-				if(connectedRoom.getRoomID() != Game.getHero().getRoom().getRoomID()) 
+				// for each of those rooms, add it to the possible rooms
+				// if it is not actually the current room.
+				if(connectedRoom.getRoomID() != Game.getHero().getRoom().getRoomID())
 				{
-					potentialRooms.add(connectedRoom);
+					possibleRooms.add(connectedRoom);
 				}
 			}
 		}
 		
-		int userChoice;
-		boolean validInput = false;
-		
-		do {
-			
+		// start getting input
+		do 
+		{
 			try 
 			{
-				System.out.println("Where would you like to go?");
 				
-				// print all options
-				for(int i = 0; i < potentialRooms.size(); i++) {
-					
-					System.out.println( (i + 1) + ". " + potentialRooms.get(i).getName());
-					
+				System.out.println("Where would you like to move to?");
+				// first option is always to go back
+				System.out.println("0. Nevermind, I'd like to stay here.");
+				
+				// show all possible rooms
+				for(int i = 0; i < possibleRooms.size(); i++) 
+				{
+					System.out.println( (i + 1) + ". " + possibleRooms.get(i).getName());
 				}
+				System.out.println();
 				
-				userChoice = GameInput.getInt();
+				int userChoice = GameInput.getInt();
 				
-				// not a valid choice
-				if(userChoice < 1 || userChoice > potentialRooms.size()) 
+				// if not a valid choice
+				if(userChoice < 0 || userChoice > possibleRooms.size()) 
 				{
 					throw new IOException();
 				}
 				else 
 				{
-					// valid input
 					validInput = true;
-					
-					// decrement by one to account for zero-index array
-					userChoice = userChoice - 1;
-					
-					Room desiredRoom = potentialRooms.get(userChoice);
-					
-					System.out.println("You move cautiously into the next room, weapon at the ready.");
-					System.out.println();
-					
-					Game.getHero().move(desiredRoom);
-					
-					if(Game.getHero().getRoom().getMonster() != null) 
-					{
-						MenuLoader.loadCombatMenu(this);
-					}
-					else 
-					{
-						MenuLoader.loadGameMenu(this);
-					}
+				}
+				
+				// if the user decided to stay here, exit this method.
+				if(userChoice == 0) {
+					return;
+				}
+				
+				// decrement user choice to account for zero-index
+				userChoice = userChoice - 1;
+				
+				// if the next room has a monster, change location and open combat
+				if(possibleRooms.get(userChoice).getMonster() != null)
+				{
+					continuing = false;
+					Game.getHero().move(possibleRooms.get(userChoice));
+					MenuLoader.loadCombatMenu(this);
+				}
+				// otherwise, just open the main menu again for the next room
+				else 
+				{
+					continuing = false;
+					Game.getHero().move(possibleRooms.get(userChoice));
+					MenuLoader.loadGameMenu(this);
 				}
 				
 			}
 			catch(IOException ioe) 
 			{
-				System.out.println("You walk around aimlessly for a moment before realizing that there is no passage.");
+				System.out.println("You wander around aimlessly before realizing there is no passage there.");
 				System.out.println();
-				GameInput.advanceScanner();
 			}
 			
 		} while( ! validInput);
 		
-		
-		
 	}
+	
 	/**
-	 * opens the inventory menu
+	 * Opens an inventory menu.
 	 */
-	public void openInventory() {}
-	
-	public void help() 
+	private void viewInventory() 
 	{
-		System.out.println("In order to input to the game enter the number next"
-				+ "to the option that you would like to perform");
-	}
-
-	public void showScore()
-	{
-		System.out.println("Your current score is: " + Game.getScore());
+		continuing = false;
+		MenuLoader.loadInventoryMenu(this);
 	}
 	
-	public void exitGame() 
-	{
-		System.exit(0);
-	}
-
-	public void saveGame() 
-	{
-		String input = "";
+	/**
+	 * Displays the current score.
+	 */
+	private void viewScore() {
 		
-		System.out.println("What would you like to name your save file?");
-		try 
-		{
-			input = GameInput.getString();
-		} catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			System.out.println("Invalid Input");
-			return;
-		}
-		input = input +".dat";
+		System.out.println("You're not often one to track your progress with such meaningless numbers,");
+		System.out.println("but this is an exception. You have " + Game.getScore() + " imaginary points.");
+		System.out.println();
 		
-		try 
-		{
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(input));
-			
-			out.writeObject(Game.getHero());
-			out.writeObject(Game.getRooms());
-			out.writeInt(Game.getScore());
-			out.writeObject(Game.getJournal());
-		} catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-		} catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
 	}
 	
-	void mainPrompt() 
-	{
-		System.out.println(toString());
+	/**
+	 * Shows a help guide.
+	 */
+	private void viewHelp() {
+		// TODO Help guide
 		
-		String input;
-		boolean check = true;
-		while(check)
+	}
+	
+	/**
+	 * Attempts to allow the user to save the game. It gives them three attempts to enter a file name,
+	 * and write to the file. If it does not work after three attempts, boots them back to the game menu.
+	 */
+	private void saveGame() {
+		
+		boolean validInput = false;
+		// after three failed save attempts, boot back to game menu.
+		int saveAttempts = 0;
+		
+		do 
 		{
-			try 
+			try
 			{
-				input = GameInput.getString();
-			
-				if(input.equals("1"))
-				{
-					searchRoom();
-					
-				}
-				else if(input.equals("2"))
-				{
-				 	changeRooms();
-				}
-				else if(input.equals("3"))
-				{
-					check = false;
-					MenuLoader.loadInventoryMenu(this);
-				}	
-				else if(input.equals("4"))
-				{
-					showScore();
-				}
-				else if(input.equals("5"))
-				{
-					help();
-					;
-				}
-				else if(input.equals("6"))
-				{
-					saveGame();
-					;
-				}
-				else if(input.equals("7"))
-				{
-					check = false;
-					MenuLoader.loadJournalMenu(this);
-				}
-				else if(input.equals("8"))
-				{
-					check = false;
-					exitGame();
-				}
-			} catch (IOException e) 
+				System.out.println("In order to immortalize your legacy, tell the Old Ones your name.");
+				
+				String fileName = GameInput.getString();
+				
+				Game.saveGame(fileName);
+				
+				System.out.println("The Old Ones approved your request. Your legacy is now written for generations past and present.");
+				validInput = true;
+				
+			} catch(IOException ioe) 
 			{
-				System.out.println("You mumble to yourself.");
+				saveAttempts++;
+				System.out.println("The Old Ones denied your request.");
+				if(saveAttempts > 3) 
+				{
+					System.out.println("Trying again is not going to help right now.");
+					System.out.println();
+					return;
+				}
 			}
 		}
+		while( ! validInput);
+		
+		System.out.println();
+		
 	}
-
+	
+	/** 
+	 * Prompts to make sure user would like exit, then exits.
+	 */
+	private void exitGame() {
+		
+		boolean validInput = false;
+		
+		do 
+		{
+			
+			try 
+			{
+				System.out.println("Are you sure you would like to quit?");
+				System.out.println("1. Yes");
+				System.out.println("2. No");
+				
+				int userChoice = GameInput.getInt();
+				
+				if(userChoice == 1)
+				{
+					continuing = false;
+					System.out.println("Your vision fades...");
+					System.out.println();
+					MenuLoader.loadStartMenu(this);
+				}
+				else if(userChoice == 2)
+				{
+					return;
+				}
+				else 
+				{
+					// not valid
+					throw new IOException();
+				}
+				
+			}
+			catch(IOException ioe)
+			{
+				System.out.println("Not a valid input, please try again.");
+				System.out.println();
+			}
+			
+		} while( ! validInput);
+		
+	}
+	
 	@Override
 	void onDestroy() {}
+
 }

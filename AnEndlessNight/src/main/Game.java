@@ -3,8 +3,10 @@ package main;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -60,6 +62,20 @@ public final class Game implements Serializable
 	public static ArrayList<Room> getRooms() 
 	{
 		return game.rooms;
+	}
+	
+	/**
+	 * Writes a file with the given filename.
+	 * @param fileName The name of the file to write.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void saveGame(String fileName) throws FileNotFoundException, IOException
+	{
+		// TODO: Check if file with name already exists.
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".save"));
+		out.writeObject(game);
+		out.close();
 	}
 	
 	public static boolean loadGame(String file) throws Exception

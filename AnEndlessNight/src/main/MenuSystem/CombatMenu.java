@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 
 import main.Game;
+import main.GameInput;
 import main.CombatSystem.DamageHandler;
 import main.CombatSystem.EscapeController;
 import main.CombatSystem.Monster;
@@ -87,7 +88,6 @@ public class CombatMenu extends AbstractMenu
 				System.out.println("You mumble incoherently. You should be wary of nonsensical babbling, ");
 				System.out.println("else you be labeled insane.");
 				System.out.println();
-				GameInput.advanceScanner();
 
 			}
 		}

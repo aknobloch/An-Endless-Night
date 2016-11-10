@@ -1,12 +1,14 @@
 package main.RoomSystem;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Jory Alexander, Estephanie Gonzalez
  *
  */
 
-public class Puzzle 
+public class Puzzle implements Serializable
 {
 	private String description;
 	private String solution;

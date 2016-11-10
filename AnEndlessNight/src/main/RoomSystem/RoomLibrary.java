@@ -406,7 +406,7 @@ public class RoomLibrary
 		rm_00_doors.add(d_27);
 		rm_00_doors.add(d_29);
 		rm_00_doors.add(d_F1);
-		Room rm_00 = new Room("Large Hallway with wooden floors and pillars", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(00), null);
+		Room rm_00 = new Room("A large hallway with wooden floors and pillars", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(00), null);
 		roomObj.add(rm_00);
 		rooms.clear();
 
@@ -419,7 +419,7 @@ public class RoomLibrary
 		rm_01_doors.add(d_05);
 		ArrayList<Artifact> rm_01_art = new ArrayList<>();
 		rm_01_art.add(art_18);
-		Room rm_01 = new Room("The entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), rm_01_art);
+		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), rm_01_art);
 		roomObj.add(rm_01);
 		rooms.clear();
 
@@ -447,7 +447,7 @@ public class RoomLibrary
 		rm_03_doors.add(d_21);
 		ArrayList<Artifact> rm_03_art = new ArrayList<>();
 		rm_03_art.add(art_06);
-		Room rm_03 = new Room("A garden with a small pond filled with lotus flowers", rm_03_doors, 103, false, "North Garden", null, MonsterFactory.setRoomMonster(3), rm_03_art);
+		Room rm_03 = new Room("A garden with a small pond filled with lotus flowers.", rm_03_doors, 103, false, "North Garden", null, MonsterFactory.setRoomMonster(3), rm_03_art);
 		roomObj.add(rm_03);
 		rooms.clear();
 
@@ -457,7 +457,7 @@ public class RoomLibrary
 		rm_04_doors.add(d_11);
 		rm_04_doors.add(d_14);
 		rm_04_doors.add(d_15);
-		Room rm_04 = new Room("A garden normally used an outside training, it has a cherry blossom tree in the middle.", rm_04_doors, 104, false, "Northeast Garden", null, MonsterFactory.setRoomMonster(4), null);
+		Room rm_04 = new Room("A garden normally used for outside training, it has a cherry blossom tree in the middle.", rm_04_doors, 104, false, "Northeast Garden", null, MonsterFactory.setRoomMonster(4), null);
 		roomObj.add(rm_04);
 		rooms.clear();
 
@@ -468,7 +468,7 @@ public class RoomLibrary
 		rm_05_doors.add(d_07);
 		rm_05_doors.add(d_09);
 		rm_05_doors.add(d_12);
-		Room rm_05 = new Room("A garden with beautiful stone and plant arrangement ", rm_05_doors, 105, false, "Southeast Garden", null, MonsterFactory.setRoomMonster(5), null);
+		Room rm_05 = new Room("A garden with beautiful stone and plant arrangement.", rm_05_doors, 105, false, "Southeast Garden", null, MonsterFactory.setRoomMonster(5), null);
 		roomObj.add(rm_05);
 		rooms.clear();
 
@@ -490,7 +490,7 @@ public class RoomLibrary
 		rm_07_doors.add(d_05);
 		ArrayList<Artifact> rm_07_art = new ArrayList<>();
 		rm_07_art.add(art_04);
-		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket", rm_07_doors, 107, false, "Southeast Shed", puz_02, null, rm_07_art);
+		Room rm_07 = new Room("Multiple tools that are used to care the garden and a bucket.", rm_07_doors, 107, false, "Southeast Shed", puz_02, null, rm_07_art);
 		roomObj.add(rm_07);
 		rooms.clear();
 
@@ -521,7 +521,7 @@ public class RoomLibrary
 		rm_10_doors.add(d_22);
 		rm_10_doors.add(d_23);
 		rm_10_doors.add(d_24);
-		Room rm_10 = new Room("A room before then outdoor bath. Guest and travelers here wash themselves before bathing.", rm_10_doors, 110, false, "Wash Room", null, MonsterFactory.setRoomMonster(10), null);
+		Room rm_10 = new Room("A room before the outdoor bath. Guest and travelers here wash themselves before bathing.", rm_10_doors, 110, false, "Wash Room", null, MonsterFactory.setRoomMonster(10), null);
 		roomObj.add(rm_10);
 		rooms.clear();
 

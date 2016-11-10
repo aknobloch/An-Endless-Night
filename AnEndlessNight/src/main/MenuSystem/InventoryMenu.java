@@ -1,5 +1,6 @@
 package main.MenuSystem;
 import main.Game;
+import main.GameInput;
 import main.CombatSystem.*;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;

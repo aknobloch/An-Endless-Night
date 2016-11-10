@@ -1,4 +1,4 @@
-package main.MenuSystem;
+package main;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
@@ -68,6 +68,7 @@ public final class GameInput
 		try 
 		{
 			int userInput = input.nextInt();
+			advanceScanner();
 			return userInput;
 			
 		} catch(Exception ex)
@@ -81,13 +82,9 @@ public final class GameInput
 	 * you attempted to get input that was not valid. This is simply
 	 * a call to Scanner.nextLine().
 	 */
-	public static void advanceScanner() 
+	private static void advanceScanner() 
 	{
-		try {
-			input.nextLine();
-		}
-		catch(IndexOutOfBoundsException n) {
-			System.out.println("caught");
-		}
+		input.nextLine();
+		
 	}
 }

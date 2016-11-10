@@ -1,5 +1,6 @@
 package main.RoomSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.Game;
@@ -10,7 +11,7 @@ import main.Game;
  *
  */
 
-public class Door 
+public class Door implements Serializable
 {
 
 	private ArrayList<Integer> connectedRooms = new ArrayList<Integer>();

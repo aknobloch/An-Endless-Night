@@ -3,6 +3,7 @@ package main.MenuSystem;
 import java.io.IOException;
 
 import main.Game;
+import main.GameInput;
 
 /**
  * 
@@ -59,7 +60,19 @@ public class StartMenu extends AbstractMenu
 
 	@Override
 	public void mainPrompt()
-	{
+	{    
+		// IF YOU MESS WITH THIS I WILL LITERALLY KILL YOU I SPENT WAY TOO MUCH TIME ON THIS
+		System.out.println("\n\n");
+		System.out.println(" _______  _              _______  _        ______   _        _______  _______  _______        _       _________ _______          _________\n" +
+						   "(  ___  )( (    /|      (  ____ \\( (    /|(  __  \\ ( \\      (  ____ \\(  ____ \\(  ____ \\      ( (    /|\\__   __/(  ____ \\|\\     /|\\__   __/\n" +
+						   "| (   ) ||  \\  ( |      | (    \\/|  \\  ( || (  \\  )| (      | (    \\/| (    \\/| (    \\/      |  \\  ( |   ) (   | (    \\/| )   ( |   ) (   \n" +
+						   "| (___) ||   \\ | |      | (__    |   \\ | || |   ) || |      | (__    | (_____ | (_____       |   \\ | |   | |   | |      | (___) |   | |   \n" +
+						   "|  ___  || (\\ \\) |      |  __)   | (\\ \\) || |   | || |      |  __)   (_____  )(_____  )      | (\\ \\) |   | |   | | ____ |  ___  |   | |   \n" +
+						   "| (   ) || | \\   |      | (      | | \\   || |   ) || |      | (            ) |      ) |      | | \\   |   | |   | | \\_  )| (   ) |   | |   \n" +
+						   "| )   ( || )  \\  |      | (____/\\| )  \\  || (__/  )| (____/\\| (____/\\/\\____) |/\\____) |      | )  \\  |___) (___| (___) || )   ( |   | |   \n" +
+						   "|/     \\||/    )_)      (_______/|/    )_)(______/ (_______/(_______/\\_______)\\_______)      |/    )_)\\_______/(_______)|/     \\|   )_(   \n" +
+						   "                                                                                                                                  ");
+		System.out.println("\n\n");
 		System.out.println(toString());
 		
 		String input;
@@ -91,7 +104,6 @@ public class StartMenu extends AbstractMenu
 		} catch (IOException e) 
 		{
 			System.out.println("You entered bad data try agian");
-			GameInput.advanceScanner();
 		} catch (Exception e) 
 		{
 			// TODO Auto-generated catch block
