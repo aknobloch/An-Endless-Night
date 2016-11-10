@@ -12,9 +12,9 @@ import main.Game;
 public class JournalMenu extends AbstractMenu
 {
 	String description = "1. Read Journal"
-			+ "2. Write Entry"
-			+ "3. Remove Entry"
-			+ "4. Main Menu";
+			+ "\n2. Write Entry"
+			+ "\n3. Remove Entry"
+			+ "\n4. Main Menu";
 
 	public JournalMenu(MenuLoader menuLoader) 
 	{
@@ -54,7 +54,7 @@ public class JournalMenu extends AbstractMenu
 		System.out.println("You look through your journal and think about which entry you would like to remove.");
 		readJournal();
 		
-		System.out.println("You concider the entry number that is no longer useful");
+		System.out.println("You consider the entry number that is no longer useful");
 		
 		try 
 		{
@@ -101,7 +101,7 @@ public class JournalMenu extends AbstractMenu
 				}
 				else
 				{
-					System.out.println("You mumble nonsense to yourself. You think to yourself that you should not say nonense into the void");
+					System.out.println("You mumble nonsense to yourself. You think to yourself that you should not say nonsense into the void");
 				}
 			} 
 			catch (IOException e) 
