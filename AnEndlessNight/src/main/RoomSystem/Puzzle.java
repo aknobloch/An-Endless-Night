@@ -1,7 +1,9 @@
 package main.RoomSystem;
 
 /**
- * author: Estephanie Gonzalez, Jory Alexander
+ * 
+ * @author Jory Alexander, Estephanie Gonzalez
+ *
  */
 
 public class Puzzle 

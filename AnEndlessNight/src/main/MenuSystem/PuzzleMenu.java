@@ -4,37 +4,47 @@ import java.io.IOException;
 
 import main.Game;
 
-public class PuzzleMenu extends AbstractMenu{
+/**
+ * 
+ * @author Jory Alexander
+ *
+ */
+
+public class PuzzleMenu extends AbstractMenu
+{
 	
 	private String description = "1. Enter Answer"
 			+ "2. View Hint"
 			+ "3. View Riddle"
 			+ "4. Go back";
 
-	public PuzzleMenu(MenuLoader menuLoader) {
+	public PuzzleMenu(MenuLoader menuLoader) 
+	{
 		super(menuLoader);
 		// TODO Auto-generated constructor stub
 	}
 	
-	private void flee() {
+	private void flee() 
+	{
 		System.out.println("You walk back head hurting from thinking.");
 		
 		Game.getHero().bounceBack();
-		
 	}
 
-	private void viewRiddle() {
+	private void viewRiddle() 
+	{
 		System.out.println(Game.getHero().getRoom().getPuzzle().getDescription());
-		
 	}
 
-	private void getHint() {
+	private void getHint() 
+	{
 		System.out.println(Game.getHero().getRoom().getPuzzle().getHint());
-		
 	}
 
-	private void answer() {
-		try {
+	private void answer() 
+	{
+		try 
+		{
 			String answer = GameInput.getString();
 			
 			String solution = Game.getHero().getRoom().getPuzzle().getSolution();
@@ -49,21 +59,22 @@ public class PuzzleMenu extends AbstractMenu{
 				System.out.println("The room seems to not like your muttering");
 				Game.getHero().getRoom().getPuzzle().incrementAttemptsMade();
 			}
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
-	void mainPrompt() {
-		
+	void mainPrompt() 
+	{
 		boolean inPuzzle = true;
 		
 		while(inPuzzle)
 		{
-			try {
+			try 
+			{
 				int input = GameInput.getInt();
 				if(input == 1)
 				{
@@ -94,18 +105,14 @@ public class PuzzleMenu extends AbstractMenu{
 				{
 					System.out.println("You mumble to yourself");
 				}
-			} catch (IOException e) {
+			} catch (IOException e) 
+			{
 				// TODO Auto-generated catch block
 				System.out.println("You mumble nonsense");
 			}
 		}
-		
 	}
-
 	@Override
-	void onDestroy() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	void onDestroy() 
+	{}
 }

@@ -20,7 +20,6 @@ import main.RoomSystem.RoomLibrary;
  */
 public final class Game implements Serializable
 {
-
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
@@ -82,7 +81,7 @@ public final class Game implements Serializable
 			setJournal(oldJournal);
 		} catch (FileNotFoundException e) 
 		{
-			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
+			System.out.println("There is no Endless Night Save Data on this Computer a new game will be created for you");
 			return false;
 		} catch (IOException e) 
 		{

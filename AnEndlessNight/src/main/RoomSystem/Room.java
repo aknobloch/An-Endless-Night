@@ -7,7 +7,9 @@ import main.CombatSystem.Monster;
 import main.InventorySystem.Artifact;
 
 /**
- * author: Estephanie Gonzalez, Jory Alexander
+ * 
+ * @author Jory Alexander, Estephanie Gonzalez
+ *
  */
 
 public class Room implements Serializable 

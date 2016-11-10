@@ -4,6 +4,11 @@ import java.io.IOException;
 
 import main.Game;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class StartMenu extends AbstractMenu
 {
 	private String menu;

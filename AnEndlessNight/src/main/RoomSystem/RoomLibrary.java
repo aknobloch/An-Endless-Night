@@ -1,9 +1,5 @@
 package main.RoomSystem;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,7 +8,9 @@ import main.CombatSystem.MonsterFactory;
 import main.InventorySystem.Artifact;
 
 /**
- * author: Estephanie Gonzalez
+ * 
+ * @author Estephanie Gonzalez
+ *
  */
 
 public class RoomLibrary 
@@ -211,6 +209,7 @@ public class RoomLibrary
 		doors.clear();
 
 		//DOORS FLOOR 2
+		
 		doors.add(118);
 		doors.add(126);
 		Door d_30 = new Door(new ArrayList<Integer>(doors), 130);
@@ -291,6 +290,7 @@ public class RoomLibrary
 		doors.clear();
 
 		//ARTIFACTS
+		
 		//adding artifact to rooms, 08 is the room the puzzle goes into
 		artifact.add(108);
 		Artifact art_01 = new Artifact("Magic Mirror", "A mirror that reflects brightly", 1);
@@ -595,7 +595,7 @@ public class RoomLibrary
 		rm_17_doors.add(d_10);
 		ArrayList<Artifact> rm_17_art = new ArrayList<>();
 		rm_17_art.add(art_13);
-		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo (Training Hall)", puz_03, null, rm_17_art);
+		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo", puz_03, null, rm_17_art);
 		roomObj.add(rm_17);
 		rooms.clear();
 
@@ -653,7 +653,7 @@ public class RoomLibrary
 		// d_36
 		ArrayList<Door> rm_23_doors = new ArrayList<>();
 		rm_23_doors.add(d_36);
-		Room rm_23 = new Room("A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks.", rm_23_doors, 123, false, "Guest room 2 - Closet", null, MonsterFactory.setRoomMonster(23), null);
+		Room rm_23 = new Room("A small room, small in width and the length is long. It’s able to hold a dozen of clothes for guests that plans to stay for more than a few weeks.", rm_23_doors, 123, false, "Guest room 2 Closet", null, MonsterFactory.setRoomMonster(23), null);
 		roomObj.add(rm_23);
 		rooms.clear();
 

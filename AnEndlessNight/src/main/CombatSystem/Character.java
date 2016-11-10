@@ -12,7 +12,6 @@ import main.RoomSystem.Room;
  */
 public abstract class Character implements Serializable
 {
-
 	protected int characterID;
 	protected int health;
 	protected int strength;

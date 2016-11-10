@@ -17,7 +17,8 @@ public final class GameInput
 	public static final Scanner input = new Scanner(System.in);
 	
 	// not instantiable
-	private GameInput() {}
+	private GameInput() 
+	{}
 	
 	/***
 	 * Gets a double input from the user.
