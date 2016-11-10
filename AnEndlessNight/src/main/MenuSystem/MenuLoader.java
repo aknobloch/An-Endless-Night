@@ -151,4 +151,10 @@ public class MenuLoader
 	{
 		combatMenu.mainPrompt();
 	}
+
+	//Jory has no idea how the MenuLoader works.........
+	public static void loadPuzzleMenu() {
+		// TODO Auto-generated method stub
+		
+	}
 }

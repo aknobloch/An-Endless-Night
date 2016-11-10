@@ -81,5 +81,10 @@ public class Puzzle
 	{
 		return attemptsAllowed;
 	}
+	
+	public void setAttemptsMade(int x)
+	{
+		attemptsMade = x;
+	}
 
 }

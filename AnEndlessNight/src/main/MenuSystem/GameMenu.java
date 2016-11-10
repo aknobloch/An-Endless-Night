@@ -44,7 +44,7 @@ public class GameMenu extends AbstractMenu
 		System.out.println(descriptions.get(0));
 		System.out.println();
 		// if there are items, print items list
-		if(descriptions.size() >= 1) {
+		if(descriptions.size() > 1) {
 			System.out.println("You notice the following items:");
 			for(int i = 1; i < descriptions.size();i++)
 			{
@@ -165,10 +165,15 @@ public class GameMenu extends AbstractMenu
 				 	
 				 	// TODO: This shouldn't be, player has a choice whether to engage monster.
 				 	if(isMonster)
-				 		{
-				 			check = false;
-				 			MenuLoader.loadCombatMenu(this);
-				 		}
+				 	{
+				 		check = false;
+				 		MenuLoader.loadCombatMenu(this);
+				 	}
+				 	else if(Game.getHero().getRoom().getPuzzle() != null)
+				 	{
+				 		check = false;
+				 		MenuLoader.loadPuzzleMenu();
+				 	}
 				}
 				else if(input.equals("3"))
 				{

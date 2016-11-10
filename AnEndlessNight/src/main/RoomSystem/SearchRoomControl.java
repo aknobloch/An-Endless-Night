@@ -13,9 +13,6 @@ public class SearchRoomControl
 		Room location = Game.getHero().getRoom();
 		ArrayList<Artifact> artifacts = location.getArtifact();
 		
-		
-		System.out.println(location.getDescription());
-		
 		ArrayList<String> descriptions = new ArrayList<>();
 		
 		descriptions.add(location.getDescription());
