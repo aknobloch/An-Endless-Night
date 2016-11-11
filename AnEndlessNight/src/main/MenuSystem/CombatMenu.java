@@ -311,8 +311,31 @@ public class CombatMenu extends AbstractMenu
 				System.out.println("\tmerely fables or stories for children. It is said that they are so powerful,");
 				System.out.println("\ttheir very breath can scorch the earth.");
 				break;
+			case 9 :
+				// Tengu
+				System.out.println("\tBefore you stands a demon unlike any you have encountered this far. Many heads protrude from");
+				System.out.println("\tits bony body, each face having a long, beak-like nose. It carries large, feathered fans");
+				System.out.println("\tthat look like they could produce a mighty blast of wind.");
+				break;
+			case 10 :
+				// Kitsune
+				System.out.println("\tBefore you stands Kitsune, the twinkle in her eye absolutely entrancing.");
+				System.out.println("\tShe pouts and comments on how exhausted you look. Falling back onto");
+				System.out.println("\ta plush bed, she motions for you to join her.");
+				System.out.println();
+				System.out.println("\t\"Surely the stresses of your battle can be....relieved\" she says, smiling.");
+				break;
+			case 11 :
+				// Ryu
+				System.out.println("\tThe sky crackles and booms, clouds gathering overhead. As rain begins to plummet");
+				System.out.println("\tyour weary face, a movement in the darkened clouds catches your eye. Slowly, you");
+				System.out.println("\tbegin to make out a figure...serpentine in form, moving through the air like a snake");
+				System.out.println("\tthrough grass. Fear strikes deep in your heart as the realization dawns on you. Surely,");
+				System.out.println("\tthis cannot be. An Old God, one whos very name is only whispered in passing nightmares");
+				System.out.println("\tand muttered curses. The ground shakes as Ryu, the serpentine water deity, lands.");
+				break;
 			default :
-				// not yet implemented,must be a bug
+				// not yet implemented, must be a bug
 				System.out.println("\tA bug scurries in front of you. Someone should be alerted of this infestation.");
 				break;
 		}
