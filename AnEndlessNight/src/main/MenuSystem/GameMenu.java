@@ -90,7 +90,7 @@ public class GameMenu extends AbstractMenu
 			}
 			catch(IOException ioe)
 			{
-				System.out.println("You mumble to yourself, but the only reply is an echo from the walls.");
+				System.out.println("\tYou mumble to yourself, but the only reply is an echo from the walls.");
 			}
 			
 		} while(continuing);
@@ -106,22 +106,23 @@ public class GameMenu extends AbstractMenu
 	{
 		ArrayList<String> descriptions = SearchRoomControl.searchRoom();
 		
-		System.out.println("You must be in the " + Game.getHero().getRoom().getName().toLowerCase() + ".");
-		System.out.println("Looking around, you observe the following: \n" + descriptions.get(0));
+		System.out.println("\tYou must be in the " + Game.getHero().getRoom().getName().toLowerCase() + ".");
+		System.out.println();
+		System.out.println("\tLooking around, you observe the following: \n\t" + descriptions.get(0));
 		System.out.println();
 		
 		// if there are items, print items list
 		if(descriptions.size() > 1) {
-			System.out.println("You notice the following items:");
+			System.out.println("\tYou notice the following items:");
 			for(int i = 1; i < descriptions.size();i++)
 			{
-				System.out.println(descriptions.get(i));
+				System.out.println("\t" + descriptions.get(i));
 			}
 		}
 		// otherwise...
 		else 
 		{
-			System.out.println("There doesn't appear to be anything else notable.");
+			System.out.println("\tThere doesn't appear to be anything else notable.");
 		}
 		
 		System.out.println();
@@ -162,7 +163,7 @@ public class GameMenu extends AbstractMenu
 				
 				System.out.println("Where would you like to move to?");
 				// first option is always to go back
-				System.out.println("0. Nevermind, I'd like to stay here.");
+				System.out.println("0. Stay here");
 				
 				// show all possible rooms
 				for(int i = 0; i < possibleRooms.size(); i++) 
@@ -196,6 +197,8 @@ public class GameMenu extends AbstractMenu
 				{
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
+					System.out.println("\tAs you move into the next room, you encounter a monster!");
+					System.out.println("\tIt attacks!");
 					MenuLoader.loadCombatMenu(this);
 				}
 				// otherwise, just open the main menu again for the next room
@@ -209,7 +212,7 @@ public class GameMenu extends AbstractMenu
 			}
 			catch(IOException ioe) 
 			{
-				System.out.println("You wander around aimlessly before realizing there is no passage there.");
+				System.out.println("\tYou wander around aimlessly before realizing there is no passage there.");
 				System.out.println();
 			}
 			
@@ -231,8 +234,8 @@ public class GameMenu extends AbstractMenu
 	 */
 	private void viewScore() {
 		
-		System.out.println("You're not often one to track your progress with such meaningless numbers,");
-		System.out.println("but this is an exception. You have " + Game.getScore() + " imaginary points.");
+		System.out.println("\tYou're not often one to track your progress with such meaningless numbers,");
+		System.out.println("\tbut this is an exception. You have " + Game.getScore() + " imaginary points.");
 		System.out.println();
 		
 	}
@@ -259,22 +262,22 @@ public class GameMenu extends AbstractMenu
 		{
 			try
 			{
-				System.out.println("In order to immortalize your legacy, tell the Old Ones your name.");
+				System.out.println("\tIn order to immortalize your legacy, tell the Old Ones your name.");
 				
 				String fileName = GameInput.getString();
 				
 				Game.saveGame(fileName);
 				
-				System.out.println("The Old Ones approved your request. Your legacy is now written for generations past and present.");
+				System.out.println("\tThe Old Ones approved your request. Your legacy is now written for generations past and present.");
 				validInput = true;
 				
 			} catch(IOException ioe) 
 			{
 				saveAttempts++;
-				System.out.println("The Old Ones denied your request.");
+				System.out.println("\tThe Old Ones denied your request.");
 				if(saveAttempts > 3) 
 				{
-					System.out.println("Trying again is not going to help right now.");
+					System.out.println("\tTrying again is not going to help right now.");
 					System.out.println();
 					return;
 				}
@@ -307,7 +310,7 @@ public class GameMenu extends AbstractMenu
 				if(userChoice == 1)
 				{
 					continuing = false;
-					System.out.println("Your vision fades...");
+					System.out.println("\tYour vision fades...");
 					System.out.println();
 					MenuLoader.loadStartMenu(this);
 				}
@@ -324,7 +327,7 @@ public class GameMenu extends AbstractMenu
 			}
 			catch(IOException ioe)
 			{
-				System.out.println("Not a valid input, please try again.");
+				System.out.println("\tNot a valid input, please try again.");
 				System.out.println();
 			}
 			

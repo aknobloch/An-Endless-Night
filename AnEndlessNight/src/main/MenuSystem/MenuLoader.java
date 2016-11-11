@@ -20,6 +20,9 @@ public class MenuLoader
 	private static final StartMenu startMenu = new StartMenu(johnCena);
 	private static final PuzzleMenu puzzleMenu = new PuzzleMenu(johnCena);
 	
+	// the amount of time to wait before launching a new menu.
+	private static final long MENU_PAUSE_TIME = 1500;
+	
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
 	 * you pass in an object of this class. This ensures that menus are not created or managed
@@ -41,6 +44,12 @@ public class MenuLoader
 	public static void loadCombatMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
 		
 		System.out.println();
 		System.out.println("==================================================================");
@@ -71,6 +80,12 @@ public class MenuLoader
 		
 		currentMenu.onDestroy();
 		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
+		
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             MAIN MENU                            ");
@@ -99,6 +114,12 @@ public class MenuLoader
 	{
 		
 		currentMenu.onDestroy();
+		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
 		
 		System.out.println();
 		System.out.println("==================================================================");
@@ -129,6 +150,12 @@ public class MenuLoader
 	{
 		currentMenu.onDestroy();
 		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
+		
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             JOURNAL                              ");
@@ -156,6 +183,12 @@ public class MenuLoader
 	public static void loadStartMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
 		
 		new Thread(new Runnable() 
 		{
@@ -186,6 +219,12 @@ public class MenuLoader
 	public static void loadPuzzleMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
 		
 		System.out.println();
 		System.out.println("==================================================================");
