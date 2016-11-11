@@ -22,30 +22,52 @@ import main.InventorySystem.Artifact;
 public class MonsterFactory 
 {
 	//TODO create map for monsters and the rooms they can appear in.
-	private String[] monsterNameA = {"Maneki-neko","Karakasa", "Futakuchi-onna", "Kappa", "Tanuki", "Yatagarasu", "Oni", "Shisa", "Tengu", "Kitsune", "Ryu"};
-	private ArrayList<String> monsterDropList;
-	private ArrayList<ArrayList<Artifact>> monsterItemAssignments;
 
-	public MonsterFactory()
+	private static String[] monsterNameArray = 
+		{
+		"Maneki-neko",
+		"Karakasa", 
+		"Futakuchi-onna", 
+		"Kappa", 
+		"Tanuki", 
+		"Yatagarasu", 
+		"Oni", 
+		"Shisa", 
+		"Tengu", 
+		"Kitsune", 
+		"Ryu"
+		};
+	private static ArrayList<String> monsterDropList;
+	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
+	private static ArrayList<Monster> monsterList;
+	private static ArrayList<Artifact> artifactList;
+
+	// prevents instantiation
+	private MonsterFactory() 
+	{}
+
+	private static void initializeFactory() 
 	{
 		monsterDropList = new ArrayList<String>();
 		monsterItemAssignments = new ArrayList<ArrayList<Artifact>>();
+		monsterList = new ArrayList<Monster>();
+		artifactList = new ArrayList<Artifact>();
 
-		for (int i = 0; i < monsterNameA.length; i++)
+		for (int i = 0; i < monsterNameArray.length; i++)
 		{
 			try 
 			{
-				getItemForMonster(monsterNameA[i]);
+				getItemForMonster(monsterNameArray[i]);
 			} catch (FileNotFoundException e) 
 			{
 				e.printStackTrace();
 			}
 		}
-		
+
 		MonsterGenerator(monsterItemAssignments);
 	}
 
-	public void getItemForMonster(String generatedMonster) throws FileNotFoundException 
+	private static  void getItemForMonster(String generatedMonster) throws FileNotFoundException 
 	{
 		File f = new File("MonstersNames.txt");
 		Scanner scan = new Scanner(f);
@@ -75,10 +97,9 @@ public class MonsterFactory
 		scan.close();
 	}
 
-	public ArrayList<Artifact> readArtifacts(ArrayList<String> artifact) 
+	private static ArrayList<Artifact> readArtifacts(ArrayList<String> artifact) 
 	{
 		// open up artifacts.dat and read into an arrayList of artifacts.
-		ArrayList<Artifact> theList = new ArrayList<Artifact>();
 		ObjectInputStream input = null;
 
 		try
@@ -87,6 +108,7 @@ public class MonsterFactory
 		} catch (IOException e)
 		{
 			e.printStackTrace();
+			System.out.println("can't find artifacts.dat");
 		}
 
 		// now read from the file- get the Artifact and return it
@@ -99,7 +121,7 @@ public class MonsterFactory
 				{
 					if (a.getArtifactID() == Integer.parseInt(artifact.get(i)))
 					{
-						theList.add(a);
+						artifactList.add(a);
 					}
 				}
 			}
@@ -124,13 +146,11 @@ public class MonsterFactory
 			e.printStackTrace();
 		}
 
-		return theList;
+		return artifactList;
 	}
 
-	public void MonsterGenerator(ArrayList<ArrayList<Artifact>> artifactAl)
+	public static void MonsterGenerator(ArrayList<ArrayList<Artifact>> artifactAl)
 	{
-		ArrayList<Monster> monsterList = new ArrayList<Monster>();
-
 		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 0.01, artifactAl.get(0), false);
 		monsterList.add(mon);
 		mon = new Monster(2, 15, 3, "Karakasa", 0.30, artifactAl.get(1), false);
@@ -173,5 +193,41 @@ public class MonsterFactory
 			e.printStackTrace();
 			System.out.println("Problem writing to monster.dat");
 		}
+	}
+
+	public static Monster setRoomMonster(int roomID) 
+	{
+		if(monsterList == null) 
+		{
+			initializeFactory();
+		}
+		int winningMonster = 0;
+
+		switch (roomID)
+		{
+		case 18: winningMonster = 8; 
+		break;
+		case 24: winningMonster = 9;
+		break;
+		case 29: winningMonster = 10;
+		break;
+		default: 
+			for (int i = 0; i < monsterList.size()-3; i++) // -3 to prevent bosses from being selected.
+			{
+				Random r = new Random();
+
+				int percentChance = (int) monsterList.get(i).getProbabilityOfAppearance() * 100;
+				int randomNum = r.nextInt(100);
+
+				if(randomNum < percentChance)
+				{
+					winningMonster = i;
+					i = monsterList.size();
+				}
+			};
+			break;
+		}
+
+		return monsterList.get(winningMonster);
 	}
 }

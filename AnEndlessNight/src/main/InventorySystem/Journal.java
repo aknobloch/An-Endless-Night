@@ -3,8 +3,8 @@ package main.InventorySystem;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Journal implements Serializable {
-	
+public class Journal implements Serializable 
+{
 	ArrayList<String> entries;
 	
 	public Journal()

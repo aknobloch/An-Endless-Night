@@ -6,16 +6,22 @@ import java.util.ArrayList;
 import main.CombatSystem.Monster;
 import main.InventorySystem.Artifact;
 
+/**
+ * 
+ * @author Jory Alexander, Estephanie Gonzalez
+ *
+ */
+
 public class Room implements Serializable 
 {
 	private String description;
-	private ArrayList<Door> doors = new ArrayList<Door>();
+	private ArrayList<Door> doors;
 	private int roomID;
 	private boolean visited;
 	private String name;
 	private Puzzle puzzle;
 	private Monster monster;
-	private ArrayList<Artifact> artifact = new ArrayList<>();
+	private ArrayList<Artifact> artifact;
 
 	public Room(String description, ArrayList<Door> doors, int roomID, boolean visited, String name, 
 			Puzzle puzzle, Monster monster, ArrayList<Artifact> artifact) 
@@ -28,6 +34,7 @@ public class Room implements Serializable
 		this.puzzle = puzzle;
 		this.monster = monster;
 		this.artifact = artifact;
+		
 	}
 
 	public Monster getMonster() 
@@ -60,22 +67,9 @@ public class Room implements Serializable
 		return doors;
 	}
 
-	public ArrayList<Artifact> getArtifact() 
+	public ArrayList<Artifact> getArtifactList() 
 	{
 		return artifact;
-	}
-
-	public void addArtifacts(Artifact artifact) 
-	{
-		this.artifact.add(artifact);
-	}
-	
-	public void addAllArtifacts(ArrayList<Artifact> artifact)
-	{
-		for(int i = 0;i < this.artifact.size();i++)
-		{
-			this.artifact.add(artifact.get(i));
-		}
 	}
 
 	public int getRoomID() 
@@ -97,5 +91,4 @@ public class Room implements Serializable
 	{
 		return name;
 	}
-
 }

@@ -1,6 +1,12 @@
 package main.InventorySystem;
 
-public class Artifact 
+import java.io.Serializable;
+
+/**
+ * author: Estephanie Gonzalez, Jory Alexander
+ */
+
+public class Artifact implements Serializable
 {
 	private String Name;
 	private String Description;
@@ -40,5 +46,4 @@ public class Artifact
 			return false;
 		}
 	}
-
 }

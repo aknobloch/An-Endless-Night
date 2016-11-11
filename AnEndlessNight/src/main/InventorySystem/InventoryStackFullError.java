@@ -11,7 +11,6 @@ import java.io.IOException;
  */
 public class InventoryStackFullError extends IOException 
 {
-
 	/**
 	 * Creates a new InventoryFullError with a default message.
 	 */
@@ -19,5 +18,4 @@ public class InventoryStackFullError extends IOException
 	{
 		super("This inventory item cannot hold any more. Try setting the maxCount");
 	}
-	
 }

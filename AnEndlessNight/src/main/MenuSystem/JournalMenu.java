@@ -4,20 +4,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import main.Game;
+import main.GameInput;
 
-public class JournalMenu extends AbstractMenu{
+/**
+ * author: Jory Alexander
+ */
 
+public class JournalMenu extends AbstractMenu
+{
 	String description = "1. Read Journal"
-			+ "2. Write Entry"
-			+ "3. Remove Entry"
-			+ "4. Main Menu";
+			+ "\n2. Write Entry"
+			+ "\n3. Remove Entry"
+			+ "\n4. Main Menu";
 
-	public JournalMenu(MenuLoader menuLoader) {
+	public JournalMenu(MenuLoader menuLoader) 
+	{
 		super(menuLoader);
 	}
-	
 
-	public void readJournal() {
+	public void readJournal() 
+	{
 		Game.getJournal();
 		ArrayList<String> entries = Game.getJournal().getEntries();
 		
@@ -25,44 +31,41 @@ public class JournalMenu extends AbstractMenu{
 		{
 			System.out.println((i+1) + ". " + entries.get(i));
 		}
-		
 	}
 
-	public void writeEntry(){
-		
+	public void writeEntry()
+	{
 		System.out.println("You think carefully about what to write"
 				+ "before putting pen to paper");
 		
 		String input;
-		try {
+		try 
+		{
 			input = GameInput.getString();
 			Game.getJournal().addEntry(input);
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
 	}
 
-	public void removeEntry() {
+	public void removeEntry() 
+	{
 		System.out.println("You look through your journal and think about which entry you would like to remove.");
 		readJournal();
 		
-		System.out.println("You concider the entry number that is no longer useful");
+		System.out.println("You consider the entry number that is no longer useful");
 		
-		try {
+		try 
+		{
 			int input = GameInput.getInt();
 			Game.getJournal().removeEntry(input);
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	public String toString()
@@ -70,13 +73,14 @@ public class JournalMenu extends AbstractMenu{
 		return description;
 	}
 	@Override
-	void mainPrompt() {
-		
+	void mainPrompt() 
+	{
 		System.out.println(toString());
 		boolean check = true;
 		while(check)
 		{
-			try {
+			try 
+			{
 				String input = GameInput.getString();
 				
 				if(input.equals("1"))
@@ -98,23 +102,18 @@ public class JournalMenu extends AbstractMenu{
 				}
 				else
 				{
-					System.out.println("You mumble nonsense to yourself. You think to yourself that you should not say nonense into the void");
+					System.out.println("You mumble nonsense to yourself. You think to yourself that you should not say nonsense into the void");
 				}
-			} catch (IOException e) {
+			} 
+			catch (IOException e) 
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
-		
-		
 	}
-
 
 	@Override
-	void onDestroy() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	void onDestroy() 
+	{}
 }

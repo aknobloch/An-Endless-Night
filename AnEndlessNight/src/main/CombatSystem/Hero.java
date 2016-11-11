@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import main.InventorySystem.Artifact;
+import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 import main.InventorySystem.InventoryStackFullError;
 import main.InventorySystem.Weapon;
+import main.RoomSystem.Room;
 /***
  * The hero object represent the main protaganist of the game, 
  * and models the data associated with them.
@@ -26,6 +28,7 @@ public class Hero extends Character implements Serializable
 	// max stack of a single item a player can hold
 	private final int MAX_STACK = 5;
 	private int defense;
+	private Room lastRoom;
 	
 	/***
 	 * Constructs a Hero.
@@ -37,7 +40,7 @@ public class Hero extends Character implements Serializable
 	{
 		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
-		equippedWeapon = null;
+		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
 		defense = 0;
@@ -66,6 +69,19 @@ public class Hero extends Character implements Serializable
 		}
 		
 		this.equippedWeapon = equippedWeapon;
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.add(StatusCondition.TENGU_FAN);
+		}
+		
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.add(StatusCondition.KITSUNE_TAIL);
+		}
+		
 		this.strength = this.strength + equippedWeapon.getStrength();
 	}
 	
@@ -74,8 +90,8 @@ public class Hero extends Character implements Serializable
 	 * Reduces strength by the value of the equipped weapon, and
 	 * attempts to move the equipped weapon into inventory.
 	 */
-	public void unequipWeapon() {
-		
+	public void unequipWeapon() 
+	{
 		if(equippedWeapon == null) 
 		{
 			return;
@@ -83,7 +99,20 @@ public class Hero extends Character implements Serializable
 		
 		this.strength = this.strength - equippedWeapon.getStrength();
 		this.addArtifactToInventory(equippedWeapon);
-		this.equippedWeapon = null;
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.remove(StatusCondition.TENGU_FAN);
+		}
+
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.remove(StatusCondition.KITSUNE_TAIL);
+		}
+		
+		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 	}
 	
 	/***
@@ -164,33 +193,33 @@ public class Hero extends Character implements Serializable
 	}
 	
 	/**
-	 * Gets the inventory of the Hero.
+	 * Gets a copy of the inventory of the Hero. The array returned by this method is 
+	 * a copy, and all modifications will not be persistent. It is read-only. All inventory management 
+	 * should be done through the helper methods in the Hero class.
+	 * 
 	 * @return An ArrayList<InventoryItem> representing the player's inventory.
 	 */
 	public ArrayList<InventoryItem> getPlayerInventory() 
 	{
-		// TODO: Handle outside modification of inventory.
-		return playerInventory;
+		return new ArrayList<InventoryItem>(this.playerInventory);
 	}
 	
 	/**
 	 * Attempts to add the paramartized artifact to the players inventory.
+	 * 
 	 * @param newItem The artifact to add.
 	 */
 	public void addArtifactToInventory(Artifact newItem) 
 	{
-		
 		if(playerInventory.size() >= MAX_INVENTORY) 
 		{
 			// TODO: handle case if inventory is full
 		}
 		else 
 		{
-			
 			// check if item already exists in player inventory. if so, try to increment the count
 			for(InventoryItem item : playerInventory) 
 			{
-				
 				if(item.equals(newItem)) 
 				{
 					try 
@@ -203,8 +232,69 @@ public class Hero extends Character implements Serializable
 					}
 				}
 			}
-			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
+		}
+	}
+	
+	/**
+	 * Removes the given artifact from inventory. If the item is stacked, this
+	 * method decrements a stack of the item. If there is only one instance, the 
+	 * item is removed from the inventory. In either case, an instance of the 
+	 * item is placed in the current room. A message is then returned indicating 
+	 * that the item either was not found or the item was placed in room.
+	 * 
+	 * @param itemToRemove The item to remove
+	 * @return  A message is that the item either was not found or the item was placed in room.
+	 * 
+	 */
+	public String removeArtifactFromInventory(Artifact itemToRemove)
+	{
+		for(InventoryItem item : playerInventory)
+		{
+			if(item.getItem().equals(itemToRemove))
+			{
+				// first decrement the stack
+				int newStackAmount = item.decrementCount();
+				
+				// if the stack is now zero, remove item
+				if(newStackAmount <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+				
+				// after the above, place an instance of the artifact in the current room
+				this.getRoom().getArtifactList().add(itemToRemove);
+				
+				// return message
+				return "You take out the " + itemToRemove.getName() + " from your bag and place it in the room.";
+			}
+		}
+		
+		// if reaches this far, the item wasn't found.
+		return "You dig through your bag, searching for the " + itemToRemove.getName() + ", but can't find it.";
+	}
+	
+	/**
+	 * Uses a consumable item. This method adds the health of the item to the 
+	 * Hero, and handles decrementing stacks and removing items if no more left.
+	 * 
+	 * @param usedItem The item to use.
+	 */
+	public void useConsumable(Consumable usedItem) 
+	{
+		for(InventoryItem item : playerInventory) 
+		{
+			// if item is in the inventory, decrement count
+			if(item.getItem().equals(usedItem)) 
+			{
+				this.heal(usedItem.getHealAmount());
+				int countLeft = item.decrementCount();
+				// if none left after decrement, remove.
+				if(countLeft <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+			}
 		}
 	}
 	
@@ -225,10 +315,73 @@ public class Hero extends Character implements Serializable
 	 * @return The remaining health of the hero.
 	 */
 	@Override
-	public int attack(int damage) {
-		
+	public int attack(int damage) 
+	{
 		damage = damage - this.defense;
 		return super.attack(damage);
-		
 	}
-}
+	
+	/**
+	 * Set the last room that the hero was in. This 
+	 * 
+	 * @param lastRoom The room that the hero is leaving.
+	 */
+	public void setLastRoom(Room lastRoom)
+	{
+		this.lastRoom = lastRoom;
+	}
+	
+	/**
+	 * Gets the last room that the Hero was in. There are a few cases where this 
+	 * will return the current room. If the Hero was bounce-backed in the last turn, or if
+	 * the hero was teleported, then this method will return the current room.
+	 * 
+	 * @return The last room that the Hero was logically in.
+	 */
+	public Room getLastRoom()
+	{
+		return lastRoom;
+	}
+	
+	/**
+	 * Teleports the Hero to a new location. Do not use this method unless you have
+	 * a very specific, very pressing need. 
+	 * 
+	 * @param newLocation The new location to place the hero. Sets the current room and last
+	 * room of the player to be the new location to avoid logical errors.
+	 */
+	public void teleport(Room newLocation) 
+	{
+		this.currentRoom = newLocation;
+		// the last room should not be the actual last room, that could
+		// create problems. Therefore, last room is set for the current room.
+		this.lastRoom = currentRoom;
+	}
+
+	/** 
+	 * Bounces the hero back to the last location. This method does not alter the last room.
+	 * Therefore, after this method is called the last location and current room will be the 
+	 * same until the Hero moves again.
+	 */
+	public void bounceBack() 
+	{
+		this.currentRoom = lastRoom;
+	}
+	
+	/**
+	 * Moves the player to a new location, and ensures that the last location is recorded as well.
+	 * For all typical moves, this is the method that should be called.
+	 */
+	public void move(Room newRoom) 
+	{
+		// temp because if moving does not work properly, 
+		// we don't want to set last location yet.
+		Room temp = this.currentRoom;
+		
+		super.move(newRoom);
+		
+		// if super.move() returns properly, then 
+		// set the last location to be the old one.
+		this.lastRoom = temp;
+	}
+} 

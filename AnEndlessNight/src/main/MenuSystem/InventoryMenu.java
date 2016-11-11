@@ -1,5 +1,6 @@
 package main.MenuSystem;
 import main.Game;
+import main.GameInput;
 import main.CombatSystem.*;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
@@ -17,8 +18,7 @@ public class InventoryMenu extends AbstractMenu
 	}
 
 	private String description = 
-			"Please Enter a number based on your Command \n"
-			+ "1. Equip Item \n"
+			"1. Equip Item \n"
 			+ "2. Unequip Item \n"
 			+ "3. Drop Item \n"
 			+ "4. View Item \n"
@@ -43,7 +43,6 @@ public class InventoryMenu extends AbstractMenu
 				System.out.println(x.getItem().getDescription());
 			}
 		}
-		
 	}
 
 	public void dropItem() throws IOException 
@@ -62,11 +61,10 @@ public class InventoryMenu extends AbstractMenu
 			{
 				System.out.println(input + " has been dropped in the room");
 				Room room = Game.getHero().getRoom();
-				room.addArtifacts(x.getItem());
+				room.getArtifactList().add(x.getItem());
 				items.remove(x);
 			}
 		}
-		
 	}
 
 	public void unEquipItem() throws IOException 
@@ -116,9 +114,9 @@ public class InventoryMenu extends AbstractMenu
 				}
 			}
 		}
-		
 	}
-	public void useItem() throws IOException {
+	public void useItem() throws IOException 
+	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		System.out.println("Which item would you like to drop");
 		for(InventoryItem x: items)
@@ -145,11 +143,8 @@ public class InventoryMenu extends AbstractMenu
 					int currentHealth = Game.getHero().getHealth();
 					System.out.println("Your Health is now at " + Game.getHero().getHealth());
 				}
-				
 			}
 		}
-		
-		
 	}
 
 	public String toString()
@@ -161,33 +156,29 @@ public class InventoryMenu extends AbstractMenu
 	{
 		boolean inInventory = true;
 		
-		
+		System.out.println("You take a look at your belongings. What would you like to do?");
 		System.out.println(toString());
 		while(inInventory)
 		{
-			try {
-			
+			try 
+			{
 				String input = GameInput.getString();
 			
 				if(input.equals("1"))
 				{
 					equipItem();
-					
 				}
 				else if(input.equals("2"))
 				{
 					unEquipItem();
-					
 				}
 				else if(input.equals("3"))
 				{
 					dropItem();
-					
 				}
 				else if(input.equals("4"))
 				{
 					viewItem();
-					
 				}
 				else if(input.equals("5"))
 				{
@@ -197,25 +188,18 @@ public class InventoryMenu extends AbstractMenu
 				{
 					inInventory = false;
 					MenuLoader.loadGameMenu(this);
-				
 				}
 				else
 				{
 					System.out.println(input + " is not a valid input please");
-					
 				}
-			} catch (IOException e) {
+			} catch (IOException e) 
+			{
 				System.out.println("Issue reading input");
 			}
 		}
 	}
-
-	
-
 	@Override
 	void onDestroy() 
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	{}
 }

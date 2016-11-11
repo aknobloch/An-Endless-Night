@@ -1,5 +1,7 @@
 package main.CombatSystem;
 
+import java.io.Serializable;
+
 import main.RoomSystem.Room;
 
 /***
@@ -8,9 +10,8 @@ import main.RoomSystem.Room;
  * @author Aaron
  *
  */
-public abstract class Character 
+public abstract class Character implements Serializable
 {
-
 	protected int characterID;
 	protected int health;
 	protected int strength;
@@ -26,12 +27,10 @@ public abstract class Character
 	 */
 	protected Character(int ID, int health, int strength, String name) 
 	{
-		
 		this.characterID = ID;
 		this.health = health;
 		this.strength = strength;
 		this.name = name;
-		
 	}
 	
 	/***
@@ -95,9 +94,9 @@ public abstract class Character
 	}
 	
 	/***
-	 * Returns the unique ID of the room that this Character
+	 * Returns the room that this Character
 	 * is currently in.
-	 * @return room object hero is currently in
+	 * @return Room object hero is currently in
 	 */
 	public Room getRoom() 
 	{
@@ -109,11 +108,10 @@ public abstract class Character
 	 * Room. 
 	 * @param newRoom The new room to place this character in.
 	 */
-	public void setLocation(Room newRoom) 
+	public void move(Room newRoom) 
 	{
 		// TODO: error handling if room id does not exist or 
 		//       is not logically feasible
 		this.currentRoom = newRoom;
 	}
-	
 }

@@ -4,10 +4,8 @@ import main.MenuSystem.MenuLoader;
 
 public class GameRunner 
 {
-
 	public static void main(String[] args) throws Exception 
 	{
-		MenuLoader.loadStartMenu(null);
+		MenuLoader.startGame();
 	}
-
 }

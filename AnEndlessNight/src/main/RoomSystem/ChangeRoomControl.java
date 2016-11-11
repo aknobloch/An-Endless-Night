@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import main.Game;
 
+/**
+ * 
+ * @author Jory Alexander
+ *
+ */
+
 public class ChangeRoomControl 
 {
 	public static boolean changeRoom(String destination)
@@ -14,18 +20,13 @@ public class ChangeRoomControl
 		{
 			if(x.getName().equals(destination))
 			{
-				Game.getHero().setLocation(x);
+				Game.getHero().move(x);
 				if(x.getMonster()!= null)
 				{
 					return true;
 				}
 			}
 		}
-		
 		return false;
-		
 	}
-	
-	
-
 }

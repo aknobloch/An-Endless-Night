@@ -1,15 +1,18 @@
 
 package main;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import main.CombatSystem.Hero;
+import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
 import main.RoomSystem.RoomLibrary;
@@ -20,7 +23,6 @@ import main.RoomSystem.RoomLibrary;
  */
 public final class Game implements Serializable
 {
-
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
@@ -35,89 +37,108 @@ public final class Game implements Serializable
 		journal = new Journal();
 	}
 
+	/**
+	 * Returns the hero associated with this game.
+	 * 
+	 * @return The hero associated with this game.
+	 */
 	public static Hero getHero() 
 	{
 		return game.hero;
 	}
 	
+	/**
+	 * Initializes the game. If the game does not exist, it creates a new one.
+	 * If the game is already in existence, returns false.
+	 * 
+	 * @return True if the game was initialized. False if a game already exists.
+	 */
 	public static boolean initializeGame() 
 	{
-		
 		if(game == null) 
 		{
+			ArtifactFactory.initializeArtifacts();
 			ArrayList<Room> newMap = RoomLibrary.roomGen();
 			Hero newHero = new Hero();
-			newHero.setLocation(newMap.get(0));
+			newHero.teleport(newMap.get(0));
 			
 			game = new Game(newMap, newHero);
 			return true;
 		}
-		else {
+		else 
+		{
 			return false;
 		}
 	}
 	
 	public static ArrayList<Room> getRooms() 
 	{
-		
 		return game.rooms;
-		
 	}
 	
-	public static boolean loadGame(String file) throws Exception
+	/**
+	 * Writes a file with the given filename.
+	 * @param fileName The name of the file to write.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void saveGame(String fileName) throws FileNotFoundException, IOException
 	{
-		Hero h1;
-		ArrayList<Room> rooms;
-		Journal oldJournal;
-		if(game != null) throw new Exception();
-		ObjectInputStream input;
-		try 
-		{
-			input = new ObjectInputStream(new FileInputStream(file));
-			h1  = (Hero) input.readObject();
-			rooms = (ArrayList<Room>) input.readObject();
-			oldJournal = (Journal) input.readObject();
-			game = new Game(rooms,h1);
-			score = input.readInt();
-			setScore(score);
-			setJournal(oldJournal);
-		} catch (FileNotFoundException e) 
-		{
-			System.out.println("There is no Endless Knight Save Data on this Computer a new game will be created for you");
-			return false;
-		} catch (IOException e) 
-		{
-		} catch (ClassNotFoundException e) 
-		{
-			System.out.println("Thats a bummer your save data is corrupt a new game will be created for you");
-			return false;
-		}
-		return true;
+		// TODO: Check if file with name already exists.
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
+		out.writeObject(game);
+		out.close();
+	}
+	
+	/**
+	 * Loads the game passed in.
+	 * @param saveFile The file location of the game to load.
+	 * 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	public static void loadGame(File saveFile) throws FileNotFoundException, ClassNotFoundException, IOException
+	{
+		
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(saveFile));
+		game = (Game) in.readObject();
+		in.close();
+		
 	}
 
+	/**
+	 * Gets the current score.
+	 * 
+	 * @return The current score for this game.
+	 */
 	public static int getScore() 
 	{
 		return score;
 	}
-
-	public static void setScore(int newScore) 
+	
+	/**
+	 * Increments score by the given amount. If the amount given is negative,
+	 * does not do anything.
+	 * 
+	 * @param points The points to increment by.
+	 */
+	public static void incrementScore(int points)
 	{
-		score = newScore;
+		if(points <= 0)
+		{
+			return;
+		}
+		score += points;
 	}
 	
+	/**
+	 * Gets the Journal for modification and reading.
+	 * 
+	 * @return The journal for this hero.
+	 */
 	public static Journal getJournal()
 	{
 		return journal;
 	}
-	
-	public static void setJournal(Journal x)
-	{
-		journal = x;
-	}
-	
-	public Game getGame()
-	{
-		return this;
-	}
-
 }

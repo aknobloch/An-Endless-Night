@@ -14,7 +14,6 @@ public class Monster extends Character
 {
  // TODO turn droppedItem into an arrayList of possibly dropped items.
 	private double probabilityOfAppearance;
-	private double probabilityOfDroppingItem;
 	private ArrayList<Artifact> droppedItem;
 	private boolean isBoss;
 
@@ -34,15 +33,6 @@ public class Monster extends Character
 		this.probabilityOfAppearance = appearanceProbability;
 		this.droppedItem = droppedItem;
 		this.isBoss = isBoss;
-	}
-	
-	/**
-	 * Gets the probability of this Monster dropping their item.
-	 * @return The probability of this Monster dropping their item.
-	 */
-	public double getProbabilityOfDroppingItem() 
-	{
-		return this.probabilityOfDroppingItem;
 	}
 
 	/**
@@ -71,7 +61,4 @@ public class Monster extends Character
 	{
 		return this.isBoss;
 	}
-
-	
-
 }

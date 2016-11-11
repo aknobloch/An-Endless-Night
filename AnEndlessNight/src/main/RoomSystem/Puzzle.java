@@ -1,6 +1,14 @@
 package main.RoomSystem;
 
-public class Puzzle 
+import java.io.Serializable;
+
+/**
+ * 
+ * @author Jory Alexander, Estephanie Gonzalez
+ *
+ */
+
+public class Puzzle implements Serializable
 {
 	private String description;
 	private String solution;
@@ -76,6 +84,11 @@ public class Puzzle
 	public int getAttemptsAllowed() 
 	{
 		return attemptsAllowed;
+	}
+	
+	public void setAttemptsMade(int x)
+	{
+		attemptsMade = x;
 	}
 
 }

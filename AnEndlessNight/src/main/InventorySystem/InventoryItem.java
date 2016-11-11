@@ -8,7 +8,6 @@ package main.InventorySystem;
 
 public class InventoryItem 
 {
-	
 	private Artifact item;
 	private int count;
 	private int maxStack;
@@ -76,6 +75,16 @@ public class InventoryItem
 		{
 			this.count++;
 		}
+	}
+	
+	/**
+	 * Decrements the count, or stack number, of this InventoryItem. 
+	 * @return The count, or stack, left after decrementation.
+	 */
+	public int decrementCount() 
+	{
+		this.count--;
+		return count;
 	}
 	
 	/**

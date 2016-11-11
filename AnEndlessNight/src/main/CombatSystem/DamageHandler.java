@@ -16,7 +16,6 @@ import main.RoomSystem.Room;
  */
 public class DamageHandler 
 {
-
 	private Hero gameHero;
 	private Monster battleMonster;
 	private Room battleRoom;
@@ -28,11 +27,9 @@ public class DamageHandler
 	 */
 	public DamageHandler() 
 	{
-		
 		gameHero = Game.getHero();
 		battleRoom = gameHero.getRoom();
 		battleMonster = battleRoom.getMonster();
-		
 	}
 	
 	/***
@@ -45,7 +42,6 @@ public class DamageHandler
 	 */
 	public int attackHero()
 	{
-		
 		// Kitsune tail buff makes attacks have a 15% chance of missing
 		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_TAIL)) 
 		{
@@ -75,7 +71,6 @@ public class DamageHandler
 		{
 			return remainingHealth;
 		}
-		
 	}
 	
 	/***
@@ -87,7 +82,6 @@ public class DamageHandler
 	 */
 	public int attackMonster() 
 	{
-		
 		int damage = gameHero.getStrength() + gameHero.getEquippedWeapon().getStrength();
 		
 		// Kitsune debuff reduces game hero attack strength by 5%
