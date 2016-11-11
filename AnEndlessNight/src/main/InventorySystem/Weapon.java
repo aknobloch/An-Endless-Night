@@ -5,9 +5,9 @@ public class Weapon extends Artifact
 {
 	private int strength;
 
-	public Weapon(String name, String description, int artifactID, int puzzleID, int strength) 
+	public Weapon(String name, String description, int artifactID, int strength) 
 	{
-		super(name, description, artifactID, puzzleID);
+		super(name, description, artifactID);
 		this.strength = strength;
 	}
 	

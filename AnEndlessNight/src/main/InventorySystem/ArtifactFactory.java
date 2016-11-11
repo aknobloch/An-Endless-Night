@@ -75,33 +75,33 @@ public class ArtifactFactory
 					int strength;
 					int defense;
 					int puzzleID = 0;
-					Artifact item = new Artifact(artifactName, itemDesc, itemID, puzzleID);
+					Artifact item = new Artifact(artifactName, itemDesc, itemID);
 
 					switch (parts[1])
 					{
 					case "Key":
 						//TODO add puzzleID to ArtifactID.txt
 						puzzleID = Integer.parseInt(parts[4]);
-						item = new Artifact(artifactName, itemDesc, itemID, puzzleID);
+						item = new Artifact(artifactName, itemDesc, itemID);
 						keyArtifactsList.add(item);
 						artifactList.add(item);
 						break;
 					case "Consumable": 
 						healAmount = Integer.parseInt(parts[4]);
-						item = new Consumable(artifactName, itemDesc, itemID, puzzleID, healAmount);
+						item = new Consumable(artifactName, itemDesc, itemID, healAmount);
 						consumablesList.add((Consumable) item);
 						artifactList.add(item);
 						break;
 					case "Weapon": 
 						strength = Integer.parseInt(parts[4]);
-						item = new Weapon(artifactName, itemDesc, itemID, puzzleID, strength);
+						item = new Weapon(artifactName, itemDesc, itemID, strength);
 						weaponsList.add((Weapon) item);
 						artifactList.add(item);
 						break;
 					case "Armor": 
 						//TODO add defense values into ArtifactID.txt
 						defense = Integer.parseInt(parts[4]);
-						item = new Armor(artifactName, itemDesc, itemID, puzzleID, defense);
+						item = new Armor(artifactName, itemDesc, itemID, defense);
 						armorsList.add((Armor) item);
 						artifactList.add(item);
 						break;

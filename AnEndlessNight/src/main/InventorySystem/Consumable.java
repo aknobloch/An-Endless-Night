@@ -5,9 +5,9 @@ public class Consumable extends Artifact
 {
 	private int healAmount;
 	
-	public Consumable(String name, String description, int artifactID, int puzzleID, int healAmount) 
+	public Consumable(String name, String description, int artifactID, int healAmount) 
 	{
-		super(name, description, artifactID, puzzleID);
+		super(name, description, artifactID);
 		
 		this.healAmount = healAmount;
 	}

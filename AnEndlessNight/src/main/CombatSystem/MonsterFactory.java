@@ -119,7 +119,7 @@ public class MonsterFactory
 		
 	}
 
-	public static Monster setRoomMonster(int roomID) 
+	public static Monster setRoomMonster(int roomID) // roomID must be digits.
 	{
 		if(monsterList == null) 
 		{
