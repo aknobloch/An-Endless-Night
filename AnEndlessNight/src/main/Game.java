@@ -37,11 +37,22 @@ public final class Game implements Serializable
 		journal = new Journal();
 	}
 
+	/**
+	 * Returns the hero associated with this game.
+	 * 
+	 * @return The hero associated with this game.
+	 */
 	public static Hero getHero() 
 	{
 		return game.hero;
 	}
 	
+	/**
+	 * Initializes the game. If the game does not exist, it creates a new one.
+	 * If the game is already in existence, returns false.
+	 * 
+	 * @return True if the game was initialized. False if a game already exists.
+	 */
 	public static boolean initializeGame() 
 	{
 		if(game == null) 
@@ -96,28 +107,38 @@ public final class Game implements Serializable
 		
 	}
 
+	/**
+	 * Gets the current score.
+	 * 
+	 * @return The current score for this game.
+	 */
 	public static int getScore() 
 	{
 		return score;
 	}
-
-	public static void setScore(int newScore) 
+	
+	/**
+	 * Increments score by the given amount. If the amount given is negative,
+	 * does not do anything.
+	 * 
+	 * @param points The points to increment by.
+	 */
+	public static void incrementScore(int points)
 	{
-		score = newScore;
+		if(points <= 0)
+		{
+			return;
+		}
+		score += points;
 	}
 	
+	/**
+	 * Gets the Journal for modification and reading.
+	 * 
+	 * @return The journal for this hero.
+	 */
 	public static Journal getJournal()
 	{
 		return journal;
-	}
-	
-	public static void setJournal(Journal x)
-	{
-		journal = x;
-	}
-	
-	public Game getGame()
-	{
-		return this;
 	}
 }

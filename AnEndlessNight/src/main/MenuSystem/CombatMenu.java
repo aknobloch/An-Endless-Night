@@ -117,6 +117,8 @@ public class CombatMenu extends AbstractMenu
 			System.out.println("\tIts body slumps over as the last breath escapes its body.");
 			System.out.println();
 			
+			
+			
 			battleContinuing = false;
 			MenuLoader.loadGameMenu(this);
 		}
