@@ -199,7 +199,7 @@ public class GameMenu extends AbstractMenu
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
 					System.out.println("\tAs you move into the next room, you encounter a monster!");
-					System.out.println("\tIt attacks!");
+					System.out.println();
 					MenuLoader.loadCombatMenu(this);
 				}
 				// otherwise, just open the main menu again for the next room

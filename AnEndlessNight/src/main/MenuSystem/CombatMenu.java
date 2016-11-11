@@ -31,10 +31,10 @@ public class CombatMenu extends AbstractMenu
 		
 		Monster currentMonster = Game.getHero().getRoom().getMonster();
 		
-		System.out.println("\tA " + currentMonster.getName() + " stares you down.");
+		printMonsterDescription(currentMonster);
 		System.out.println();
 		
-		printMonsterDescription(currentMonster);
+		System.out.println("\tA " + currentMonster.getName() + " stares you down.");
 		System.out.println();
 		
 		battleContinuing = true;
