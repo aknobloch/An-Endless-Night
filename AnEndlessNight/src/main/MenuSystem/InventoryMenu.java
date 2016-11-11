@@ -166,9 +166,7 @@ public class InventoryMenu extends AbstractMenu
 				else if(x.getItem() instanceof Consumable)
 				{
 					Consumable use = (Consumable) x.getItem();
-					Game.getHero().heal(use.getHealAmount());
-					Game.getHero().removeArtifactFromInventory(use);
-					System.out.println("Your Health is now at " + Game.getHero().getHealth());
+					Game.getHero().useConsumable(use);
 				}
 			}
 		}
