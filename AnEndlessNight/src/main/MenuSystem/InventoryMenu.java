@@ -12,11 +12,6 @@ import java.util.ArrayList;
 
 public class InventoryMenu extends AbstractMenu
 {
-	public InventoryMenu(MenuLoader menuLoader) 
-	{
-		super(menuLoader);
-	}
-
 	private String description = 
 			"1. Equip Item \n"
 			+ "2. Unequip Item \n"
@@ -24,27 +19,46 @@ public class InventoryMenu extends AbstractMenu
 			+ "4. View Item \n"
 			+ "5. Use Item \n"
 			+ "6. Main Menu";
+	/**
+	 * Creates an Inventory Menu object
+	 * @param menuLoader
+	 */
+	public InventoryMenu(MenuLoader menuLoader) 
+	{
+		super(menuLoader);
+	}
 
+	
+	/**
+	 * Displays items contained in the heros inventory
+	 * @throws IOException
+	 */
 	public void viewItem() throws IOException 
 	{
+		// get the current hero inventory
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		
+		//prompt the user to indicate which item they want more information on.
 		System.out.println("Which item would you like to look at?");
-		for(InventoryItem x: items)
+		//display all the items to the user
+		for(int i =0;i<items.size();i++)
 		{
-			System.out.println(x.getItem().getName());
+			System.out.println((i+1) + ". " +items.get(i).getItem().getName());
 		}
-		String input = GameInput.getString();
-		
-		for(InventoryItem x: items)
+		//get the users input
+		int input = GameInput.getInt();
+		//check to make sure that the input falls within the scope of the array
+		if(input >=0 && items != null && input <items.size())
 		{
-			if(x.getItem().getName().equals(input))
-			{
-				System.out.println(x.getItem().getDescription());
-			}
+			
+			System.out.println(items.get(input).getItem().getDescription());;
 		}
 	}
 
+	/**
+	 * Prompts he user to specify which item they would like to drop into a room
+	 * @throws IOException
+	 */
 	public void dropItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
@@ -67,6 +81,10 @@ public class InventoryMenu extends AbstractMenu
 		}
 	}
 
+	/**
+	 * Unequips an item from the hero
+	 * @throws IOException
+	 */
 	public void unEquipItem() throws IOException 
 	{
 		System.out.println("Which item would you like to unequip?");
@@ -90,6 +108,10 @@ public class InventoryMenu extends AbstractMenu
 		}
 	}
 
+	/**
+	 * Prompts the user to specify which item they would like to equip.
+	 * @throws IOException
+	 */
 	public void equipItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
@@ -115,10 +137,14 @@ public class InventoryMenu extends AbstractMenu
 			}
 		}
 	}
+	/**
+	 * Propts the user to specify which item they would like to use then consumes it
+	 * @throws IOException
+	 */
 	public void useItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
-		System.out.println("Which item would you like to drop");
+		System.out.println("Which item would you like to use");
 		for(InventoryItem x: items)
 		{
 			System.out.println(x.getItem().getName());
@@ -131,7 +157,7 @@ public class InventoryMenu extends AbstractMenu
 			{
 				if(x.getItem() instanceof Weapon)
 				{
-					System.out.println("How does one use a weapon not in combat?");
+					System.out.println("How does one use a weapon out in combat?");
 				}
 				else if(x.getItem() instanceof Armor)
 				{
@@ -140,13 +166,17 @@ public class InventoryMenu extends AbstractMenu
 				else if(x.getItem() instanceof Consumable)
 				{
 					Consumable use = (Consumable) x.getItem();
-					int currentHealth = Game.getHero().getHealth();
+					Game.getHero().heal(use.getHealAmount());
+					Game.getHero().removeArtifactFromInventory(use);
 					System.out.println("Your Health is now at " + Game.getHero().getHealth());
 				}
 			}
 		}
 	}
 
+	/**
+	 * returns a string containing the description.
+	 */
 	public String toString()
 	{
 		return description;
