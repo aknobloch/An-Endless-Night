@@ -91,6 +91,7 @@ public class GameMenu extends AbstractMenu
 			catch(IOException ioe)
 			{
 				System.out.println("\tYou mumble to yourself, but the only reply is an echo from the walls.");
+				System.out.println();
 			}
 			
 		} while(continuing);

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import main.Game;
 import main.GameInput;
 
+/**
+ * Start menu allows user to start a new game, load a existing file or exit.
+ * @author Aaron
+ *
+ */
 public class StartMenu extends AbstractMenu
 {
 	
@@ -17,13 +22,12 @@ public class StartMenu extends AbstractMenu
 	public StartMenu(MenuLoader menuLoader)
 	{
 		super(menuLoader);
-//		menu = "Please Enter A number based on your command \n"
-//				+ "1. Start New Game \n"
-//				+ "2. Load Game \n"
-//				+ "3. Exit System";
-		
 	}
 	
+	
+	/**
+	 * The main prompt of this menu. Displays core options.
+	 */
 	@Override
 	public void mainPrompt()
 	{    
@@ -69,7 +73,7 @@ public class StartMenu extends AbstractMenu
 				}
 				else if(userChoice == 3)
 				{
-					System.out.println("Thanks for playing!");
+					System.out.println("\tThanks for playing!");
 					System.exit(0);
 				}
 				else 
@@ -81,7 +85,7 @@ public class StartMenu extends AbstractMenu
 			}
 			catch(IOException ioe)
 			{
-				System.out.println("Not a valid option, please try again.");
+				System.out.println("\tNot a valid option, please try again.");
 				System.out.println();
 			}
 			
@@ -91,6 +95,12 @@ public class StartMenu extends AbstractMenu
 		
 	}
 
+	
+	/**
+	 * Searches through the root directory, adding all files with a .gsave extension. It then
+	 * prompts the user to select one of the found files (if there were any). After selection
+	 * it loads the game file and then launches the user into the last room menu.
+	 */
 	private void loadGame() {
 		
 		// get the files
@@ -110,8 +120,8 @@ public class StartMenu extends AbstractMenu
 		// if none found
 		if(existingSaveGames.size() == 0)
 		{
-			System.out.println("There were no save games found. If you believe this is incorrect,");
-			System.out.println("ensure that the .gsave file is located in the root directory of the source code folder.");
+			System.out.println("\tThere were no save games found. If you believe this is incorrect,");
+			System.out.println("\tensure that the .gsave file is located in the root directory of the source code folder.");
 			System.out.println();
 			return;
 		}
@@ -166,17 +176,17 @@ public class StartMenu extends AbstractMenu
 			} 
 			catch(ClassNotFoundException cnf)
 			{
-				System.out.println("We're sorry, that file must be corrupted.");
+				System.out.println("\tWe're sorry, that file must be corrupted.");
 				return;
 			}
 			catch(FileNotFoundException fnf)
 			{
-				System.out.println("We're sorry, that file must be corrupted.");
+				System.out.println("\tWe're sorry, that file must be corrupted.");
 				return;
 			}
 			catch(IOException ioe)
 			{
-				System.out.println("Not a valid file. Please try again.");
+				System.out.println("\tNot a valid file. Please try again.");
 			}
 			
 		} while( ! validInput);

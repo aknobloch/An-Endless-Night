@@ -20,25 +20,6 @@ public final class GameInput
 	private GameInput() 
 	{}
 	
-	/***
-	 * Gets a double input from the user.
-	 * @return The next double that the user inputs.
-	 * @throws IOException If the user does not enter a valid double, the scanner was closed or 
-	 * 	any other exception occurred.
-	 */
-	public static double getDouble() throws IOException 
-	{
-		try 
-		{
-			double userInput = input.nextDouble();
-			return userInput;
-			
-		} catch(Exception ex) 
-		{
-			throw new IOException();
-		}
-	}
-	
 	/**
 	 * Gets the next line of string input from the user.
 	 * @return The line of input from the user.
@@ -53,6 +34,8 @@ public final class GameInput
 
 		} catch(Exception ex) 
 		{	
+			System.out.println();
+			advanceScanner();
 			throw new IOException();
 		}
 	}
@@ -74,6 +57,8 @@ public final class GameInput
 			
 		} catch(Exception ex)
 		{
+			System.out.println();
+			advanceScanner();
 			throw new IOException();
 		}
 	}
@@ -86,6 +71,5 @@ public final class GameInput
 	private static void advanceScanner() 
 	{
 		input.nextLine();
-		
 	}
 }
