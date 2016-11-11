@@ -42,7 +42,7 @@ public class Hero extends Character implements Serializable
 	{
 		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
-		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
+		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, -1, 1);
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
 		defense = 0;
@@ -114,7 +114,7 @@ public class Hero extends Character implements Serializable
 			this.statusConditions.remove(StatusCondition.KITSUNE_TAIL);
 		}
 		
-		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
+		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, -1, 1);
 	}
 	
 	/***
