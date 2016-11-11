@@ -37,9 +37,9 @@ public class BossCombatMenu extends CombatMenu {
 	}
 
 	private void tenguAttack() {
-		// TODO Auto-generated method stub
-		System.out.println("Need to implement tengu fight.");
-		super.monsterAttack();
+		
+		
+		
 	}
 
 	private void kitsuneAttack() {

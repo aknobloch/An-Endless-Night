@@ -92,7 +92,7 @@ public class Hero extends Character implements Serializable
 	 */
 	public void unequipWeapon() 
 	{
-		if(equippedWeapon == null) 
+		if(equippedWeapon == null || equippedWeapon.getName().equalsIgnoreCase("Fists")) 
 		{
 			return;
 		}
@@ -160,12 +160,13 @@ public class Hero extends Character implements Serializable
 	
 	/**
 	 * Gets all the status conditions currently afflicting the Hero.
+	 * 
 	 * @return An ArrayList<StatusCondition> of all the conditions
-	 * currently afflicting the Hero.
+	 * currently afflicting the Hero. Read only.
 	 */
 	public ArrayList<StatusCondition> getStatusConditions() 
 	{
-		return statusConditions;
+		return new ArrayList<StatusCondition>(statusConditions);
 	}
 	
 	/**
