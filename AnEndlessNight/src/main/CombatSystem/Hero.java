@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
+import main.Game;
 import main.InventorySystem.Artifact;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
@@ -32,7 +33,8 @@ public class Hero extends Character implements Serializable
 	
 	/***
 	 * Constructs a Hero.
-	 * A Hero starts with no equipped weapon or armor, 
+	 * A Hero starts with no equipped armor, 
+	 * no weapon except for their fists,
 	 * 100 health, 1 strength
 	 * and a defense value of zero. 
 	 */
@@ -40,7 +42,7 @@ public class Hero extends Character implements Serializable
 	{
 		super(1, 100, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
-		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
+		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, -1, 1);
 		equippedArmor = null;
 		playerInventory = new ArrayList<>();
 		defense = 0;
@@ -92,7 +94,7 @@ public class Hero extends Character implements Serializable
 	 */
 	public void unequipWeapon() 
 	{
-		if(equippedWeapon == null) 
+		if(equippedWeapon == null || equippedWeapon.getName().equalsIgnoreCase("Fists")) 
 		{
 			return;
 		}
@@ -112,7 +114,7 @@ public class Hero extends Character implements Serializable
 			this.statusConditions.remove(StatusCondition.KITSUNE_TAIL);
 		}
 		
-		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
+		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, -1, 1);
 	}
 	
 	/***
@@ -138,6 +140,12 @@ public class Hero extends Character implements Serializable
 			this.unequipArmor();
 		}
 		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.add(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.equippedArmor = equippedArmor;
 		this.defense = this.equippedArmor.getDefense();
 	}
@@ -153,6 +161,13 @@ public class Hero extends Character implements Serializable
 		{
 			return;
 		}
+		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.remove(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.addArtifactToInventory(this.equippedArmor);
 		this.defense = 0;
 		this.equippedArmor = null;
@@ -160,12 +175,13 @@ public class Hero extends Character implements Serializable
 	
 	/**
 	 * Gets all the status conditions currently afflicting the Hero.
+	 * 
 	 * @return An ArrayList<StatusCondition> of all the conditions
-	 * currently afflicting the Hero.
+	 * currently afflicting the Hero. Read only.
 	 */
 	public ArrayList<StatusCondition> getStatusConditions() 
 	{
-		return statusConditions;
+		return new ArrayList<StatusCondition>(statusConditions);
 	}
 	
 	/**
@@ -364,6 +380,27 @@ public class Hero extends Character implements Serializable
 		// the last room should not be the actual last room, that could
 		// create problems. Therefore, last room is set for the current room.
 		this.lastRoom = currentRoom;
+	}
+	
+	/**
+	 * Overload. Teleports the Hero to the given location specified by the room ID.
+	 * If it cannot find the room, it places the hero in the main hallway.
+	 * 
+	 * @param roomID The new room to place the hero.
+	 */
+	public void teleport(int roomID)
+	{
+		for(Room focusRoom : Game.getRooms())
+		{
+			if(focusRoom.getRoomID() == roomID)
+			{
+				this.move(focusRoom);
+				this.lastRoom = focusRoom;
+			}
+		}
+		
+		// if we get here, room wasn't found. default to main hallways
+		teleport(100);
 	}
 
 	/** 
