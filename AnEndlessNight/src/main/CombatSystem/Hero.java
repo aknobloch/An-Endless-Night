@@ -206,6 +206,7 @@ public class Hero extends Character implements Serializable
 	
 	/**
 	 * Attempts to add the paramartized artifact to the players inventory.
+	 * 
 	 * @param newItem The artifact to add.
 	 */
 	public void addArtifactToInventory(Artifact newItem) 
@@ -233,6 +234,44 @@ public class Hero extends Character implements Serializable
 			}
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
+	}
+	
+	/**
+	 * Removes the given artifact from inventory. If the item is stacked, this
+	 * method decrements a stack of the item. If there is only one instance, the 
+	 * item is removed from the inventory. In either case, an instance of the 
+	 * item is placed in the current room. A message is then returned indicating 
+	 * that the item either was not found or the item was placed in room.
+	 * 
+	 * @param itemToRemove The item to remove
+	 * @return  A message is that the item either was not found or the item was placed in room.
+	 * 
+	 */
+	public String removeArtifactFromInventory(Artifact itemToRemove)
+	{
+		for(InventoryItem item : playerInventory)
+		{
+			if(item.getItem().equals(itemToRemove))
+			{
+				// first decrement the stack
+				int newStackAmount = item.decrementCount();
+				
+				// if the stack is now zero, remove item
+				if(newStackAmount <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+				
+				// after the above, place an instance of the artifact in the current room
+				this.getRoom().getArtifactList().add(itemToRemove);
+				
+				// return message
+				return "You take out the " + itemToRemove.getName() + " from your bag and place it in the room.";
+			}
+		}
+		
+		// if reaches this far, the item wasn't found.
+		return "You dig through your bag, searching for the " + itemToRemove.getName() + ", but can't find it.";
 	}
 	
 	/**
