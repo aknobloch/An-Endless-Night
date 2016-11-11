@@ -175,6 +175,7 @@ public class CombatMenu extends AbstractMenu
 	{
 		
 		System.out.println("\tThe creature attacks!");
+		System.out.println();
 		
 		DamageHandler combat = new DamageHandler();
 		int combatResult = combat.attackHero();
@@ -208,6 +209,31 @@ public class CombatMenu extends AbstractMenu
 		
 		System.out.println("\tYour knees crumple and your vision fades as your wounds become too much to bear.");
 		System.out.println();
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
+		
+		// TOUCH THIS SHIT I FUCKING DARE YOU :)
+		System.out.println("      #############               \n" +
+						   "    ##            *##             \n" +
+						   "   #               **#            \n" +
+						   "  #                ***#            @@@@@@@@   @@@@@@   @@@@@@@@@@   @@@@@@@@      @@@@@@   @@@  @@@  @@@@@@@@  @@@@@@@   \n" +
+						   " #                 ****#          @@@@@@@@@  @@@@@@@@  @@@@@@@@@@@  @@@@@@@@     @@@@@@@@  @@@  @@@  @@@@@@@@  @@@@@@@@  \n" +
+						   "#                  *****#         !@@        @@!  @@@  @@! @@! @@!  @@!          @@!  @@@  @@!  @@@  @@!       @@!  @@@  \n" +
+						   "#   ###           ###***#         !@!        !@!  @!@  !@! !@! !@!  !@!          !@!  @!@  !@!  @!@  !@!       !@!  @!@  \n" +
+						   "#  # ####       #### #**#         !@! @!@!@  @!@!@!@!  @!! !!@ @!@  @!!!:!       @!@  !@!  @!@  !@!  @!!!:!    @!@!!@!  \n" +
+						   "#  #     #     #     #**#         !!! !!@!!  !!!@!!!!  !@!   ! !@!  !!!!!:       !@!  !!!  !@!  !!!  !!!!!:    !!@!@!    \n" +
+						   "#   #####  # #  #####***#         :!!   !!:  !!:  !!!  !!:     !!:  !!:          !!:  !!!  :!:  !!:  !!:       !!: :!!   \n" +
+						   "#         #   #  *******#         :!:   !::  :!:  !:!  :!:     :!:  :!:          :!:  !:!   ::!!:!   :!:       :!:  !:!  \n" +
+						   " ### #           **# ###           ::: ::::  ::   :::  :::     ::    :: ::::     ::::: ::    ::::     :: ::::  ::   :::  \n" +
+						   "     #             #               :: :: :    :   : :   :      :    : :: ::       : :  :      :      : :: ::    :   : :  \n" +
+						   "     # - - - - - - #              \n" +
+						   "      | | | | | | |               ");
+		
+		
 		battleContinuing = false;
 		MenuLoader.loadStartMenu(this);
 		
