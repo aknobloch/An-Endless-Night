@@ -206,15 +206,19 @@ public class Hero extends Character implements Serializable
 	
 	/**
 	 * Attempts to add the paramartized artifact to the players inventory.
+	 * Returns a message indicating whether the item was successfully added, 
+	 * or if there was a problem and it was placed in the room.
 	 * 
 	 * @param newItem The artifact to add.
+	 * @return A message to display to the user indicating how the method completed.
 	 */
-	public void addArtifactToInventory(Artifact newItem) 
+	public String addArtifactToInventory(Artifact newItem) 
 	{
 		if(playerInventory.size() >= MAX_INVENTORY) 
 		{
-			// TODO: handle case if inventory is full
+			return "You try to cram the item in your bag, but it just won't fit.";
 		}
+		
 		else 
 		{
 			// check if item already exists in player inventory. if so, try to increment the count
@@ -228,12 +232,16 @@ public class Hero extends Character implements Serializable
 						
 					} catch(InventoryStackFullError isfe) 
 					{
-						// TODO: What happens if inventory stack is full?
+						return "You can't fit any more of this item into your bag.";
 					}
 				}
 			}
+			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
+		
+		// if reaches this point, item was added properly
+		return "You place the item safely in your bag.";
 	}
 	
 	/**
@@ -244,7 +252,7 @@ public class Hero extends Character implements Serializable
 	 * that the item either was not found or the item was placed in room.
 	 * 
 	 * @param itemToRemove The item to remove
-	 * @return  A message is that the item either was not found or the item was placed in room.
+	 * @return  A message to display to the user that the item either was not found or the item was placed in room.
 	 * 
 	 */
 	public String removeArtifactFromInventory(Artifact itemToRemove)
