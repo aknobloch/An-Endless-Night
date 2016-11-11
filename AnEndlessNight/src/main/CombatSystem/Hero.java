@@ -32,7 +32,8 @@ public class Hero extends Character implements Serializable
 	
 	/***
 	 * Constructs a Hero.
-	 * A Hero starts with no equipped weapon or armor, 
+	 * A Hero starts with no equipped armor, 
+	 * no weapon except for their fists,
 	 * 100 health, 1 strength
 	 * and a defense value of zero. 
 	 */
@@ -138,6 +139,12 @@ public class Hero extends Character implements Serializable
 			this.unequipArmor();
 		}
 		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.add(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.equippedArmor = equippedArmor;
 		this.defense = this.equippedArmor.getDefense();
 	}
@@ -153,6 +160,13 @@ public class Hero extends Character implements Serializable
 		{
 			return;
 		}
+		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.remove(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.addArtifactToInventory(this.equippedArmor);
 		this.defense = 0;
 		this.equippedArmor = null;
