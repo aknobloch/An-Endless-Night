@@ -404,13 +404,14 @@ public class RoomLibrary
 		rm_00_doors.add(d_27);
 		rm_00_doors.add(d_29);
 		rm_00_doors.add(d_F1);
-		Room rm_00 = new Room("A large hallway with wooden floors and pillars", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(00), null);
+		Room rm_00 = new Room("A large hallway with wooden floors and pillars,\n\tfilled with the bodies of your fallen friends.", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(00), null);
 		roomObj.add(rm_00);
 		rooms.clear();
 
 		// d_01, d_02, d_03, d_05
 		// art_18
 		ArrayList<Door> rm_01_doors = new ArrayList<>();
+		
 		rm_01_doors.add(d_01);
 		rm_01_doors.add(d_02);
 		rm_01_doors.add(d_03);

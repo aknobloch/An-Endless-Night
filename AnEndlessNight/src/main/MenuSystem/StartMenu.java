@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import main.Game;
 import main.GameInput;
@@ -16,7 +17,10 @@ import main.GameInput;
 public class StartMenu extends AbstractMenu
 {
 	
-	private static final String INTRO_STORY = "There is not an intro story. Add it in the StartMenu.";
+	private static final String INTRO_STORY = "\tYour eyelids struggle to open, the dried blood caking them shut.\n" +
+											  "\tYou look around, the room is filled with blood and bodies.\n" +
+											  "\tPulling yourself to your feet, you say a quick prayer to the Old Ones.\n" +
+											  "\tYou only hope that you can find a way out of here...";
 	private static boolean inMainMenu = true;
 	
 	public StartMenu(MenuLoader menuLoader)
@@ -46,6 +50,21 @@ public class StartMenu extends AbstractMenu
 						   "|/     \\||/    )_)      (_______/|/    )_)(______/ (_______/(_______/\\_______)\\_______)      |/    )_)\\_______/(_______)|/     \\|   )_(   \n" +
 						   "                                                                                                                                  ");
 		System.out.println("\n\n");
+		
+		// Reads all excess junk from stdin
+		// This is neccessary because if the user just spams enter
+		// through the beginning story, any excess "enters" will cause
+		// an error in the main loop of this menu and cause a bunch of
+		// "not valid input"'s to be printed while it reads all the
+		// excess enters that the user spammed.
+		try {
+			while(System.in.available() > 0) 
+			{
+				System.in.read();
+			}
+		} catch (IOException e) {
+			// do nothing
+		}
 		
 		do
 		{

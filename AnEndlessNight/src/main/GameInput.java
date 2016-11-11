@@ -50,15 +50,13 @@ public final class GameInput
 	{
 		try 
 		{
-			int userInput = input.nextInt();
+			String userInput = input.nextLine();
 			System.out.println();
-			advanceScanner();
-			return userInput;
+			return Integer.parseInt(userInput);
 			
 		} catch(Exception ex)
 		{
 			System.out.println();
-			advanceScanner();
 			throw new IOException();
 		}
 	}
