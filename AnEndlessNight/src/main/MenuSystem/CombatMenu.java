@@ -18,7 +18,7 @@ import main.CombatSystem.StatusCondition;
 public class CombatMenu extends AbstractMenu 
 {
 
-	static boolean battleContinuing;
+	private static boolean battleContinuing;
 
 	public CombatMenu(MenuLoader menuLoader) 
 	{
@@ -30,10 +30,18 @@ public class CombatMenu extends AbstractMenu
 	{
 		
 		Monster currentMonster = Game.getHero().getRoom().getMonster();
+		
 		System.out.println("\tA " + currentMonster.getName() + " stares you down.");
 		System.out.println();
+		
 		battleContinuing = true;
-
+		
+		// separate menu for bosses
+		if(currentMonster.isBoss())
+		{
+			battleContinuing = false;
+			MenuLoader.loadBossCombatMenu(this);
+		}
 
 		while(battleContinuing) 
 		{
@@ -117,7 +125,8 @@ public class CombatMenu extends AbstractMenu
 			System.out.println("\tIts body slumps over as the last breath escapes its body.");
 			System.out.println();
 			
-			
+			// TODO: Better score system
+			Game.incrementScore(currentMonster.getStrength());
 			
 			battleContinuing = false;
 			MenuLoader.loadGameMenu(this);
