@@ -74,6 +74,44 @@ public class DamageHandler
 	}
 	
 	/***
+	 * For boss attacks or enemies which have varying levels of attack strength.
+	 * 
+	 * @return 	The remaining health of the hero, zero if the attack missed 
+	 * 			and -1 if the hero died.
+	 * 			
+	 */
+	public int specialAttackHero(int damage)
+	{
+		// Kitsune tail buff makes attacks have a 15% chance of missing
+		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_TAIL)) 
+		{
+			Random r = new Random();
+			if(r.nextInt(20) <= 2) 
+			{
+				return 0;
+			}
+		}
+		
+		// defending lowers damage by one third
+		if(gameHero.getStatusConditions().contains(StatusCondition.DEFENSE_BUFF)) 
+		{
+			damage = damage - (damage / 3);
+		}
+		
+		int remainingHealth = gameHero.attack(damage);
+		
+		if(remainingHealth <= 0) 
+		{
+			// TODO: Handle case if hero dies
+			return -1;
+		}
+		else 
+		{
+			return remainingHealth;
+		}
+	}
+	
+	/***
 	 * This method calculates the appropriate level of damage and attacks the 
 	 * monster with it. 
 	 * 
