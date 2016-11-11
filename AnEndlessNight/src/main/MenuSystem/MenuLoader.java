@@ -19,6 +19,7 @@ public class MenuLoader
 	private static final JournalMenu journalMenu = new JournalMenu(johnCena);
 	private static final StartMenu startMenu = new StartMenu(johnCena);
 	private static final PuzzleMenu puzzleMenu = new PuzzleMenu(johnCena);
+	private static final BossCombatMenu bossMenu = new BossCombatMenu(johnCena);
 	
 	// the amount of time to wait before launching a new menu.
 	private static final long MENU_PAUSE_TIME = 1500;
@@ -34,7 +35,7 @@ public class MenuLoader
 	}
 
 	/***
-	 * Loads the game menu. The onDestroy() method will first be called for the
+	 * Loads the combat menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
 	 * desired menu. 
 	 * 
@@ -54,6 +55,40 @@ public class MenuLoader
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             COMBAT                               ");
+		System.out.println("==================================================================");
+		System.out.println();
+		
+		new Thread(new Runnable() 
+		{
+			@Override
+			public void run() 
+			{
+				combatMenu.mainPrompt();
+			}
+		}).start();
+	}
+	
+	/***
+	 * Loads the combat menu for bosses. The onDestroy() method will first be called for the
+	 * menu that called this object, and then the mainPrompt() will be called for the
+	 * desired menu. 
+	 * 
+	 * @param currentMenu The currentMenu. For all foreseeable cases, the parameter for 
+	 * this method should be "this". 
+	 */
+	public static void loadBossCombatMenu(AbstractMenu currentMenu) 
+	{
+		currentMenu.onDestroy();
+		
+		try {
+			Thread.sleep(MENU_PAUSE_TIME);
+		} catch (InterruptedException e) {
+			// do nothing
+		}
+		
+		System.out.println();
+		System.out.println("==================================================================");
+		System.out.println("                           BOSS BATTLE                            ");
 		System.out.println("==================================================================");
 		System.out.println();
 		
