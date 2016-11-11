@@ -193,13 +193,15 @@ public class Hero extends Character implements Serializable
 	}
 	
 	/**
-	 * Gets the inventory of the Hero.
+	 * Gets a copy of the inventory of the Hero. The array returned by this method is 
+	 * a copy, and all modifications will not be persistent. It is read-only. All inventory management 
+	 * should be done through the helper methods in the Hero class.
+	 * 
 	 * @return An ArrayList<InventoryItem> representing the player's inventory.
 	 */
 	public ArrayList<InventoryItem> getPlayerInventory() 
 	{
-		// TODO: Handle outside modification of inventory.
-		return playerInventory;
+		return new ArrayList<InventoryItem>(this.playerInventory);
 	}
 	
 	/**
