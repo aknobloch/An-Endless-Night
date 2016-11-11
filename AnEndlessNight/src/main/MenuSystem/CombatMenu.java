@@ -309,7 +309,7 @@ public class CombatMenu extends AbstractMenu
 				System.out.println("\tYou rub your eyes. Surely you must be dreaming. A Shisha lies before you, it's mane");
 				System.out.println("\tflowing graciously to the floor. You had thought these lion-like creatures were");
 				System.out.println("\tmerely fables or stories for children. It is said that they are so powerful,");
-				System.out.println("\tthere very breath can scorch the earth.");
+				System.out.println("\ttheir very breath can scorch the earth.");
 				break;
 			default :
 				// not yet implemented,must be a bug
