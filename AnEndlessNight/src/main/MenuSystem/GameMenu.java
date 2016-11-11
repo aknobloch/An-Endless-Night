@@ -39,9 +39,9 @@ public class GameMenu extends AbstractMenu
 			System.out.println("What would you like to do?");
 			System.out.println("1. Search Room");
 			System.out.println("2. Move Rooms");
-			System.out.println("3. View Inventory");
+			System.out.println("3. Manage Inventory");
 			System.out.println("4. View Score");
-			System.out.println("5. View Help");
+			System.out.println("5. Help");
 			System.out.println("6. Save Game");
 			System.out.println("7. View Journal");
 			System.out.println("8. Exit Game");
