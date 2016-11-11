@@ -69,6 +69,19 @@ public class Hero extends Character implements Serializable
 		}
 		
 		this.equippedWeapon = equippedWeapon;
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.add(StatusCondition.TENGU_FAN);
+		}
+		
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.add(StatusCondition.KITSUNE_TAIL);
+		}
+		
 		this.strength = this.strength + equippedWeapon.getStrength();
 	}
 	
@@ -86,6 +99,19 @@ public class Hero extends Character implements Serializable
 		
 		this.strength = this.strength - equippedWeapon.getStrength();
 		this.addArtifactToInventory(equippedWeapon);
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.remove(StatusCondition.TENGU_FAN);
+		}
+
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.remove(StatusCondition.KITSUNE_TAIL);
+		}
+		
 		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 	}
 	
@@ -301,6 +327,10 @@ public class Hero extends Character implements Serializable
 		this.currentRoom = lastRoom;
 	}
 	
+	/**
+	 * Moves the player to a new location, and ensures that the last location is recorded as well.
+	 * For all typical moves, this is the method that should be called.
+	 */
 	public void move(Room newRoom) 
 	{
 		// temp because if moving does not work properly, 
