@@ -18,7 +18,7 @@ import main.RoomSystem.Room;
 import main.RoomSystem.RoomLibrary;
 /**
  * 
- * @author Aaron and Jory
+ * @author Aaron
  *
  */
 public final class Game implements Serializable
@@ -26,15 +26,15 @@ public final class Game implements Serializable
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
-	private static int score;
-	private static Journal journal;
+	private int score;
+	private Journal journal;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
 		this.rooms = rooms;
 		this.hero = hero;
-		score = 0;
-		journal = new Journal();
+		this.score = 0;
+		this.journal = new Journal();
 	}
 
 	/**
@@ -71,9 +71,15 @@ public final class Game implements Serializable
 		}
 	}
 	
+	/**
+	 * Get the room objects (in their current state) of all the rooms in this 
+	 * Game. This is read-only, it's contents cannot be modified.
+	 * 
+	 * @return A copy of the rooms for this Game.
+	 */
 	public static ArrayList<Room> getRooms() 
 	{
-		return game.rooms;
+		return new ArrayList<Room>(game.rooms);
 	}
 	
 	/**
@@ -114,7 +120,7 @@ public final class Game implements Serializable
 	 */
 	public static int getScore() 
 	{
-		return score;
+		return game.score;
 	}
 	
 	/**
@@ -129,7 +135,7 @@ public final class Game implements Serializable
 		{
 			return;
 		}
-		score += points;
+		game.score += points;
 	}
 	
 	/**
@@ -139,6 +145,6 @@ public final class Game implements Serializable
 	 */
 	public static Journal getJournal()
 	{
-		return journal;
+		return game.journal;
 	}
 }
