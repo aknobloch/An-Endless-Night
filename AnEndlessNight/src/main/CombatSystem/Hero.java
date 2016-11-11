@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
+import main.Game;
 import main.InventorySystem.Artifact;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
@@ -379,6 +380,27 @@ public class Hero extends Character implements Serializable
 		// the last room should not be the actual last room, that could
 		// create problems. Therefore, last room is set for the current room.
 		this.lastRoom = currentRoom;
+	}
+	
+	/**
+	 * Overload. Teleports the Hero to the given location specified by the room ID.
+	 * If it cannot find the room, it places the hero in the main hallway.
+	 * 
+	 * @param roomID The new room to place the hero.
+	 */
+	public void teleport(int roomID)
+	{
+		for(Room focusRoom : Game.getRooms())
+		{
+			if(focusRoom.getRoomID() == roomID)
+			{
+				this.move(focusRoom);
+				this.lastRoom = focusRoom;
+			}
+		}
+		
+		// if we get here, room wasn't found. default to main hallways
+		teleport(100);
 	}
 
 	/** 
