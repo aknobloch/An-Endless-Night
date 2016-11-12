@@ -159,7 +159,14 @@ public class CombatMenu extends AbstractMenu
 		
 		monsterAttack();
 		
-		Game.getHero().removeStatusCondition(StatusCondition.DEFENSE_BUFF);
+		// this is neccessary because if the hero dies in combat,
+		// the game is reset and hero will be null, causing an exception
+		try
+		{
+			Game.getHero().removeStatusCondition(StatusCondition.DEFENSE_BUFF);
+		}
+		catch(NullPointerException npe) {};
+		
 		
 	}
 
@@ -222,14 +229,14 @@ public class CombatMenu extends AbstractMenu
 		
 	}
 
-	private void heroDeath() 
+	protected void heroDeath() 
 	{
 		
 		System.out.println("\tYour knees crumple and your vision fades as your wounds become too much to bear.");
-		System.out.println();
+		System.out.println("\n\n\n");
 		
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2500);
 		} catch (InterruptedException e) {
 			// do nothing
 		}
@@ -252,8 +259,35 @@ public class CombatMenu extends AbstractMenu
 						   "      | | | | | | |               ");
 		
 		
+		System.out.println("\n\n\n");
+		System.out.println("Press enter to continue.");
+		
+		try {
+			GameInput.getString();
+		} catch (IOException e) {
+			// do nothing
+		}
+		
+		
+		
 		battleContinuing = false;
 		Game.reset();
+		
+		// Reads all excess junk from stdin
+		// This is neccessary because if the user just spams enter
+		// through the beginning story, any excess "enters" will cause
+		// an error in the main loop of this menu and cause a bunch of
+		// "not valid input"'s to be printed while it reads all the
+		// excess enters that the user spammed.
+		try {
+			while(System.in.available() > 0) 
+			{
+				System.in.read();
+			}
+		} catch (IOException e) {
+			// do nothing
+		}
+		
 		MenuLoader.loadStartMenu(this);
 		
 	}

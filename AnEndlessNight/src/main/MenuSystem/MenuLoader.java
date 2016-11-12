@@ -223,12 +223,6 @@ public class MenuLoader
 	{
 		currentMenu.onDestroy();
 		
-		try {
-			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
-			// do nothing
-		}
-		
 		new Thread(new Runnable() 
 		{
 			@Override

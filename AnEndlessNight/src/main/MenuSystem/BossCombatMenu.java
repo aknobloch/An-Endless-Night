@@ -43,6 +43,7 @@ public class BossCombatMenu extends CombatMenu {
 		
 		// get probability of either attack
 		// 60 percent for gust of wind, 40 for fan swipe
+		
 		/*
 		 * GUST OF WIND
 		 */
