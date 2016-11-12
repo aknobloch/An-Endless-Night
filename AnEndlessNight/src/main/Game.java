@@ -155,4 +155,13 @@ public final class Game implements Serializable
 	{
 		game = null;
 	}
+
+	/**
+	 * Activates cheat mode.
+	 */
+	public static void cheatMode() {
+		
+		game.hero.cheatMode(game);
+		
+	}
 }

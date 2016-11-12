@@ -40,7 +40,7 @@ public class Hero extends Character implements Serializable
 	 */
 	public Hero() 
 	{
-		super(1, 100, 1,"Hyuang");
+		super(1, 150, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
@@ -439,4 +439,18 @@ public class Hero extends Character implements Serializable
 		// set the last location to be the old one.
 		this.lastRoom = temp;
 	}
+	
+	/**
+	 * Cheat mode. Only activated by the game object, in other words
+	 * the user must type in "MAKE ME A GOD" to activate this.
+	 * @param gameObject
+	 */
+	public void cheatMode(Game gameObject)
+	{
+		this.health = Integer.MAX_VALUE;
+		this.strength = 500;
+		this.defense = Integer.MAX_VALUE;
+		
+	}
+	
 } 
