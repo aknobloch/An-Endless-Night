@@ -40,7 +40,7 @@ public class Hero extends Character implements Serializable
 	 */
 	public Hero() 
 	{
-		super(1, 100, 1,"Hyuang");
+		super(1, 100000000, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
@@ -223,10 +223,16 @@ public class Hero extends Character implements Serializable
 	/**
 	 * Attempts to add the paramartized artifact to the players inventory.
 	 * Returns a message indicating whether the item was successfully added, 
-	 * or if there was a problem and it was placed in the room.
+	 * or if there was a problem and it was placed in the room. The message
+	 * is not formatted, i.e. tabs or new line characters.
 	 * 
 	 * @param newItem The artifact to add.
 	 * @return A message to display to the user indicating how the method completed.
+	 * The possible messages are as follows: <br>
+	 * 'You try to cram the item in your bag, but it just won't fit.' <br>
+	 * 'You can't fit any more of this item into your bag.' <br>
+	 * 'You place the item safely in your bag.'
+	 * 
 	 */
 	public String addArtifactToInventory(Artifact newItem) 
 	{
@@ -265,10 +271,14 @@ public class Hero extends Character implements Serializable
 	 * method decrements a stack of the item. If there is only one instance, the 
 	 * item is removed from the inventory. In either case, an instance of the 
 	 * item is placed in the current room. A message is then returned indicating 
-	 * that the item either was not found or the item was placed in room.
+	 * that the item either was not found or the item was placed in room. The message
+	 * is not formatted, i.e. tabs or newline characters.
 	 * 
 	 * @param itemToRemove The item to remove
 	 * @return  A message to display to the user that the item either was not found or the item was placed in room.
+	 * The potential messages are as follows: <br>
+	 * 'You take out the <item name> from your bag and place it in the room.' <br>
+	 * 'You dig through your bag, searching for the <item name>, but can't find it.' 
 	 * 
 	 */
 	public String removeArtifactFromInventory(Artifact itemToRemove)

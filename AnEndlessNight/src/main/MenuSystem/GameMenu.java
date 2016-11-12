@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import main.Game;
 import main.GameInput;
+import main.InventorySystem.Artifact;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
@@ -37,24 +38,23 @@ public class GameMenu extends AbstractMenu
 			try 
 			{
 			System.out.println("What would you like to do?");
-			System.out.println("1. Search Room");
-			System.out.println("2. Move Rooms");
+			System.out.println("1. Move Rooms");
+			System.out.println("2. Search Room");
 			System.out.println("3. Manage Inventory");
 			System.out.println("4. View Score");
-			System.out.println("5. Help");
+			System.out.println("5. View Journal");
 			System.out.println("6. Save Game");
-			System.out.println("7. View Journal");
-			System.out.println("8. Exit Game");
+			System.out.println("7. Exit Game");
 			
 			userInput = GameInput.getInt();
 			
 			if(userInput == 1)
 			{
-				searchRoom();
+				moveRooms();
 			}
 			else if(userInput == 2)
 			{
-				moveRooms();
+				searchRoom();	
 			}
 			else if(userInput == 3)
 			{
@@ -66,18 +66,14 @@ public class GameMenu extends AbstractMenu
 			}
 			else if(userInput == 5)
 			{
-				viewHelp();
+				continuing = false;
+				MenuLoader.loadJournalMenu(this);
 			}
 			else if(userInput == 6)
 			{
 				saveGame();
 			}
 			else if(userInput == 7)
-			{
-				continuing = false;
-				MenuLoader.loadJournalMenu(this);
-			}
-			else if(userInput == 8)
 			{
 				exitGame();
 			}
@@ -100,6 +96,97 @@ public class GameMenu extends AbstractMenu
 	}
 	
 	/**
+	 * Allows the user to pick up items in the room. Displays all available items, and
+	 * prompts the user to select one. Attempts to add the item to the inventory, 
+	 * and  then displays appropriate message to the user. 
+	 */
+	private void getRoomItems() {
+		
+		ArrayList<Artifact> roomItems = Game.getHero().getRoom().getArtifactList();
+		
+		boolean gatheringItems = true;
+		
+		// keeps track if a user picked up an item or not.
+		// this just helps modify output to be cleaner below.
+		boolean pickedUpItem = false;
+		
+		do
+		{
+			try 
+			{
+				
+				// return immediately if no items are in the room.
+				if(roomItems == null || roomItems.size() == 0)
+				{
+					if(pickedUpItem)
+					{
+						System.out.println("\tYou can't find anything else in the room worth picking up.");
+					}
+					else 
+					{
+						System.out.println("\tYou can't find anything in the room worth picking up.");
+					}
+					System.out.println();
+					gatheringItems = false;
+					return;
+				}
+				
+				System.out.println("\tThere might be something here worth taking...");
+				System.out.println();
+				
+				System.out.println("What would you like to pick up?");
+				
+				// print all items in room for selection
+				for(int i = 0; i < roomItems.size(); i++)
+				{
+					System.out.println( (i + 1) + ". " + roomItems.get(i).getName());
+				}
+				
+				System.out.println((roomItems.size() + 1) + ". Return to last menu");
+				System.out.println();
+				
+				int userChoice = GameInput.getInt();
+				
+				// if user's choice is not in range
+				if(userChoice < 0 || userChoice > roomItems.size() + 1)
+				{
+					throw new IOException();
+				}
+				
+				// if last option (exit menu)
+				if(userChoice == roomItems.size() + 1)
+				{
+					gatheringItems = false;
+					return;
+				}
+				else 
+				{
+					// decrement choice by one to account for zero-index
+					userChoice = userChoice - 1;
+					
+					// pick up item, add to inventory and remove from room
+					String resultMessage = Game.getHero().addArtifactToInventory(roomItems.get(userChoice));
+					Game.getHero().getRoom().getArtifactList().remove(userChoice);
+					
+					pickedUpItem = true;
+					
+					System.out.println("\t" + resultMessage);
+					System.out.println();
+				}
+				
+			}
+			catch(IOException ioe)
+			{
+				System.out.println("\tYou reach out to grab what you were hoping to find,");
+				System.out.println("\tbut it is not there. Perhaps you are going mad...");
+				System.out.println();
+			}
+			
+		} while(gatheringItems);
+		
+	}
+
+	/**
 	 * Searches the current room, displaying the location name, a description as well as 
 	 * a list of the items located in the room.
 	 */
@@ -112,21 +199,20 @@ public class GameMenu extends AbstractMenu
 		System.out.println("\tLooking around, you observe the following: \n\t" + descriptions.get(0));
 		System.out.println();
 		
-		// if there are items, print items list
+		// if there are items...
 		if(descriptions.size() > 1) {
-			System.out.println("\tYou notice the following items:");
-			for(int i = 1; i < descriptions.size();i++)
-			{
-				System.out.println("\t" + descriptions.get(i));
-			}
+			
+			getRoomItems();
+			// after they are done getting room items, return
+			return;
+			
 		}
 		// otherwise...
 		else 
 		{
 			System.out.println("\tThere doesn't appear to be anything else notable.");
+			System.out.println();
 		}
-		
-		System.out.println();
 	}
 	
 	/**
