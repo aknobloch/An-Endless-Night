@@ -93,8 +93,6 @@ public final class Game implements Serializable
 	{
 		// TODO: Check if file with name already exists.
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
-		game.hero.teleport(126);
-		game.hero.addStatusCondition(StatusCondition.HEAVY_BOOTS);
 		out.writeObject(game);
 		out.close();
 	}
