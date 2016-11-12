@@ -55,7 +55,13 @@ public final class GameInput
 			// cheat mode
 			if(userInput.equals("MAKE ME A GOD")) 
 			{
-				Game.cheatMode();
+				Game.godMode();
+			}
+			
+			// revert
+			if(userInput.equals("MAKE ME A MORTAL"))
+			{
+				Game.mortalMode();
 			}
 			
 			System.out.println();

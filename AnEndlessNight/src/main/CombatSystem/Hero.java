@@ -445,11 +445,19 @@ public class Hero extends Character implements Serializable
 	 * the user must type in "MAKE ME A GOD" to activate this.
 	 * @param gameObject
 	 */
-	public void cheatMode(Game gameObject)
+	public void godMode(Game gameObject)
 	{
 		this.health = Integer.MAX_VALUE;
 		this.strength = 500;
 		this.defense = Integer.MAX_VALUE;
+		
+	}
+
+	public void mortalMode(Game game) {
+		
+		this.health = 150;
+		this.strength = this.equippedWeapon.getStrength() + 1;
+		this.defense = this.equippedArmor.getDefense();
 		
 	}
 	

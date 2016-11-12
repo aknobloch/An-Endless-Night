@@ -159,9 +159,15 @@ public final class Game implements Serializable
 	/**
 	 * Activates cheat mode.
 	 */
-	public static void cheatMode() {
+	public static void godMode() {
 		
-		game.hero.cheatMode(game);
+		game.hero.godMode(game);
+		
+	}
+
+	public static void mortalMode() {
+		
+		game.hero.mortalMode(game);
 		
 	}
 }
