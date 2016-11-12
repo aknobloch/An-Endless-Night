@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.CombatSystem.Hero;
+import main.CombatSystem.StatusCondition;
 import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
@@ -92,6 +93,8 @@ public final class Game implements Serializable
 	{
 		// TODO: Check if file with name already exists.
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
+		game.hero.teleport(126);
+		game.hero.addStatusCondition(StatusCondition.HEAVY_BOOTS);
 		out.writeObject(game);
 		out.close();
 	}

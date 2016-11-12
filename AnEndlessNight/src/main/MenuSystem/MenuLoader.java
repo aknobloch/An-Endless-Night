@@ -51,16 +51,17 @@ public class MenuLoader
 	{
 		currentMenu.onDestroy();
 		
+		// move into boss combat menu
+		if(Game.getHero().getRoom().getMonster().isBoss())
+		{
+			MenuLoader.loadBossCombatMenu(currentMenu);
+			return;
+		}
+		
 		try {
 			Thread.sleep(MENU_PAUSE_TIME);
 		} catch (InterruptedException e) {
 			// do nothing
-		}
-		
-		if(Game.getHero().getRoom().getMonster().isBoss())
-		{
-			bossMenu.mainPrompt();
-			return;
 		}
 		
 		System.out.println();
@@ -108,7 +109,7 @@ public class MenuLoader
 			@Override
 			public void run() 
 			{
-				combatMenu.mainPrompt();
+				bossMenu.mainPrompt();
 			}
 		}).start();
 	}

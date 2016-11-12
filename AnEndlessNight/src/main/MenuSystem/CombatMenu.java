@@ -18,7 +18,7 @@ import main.CombatSystem.StatusCondition;
 public class CombatMenu extends AbstractMenu 
 {
 
-	private static boolean battleContinuing;
+	protected static boolean battleContinuing;
 
 	public CombatMenu(MenuLoader menuLoader) 
 	{
@@ -113,7 +113,7 @@ public class CombatMenu extends AbstractMenu
 		{
 			System.out.println("\tYour attack barely grazes the creature, leaving it undamaged.");
 			System.out.println();
-			monsterAttack();
+			this.monsterAttack();
 		}
 		else if(monsterAttackResult == -1) 
 		{
@@ -135,7 +135,7 @@ public class CombatMenu extends AbstractMenu
 			System.out.println("\tYour weapon vibrates as it strikes the creature, wounding it.");
 			System.out.println("\tThe creature has " + monsterAttackResult + " health remaining.");
 			System.out.println();
-			monsterAttack();
+			this.monsterAttack();
 		}
 		
 	}
@@ -147,7 +147,7 @@ public class CombatMenu extends AbstractMenu
 		
 		System.out.println("\tYou brace yourself for an attack.");
 		
-		monsterAttack();
+		this.monsterAttack();
 		
 		// this is neccessary because if the hero dies in combat,
 		// the game is reset and hero will be null, causing an exception
@@ -181,7 +181,7 @@ public class CombatMenu extends AbstractMenu
 			
 			System.out.println("\tYou try to escape, but the " + battleMonster.getName() + " is too fast.");
 			
-			monsterAttack();
+			this.monsterAttack();
 			
 		}
 	}
