@@ -284,7 +284,22 @@ public class GameMenu extends AbstractMenu
 				{
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
-					System.out.println("\tAs you move into the next room, you encounter a monster!");
+					
+					// switch input up to keep things interesting.
+					double switchNumber = Math.random();
+					if(switchNumber <= .3) 
+					{
+						System.out.println("\tAs you move into the next room, you encounter a monster!");
+					}
+					else if(switchNumber <= .7)
+					{
+						System.out.println("\tAs you walk into the next room, you notice a beast...");
+					}
+					else 
+					{
+						System.out.println("\tYou venture into the next room. You can hear a creature gnawing on flesh.");
+					}
+					
 					System.out.println();
 					MenuLoader.loadCombatMenu(this);
 				}
@@ -293,6 +308,23 @@ public class GameMenu extends AbstractMenu
 				{
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
+					
+					// switch input up to keep things interesting.
+					double switchNumber = Math.random();
+					if(switchNumber <= .3) 
+					{
+						System.out.println("\tYou walk bravely into the next room.");
+					}
+					else if(switchNumber <= .7)
+					{
+						System.out.println("\tYou step cautiously into the next room.");
+					}
+					else 
+					{
+						System.out.println("\tWeapon ready, you venture into the next room.");
+					}
+					
+					System.out.println();
 					MenuLoader.loadGameMenu(this);
 				}
 				
