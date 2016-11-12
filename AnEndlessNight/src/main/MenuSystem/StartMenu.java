@@ -185,6 +185,9 @@ public class StartMenu extends AbstractMenu
 				// if that went succesfully....
 				validInput = true;
 				inMainMenu = false;
+				System.out.println("\tYou rub your eyes as you slowly wake up.");
+				System.out.println("\tSighing, you push yourself to your feet.");
+				System.out.println("\tIf only you could find a way out of this endless labyrinth...");
 				MenuLoader.loadGameMenu(this);
 				
 				
