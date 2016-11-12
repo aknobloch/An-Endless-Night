@@ -115,30 +115,29 @@ public class InventoryMenu extends AbstractMenu
 	public void equipItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
-		System.out.println("Which item would you like to drop");
-		for(InventoryItem x: items)
+		System.out.println("Which item would you like to equip");
+		for(int i = 0; i <items.size();i++)
 		{
-			System.out.println(x.getItem().getName());
+			System.out.println((i) + ". " +items.get(i).getItem().getName());
 		}
-		String input = GameInput.getString();
+		int input = GameInput.getInt();
 		
-		for(InventoryItem x: items)
+		if(input >= 0 && input < items.size())
 		{
-			if(x.getItem().getName().equals(input))
-			{
-				if(x.getItem() instanceof Weapon)
+			
+				if(items.get(input).getItem() instanceof Weapon)
 				{
-					Game.getHero().setEquippedWeapon((Weapon) x.getItem());
+					Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
 				}
-				else if(x.getItem() instanceof Armor)
+				else if(items.get(input).getItem() instanceof Armor)
 				{
-					Game.getHero().setEquippedArmor((Armor) x.getItem());
+					Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
 				}
-			}
+			
 		}
 	}
 	/**
-	 * Propts the user to specify which item they would like to use then consumes it
+	 * Prompts the user to specify which item they would like to use then consumes it
 	 * @throws IOException
 	 */
 	public void useItem() throws IOException 

@@ -40,7 +40,7 @@ public class Hero extends Character implements Serializable
 	 */
 	public Hero() 
 	{
-		super(1, 100, 1,"Hyuang");
+		super(1, 150, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
