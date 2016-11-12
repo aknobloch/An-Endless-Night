@@ -295,9 +295,9 @@ public class GameMenu extends AbstractMenu
 	 */
 	private void exitGame() {
 		
-		boolean validInput = false;
+		boolean validInput = true;
 		
-		do 
+		while(validInput) 
 		{
 			
 			try 
@@ -311,6 +311,7 @@ public class GameMenu extends AbstractMenu
 				if(userChoice == 1)
 				{
 					continuing = false;
+					validInput=false;
 					System.out.println("\tYour vision fades...");
 					System.out.println();
 					MenuLoader.loadStartMenu(this);
