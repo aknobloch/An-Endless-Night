@@ -39,6 +39,7 @@ public class MonsterFactory
 	private MonsterFactory() 
 	{}
 
+	// generates Monsters
 	public static void initializeFactory() 
 	{
 		monsterItemAssignments = new ArrayList<ArrayList<Artifact>>();
@@ -76,18 +77,16 @@ public class MonsterFactory
 
 						ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
 
-						try {
-							for (int i2 = 0; i2 < monsterDropList.size()-1; i2++) 
-							{
-								artifactList.add(ArtifactFactory.getArtifactsList().get(Integer.parseInt(monsterDropList.get(i2))-1));
-
-							}
-						}catch (IndexOutOfBoundsException e)
+						while (!monsterDropList.isEmpty())
 						{
-							e.printStackTrace();
-							System.out.println("oops");
+							int itemForMonster = Integer.parseInt(monsterDropList.remove(0));
+
+							Artifact a = ArtifactFactory.getArtifactsList().get(itemForMonster - 1);
+
+							artifactList.add(a);
 
 						}
+
 						monsterItemAssignments.add(artifactList);
 					}
 				}
@@ -125,7 +124,7 @@ public class MonsterFactory
 
 	}
 
-	public static Monster setRoomMonster(int roomID) // roomID must be digits.
+	public static Monster setRoomMonster(int roomID) // roomID must not be 01 format.
 	{
 		if(monsterList == null) 
 		{
