@@ -124,7 +124,7 @@ public class MonsterFactory
 
 	}
 
-	public static Monster setRoomMonster(int roomID) // roomID must not start with 0.
+	public static Monster setRoomMonster(int roomID) // roomID must not be 01 format.
 	{
 		if(monsterList == null) 
 		{

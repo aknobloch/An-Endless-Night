@@ -310,7 +310,7 @@ public class RoomLibrary
 		rm_00_doors.add(d_27);
 		rm_00_doors.add(d_29);
 		rm_00_doors.add(d_F1);
-		Room rm_00 = new Room("A large hallway with wooden floors and pillars,\n\tfilled with the bodies of your fallen friends.", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(00), null);
+		Room rm_00 = new Room("A large hallway with wooden floors and pillars,\n\tfilled with the bodies of your fallen friends.", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(0), null);
 		roomObj.add(rm_00);
 		rooms.clear();
 
@@ -323,7 +323,7 @@ public class RoomLibrary
 		rm_01_doors.add(d_03);
 		rm_01_doors.add(d_05);
 		ArrayList<Artifact> rm_01_art = new ArrayList<>();
-		rm_01_art.add(ArtifactFactory.getArtifactsList().get(7));
+		rm_01_art.add(ArtifactFactory.getArtifactsList().get(17));
 		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), rm_01_art);
 		roomObj.add(rm_01);
 		rooms.clear();
@@ -383,7 +383,7 @@ public class RoomLibrary
 		rm_06_doors.add(d_17);
 		rm_06_doors.add(d_18);
 		ArrayList<Artifact> rm_06_art = new ArrayList<>();
-		rm_06_art.add(ArtifactFactory.getArtifactsList().get(4));
+		rm_06_art.add(ArtifactFactory.getArtifactsList().get(15));
 		Room rm_06 = new Room("Many tools lie here, most of them are used to care for the gardens. There’s a ladder here.", rm_06_doors, 106, false, "Northwest Shed", null, MonsterFactory.setRoomMonster(6), rm_06_art);
 		roomObj.add(rm_06);
 		rooms.clear();
@@ -466,7 +466,7 @@ public class RoomLibrary
 		rm_14_doors.add(d_26);
 		rm_14_doors.add(d_28);
 		ArrayList<Artifact> rm_14_art = new ArrayList<>();
-		rm_14_art.add(ArtifactFactory.getArtifactsList().get(1));
+		rm_14_art.add(ArtifactFactory.getArtifactsList().get(11));
 		Room rm_14 = new Room("Many baskets lay around with fruits in them. On the table is a knife and some red meat.", rm_14_doors, 114, false, "Kitchen", null, MonsterFactory.setRoomMonster(14), rm_14_art);
 		roomObj.add(rm_14);
 		rooms.clear();
@@ -477,7 +477,7 @@ public class RoomLibrary
 		rm_15_doors.add(d_28);
 		rm_15_doors.add(d_TD);
 		ArrayList<Artifact> rm_15_art = new ArrayList<>();
-		rm_15_art.add(ArtifactFactory.getArtifactsList().get(2));
+		rm_15_art.add(ArtifactFactory.getArtifactsList().get(13));
 		Room rm_15 = new Room("A small room used to store foods to last one winter. Contains a lot of closed baskets of food.", rm_15_doors, 115, false, "Pantry", null, MonsterFactory.setRoomMonster(15), rm_15_art);
 		roomObj.add(rm_15);
 		rooms.clear();
@@ -499,7 +499,7 @@ public class RoomLibrary
 		rm_17_doors.add(d_09);
 		rm_17_doors.add(d_10);
 		ArrayList<Artifact> rm_17_art = new ArrayList<>();
-		rm_17_art.add(ArtifactFactory.getArtifactsList().get(10));
+		rm_17_art.add(ArtifactFactory.getArtifactsList().get(12));
 		Room rm_17 = new Room("A large training hall to practice kendo. The floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo", puz_03, null, rm_17_art);
 		roomObj.add(rm_17);
 		rooms.clear();
@@ -519,7 +519,7 @@ public class RoomLibrary
 		rm_19_doors.add(d_38);
 		rm_19_doors.add(d_39);
 		ArrayList<Artifact> rm_19_art = new ArrayList<>();
-		rm_19_art.add(ArtifactFactory.getArtifactsList().get(3));
+		rm_19_art.add(ArtifactFactory.getArtifactsList().get(14));
 		Room rm_19 = new Room("An L-shaped room with at least a quarter of the room taken up for an unnecessarily big closet...", rm_19_doors, 119, false, "Servant Room", null, MonsterFactory.setRoomMonster(19), rm_19_art);
 		roomObj.add(rm_19);
 		rooms.clear();
@@ -550,7 +550,7 @@ public class RoomLibrary
 		rm_22_doors.add(d_36);
 		rm_22_doors.add(d_37);
 		ArrayList<Artifact> rm_22_art = new ArrayList<>();
-		rm_22_art.add(ArtifactFactory.getArtifactsList().get(5));
+		rm_22_art.add(ArtifactFactory.getArtifactsList().get(16));
 		Room rm_22 = new Room("The second guest room is a smaller sized room compared to the guest room to make room for the closet. The layout is the same with a futon on top of tatami mats.", rm_22_doors, 122, false, "Guest Room 2", null, MonsterFactory.setRoomMonster(22), rm_22_art);
 		roomObj.add(rm_22);
 		rooms.clear();
