@@ -51,6 +51,13 @@ public final class GameInput
 		try 
 		{
 			String userInput = input.nextLine();
+			
+			// cheat mode
+			if(userInput.equals("MAKE ME A GOD")) 
+			{
+				Game.cheatMode();
+			}
+			
 			System.out.println();
 			return Integer.parseInt(userInput);
 			

@@ -251,6 +251,7 @@ public class CombatMenu extends AbstractMenu
 		
 		
 		battleContinuing = false;
+		Game.reset();
 		MenuLoader.loadStartMenu(this);
 		
 	}

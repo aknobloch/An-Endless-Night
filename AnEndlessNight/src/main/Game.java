@@ -147,4 +147,12 @@ public final class Game implements Serializable
 	{
 		return game.journal;
 	}
+	
+	/***
+	 * Resets the game.
+	 */
+	public static void reset() 
+	{
+		game = null;
+	}
 }
