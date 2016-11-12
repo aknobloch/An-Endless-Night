@@ -38,16 +38,6 @@ public class CombatMenu extends AbstractMenu
 		System.out.println();
 		
 		battleContinuing = true;
-		
-		// separate menu for bosses
-		// checking if this is an instance of combat menu ensures that the
-		// overriden method in BossCombatMenu does not recursively call itself.
-		// This way, the boss combat menu can reuse this entire method.
-		if(this instanceof CombatMenu && currentMonster.isBoss())
-		{
-			battleContinuing = false;
-			MenuLoader.loadBossCombatMenu(this);
-		}
 
 		while(battleContinuing) 
 		{

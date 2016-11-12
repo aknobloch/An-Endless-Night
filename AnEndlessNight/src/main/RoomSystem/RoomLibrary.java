@@ -22,9 +22,6 @@ public class RoomLibrary
 		ArrayList<Integer> rooms = new ArrayList<Integer>();
 		ArrayList<Room> roomObj = new ArrayList<Room>();
 
-		ArrayList<Integer> artifact = new ArrayList<Integer>();
-		ArrayList<Artifact> artifactObj = new ArrayList<Artifact>();
-
 		//FLOOR 1 Doors
 
 		// 100 = door "00" 

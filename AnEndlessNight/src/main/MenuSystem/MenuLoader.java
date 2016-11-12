@@ -2,6 +2,7 @@ package main.MenuSystem;
 
 import java.io.IOException;
 
+import main.Game;
 import main.GameInput;
 
 /***
@@ -54,6 +55,12 @@ public class MenuLoader
 			Thread.sleep(MENU_PAUSE_TIME);
 		} catch (InterruptedException e) {
 			// do nothing
+		}
+		
+		if(Game.getHero().getRoom().getMonster().isBoss())
+		{
+			bossMenu.mainPrompt();
+			return;
 		}
 		
 		System.out.println();

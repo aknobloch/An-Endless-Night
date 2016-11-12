@@ -406,6 +406,7 @@ public class Hero extends Character implements Serializable
 			{
 				this.move(focusRoom);
 				this.lastRoom = focusRoom;
+				return;
 			}
 		}
 		
