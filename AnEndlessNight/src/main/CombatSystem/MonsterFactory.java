@@ -75,19 +75,25 @@ public class MonsterFactory
 						}
 
 						ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
-						
-						for (int i2 = 0; i2 < monsterDropList.size(); i2++) 
+
+						try {
+							for (int i2 = 0; i2 < monsterDropList.size()-1; i2++) 
+							{
+								artifactList.add(ArtifactFactory.getArtifactsList().get(Integer.parseInt(monsterDropList.get(i2))-1));
+
+							}
+						}catch (IndexOutOfBoundsException e)
 						{
-							artifactList.add(ArtifactFactory.getArtifactsList().get(Integer.parseInt(monsterDropList.get(i2))-1));
+							e.printStackTrace();
+							System.out.println("oops");
 
 						}
-
 						monsterItemAssignments.add(artifactList);
 					}
 				}
-				
+
 				scan.close();
-				
+
 			} catch (FileNotFoundException e) 
 			{
 				e.printStackTrace();
@@ -116,7 +122,7 @@ public class MonsterFactory
 		monsterList.add(mon);
 		mon = new Monster(11, 200, 25, "Ryu", 100, monsterItemAssignments.get(10), true);
 		monsterList.add(mon);
-		
+
 	}
 
 	public static Monster setRoomMonster(int roomID) // roomID must be digits.
