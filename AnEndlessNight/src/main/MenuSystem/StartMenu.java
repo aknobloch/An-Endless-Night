@@ -169,10 +169,6 @@ public class StartMenu extends AbstractMenu
 				{
 					throw new IOException();
 				}
-				else 
-				{
-					validInput = true;
-				}
 				
 				// if user chose to exit
 				if(userChoice == 0)
@@ -187,6 +183,7 @@ public class StartMenu extends AbstractMenu
 				Game.loadGame(existingSaveGames.get(userChoice));
 				
 				// if that went succesfully....
+				validInput = true;
 				inMainMenu = false;
 				MenuLoader.loadGameMenu(this);
 				
