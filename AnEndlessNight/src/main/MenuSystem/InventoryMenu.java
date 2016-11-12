@@ -88,17 +88,21 @@ public class InventoryMenu extends AbstractMenu
 	public void unEquipItem() throws IOException 
 	{
 		System.out.println("Which item would you like to unequip?");
+		if(Game.getHero().getEquippedArmor() != null)
+		{	
+			System.out.println("1. " + Game.getHero().getEquippedArmor().getName());
+		}
+		if(Game.getHero().getEquippedWeapon() != null)
+		{
+			System.out.println("2. " + Game.getHero().getEquippedWeapon().getName());
+		}
+		int input = GameInput.getInt();
 		
-		System.out.println(Game.getHero().getEquippedArmor().getName());
-		System.out.println(Game.getHero().getEquippedWeapon().getName());
-		
-		String input = GameInput.getString();
-		
-		if(Game.getHero().getEquippedArmor().equals(input))
+		if(input == 1)
 		{
 			Game.getHero().unequipArmor();
 		}
-		else if(Game.getHero().getEquippedWeapon().equals(input))
+		else if(input == 2)
 		{
 			Game.getHero().unequipWeapon();
 		}
@@ -128,10 +132,12 @@ public class InventoryMenu extends AbstractMenu
 				if(items.get(input).getItem() instanceof Weapon)
 				{
 					Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
+					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
 				}
 				else if(items.get(input).getItem() instanceof Armor)
 				{
 					Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
+					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
 				}
 			
 		}
