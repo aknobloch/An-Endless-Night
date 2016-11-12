@@ -135,6 +135,8 @@ public class CombatMenu extends AbstractMenu
 			// TODO: Better score system
 			Game.incrementScore(currentMonster.getStrength());
 			
+			Game.getHero().getRoom().destroyMonster();
+			
 			battleContinuing = false;
 			MenuLoader.loadGameMenu(this);
 		}

@@ -91,4 +91,10 @@ public class Room implements Serializable
 	{
 		return name;
 	}
+
+	public void destroyMonster() {
+		
+		this.monster = null;
+		
+	}
 }
