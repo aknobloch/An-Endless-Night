@@ -17,12 +17,12 @@ public class InventoryMenu extends AbstractMenu
 	}
 
 	private String description = 
-			"1. Equip Item \n"
-			+ "2. Unequip Item \n"
-			+ "3. Drop Item \n"
-			+ "4. View Item \n"
-			+ "5. Use Item \n"
-			+ "6. Main Menu";
+			"\n1. Equip Item"
+			+ "\n2. Unequip Item"
+			+ "\n3. Drop Item"
+			+ "\n4. View Item"
+			+ "\n5. Use Item"
+			+ "\n6. Main Menu";
 
 	public void viewItem() throws IOException 
 	{
