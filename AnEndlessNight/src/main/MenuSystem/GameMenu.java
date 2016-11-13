@@ -285,6 +285,16 @@ public class GameMenu extends AbstractMenu
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
 					
+					// if the monster is Kitsune, she is in disguise. 
+					// in this case we do not want to output the standard boss message
+					if(Game.getHero().getRoom().getMonster().getID() == 10)
+					{
+						System.out.println("\tYou walk bravely into the next room.");
+						System.out.println();
+						MenuLoader.loadBossCombatMenu(this);
+						return;
+					}
+					
 					// switch input up to keep things interesting.
 					double switchNumber = Math.random();
 					if(switchNumber <= .3) 
@@ -356,14 +366,6 @@ public class GameMenu extends AbstractMenu
 		System.out.println("\tYou're not often one to track your progress with such meaningless numbers,");
 		System.out.println("\tbut this is an exception. You have " + Game.getScore() + " imaginary points.");
 		System.out.println();
-		
-	}
-	
-	/**
-	 * Shows a help guide.
-	 */
-	private void viewHelp() {
-		// TODO Help guide
 		
 	}
 	

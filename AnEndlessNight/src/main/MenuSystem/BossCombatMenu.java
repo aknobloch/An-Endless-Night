@@ -1,6 +1,9 @@
 package main.MenuSystem;
 
+import java.io.IOException;
+
 import main.Game;
+import main.GameInput;
 import main.CombatSystem.DamageHandler;
 import main.CombatSystem.Monster;
 import main.CombatSystem.StatusCondition;
@@ -9,6 +12,35 @@ public class BossCombatMenu extends CombatMenu {
 	
 	public BossCombatMenu(MenuLoader menuLoader) {
 		super(menuLoader);
+	}
+
+	@Override
+	protected void mainPrompt() 
+	{
+		// if the current monster is not Kitsune, display the boss battle splash
+		if(Game.getHero().getRoom().getMonster().getID() != 10)
+		{
+			System.out.println();
+			System.out.println("==================================================================");
+			System.out.println("                           BOSS BATTLE                            ");
+			System.out.println("==================================================================");
+			System.out.println();
+		}
+		// otherwise, Kitsune is in disguise...
+		else 
+		{
+			System.out.println();
+			System.out.println("==================================================================");
+			System.out.println("                             MAIN MENU                            ");
+			System.out.println("==================================================================");
+			System.out.println();
+			
+			// if it is Kitsune, go into dialogue
+			kitsuneDialogue();
+		}
+		
+		// regular combat menu can take over now...
+		super.mainPrompt();
 	}
 
 	/**
@@ -100,6 +132,89 @@ public class BossCombatMenu extends CombatMenu {
 			
 		}
 	}
+	
+	private void kitsuneDialogue() {
+		
+		boolean userTooSmart = false;
+		int kitsuneAttempt = 1;
+		
+		System.out.println("\tBefore you stands Kitsune, the twinkle in her eye");
+		System.out.println("\tabsolutely entrancing. Shuddering, she explains how she");
+		System.out.println("\tnarrowly escaped the demon attack earlier,");
+		System.out.println("\tfinding rare solace in this desolate room.");
+		System.out.println();
+		System.out.println("\tYou enjoy a cup of tea, glad to find a moment of quiet.");
+		System.out.println("\tMentioning how exhausted you are from battle,");
+		System.out.println("\tKitsune pouts and falls back onto");
+		System.out.println("\ta plush bed, motioning for you to join her.");
+		System.out.println();
+		
+		do
+		{
+			try
+			{
+				/*
+				 * KITSUNES FIRST ATTEMPT
+				 */
+				if(kitsuneAttempt == 1)
+				{
+					System.out.println("\t\"Surely the stresses of your battle can be....relieved\"");
+					System.out.println("\tshe says, smiling.");
+					System.out.println();
+					
+					System.out.println("Enjoy a night with Kitsune? ( + 20 Max Health, -5 Defense )");
+					System.out.println("1. Yes");
+					System.out.println("2. No");
+					
+					int userChoice = GameInput.getInt();
+					
+					if(userChoice == 1)
+					{
+						System.out.println("\tYou begin to kiss Kitsune, wrapping your");
+						System.out.println("\tarms around her waist. Her tongue creeps into");
+						System.out.println("\tyour mouth. Deeper...and deeper still.");
+						System.out.println();
+						System.out.println("\tYou begin to choke, your lungs burning for air.");
+						System.out.println();
+						System.out.println("\tThe world begins to fade...");
+						System.out.println();
+						heroDeath();
+					}
+					else if(userChoice == 2)
+					{
+						System.out.println("\tKitsune giggles, blushing profusely.");
+						System.out.println();
+						System.out.println("\tSorry, I usually am not so...forward.");
+						System.out.println();
+						
+						// next attempt is made after the loop
+						kitsuneAttempt++;
+					}
+					else 
+					{
+						throw new IOException();
+					}
+					
+				}
+				/*
+				 * KITSUNES SECOND ATTEMPT
+				 */
+				if(kitsuneAttempt == 2)
+				{
+					System.out.println("Second attempt goes here.");
+				}
+				
+			}
+			catch(IOException ioe)
+			{
+				System.out.println("Kitsune tilts her head, looking at your curiously.");
+				System.out.println("\"I'm sorry, could you repeat that?\"");
+				System.out.println();
+			}
+			
+		} while ( ! userTooSmart);
+		
+	}
 
 	private void kitsuneAttack() {
 		// TODO Auto-generated method stub
@@ -122,6 +237,8 @@ public class BossCombatMenu extends CombatMenu {
 		{
 			
 			battleContinuing = false;
+			System.out.println("\tYour knees crumple and your vision fades as your wounds become too much to bear.");
+			System.out.println("\n\n\n");
 			heroDeath();
 			
 		}

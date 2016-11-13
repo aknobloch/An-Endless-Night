@@ -138,7 +138,6 @@ public class DamageHandler
 		
 		if(remainingHealth <= 0) 
 		{
-			Game.getHero().getRoom().setMonster(null);
 			return -1;
 		}
 		else 

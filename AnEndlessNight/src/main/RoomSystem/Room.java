@@ -33,7 +33,15 @@ public class Room implements Serializable
 		this.name = name;
 		this.puzzle = puzzle;
 		this.monster = monster;
-		this.artifact = artifact;
+		if(artifact == null) 
+		{
+			this.artifact = new ArrayList<Artifact>();
+		}
+		else 
+		{
+			this.artifact = artifact;
+		}
+		
 		
 	}
 
@@ -94,6 +102,11 @@ public class Room implements Serializable
 
 	public void destroyMonster() {
 		
+		ArrayList<Artifact> droppedItems = this.monster.getDroppedItems();
+		for(Artifact item : droppedItems)
+		{
+			this.artifact.add(item);
+		}
 		this.monster = null;
 		
 	}
