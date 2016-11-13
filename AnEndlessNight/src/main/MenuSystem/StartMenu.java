@@ -60,9 +60,11 @@ public class StartMenu extends AbstractMenu
 				System.out.println("2. Load Game");
 				System.out.println("3. Exit");
 				
-				int userChoice = GameInput.getInt();
+				String userChoice = GameInput.getString();
 				
-				if(userChoice == 1) 
+				
+				
+				if(userChoice.equals("1")) 
 				{
 					inMainMenu = false;
 					
@@ -89,11 +91,11 @@ public class StartMenu extends AbstractMenu
 					// load first game menu
 					MenuLoader.loadGameMenu(this);
 				}
-				else if(userChoice == 2)
+				else if(userChoice.equals("2"))
 				{
 					loadGame();
 				}
-				else if(userChoice == 3)
+				else if(userChoice.equals("3"))
 				{
 					System.out.println("\tThanks for playing!");
 					System.exit(0);
@@ -101,7 +103,7 @@ public class StartMenu extends AbstractMenu
 				else 
 				{
 					// not a valid input
-					throw new IOException();
+					
 				}
 				
 			}
