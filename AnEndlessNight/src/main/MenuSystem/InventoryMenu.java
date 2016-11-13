@@ -133,11 +133,13 @@ public class InventoryMenu extends AbstractMenu
 				{
 					Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
 					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
+					System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
 				}
 				else if(items.get(input).getItem() instanceof Armor)
 				{
 					Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
 					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
+					System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
 				}
 			
 		}
