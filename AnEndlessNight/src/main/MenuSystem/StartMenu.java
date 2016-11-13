@@ -103,7 +103,7 @@ public class StartMenu extends AbstractMenu
 				else 
 				{
 					// not a valid input
-					
+					throw new IOException();
 				}
 				
 			}
