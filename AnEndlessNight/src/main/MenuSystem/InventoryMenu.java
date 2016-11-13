@@ -100,7 +100,7 @@ public class InventoryMenu extends AbstractMenu
 		
 		if(input == 1)
 		{
-			System.out.println("You feel lighter no longer weighed down by the armo.r");
+			System.out.println("You feel lighter no longer weighed down by the armor");
 			Game.getHero().unequipArmor();
 		}
 		else if(input == 2)

@@ -70,7 +70,6 @@ public class ArtifactFactory
 						int healAmount;
 						int strength;
 						int defense;
-						int puzzleID;
 						Artifact item = new Artifact(artifactNameArray[i], itemDesc, itemID);
 
 						switch (parts[1])
@@ -93,7 +92,6 @@ public class ArtifactFactory
 							artifactsList.add(item);
 							break;
 						case "Armor": 
-							//TODO add defense values into ArtifactID.txt
 							defense = Integer.parseInt(parts[4]);
 							item = new Armor(artifactNameArray[i], itemDesc, itemID, defense);
 							armorsList.add((Armor) item);

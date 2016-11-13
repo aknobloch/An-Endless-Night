@@ -99,7 +99,8 @@ public class MonsterFactory
 			}
 		}
 
-		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 1, monsterItemAssignments.get(0), false);
+		// adds monsters to the monsterList
+		Monster mon = new Monster(1, 1, 1, "Maneki-neko", 1, monsterItemAssignments.get(0), false);
 		monsterList.add(mon);
 		mon = new Monster(2, 15, 3, "Karakasa", 30, monsterItemAssignments.get(1), false);
 		monsterList.add(mon);
