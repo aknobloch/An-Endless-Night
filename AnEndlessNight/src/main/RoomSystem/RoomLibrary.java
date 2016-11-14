@@ -319,9 +319,7 @@ public class RoomLibrary
 		rm_01_doors.add(d_02);
 		rm_01_doors.add(d_03);
 		rm_01_doors.add(d_05);
-		ArrayList<Artifact> rm_01_art = new ArrayList<>();
-		rm_01_art.add(ArtifactFactory.getArtifactsList().get(17));
-		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), rm_01_art);
+		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), null);
 		roomObj.add(rm_01);
 		rooms.clear();
 
@@ -347,9 +345,7 @@ public class RoomLibrary
 		rm_03_doors.add(d_19);
 		rm_03_doors.add(d_20);
 		rm_03_doors.add(d_21);
-		ArrayList<Artifact> rm_03_art = new ArrayList<>();
-		rm_03_art.add(ArtifactFactory.getArtifactsList().get(5));
-		Room rm_03 = new Room("A garden with a small pond filled with lotus flowers.", rm_03_doors, 103, false, "North Garden", null, MonsterFactory.setRoomMonster(3), rm_03_art);
+		Room rm_03 = new Room("A garden with a small pond filled with lotus flowers.", rm_03_doors, 103, false, "North Garden", null, MonsterFactory.setRoomMonster(3), null);
 		roomObj.add(rm_03);
 		rooms.clear();
 
@@ -547,9 +543,7 @@ public class RoomLibrary
 		rm_22_doors.add(d_35);
 		rm_22_doors.add(d_36);
 		rm_22_doors.add(d_37);
-		ArrayList<Artifact> rm_22_art = new ArrayList<>();
-		rm_22_art.add(ArtifactFactory.getArtifactsList().get(16));
-		Room rm_22 = new Room("The second guest room is a smaller sized room,\n\tcompared to the guest room. It was probably to make room for the closet.\n\tThe layout is the same with a futon on top of tatami mats.", rm_22_doors, 122, false, "Guest Room 2", null, MonsterFactory.setRoomMonster(22), rm_22_art);
+		Room rm_22 = new Room("The second guest room is a smaller sized room,\n\tcompared to the guest room. It was probably to make room for the closet.\n\tThe layout is the same with a futon on top of tatami mats.", rm_22_doors, 122, false, "Guest Room 2", null, MonsterFactory.setRoomMonster(22), null);
 		roomObj.add(rm_22);
 		rooms.clear();
 
