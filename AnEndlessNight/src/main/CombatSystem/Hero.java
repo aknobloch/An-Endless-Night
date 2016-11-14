@@ -25,7 +25,7 @@ public class Hero extends Character implements Serializable
 	private Armor equippedArmor;
 	private ArrayList<InventoryItem> playerInventory;
 	// the maximum number of UNIQUE items a player can hold
-	private final int MAX_INVENTORY = 15;
+	private final int MAX_INVENTORY = 5;
 	// max stack of a single item a player can hold
 	private final int MAX_STACK = 5;
 	private int defense;
