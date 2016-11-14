@@ -41,6 +41,10 @@ public abstract class Character implements Serializable
 	 */
 	public int attack(int amount) 
 	{
+		if(amount < 0)
+		{
+			amount = 0;
+		}
 		this.health = health - amount;
 		return health;
 	}

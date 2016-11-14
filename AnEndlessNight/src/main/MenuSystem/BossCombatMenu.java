@@ -201,14 +201,41 @@ public class BossCombatMenu extends CombatMenu {
 				 */
 				if(kitsuneAttempt == 2)
 				{
-					System.out.println("Second attempt goes here.");
+					System.out.println("\tI understand. There is a time and a place");
+					System.out.println("\tfor everything. And there are more pressing");
+					System.out.println("\tissues at hand. Feel free to rest here for");
+					System.out.println("\tthe night if you would like.");
+					System.out.println();
+					
+					System.out.println("Rest for the night? ( + 10 Max Health, -5 Defense )");
+					System.out.println("1. Yes");
+					System.out.println("2. No");
+					
+					int userChoice = GameInput.getInt();
+					
+					if(userChoice == 1)
+					{
+						
+					}
+					else if(userChoice == 2)
+					{
+						
+						
+						// next attempt is made after the loop
+						kitsuneAttempt++;
+					}
+					else 
+					{
+						throw new IOException();
+					}
+					
 				}
 				
 			}
 			catch(IOException ioe)
 			{
-				System.out.println("Kitsune tilts her head, looking at your curiously.");
-				System.out.println("\"I'm sorry, could you repeat that?\"");
+				System.out.println("\tKitsune tilts her head, looking at your curiously.");
+				System.out.println("\t\"I'm sorry, could you repeat that?\"");
 				System.out.println();
 			}
 			
