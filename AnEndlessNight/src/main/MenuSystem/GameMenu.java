@@ -279,6 +279,16 @@ public class GameMenu extends AbstractMenu
 				// decrement user choice to account for zero-index
 				userChoice = userChoice - 1;
 				
+				// account for puzzles
+				if(possibleRooms.get(userChoice).getPuzzle() != null)
+				{
+					continuing = false;
+					Game.getHero().move(possibleRooms.get(userChoice));
+					
+					MenuLoader.loadPuzzleMenu(this);
+					return;
+				}
+				
 				// if the next room has a monster, change location and open combat
 				if(possibleRooms.get(userChoice).getMonster() != null)
 				{

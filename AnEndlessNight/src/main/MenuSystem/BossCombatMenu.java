@@ -246,6 +246,46 @@ public class BossCombatMenu extends CombatMenu {
 					}
 					
 				}
+				/*
+				 * KITSUNES FINAL ATTEMPT
+				 */
+				if(kitsuneAttempt == 3)
+				{
+					System.out.println("\t\"Well, then. Can I at the least offer you");
+					System.out.println("\tsome more tea before you continue on?\"");
+					System.out.println();
+					
+					System.out.println("Would you like some tea? ( +5 Health )");
+					System.out.println("1. Yes");
+					System.out.println("2. No");
+					System.out.println();
+					
+					int userChoice = GameInput.getInt();
+					
+					if(userChoice == 1)
+					{
+						
+						System.out.println("\tYou take a cup of hot tea, enjoying it's");
+						System.out.println("\tcontrast with the crisp, cool air. ");
+						System.out.println();
+						System.out.println("\tSuddenly, your throat tightens. Clutching at your");
+						System.out.println("\tneck, you reach out for help, but find none.");
+						System.out.println();
+						System.out.println("\tThe last thing you see is a wicked grin cross Kitsune's face.");
+						
+						heroDeath();
+						
+					}
+					else if(userChoice == 2)
+					{
+						userTooSmart = true;
+					}
+					else 
+					{
+						throw new IOException();
+					}
+					
+				}
 				
 			}
 			catch(IOException ioe)
