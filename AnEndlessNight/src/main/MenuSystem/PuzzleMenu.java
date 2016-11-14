@@ -53,10 +53,17 @@ public class PuzzleMenu extends AbstractMenu
 			System.out.println();
 			
 			String answer = GameInput.getString();
+			// first remove case
+			answer = answer.toLowerCase();
 			
-			String solution = Game.getHero().getRoom().getPuzzle().getSolution();
+			// remove case on this as well, just to be sure.
+			String solution = Game.getHero().getRoom().getPuzzle().getSolution().toLowerCase();
 			
-			if(answer.equalsIgnoreCase(solution))
+			// then do a contains. that way the user can enter 
+			// things that don't EXACTLY match and still get it correct.
+			// for instance, on the first riddle they could enter
+			// "a skull" or just "skull" or "what is a skull" etc
+			if(answer.contains(solution))
 			{
 				Game.getHero().getRoom().getPuzzle().setIsSolved(true);
 				System.out.println("Your brilliance astounds even yourself");
