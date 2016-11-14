@@ -51,6 +51,17 @@ public class StartMenu extends AbstractMenu
 						   "                                                                                                                                  ");
 		System.out.println("\n\n");
 		
+		
+		// Reads all excess junk from stdin
+		try {
+			while(System.in.available() > 0) 
+			{
+				System.in.read();
+			}
+		} catch (IOException e) {
+			// do nothing
+		}
+		
 		do
 		{
 			try
@@ -61,8 +72,6 @@ public class StartMenu extends AbstractMenu
 				System.out.println("3. Exit");
 				
 				int userChoice = GameInput.getInt();
-				
-				
 				
 				if(userChoice == 1) 
 				{
@@ -91,11 +100,11 @@ public class StartMenu extends AbstractMenu
 					// load first game menu
 					MenuLoader.loadGameMenu(this);
 				}
-				else if(userChoice == 1)
+				else if(userChoice == 2)
 				{
 					loadGame();
 				}
-				else if(userChoice == 1)
+				else if(userChoice == 3)
 				{
 					System.out.println("\tThanks for playing!");
 					System.exit(0);

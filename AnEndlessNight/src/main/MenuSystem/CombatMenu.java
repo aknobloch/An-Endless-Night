@@ -356,8 +356,10 @@ public class CombatMenu extends AbstractMenu
 			case 10 :
 				// Kitsune
 				// TODO: Kitsune description
-				System.out.println("\tYou stand in shock at Aaron's lazy ass who");
-				System.out.println("\tstill hasn't put in a description for Kitsune.");
+				System.out.println("\tKitsune stands before you, the facade of a beautiful girl");
+				System.out.println("\tnow completely gone. Her orange-red hair covers her body,");
+				System.out.println("\tfour fox tails waving behind her. Razor claws protrude from");
+				System.out.println("\ther hands, ready to draw blood.");
 				break;
 			case 11 :
 				// Ryu

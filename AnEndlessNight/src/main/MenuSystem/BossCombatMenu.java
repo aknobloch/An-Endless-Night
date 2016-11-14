@@ -36,7 +36,13 @@ public class BossCombatMenu extends CombatMenu {
 			System.out.println();
 			
 			// if it is Kitsune, go into dialogue
-			kitsuneDialogue();
+			// if kitsune tricks player, death and return.
+			// otherwise this will complete and launch main prompt for combat.
+			if( kitsuneTricksPlayer() ) 
+			{
+				heroDeath();
+				return;
+			}
 		}
 		
 		// regular combat menu can take over now...
@@ -133,9 +139,8 @@ public class BossCombatMenu extends CombatMenu {
 		}
 	}
 	
-	private void kitsuneDialogue() {
+	private boolean kitsuneTricksPlayer() {
 		
-		boolean userTooSmart = false;
 		int kitsuneAttempt = 1;
 		
 		System.out.println("\tBefore you stands Kitsune, the twinkle in her eye");
@@ -149,7 +154,7 @@ public class BossCombatMenu extends CombatMenu {
 		System.out.println("\ta plush bed, motioning for you to join her.");
 		System.out.println();
 		
-		do
+		while(! Game.solvedKitsune) 
 		{
 			try
 			{
@@ -179,7 +184,7 @@ public class BossCombatMenu extends CombatMenu {
 						System.out.println("\tThe world begins to fade...");
 						System.out.println();
 						
-						heroDeath();
+						return true;
 					}
 					else if(userChoice == 2)
 					{
@@ -227,7 +232,7 @@ public class BossCombatMenu extends CombatMenu {
 						System.out.println("\tthe blood, and feel the pain.");
 						System.out.println();
 						
-						heroDeath();
+						return true;
 						
 					}
 					else if(userChoice == 2)
@@ -272,13 +277,38 @@ public class BossCombatMenu extends CombatMenu {
 						System.out.println("\tneck, you reach out for help, but find none.");
 						System.out.println();
 						System.out.println("\tThe last thing you see is a wicked grin cross Kitsune's face.");
+						System.out.println();
 						
-						heroDeath();
+						return true;
 						
 					}
 					else if(userChoice == 2)
 					{
-						userTooSmart = true;
+						System.out.println("\tKitsune lets out a blood-curdling shriek, her mouth");
+						System.out.println("\topening wider and wider still, stretching back behind");
+						System.out.println("\ther head, engulfing her face. Her body begins to twist");
+						System.out.println("\tand morph. Orange-red tails sprout out from behind her body.");
+						System.out.println("\tShe collapses, fur emerging from all parts of her body.");
+						System.out.println();
+						System.out.println("\tStanding up, she grins manically, revealing a full set of sharp teeth.");
+						System.out.println();
+						
+						Game.solvedKitsune = true;
+
+						try 
+						{
+							Thread.sleep(1000);
+						} catch (InterruptedException e) 
+						{
+							// do nothing
+						}
+						
+						System.out.println();
+						System.out.println("==================================================================");
+						System.out.println("                           BOSS BATTLE                            ");
+						System.out.println("==================================================================");
+						System.out.println();
+						
 					}
 					else 
 					{
@@ -295,14 +325,37 @@ public class BossCombatMenu extends CombatMenu {
 				System.out.println();
 			}
 			
-		} while ( ! userTooSmart);
+		}
+		
+		// if reached this point, kitsune did not trick player
+		return false;
 		
 	}
 
-	private void kitsuneAttack() {
-		// TODO Auto-generated method stub
-		System.out.println("Need to implement kitsune fight.");
-		super.monsterAttack();
+	private void kitsuneAttack() 
+	{
+		
+		// if kitsune's health is greater than 50, she has a 50% chance of howling
+		if(Game.getHero().getRoom().getMonster().getHealth() > 50 && Math.random() <= .5)
+		{
+			System.out.println("\tKitsune crouches, bearing her sharp teeth.");
+			System.out.println("\tTilting her head back, she lets loose a loud");
+			System.out.println("\thowl. Despite yourself, you can't help but tremble");
+			System.out.println("\tin fear at the monstrosity before you.");
+			System.out.println();
+			
+			Game.getHero().addStatusCondition(StatusCondition.KITSUNE_DEBUFF);
+		}
+		// otherwise, gnaw attack
+		else
+		{
+			System.out.println("\tKitsune lunges at you, her powerful jaw hungrily");
+			System.out.println("\tsnapping at your neck.");
+			System.out.println();
+			
+			attackHero(20);
+		}
+		
 	}
 
 	private void ryuAttack() {

@@ -126,6 +126,8 @@ public class DamageHandler
 		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_DEBUFF)) 
 		{
 			damage = (int) (damage - (damage * .05));
+			// after attack, remove Kitsune debuff
+			gameHero.removeStatusCondition(StatusCondition.KITSUNE_DEBUFF);
 		}
 		
 		// Ryu debuff reduces game hero attack strength by 25%
