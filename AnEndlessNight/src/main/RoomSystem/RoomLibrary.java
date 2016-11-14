@@ -586,7 +586,9 @@ public class RoomLibrary
 		rm_26_doors.add(d_38);
 		rm_26_doors.add(d_F1);
 		rm_26_doors.add(d_F2);
-		Room rm_26 = new Room("An enormous hallway that leads to multiple rooms:\n\tservant, guests, bedroom, study room,\n\tand a roof that leads outside on top of the dojo.", rm_26_doors, 126, false, "Second Floor Hall Way", null, MonsterFactory.setRoomMonster(26), null);
+		ArrayList<Artifact> rm_26_art = new ArrayList<>();
+		rm_26_art.add(ArtifactFactory.getArtifactsList().get(10));
+		Room rm_26 = new Room("An enormous hallway that leads to multiple rooms:\n\tservant, guests, bedroom, study room,\n\tand a roof that leads outside on top of the dojo.", rm_26_doors, 126, false, "Second Floor Hall Way", null, MonsterFactory.setRoomMonster(26), rm_26_art);
 		roomObj.add(rm_26);
 		rooms.clear();
 
@@ -595,9 +597,7 @@ public class RoomLibrary
 		// puz_07
 		ArrayList<Door> rm_27_doors = new ArrayList<>();
 		rm_27_doors.add(d_31);
-		ArrayList<Artifact> rm_27_art = new ArrayList<>();
-		rm_27_art.add(ArtifactFactory.getArtifactsList().get(10));
-		Room rm_27 = new Room("The largest room on floor 2.\n\tIt contains multiple pages lying on the ground,\n\twith a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", puz_06, null, rm_27_art);
+		Room rm_27 = new Room("The largest room on floor 2.\n\tIt contains multiple pages lying on the ground,\n\twith a table and some books. It looks like a mess.", rm_27_doors, 127, false, "Study Room", puz_06, null, null);
 		roomObj.add(rm_27);
 		rooms.clear();
 
