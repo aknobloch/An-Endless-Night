@@ -15,9 +15,9 @@ public class PuzzleMenu extends AbstractMenu
 {
 	
 	private String description = "1. Enter Answer"
-			+ "2. View Hint"
-			+ "3. View Riddle"
-			+ "4. Go back";
+			+ "\n2. View Hint"
+			+ "\n3. View Riddle"
+			+ "\n4. Go back";
 
 	public PuzzleMenu(MenuLoader menuLoader) 
 	{
@@ -62,7 +62,6 @@ public class PuzzleMenu extends AbstractMenu
 			}
 		} catch (IOException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -76,13 +75,14 @@ public class PuzzleMenu extends AbstractMenu
 		{
 			try 
 			{
+				System.out.println(description);
 				int input = GameInput.getInt();
 				if(input == 1)
 				{
 					answer();
 					if(Game.getHero().getRoom().getPuzzle().getAttemptsAllowed() == Game.getHero().getRoom().getPuzzle().getAttemptsMade())
 					{
-						System.out.println("Your costant attempts have fried the ancient artifact. Your way is now unblocked however, you feel"
+						System.out.println("Your costant attempts have fried the ancient artifact. Your way is now unblocked however, you feel "
 								+ "as if you missed out on a huge oportunity.");
 						inPuzzle = false;
 						MenuLoader.loadGameMenu(this);

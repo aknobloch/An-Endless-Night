@@ -312,9 +312,7 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_01, d_02, d_03, d_05
-		// art_18
 		ArrayList<Door> rm_01_doors = new ArrayList<>();
-		
 		rm_01_doors.add(d_01);
 		rm_01_doors.add(d_02);
 		rm_01_doors.add(d_03);
@@ -325,6 +323,7 @@ public class RoomLibrary
 
 		// d_02, d_17, d_19, d_29
 		// art_08
+		//puz_01
 		ArrayList<Door> rm_02_doors = new ArrayList<>();
 		rm_02_doors.add(d_02);
 		rm_02_doors.add(d_17);
@@ -337,7 +336,6 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_14, d_16, d_18, d_19, d_20, d_21
-		// art_06
 		ArrayList<Door> rm_03_doors = new ArrayList<>();
 		rm_03_doors.add(d_14);
 		rm_03_doors.add(d_16);
@@ -384,6 +382,7 @@ public class RoomLibrary
 
 		// d_04, d_05
 		// art_04
+		// puz_02
 		ArrayList<Door> rm_07_doors = new ArrayList<>();
 		rm_07_doors.add(d_04);
 		rm_07_doors.add(d_05);
@@ -443,6 +442,7 @@ public class RoomLibrary
 
 		// d_20, d_26, d_27
 		// art_11
+		// puz_04
 		ArrayList<Door> rm_13_doors = new ArrayList<>();
 		rm_13_doors.add(d_20);
 		rm_13_doors.add(d_26);
@@ -488,6 +488,7 @@ public class RoomLibrary
 
 		// d_08, d_09, d_10
 		// art_13
+		// puz_03
 		ArrayList<Door> rm_17_doors = new ArrayList<>();
 		rm_17_doors.add(d_08);
 		rm_17_doors.add(d_09);
@@ -520,6 +521,7 @@ public class RoomLibrary
 
 		// d_39, d_TD
 		// art_02
+		// puz_07
 		ArrayList<Door> rm_20_doors = new ArrayList<>();
 		rm_20_doors.add(d_39);
 		rm_20_doors.add(d_TD);
@@ -538,7 +540,6 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_35, d_36, d_37
-		// art_17
 		ArrayList<Door> rm_22_doors = new ArrayList<>();
 		rm_22_doors.add(d_35);
 		rm_22_doors.add(d_36);
@@ -591,6 +592,7 @@ public class RoomLibrary
 
 		// d_31
 		//art_11
+		// puz_07
 		ArrayList<Door> rm_27_doors = new ArrayList<>();
 		rm_27_doors.add(d_31);
 		ArrayList<Artifact> rm_27_art = new ArrayList<>();
@@ -603,6 +605,7 @@ public class RoomLibrary
 
 		// d_40, d_F2
 		// art_07
+		// puz_07
 		ArrayList<Door> rm_28_doors = new ArrayList<>();
 		rm_28_doors.add(d_40);
 		rm_28_doors.add(d_F2);
