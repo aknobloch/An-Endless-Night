@@ -63,13 +63,11 @@ public final class Game implements Serializable
 			ArtifactFactory.initializeArtifacts();
 			ArrayList<Room> newMap = RoomLibrary.roomGen();
 			Hero newHero = new Hero();
-<<<<<<< HEAD
-			newHero.teleport(newMap.get(0));
-
-=======
+			
+			//TODO
+			//newHero.teleport(newMap.get(0));
 			newHero.teleport(newMap.get(1));
 			
->>>>>>> 6e8e03a6a7a9c222fcb0771eee8b3cc483c65c81
 			game = new Game(newMap, newHero);
 			return true;
 		}

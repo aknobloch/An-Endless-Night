@@ -27,13 +27,9 @@ public class MenuLoader
 	private static final BossCombatMenu bossMenu = new BossCombatMenu(johnCena);
 
 	// the amount of time to wait before launching a new menu.
-	<<<<<<< HEAD
 	private static final long MENU_PAUSE_TIME = 1500;
-
-	=======
-			private static final long MENU_PAUSE_TIME = 1250;
-
-	>>>>>>> 6e8e03a6a7a9c222fcb0771eee8b3cc483c65c81
+	//TODO
+	//private static final long MENU_PAUSE_TIME = 1250;
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
 	 * you pass in an object of this class. This ensures that menus are not created or managed
