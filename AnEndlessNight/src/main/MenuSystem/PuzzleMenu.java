@@ -1,5 +1,6 @@
 package main.MenuSystem;
 
+
 import java.io.IOException;
 
 import main.Game;
@@ -74,12 +75,12 @@ public class PuzzleMenu extends AbstractMenu
 	void mainPrompt() 
 	{
 		inPuzzle = true;
+		viewRiddle();
 		
 		while(inPuzzle)
 		{
 			try 
 			{
-				viewRiddle();
 				System.out.println(description);
 				int input = GameInput.getInt();
 				if(input == 1)
