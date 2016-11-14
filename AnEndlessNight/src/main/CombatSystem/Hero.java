@@ -328,6 +328,7 @@ public class Hero extends Character implements Serializable
 				if(countLeft <= 0) 
 				{
 					playerInventory.remove(item);
+					return;
 				}
 			}
 		}
