@@ -162,7 +162,10 @@ public class GameMenu extends AbstractMenu
 
 					// pick up item, add to inventory and remove from room
 					String resultMessage = Game.getHero().addArtifactToInventory(roomItems.get(userChoice));
-					Game.getHero().getRoom().getArtifactList().remove(userChoice);
+					if(resultMessage.equals("You place the item safely in your bag."))
+					{
+						Game.getHero().getRoom().getArtifactList().remove(userChoice);
+					}
 
 					pickedUpItem = true;
 
