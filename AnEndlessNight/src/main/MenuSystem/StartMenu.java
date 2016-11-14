@@ -79,21 +79,6 @@ public class StartMenu extends AbstractMenu
 					
 					displayOpeningStory();
 					
-					// Reads all excess junk from stdin
-					// This is neccessary because if the user just spams enter
-					// through the beginning story, any excess "enters" will cause
-					// an error in the main loop of this menu and cause a bunch of
-					// "not valid input"'s to be printed while it reads all the
-					// excess enters that the user spammed.
-					try {
-						while(System.in.available() > 0) 
-						{
-							System.in.read();
-						}
-					} catch (IOException e) {
-						// do nothing
-					}
-					
 					System.out.println(INTRO_STORY);
 					// initialize game
 					Game.initializeGame();
