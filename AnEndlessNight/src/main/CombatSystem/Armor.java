@@ -17,7 +17,7 @@ public class Armor extends Artifact
 		super(name, description, artifactID);
 		this.defense = defense;
 	}
-	
+
 	/**
 	 * Returns the defense attribute for the armor class. 
 	 * @return the defense stat of the armor
@@ -26,5 +26,4 @@ public class Armor extends Artifact
 	{
 		return defense;
 	}
-
 }

@@ -13,13 +13,12 @@ import java.util.ArrayList;
 public class InventoryMenu extends AbstractMenu
 {
 	private String description = 
-
 			"1. Equip Item \n"
-			+ "2. Unequip Item \n"
-			+ "3. Drop Item \n"
-			+ "4. View Item \n"
-			+ "5. Use Item \n"
-			+ "6. Main Menu";
+					+ "2. Unequip Item \n"
+					+ "3. Drop Item \n"
+					+ "4. View Item \n"
+					+ "5. Use Item \n"
+					+ "6. Main Menu";
 	/**
 	 * Creates an Inventory Menu object
 	 * @param menuLoader
@@ -28,7 +27,7 @@ public class InventoryMenu extends AbstractMenu
 	{
 		super(menuLoader);
 	}
-	
+
 	/**
 	 * Displays items contained in the heros inventory
 	 * @throws IOException
@@ -37,7 +36,7 @@ public class InventoryMenu extends AbstractMenu
 	{
 		// get the current hero inventory
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
-		
+
 		//prompt the user to indicate which item they want more information on.
 		System.out.println("Which item would you like to look at?");
 		//display all the items to the user
@@ -50,7 +49,7 @@ public class InventoryMenu extends AbstractMenu
 		//check to make sure that the input falls within the scope of the array
 		if(input >=0 && items != null && input <items.size())
 		{
-			
+
 			System.out.println(items.get(input).getItem().getDescription());;
 		}
 	}
@@ -68,7 +67,7 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println(x.getItem().getName());
 		}
 		String input = GameInput.getString();
-		
+
 		for(InventoryItem x: items)
 		{
 			if(x.getItem().getName().equals(input))
@@ -97,7 +96,7 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println("2. " + Game.getHero().getEquippedWeapon().getName());
 		}
 		int input = GameInput.getInt();
-		
+
 		if(input == 1)
 		{
 			System.out.println("You feel lighter no longer weighed down by the armor");
@@ -127,23 +126,22 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println((i) + ". " +items.get(i).getItem().getName());
 		}
 		int input = GameInput.getInt();
-		
+
 		if(input >= 0 && input < items.size())
 		{
-			
-				if(items.get(input).getItem() instanceof Weapon)
-				{
-					Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
-					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
-					System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
-				}
-				else if(items.get(input).getItem() instanceof Armor)
-				{
-					Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
-					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
-					System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
-				}
-			
+
+			if(items.get(input).getItem() instanceof Weapon)
+			{
+				Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
+				Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
+				System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
+			}
+			else if(items.get(input).getItem() instanceof Armor)
+			{
+				Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
+				Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
+				System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
+			}
 		}
 	}
 	/**
@@ -159,7 +157,7 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println(x.getItem().getName());
 		}
 		String input = GameInput.getString();
-		
+
 		for(InventoryItem x: items)
 		{
 			if(x.getItem().getName().equals(input))
@@ -192,7 +190,7 @@ public class InventoryMenu extends AbstractMenu
 	void mainPrompt() 
 	{
 		boolean inInventory = true;
-		
+
 		System.out.println("You take a look at your belongings. What would you like to do?");
 		System.out.println(toString());
 		while(inInventory)
@@ -200,7 +198,7 @@ public class InventoryMenu extends AbstractMenu
 			try 
 			{
 				String input = GameInput.getString();
-			
+
 				if(input.equals("1"))
 				{
 					equipItem();

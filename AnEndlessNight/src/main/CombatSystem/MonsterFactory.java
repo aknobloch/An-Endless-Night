@@ -19,17 +19,17 @@ public class MonsterFactory
 {
 	private static String[] monsterNameArray = 
 		{
-				"Maneki-neko",
-				"Karakasa", 
-				"Futakuchi-onna", 
-				"Kappa", 
-				"Tanuki", 
-				"Yatagarasu", 
-				"Oni", 
-				"Shisa", 
-				"Tengu", 
-				"Kitsune", 
-				"Ryu"
+		"Maneki-neko",
+		"Karakasa", 
+		"Futakuchi-onna", 
+		"Kappa", 
+		"Tanuki", 
+		"Yatagarasu", 
+		"Oni", 
+		"Shisa", 
+		"Tengu", 
+		"Kitsune", 
+		"Ryu"
 		};
 
 	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
@@ -72,7 +72,6 @@ public class MonsterFactory
 							{
 								monsterDropList.add(parts[i]);
 							}
-
 						}
 
 						ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
@@ -84,7 +83,6 @@ public class MonsterFactory
 							Artifact a = ArtifactFactory.getArtifactsList().get(itemForMonster - 1);
 
 							artifactList.add(a);
-
 						}
 
 						monsterItemAssignments.add(artifactList);
@@ -122,7 +120,6 @@ public class MonsterFactory
 		monsterList.add(mon);
 		mon = new Monster(11, 200, 25, "Ryu", 100, monsterItemAssignments.get(10), true);
 		monsterList.add(mon);
-
 	}
 
 	public static Monster setRoomMonster(int roomID) // roomID must not be 01 format.

@@ -13,7 +13,6 @@ import main.GameInput;
 
 public class PuzzleMenu extends AbstractMenu
 {
-	
 	private String description = "1. Enter Answer"
 			+ "\n2. View Hint"
 			+ "\n3. View Riddle"

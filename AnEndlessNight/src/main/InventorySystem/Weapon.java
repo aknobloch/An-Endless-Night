@@ -17,7 +17,7 @@ public class Weapon extends Artifact
 		super(name, description, artifactID);
 		this.strength = strength;
 	}
-	
+
 	/**
 	 * Returns the Strength awarded from this weapon. 
 	 * @return
@@ -26,5 +26,4 @@ public class Weapon extends Artifact
 	{
 		return strength;
 	}
-
 }

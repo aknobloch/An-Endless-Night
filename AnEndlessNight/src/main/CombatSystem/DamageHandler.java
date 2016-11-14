@@ -19,7 +19,7 @@ public class DamageHandler
 	private Hero gameHero;
 	private Monster battleMonster;
 	private Room battleRoom;
-	
+
 	/***
 	 * Constructs a damage handler for the current battle. The Hero
 	 * and the opposing monster are both automatically derived from 
@@ -31,7 +31,7 @@ public class DamageHandler
 		battleRoom = gameHero.getRoom();
 		battleMonster = battleRoom.getMonster();
 	}
-	
+
 	/***
 	 * Attacks the hero. This method calculates the appropriate damage 
 	 * to applies it to the hero.
@@ -51,17 +51,17 @@ public class DamageHandler
 				return 0;
 			}
 		}
-		
+
 		int damage = battleMonster.getStrength() - gameHero.getDefense();
-		
+
 		// defending lowers damage by one third
 		if(gameHero.getStatusConditions().contains(StatusCondition.DEFENSE_BUFF)) 
 		{
 			damage = damage - (damage / 3);
 		}
-		
+
 		int remainingHealth = gameHero.attack(damage);
-		
+
 		if(remainingHealth <= 0) 
 		{
 			// TODO: Handle case if hero dies
@@ -72,7 +72,7 @@ public class DamageHandler
 			return remainingHealth;
 		}
 	}
-	
+
 	/***
 	 * For boss attacks or enemies which have varying levels of attack strength.
 	 * 
@@ -91,15 +91,15 @@ public class DamageHandler
 				return 0;
 			}
 		}
-		
+
 		// defending lowers damage by one third
 		if(gameHero.getStatusConditions().contains(StatusCondition.DEFENSE_BUFF)) 
 		{
 			damage = damage - (damage / 3);
 		}
-		
+
 		int remainingHealth = gameHero.attack(damage);
-		
+
 		if(remainingHealth <= 0) 
 		{
 			// TODO: Handle case if hero dies
@@ -110,7 +110,7 @@ public class DamageHandler
 			return remainingHealth;
 		}
 	}
-	
+
 	/***
 	 * This method calculates the appropriate level of damage and attacks the 
 	 * monster with it. 
@@ -121,7 +121,7 @@ public class DamageHandler
 	public int attackMonster() 
 	{
 		int damage = gameHero.getStrength() + gameHero.getEquippedWeapon().getStrength();
-		
+
 		// Kitsune debuff reduces game hero attack strength by 5%
 		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_DEBUFF)) 
 		{
@@ -129,15 +129,15 @@ public class DamageHandler
 			// after attack, remove Kitsune debuff
 			gameHero.removeStatusCondition(StatusCondition.KITSUNE_DEBUFF);
 		}
-		
+
 		// Ryu debuff reduces game hero attack strength by 25%
 		if(gameHero.getStatusConditions().contains(StatusCondition.RYU_DEBUFF)) 
 		{
 			damage = (int) (damage - (damage * .25));
 		}
-		
+
 		int remainingHealth = battleMonster.attack(damage);
-		
+
 		if(remainingHealth <= 0) 
 		{
 			return -1;

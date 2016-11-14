@@ -17,7 +17,7 @@ public class Puzzle implements Serializable
 	private String hint;
 	private int puzzleID;
 	private int attemptsAllowed;
-	
+
 	public Puzzle(String description, String solution, boolean isSolved, int attemptsMade, 
 			String hint, int puzzleID,
 			int attemptsAllowed) 
@@ -85,10 +85,9 @@ public class Puzzle implements Serializable
 	{
 		return attemptsAllowed;
 	}
-	
+
 	public void setAttemptsMade(int x)
 	{
 		attemptsMade = x;
 	}
-
 }

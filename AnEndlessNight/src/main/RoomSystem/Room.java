@@ -41,8 +41,6 @@ public class Room implements Serializable
 		{
 			this.artifact = artifact;
 		}
-		
-		
 	}
 
 	public Monster getMonster() 
@@ -100,14 +98,13 @@ public class Room implements Serializable
 		return name;
 	}
 
-	public void destroyMonster() {
-		
+	public void destroyMonster() 
+	{
 		ArrayList<Artifact> droppedItems = this.monster.getDroppedItems();
 		for(Artifact item : droppedItems)
 		{
 			this.artifact.add(item);
 		}
 		this.monster = null;
-		
 	}
 }

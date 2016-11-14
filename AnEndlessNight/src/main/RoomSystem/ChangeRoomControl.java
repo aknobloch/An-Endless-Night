@@ -15,7 +15,7 @@ public class ChangeRoomControl
 	public static boolean changeRoom(String destination)
 	{
 		ArrayList<Room> rooms = Game.getRooms();
-		
+
 		for(Room x : rooms)
 		{
 			if(x.getName().equals(destination))

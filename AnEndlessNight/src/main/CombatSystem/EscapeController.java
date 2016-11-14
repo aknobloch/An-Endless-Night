@@ -18,7 +18,7 @@ public class EscapeController
 {
 	private Hero gameHero;
 	private Monster battleMonster;
-	
+
 	/***
 	 * Creates an EscapeController.
 	 * Automatically determines the appropriate Hero and Monster
@@ -29,7 +29,7 @@ public class EscapeController
 		this.gameHero = Game.getHero();
 		this.battleMonster = gameHero.getRoom().getMonster();
 	}
-	
+
 	/***
 	 * Attempts to escape the current battle.
 	 * @return True if successful, false if failed.
@@ -40,16 +40,16 @@ public class EscapeController
 		{
 			return false;
 		}
-		
+
 		Random r = new Random();
 		int chance = 2; // equals 3/20, equates to 15%
-		
+
 		// tengu fan increases successful chance of escape by 10%
 		if (gameHero.getStatusConditions().contains(StatusCondition.TENGU_FAN))
 		{
 			chance = chance + 2; // equals 4/20, equates to 25%
 		}
-		
+
 		if(r.nextInt(20) <= chance) 
 		{
 			return true;

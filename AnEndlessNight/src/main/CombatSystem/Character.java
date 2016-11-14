@@ -17,7 +17,7 @@ public abstract class Character implements Serializable
 	protected int strength;
 	protected String name;
 	protected Room currentRoom;
-	
+
 	/***
 	 * Constructs a Character from the specified params.
 	 * @param ID  The ID of the character.
@@ -32,7 +32,7 @@ public abstract class Character implements Serializable
 		this.strength = strength;
 		this.name = name;
 	}
-	
+
 	/***
 	 * Attacks the character with the amount of damage specified. Subtracts
 	 * the amount specified from the current health.
@@ -48,7 +48,7 @@ public abstract class Character implements Serializable
 		this.health = health - amount;
 		return health;
 	}
-	
+
 	/**
 	 * Returns the ID of this character.
 	 * @return The ID of the character.
@@ -57,7 +57,7 @@ public abstract class Character implements Serializable
 	{
 		return this.characterID;
 	}
-	
+
 	/**
 	 * Returns the health of the character.
 	 * @return The health of the character.
@@ -66,7 +66,7 @@ public abstract class Character implements Serializable
 	{
 		return this.health;
 	}
-	
+
 	/***
 	 * Heals the Character the specified amount. Adds the amount 
 	 * to the Character's health.
@@ -78,7 +78,7 @@ public abstract class Character implements Serializable
 		this.health = health + amount;
 		return health;
 	}
-	
+
 	/**
 	 * Returns the strength of the character.
 	 * @return The strength of the character.
@@ -87,7 +87,7 @@ public abstract class Character implements Serializable
 	{
 		return this.strength;
 	}
-	
+
 	/**
 	 * Returns the human-readable name of the character.
 	 * @return The name of the character.
@@ -96,7 +96,7 @@ public abstract class Character implements Serializable
 	{
 		return this.name;
 	}
-	
+
 	/***
 	 * Returns the room that this Character
 	 * is currently in.
@@ -106,7 +106,7 @@ public abstract class Character implements Serializable
 	{
 		return this.currentRoom;
 	}
-	
+
 	/**
 	 * Sets the current location of the character to the paramartized 
 	 * Room. 

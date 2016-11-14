@@ -15,24 +15,24 @@ public class ArtifactFactory
 {
 	private static String[] artifactNameArray = 
 		{
-				"Magic Mirror",
-				"Katana",
-				"Odachi",
-				"Bo/Jo",
-				"Healing Potion",
-				"Journal",
-				"Celestial Globe",
-				"Study Room Key",
-				"Kegutsu",
-				"Kikko",
-				"Mempo",
-				"Kaiken",
-				"Kusarigama",
-				"Daruma Doll",
-				"Kokeshi Doll", 
-				"Ladder",
-				"Tengu’s Fan",
-				"Kitsune’s Tail"
+		"Magic Mirror",
+		"Katana",
+		"Odachi",
+		"Bo/Jo",
+		"Healing Potion",
+		"Journal",
+		"Celestial Globe",
+		"Study Room Key",
+		"Kegutsu",
+		"Kikko",
+		"Mempo",
+		"Kaiken",
+		"Kusarigama",
+		"Daruma Doll",
+		"Kokeshi Doll", 
+		"Ladder",
+		"Tengu’s Fan",
+		"Kitsune’s Tail"
 		};
 
 	private static ArrayList<Artifact> keyArtifactsList;
@@ -225,5 +225,4 @@ public class ArtifactFactory
 		}
 		return null;
 	}
-
 }

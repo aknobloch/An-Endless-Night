@@ -21,14 +21,14 @@ public abstract class AbstractMenu
 	 */
 	public AbstractMenu(MenuLoader menuLoader) 
 	{}
-	
+
 	/**
 	 * This is the entry point for your menu. It should print any welcoming messages, 
 	 * and start the IO for the user. Do NOT create a new Scanner for input! Use 
 	 * the GameInput class.
 	 */
 	abstract void mainPrompt();
-	
+
 	/**
 	 * This is the closing point for your menu. It should close any resources, finalize any
 	 * score and do any last minute output that is needed. As soon as this function is done,

@@ -12,7 +12,7 @@ import main.InventorySystem.Artifact;
  */
 public class Monster extends Character
 {
- // TODO turn droppedItem into an arrayList of possibly dropped items.
+	// TODO turn droppedItem into an arrayList of possibly dropped items.
 	private double probabilityOfAppearance;
 	private ArrayList<Artifact> droppedItems;
 	private boolean isBoss;
@@ -43,7 +43,7 @@ public class Monster extends Character
 	{
 		return this.probabilityOfAppearance;
 	}
-	
+
 	/**
 	 * Gets the item that the Monster drops.
 	 * @return The item that the Monster drops.

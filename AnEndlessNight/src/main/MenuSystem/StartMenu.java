@@ -16,7 +16,6 @@ import main.GameInput;
  */
 public class StartMenu extends AbstractMenu
 {
-	
 	private static final String INTRO_STORY = "\tYour eyelids struggle to open, the dried blood caking them shut.\n" +
 											  "\tYou look around, the room is filled with blood and bodies.\n" +
 											  "\tPulling yourself to your feet, you say a quick prayer to the Old Ones.\n" +
@@ -28,14 +27,12 @@ public class StartMenu extends AbstractMenu
 		super(menuLoader);
 	}
 	
-	
 	/**
 	 * The main prompt of this menu. Displays core options.
 	 */
 	@Override
 	public void mainPrompt()
 	{    
-		
 		inMainMenu = true;
 		
 		// IF YOU MESS WITH THIS I WILL LITERALLY KILL YOU I SPENT WAY TOO MUCH TIME ON THIS
@@ -53,15 +50,16 @@ public class StartMenu extends AbstractMenu
 		
 		
 		// Reads all excess junk from stdin
-		try {
+		try 
+		{
 			while(System.in.available() > 0) 
 			{
 				System.in.read();
 			}
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// do nothing
 		}
-		
 		do
 		{
 			try
@@ -85,12 +83,14 @@ public class StartMenu extends AbstractMenu
 					// an error in the main loop of this menu and cause a bunch of
 					// "not valid input"'s to be printed while it reads all the
 					// excess enters that the user spammed.
-					try {
+					try 
+					{
 						while(System.in.available() > 0) 
 						{
 							System.in.read();
 						}
-					} catch (IOException e) {
+					} catch (IOException e) 
+					{
 						// do nothing
 					}
 					
@@ -121,11 +121,8 @@ public class StartMenu extends AbstractMenu
 				System.out.println("\tNot a valid option, please try again.");
 				System.out.println();
 			}
-			
-			
 		}
 		while(inMainMenu);
-		
 	}
 
 	
@@ -134,8 +131,8 @@ public class StartMenu extends AbstractMenu
 	 * prompts the user to select one of the found files (if there were any). After selection
 	 * it loads the game file and then launches the user into the last room menu.
 	 */
-	private void loadGame() {
-		
+	private void loadGame() 
+	{
 		// get the files
 		File rootDirectory = new File(".");
 		
@@ -164,7 +161,6 @@ public class StartMenu extends AbstractMenu
 		{
 			try
 			{
-				
 				System.out.println("Which file would you like to load?");
 				// first option is to go back
 				System.out.println("0. Exit to main menu");
@@ -203,9 +199,6 @@ public class StartMenu extends AbstractMenu
 				System.out.println("\tSighing, you push yourself to your feet.");
 				System.out.println("\tIf only you could find a way out of this endless labyrinth...");
 				MenuLoader.loadGameMenu(this);
-				
-				
-				
 			} 
 			catch(ClassNotFoundException cnf)
 			{
@@ -223,7 +216,6 @@ public class StartMenu extends AbstractMenu
 			}
 			
 		} while( ! validInput);
-		
 	}
 
 	public static void displayOpeningStory() 
@@ -234,9 +226,11 @@ public class StartMenu extends AbstractMenu
 		System.out.println();
 		
 		// pause for dramatic effect!
-		try {
+		try 
+		{
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
 		
@@ -250,9 +244,11 @@ public class StartMenu extends AbstractMenu
 		System.out.println("Press enter to continue.");
 		System.out.println();
 		
-		try {
+		try 
+		{
 			GameInput.getString();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// do nothing
 		}
 		
@@ -263,9 +259,11 @@ public class StartMenu extends AbstractMenu
 		System.out.println("Press enter to continue.");
 		System.out.println();
 		
-		try {
+		try 
+		{
 			GameInput.getString();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// do nothing
 		}
 		
@@ -280,9 +278,11 @@ public class StartMenu extends AbstractMenu
 		System.out.println("Press enter to continue.");
 		System.out.println();
 		
-		try {
+		try 
+		{
 			GameInput.getString();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// do nothing
 		}
 		
@@ -296,25 +296,27 @@ public class StartMenu extends AbstractMenu
 		System.out.println("Press enter to continue.");
 		System.out.println();
 		
-		try {
+		try 
+		{
 			GameInput.getString();
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			// do nothing
 		}
 		
 		System.out.println("\tDarkness envelops you…");
 		
 		// pause for dramatic effect!
-		try {
+		try 
+		{
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
 	}
 	
 	@Override
 	public void onDestroy() 
-	{
-		
-	}
+	{}
 }

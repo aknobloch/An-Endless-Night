@@ -28,7 +28,6 @@ public class SearchRoomControl
 				descriptions.add(x.getName());
 			}
 		}
-
 		return descriptions;
 	}
 }

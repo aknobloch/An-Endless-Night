@@ -14,7 +14,7 @@ public class CombatInventoryMenu
 	{
 		int userInput;
 		boolean validInput = false;
-		
+
 		// populate an array of consumables
 		ArrayList<Consumable> consumableList = new ArrayList<>();
 		for(InventoryItem item : Game.getHero().getPlayerInventory()) 
@@ -24,7 +24,7 @@ public class CombatInventoryMenu
 				consumableList.add((Consumable)item.getItem());
 			}
 		}
-		
+
 		// break and return if no consumables
 		if(consumableList.size() <= 0) 
 		{
@@ -32,7 +32,7 @@ public class CombatInventoryMenu
 			System.out.println();
 			return;
 		}
-		
+
 		// prompt user for which item to use
 		while( ! validInput ) 
 		{
@@ -46,11 +46,11 @@ public class CombatInventoryMenu
 					System.out.println((i+2) + ". Return to combat");
 				}
 			}
-			
+
 			try 
 			{
 				userInput = GameInput.getInt();
-				
+
 				// if they chose one more than the list size, then they chose to return to combat
 				if(userInput == consumableList.size() + 1) 
 				{

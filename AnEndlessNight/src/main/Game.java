@@ -49,7 +49,7 @@ public final class Game implements Serializable
 	{
 		return game.hero;
 	}
-	
+
 	/**
 	 * Initializes the game. If the game does not exist, it creates a new one.
 	 * If the game is already in existence, returns false.
@@ -64,7 +64,7 @@ public final class Game implements Serializable
 			ArrayList<Room> newMap = RoomLibrary.roomGen();
 			Hero newHero = new Hero();
 			newHero.teleport(newMap.get(0));
-			
+
 			game = new Game(newMap, newHero);
 			return true;
 		}
@@ -73,7 +73,7 @@ public final class Game implements Serializable
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Get the room objects (in their current state) of all the rooms in this 
 	 * Game. This is read-only, it's contents cannot be modified.
@@ -84,7 +84,7 @@ public final class Game implements Serializable
 	{
 		return new ArrayList<Room>(game.rooms);
 	}
-	
+
 	/**
 	 * Writes a file with the given filename.
 	 * @param fileName The name of the file to write.
@@ -98,7 +98,7 @@ public final class Game implements Serializable
 		out.writeObject(game);
 		out.close();
 	}
-	
+
 	/**
 	 * Loads the game passed in.
 	 * @param saveFile The file location of the game to load.
@@ -109,11 +109,9 @@ public final class Game implements Serializable
 	 */
 	public static void loadGame(File saveFile) throws FileNotFoundException, ClassNotFoundException, IOException
 	{
-		
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream(saveFile));
 		game = (Game) in.readObject();
 		in.close();
-		
 	}
 
 	/**
@@ -125,7 +123,7 @@ public final class Game implements Serializable
 	{
 		return game.score;
 	}
-	
+
 	/**
 	 * Increments score by the given amount. If the amount given is negative,
 	 * does not do anything.
@@ -140,7 +138,7 @@ public final class Game implements Serializable
 		}
 		game.score += points;
 	}
-	
+
 	/**
 	 * Gets the Journal for modification and reading.
 	 * 
@@ -150,7 +148,7 @@ public final class Game implements Serializable
 	{
 		return game.journal;
 	}
-	
+
 	/***
 	 * Resets the game.
 	 */
@@ -162,15 +160,13 @@ public final class Game implements Serializable
 	/**
 	 * Activates cheat mode.
 	 */
-	public static void godMode() {
-		
+	public static void godMode() 
+	{
 		game.hero.godMode(game);
-		
 	}
 
-	public static void mortalMode() {
-		
+	public static void mortalMode() 
+	{
 		game.hero.mortalMode(game);
-		
 	}
 }

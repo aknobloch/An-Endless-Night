@@ -17,7 +17,7 @@ public class MenuLoader
 {
 	// the one, the only....
 	private static final MenuLoader johnCena = new MenuLoader();
-	
+
 	private static final CombatMenu combatMenu = new CombatMenu(johnCena);
 	private static final GameMenu gameMenu = new GameMenu(johnCena);
 	private static final InventoryMenu inventoryMenu = new InventoryMenu(johnCena);
@@ -25,10 +25,10 @@ public class MenuLoader
 	private static final StartMenu startMenu = new StartMenu(johnCena);
 	private static final PuzzleMenu puzzleMenu = new PuzzleMenu(johnCena);
 	private static final BossCombatMenu bossMenu = new BossCombatMenu(johnCena);
-	
+
 	// the amount of time to wait before launching a new menu.
 	private static final long MENU_PAUSE_TIME = 1500;
-	
+
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
 	 * you pass in an object of this class. This ensures that menus are not created or managed
@@ -50,26 +50,28 @@ public class MenuLoader
 	public static void loadCombatMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
-		
+
 		// move into boss combat menu
 		if(Game.getHero().getRoom().getMonster().isBoss())
 		{
 			MenuLoader.loadBossCombatMenu(currentMenu);
 			return;
 		}
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             COMBAT                               ");
 		System.out.println("==================================================================");
 		System.out.println();
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -79,7 +81,7 @@ public class MenuLoader
 			}
 		}).start();
 	}
-	
+
 	/***
 	 * Loads the combat menu for bosses. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -91,15 +93,17 @@ public class MenuLoader
 	public static void loadBossCombatMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		// no menu display, that is handled in the BossCombatMenu
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -109,7 +113,7 @@ public class MenuLoader
 			}
 		}).start();
 	}
-	
+
 	/***
 	 * Loads the game menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -120,15 +124,16 @@ public class MenuLoader
 	 */
 	public static void loadGameMenu(AbstractMenu currentMenu) 
 	{
-		
 		currentMenu.onDestroy();
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             MAIN MENU                            ");
@@ -155,21 +160,22 @@ public class MenuLoader
 	 */
 	public static void loadInventoryMenu(AbstractMenu currentMenu) 
 	{
-		
 		currentMenu.onDestroy();
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             INVENTORY                            ");
 		System.out.println("==================================================================");
 		System.out.println();
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -177,10 +183,9 @@ public class MenuLoader
 			{
 				inventoryMenu.mainPrompt();
 			}
-			
 		}).start();
 	}
-	
+
 	/***
 	 * Loads the journal menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -192,19 +197,21 @@ public class MenuLoader
 	public static void loadJournalMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             JOURNAL                              ");
 		System.out.println("==================================================================");
 		System.out.println();
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -214,7 +221,7 @@ public class MenuLoader
 			}
 		}).start();
 	}
-	
+
 	/***
 	 * Loads the start menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -226,7 +233,7 @@ public class MenuLoader
 	public static void loadStartMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -236,7 +243,7 @@ public class MenuLoader
 			}
 		}).start();
 	}
-	
+
 	/***
 	 * Loads the puzzle menu. The onDestroy() method will first be called for the
 	 * menu that called this object, and then the mainPrompt() will be called for the
@@ -248,19 +255,21 @@ public class MenuLoader
 	public static void loadPuzzleMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
-		
-		try {
+
+		try 
+		{
 			Thread.sleep(MENU_PAUSE_TIME);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			// do nothing
 		}
-		
+
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             PUZZLE                               ");
 		System.out.println("==================================================================");
 		System.out.println();
-		
+
 		new Thread(new Runnable() 
 		{
 			@Override
@@ -271,16 +280,12 @@ public class MenuLoader
 		}).start();
 	}
 
-	public static void startGame() {
-		
+	public static void startGame() 
+	{
 		startMenu.mainPrompt();
-		
 	}
-	
+
 	/***
 	 * Starts the game by calling invoking the mainPrompt function of the start menu.
 	 */
-	
-
-	
 }

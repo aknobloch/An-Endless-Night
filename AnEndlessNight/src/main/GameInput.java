@@ -17,11 +17,11 @@ import javax.swing.plaf.synth.SynthSeparatorUI;
 public final class GameInput 
 {
 	public static final Scanner input = new Scanner(System.in);
-	
+
 	// not instantiable
 	private GameInput() 
 	{}
-	
+
 	/**
 	 * Gets the next line of string input from the user.
 	 * @return The line of input from the user.
@@ -40,7 +40,7 @@ public final class GameInput
 			throw new IOException();
 		}
 	}
-	
+
 	/***
 	 * Gets a int input from the user.
 	 * @return The next int that the user inputs.
@@ -52,7 +52,7 @@ public final class GameInput
 		try 
 		{
 			String userInput = input.nextLine();
-			
+
 			// cheat mode
 			if(userInput.equals("MAKE ME A GOD")) 
 			{
@@ -61,7 +61,7 @@ public final class GameInput
 				System.out.println("\tYour eyes roll back, shimmering in the light.");
 				System.out.println("\tThe power of Old Ones past and present fills you.");
 			}
-			
+
 			// revert
 			if(userInput.equals("MAKE ME A MORTAL"))
 			{
@@ -70,28 +70,28 @@ public final class GameInput
 				System.out.println("\tCrumpling to your knees, you gasp for breath.");
 				System.out.println("\tYou had forgotten how weak humans were....");
 			}
-			
+
 			// teleport
 			if(userInput.startsWith("TELEPORT"))
 			{
 				int roomID = Integer.parseInt(userInput.substring(userInput.indexOf(" ") + 1));
-				
+
 				System.out.println();
 				System.out.println("\tIn the blink of an eye, you find yourself in new surroundings.");
-				
+
 				Game.getHero().teleport(roomID);
 			}
-			
+
 			System.out.println();
 			return Integer.parseInt(userInput);
-			
+
 		} catch(Exception ex)
 		{
 			System.out.println();
 			throw new IOException();
 		}
 	}
-	
+
 	/**
 	 * Advances the scanner to the next line. This must be called if 
 	 * you attempted to get input that was not valid. This is simply

@@ -26,7 +26,7 @@ public class JournalMenu extends AbstractMenu
 	{
 		Game.getJournal();
 		ArrayList<String> entries = Game.getJournal().getEntries();
-		
+
 		for(int i = 0; i < entries.size();i++)
 		{
 			System.out.println((i+1) + ". " + entries.get(i));
@@ -37,7 +37,7 @@ public class JournalMenu extends AbstractMenu
 	{
 		System.out.println("You think carefully about what to write"
 				+ "before putting pen to paper");
-		
+
 		String input;
 		try 
 		{
@@ -54,9 +54,9 @@ public class JournalMenu extends AbstractMenu
 	{
 		System.out.println("You look through your journal and think about which entry you would like to remove.");
 		readJournal();
-		
+
 		System.out.println("You consider the entry number that is no longer useful");
-		
+
 		try 
 		{
 			int input = GameInput.getInt();
@@ -82,7 +82,7 @@ public class JournalMenu extends AbstractMenu
 			try 
 			{
 				String input = GameInput.getString();
-				
+
 				if(input.equals("1"))
 				{
 					readJournal();

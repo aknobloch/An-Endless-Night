@@ -205,7 +205,7 @@ public class RoomLibrary
 		doors.clear();
 
 		//DOORS FLOOR 2
-		
+
 		doors.add(118);
 		doors.add(126);
 		Door d_30 = new Door(new ArrayList<Integer>(doors), 130);
@@ -287,13 +287,13 @@ public class RoomLibrary
 
 		//PUZZLES
 
-		Puzzle puz_01 = new Puzzle("\tI have no eyes, but I once did see. I once had thoughts, \n\tbut now I’m white and empty. What am I?\n", "A Skull", false, 0, "Bones!", 1, 3);
-		Puzzle puz_02 = new Puzzle("\tWhen you have me, you want to share me. When you share me, \n\tyou no longer have me. What am I?\n", "A Secret", false, 0, "I am not known or seen or not to be known or seen by others", 2, 3);
-		Puzzle puz_03 = new Puzzle("\tThe more of me you take, the more of me you leave behind. What am I?\n", "Footsteps", false, 0, "Think quick on your feet!", 3, 3);
+		Puzzle puz_01 = new Puzzle("\tI have no eyes, but I once did see. I once had thoughts, \n\tbut now I’m white and empty. What am I?\n\t", "A Skull", false, 0, "Bones!", 1, 3);
+		Puzzle puz_02 = new Puzzle("\tWhen you have me, you want to share me. When you share me, \n\tyou no longer have me. What am I?\n\t", "A Secret", false, 0, "I am not known or seen or not to be known or seen by others", 2, 3);
+		Puzzle puz_03 = new Puzzle("\tThe more of me you take, the more of me you leave behind. What am I?\n\t", "Footsteps", false, 0, "Think quick on your feet!", 3, 3);
 		Puzzle puz_04 = new Puzzle("\tWhat flies without wings?\n", "Time", false, 0, "Not a living thing", 4, 3);
-		Puzzle puz_05 = new Puzzle("\tWhat constellation is currently seen in the night skies?\n", "Monoceros", false, 0, "Must Interact with the “Celestial Globe” for answer.", 5, 3);
-		Puzzle puz_06 = new Puzzle("\tAn old man was murdered and left his wealth behind.\nIn his will, he stated that each of his four children would split his gold coins. \nThey should be divided as follows:\nThe eldest should receive 1/2 of the gold pieces.\nThe 2nd child would receive 1/4, and then 3rd child would get 1/5 of the gold.\nFinally, he states that the youngest will get the remaining 49 gold coins. \nHow many gold coins did the old man have at death?\n", "980 coins", false, 0, "Remaining fraction", 6, 3);
-		Puzzle puz_07 = new Puzzle("\tYou come across a servant’s diary. \nInside it describes the theft of her favorite locket. \nShe knows it was one of the other servants. \nShe asks each servant who took the locket. \nTheir responses were..\nServant 1: It wasn’t Servant 5, it was servant 2!\nServant 2: It wasn’t Servant 3, it wasn’t Servant 5!\nServant 3: It was Servant 5, it wasn’t Servant 1!\nServant 4: It was Servant 3, it was Servant 2!\nServant 5: It was Servant 4, it wasn’t Servant 1!\nEach servant was known to tell exactly one lie.\nWhich servant took her locket?\n", "Servant 3", false, 0, "Ask 2 and 4", 7, 3);
+		Puzzle puz_05 = new Puzzle("\tWhat constellation is currently seen in the night skies?\n\t", "Monoceros", false, 0, "Must Interact with the “Celestial Globe” for answer.", 5, 3);
+		Puzzle puz_06 = new Puzzle("\tAn old man was murdered and left his wealth behind.\nIn his will, he stated that each of his four children would split his gold coins. \n\tThey should be divided as follows:\n\tThe eldest should receive 1/2 of the gold pieces.\n\tThe 2nd child would receive 1/4, and then 3rd child would get 1/5 of the gold.\n\tFinally, he states that the youngest will get the remaining 49 gold coins. \n\tHow many gold coins did the old man have at death?\n", "980 coins", false, 0, "Remaining fraction", 6, 3);
+		Puzzle puz_07 = new Puzzle("\tYou come across a servant’s diary. \n\tInside it describes the theft of her favorite locket. \n\tShe knows it was one of the other servants. \n\tShe asks each servant who took the locket. \n\tTheir responses were..\n\tServant 1: It wasn’t Servant 5, it was servant 2!\n\tServant 2: It wasn’t Servant 3, it wasn’t Servant 5!\n\tServant 3: It was Servant 5, it wasn’t Servant 1!\n\tServant 4: It was Servant 3, it was Servant 2!\n\tServant 5: It was Servant 4, it wasn’t Servant 1!\n\tEach servant was known to tell exactly one lie.\n\tWhich servant took her locket?\n\t", "Servant 3", false, 0, "Ask 2 and 4", 7, 3);
 
 		//ROOMS FLOOR 1
 
@@ -354,7 +354,7 @@ public class RoomLibrary
 		rm_04_doors.add(d_14);
 		rm_04_doors.add(d_15);
 		Room rm_04 = new Room("A garden normally used for outside training, "
-							+ "\n\tit has a cherry blossom tree in the middle.", rm_04_doors, 104, false, "Northeast Garden", null, MonsterFactory.setRoomMonster(4), null);
+				+ "\n\tit has a cherry blossom tree in the middle.", rm_04_doors, 104, false, "Northeast Garden", null, MonsterFactory.setRoomMonster(4), null);
 		roomObj.add(rm_04);
 		rooms.clear();
 

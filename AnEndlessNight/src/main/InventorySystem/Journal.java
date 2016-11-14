@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Journal implements Serializable 
 {
 	ArrayList<String> entries;
-	
+
 	/**
 	 * Creates a Journal Object
 	 */
@@ -14,7 +14,7 @@ public class Journal implements Serializable
 	{
 		entries = new ArrayList<String>();
 	}
-	
+
 	/**
 	 * Adds an entry to the journal
 	 * @param entry
@@ -23,7 +23,7 @@ public class Journal implements Serializable
 	{
 		entries.add(entry);
 	}
-	
+
 	/**
 	 * Removes an entry from the journal
 	 * @param x
@@ -32,7 +32,7 @@ public class Journal implements Serializable
 	{
 		entries.remove(x);
 	}
-	
+
 	/**
 	 * Returns an arraylist of type string of journal entries.
 	 * @return
@@ -41,5 +41,4 @@ public class Journal implements Serializable
 	{
 		return entries;
 	}
-
 }

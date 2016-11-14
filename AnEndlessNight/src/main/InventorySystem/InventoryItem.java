@@ -11,7 +11,7 @@ public class InventoryItem
 	private Artifact item;
 	private int count;
 	private int maxStack;
-	
+
 	/***
 	 * Creates an inventory item with a count of one, and 
 	 * specifies the largest amount this item can have.
@@ -23,7 +23,7 @@ public class InventoryItem
 		this.count = 1;
 		this.maxStack = maxCount;
 	}
-	
+
 	/**
 	 * Returns the count of the current InventoryItem.
 	 * @return The count, or "stack" of the associated artifact
@@ -32,7 +32,7 @@ public class InventoryItem
 	{
 		return count;
 	}
-	
+
 	/**
 	 * Gets the max number of items that this InventoryItem is allowed to have.
 	 * @return The max number of items that this InventoryItem is allowed to have.
@@ -41,7 +41,7 @@ public class InventoryItem
 	{
 		return this.maxStack;
 	}
-	
+
 	/**
 	 * Sets the max number of items that this InventoryItem can have.
 	 * @param count The max number that this InventoryItem should be able to hold.
@@ -50,7 +50,7 @@ public class InventoryItem
 	{
 		this.maxStack = count;
 	}
-	
+
 	/**
 	 * Gets the Artifact associated with this InventoryItem.
 	 * @return The Artifact associated with this InventoryItem.
@@ -59,7 +59,7 @@ public class InventoryItem
 	{
 		return item;
 	}
-	
+
 	/**
 	 * Attempts to increment the count, or stack number, of this InventoryItem.
 	 * @throws InventoryStackFullError If the InventoryItem cannot hold any more of the item
@@ -76,7 +76,7 @@ public class InventoryItem
 			this.count++;
 		}
 	}
-	
+
 	/**
 	 * Decrements the count, or stack number, of this InventoryItem. 
 	 * @return The count, or stack, left after decrementation.
@@ -86,7 +86,7 @@ public class InventoryItem
 		this.count--;
 		return count;
 	}
-	
+
 	/**
 	 * Checks to see if two InventoryItems are equal. Equality is based on the Artifact
 	 * that the InventoryItem holds. If the Artifacts of the two are the same, they are 
