@@ -100,10 +100,12 @@ public class InventoryMenu extends AbstractMenu
 		
 		if(input == 1)
 		{
+			System.out.println("You feel lighter no longer weighed down by the armor");
 			Game.getHero().unequipArmor();
 		}
 		else if(input == 2)
 		{
+			System.out.println("You feel less safe with just your bare hands to defend you.");
 			Game.getHero().unequipWeapon();
 		}
 		else
@@ -133,11 +135,13 @@ public class InventoryMenu extends AbstractMenu
 				{
 					Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
 					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
+					System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
 				}
 				else if(items.get(input).getItem() instanceof Armor)
 				{
 					Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
 					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
+					System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
 				}
 			
 		}

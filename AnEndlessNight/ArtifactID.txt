@@ -2,17 +2,17 @@ Magic Mirror  Key  1  A mirror that reflects brightly.
 Katana  Weapon  2  A sword with a wide blade, used for cutting rather than thrusting.  16
 Odachi  Weapon  3  A larger and longer form of a kanata.  27
 Bo/Jo  Weapon  4  Two handed Staffs  1
-Healing Potion  Consumable  5  A liquid with healing and magical properties.  666
+Healing Potion  Consumable  5  A liquid with healing and magical properties.  20
 Journal  Key  6  Book to keep track of clues/events.
 Celestial Globe  Key  7  Globe which shows constellations for each season.
 Study Room Key  Key  8  An old silver key.
-Kegutsu  Armor  9  Heavy Boots.  666
-Kikko  Armor  10  Light Armor.  666
-Mempo  Armor  11  Facial Armor.  666
+Kegutsu  Armor  9  Heavy Boots.  0
+Kikko  Armor  10  Light Armor.  0
+Mempo  Armor  11  Facial Armor.  0
 Kaiken  Weapon  12  Long Knife.  3
 Kusarigama  Weapon  13  Chain-Sickle  7
-Daruma Doll  Consumable  14  A round doll modeled after Zen founder Bodhidharma.  666
-Kokeshi Doll  Consumable  15  A wooden doll depicting a maiden.  666
+Daruma Doll  Consumable  14  A round doll modeled after Zen founder Bodhidharma.  10
+Kokeshi Doll  Consumable  15  A wooden doll depicting a maiden.  10
 Ladder  Key  16  A ladder used for climbing.
-Tengu’s Fan  Armor  17  Accessory  666
-Kitsune’s Tail  Armor  18  Accessory  666
+Tengu’s Fan  Armor  17  Accessory  0
+Kitsune’s Tail  Armor  18  Accessory  0

@@ -98,11 +98,7 @@ public class MenuLoader
 			// do nothing
 		}
 		
-		System.out.println();
-		System.out.println("==================================================================");
-		System.out.println("                           BOSS BATTLE                            ");
-		System.out.println("==================================================================");
-		System.out.println();
+		// no menu display, that is handled in the BossCombatMenu
 		
 		new Thread(new Runnable() 
 		{

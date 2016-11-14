@@ -51,6 +51,17 @@ public class StartMenu extends AbstractMenu
 						   "                                                                                                                                  ");
 		System.out.println("\n\n");
 		
+		
+		// Reads all excess junk from stdin
+		try {
+			while(System.in.available() > 0) 
+			{
+				System.in.read();
+			}
+		} catch (IOException e) {
+			// do nothing
+		}
+		
 		do
 		{
 			try

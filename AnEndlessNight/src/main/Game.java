@@ -29,6 +29,8 @@ public final class Game implements Serializable
 	private Hero hero;
 	private int score;
 	private Journal journal;
+	// keeps track if user has seen past kitsunes disguise yet.
+	public static boolean solvedKitsune = false;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{

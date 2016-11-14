@@ -125,6 +125,14 @@ public class CombatMenu extends AbstractMenu
 			// TODO: Better score system
 			Game.incrementScore(currentMonster.getStrength());
 			
+			// if the monster has items, display hint to user
+			if(currentMonster.getDroppedItems().size() != 0)
+			{
+				System.out.println("\tPerhaps this monster had something useful on them.");
+				System.out.println("\tIt might be wise to search this room.");
+				System.out.println();
+			}
+			
 			Game.getHero().getRoom().destroyMonster();
 			
 			battleContinuing = false;
@@ -199,6 +207,9 @@ public class CombatMenu extends AbstractMenu
 		{
 			
 			battleContinuing = false;
+			
+			System.out.println("\tYour knees crumple and your vision fades as your wounds become too much to bear.");
+			System.out.println("\n\n\n");
 			heroDeath();
 			
 		}
@@ -221,9 +232,6 @@ public class CombatMenu extends AbstractMenu
 
 	protected void heroDeath() 
 	{
-		
-		System.out.println("\tYour knees crumple and your vision fades as your wounds become too much to bear.");
-		System.out.println("\n\n\n");
 		
 		try {
 			Thread.sleep(2500);
@@ -340,17 +348,18 @@ public class CombatMenu extends AbstractMenu
 				break;
 			case 9 :
 				// Tengu
-				System.out.println("\tBefore you stands a demon unlike any you have encountered this far. Many heads protrude from");
-				System.out.println("\tits bony body, each face having a long, beak-like nose. It carries large, feathered fans");
+				System.out.println("\tBefore you stands a demon unlike any you have encountered this far.");
+				System.out.println("\tMany heads protrude from its bony body,");
+				System.out.println("\teach face having a long, beak-like nose. It carries large, feathered fans");
 				System.out.println("\tthat look like they could produce a mighty blast of wind.");
 				break;
 			case 10 :
 				// Kitsune
-				System.out.println("\tBefore you stands Kitsune, the twinkle in her eye absolutely entrancing.");
-				System.out.println("\tShe pouts and comments on how exhausted you look. Falling back onto");
-				System.out.println("\ta plush bed, she motions for you to join her.");
-				System.out.println();
-				System.out.println("\t\"Surely the stresses of your battle can be....relieved\" she says, smiling.");
+				// TODO: Kitsune description
+				System.out.println("\tKitsune stands before you, the facade of a beautiful girl");
+				System.out.println("\tnow completely gone. Her orange-red hair covers her body,");
+				System.out.println("\tfour fox tails waving behind her. Razor claws protrude from");
+				System.out.println("\ther hands, ready to draw blood.");
 				break;
 			case 11 :
 				// Ryu
