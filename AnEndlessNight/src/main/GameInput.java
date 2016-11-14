@@ -1,7 +1,10 @@
-package main.MenuSystem;
+package main;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 /***
  * GameInput provides a single, concise way to get input from the user.
@@ -19,25 +22,6 @@ public final class GameInput
 	private GameInput() 
 	{}
 	
-	/***
-	 * Gets a double input from the user.
-	 * @return The next double that the user inputs.
-	 * @throws IOException If the user does not enter a valid double, the scanner was closed or 
-	 * 	any other exception occurred.
-	 */
-	public static double getDouble() throws IOException 
-	{
-		try 
-		{
-			double userInput = input.nextDouble();
-			return userInput;
-			
-		} catch(Exception ex) 
-		{
-			throw new IOException();
-		}
-	}
-	
 	/**
 	 * Gets the next line of string input from the user.
 	 * @return The line of input from the user.
@@ -52,6 +36,8 @@ public final class GameInput
 
 		} catch(Exception ex) 
 		{	
+			System.out.println();
+			advanceScanner();
 			throw new IOException();
 		}
 	}
@@ -66,11 +52,43 @@ public final class GameInput
 	{
 		try 
 		{
-			int userInput = input.nextInt();
-			return userInput;
+			String userInput = input.nextLine();
+			
+			// cheat mode
+			if(userInput.equals("MAKE ME A GOD")) 
+			{
+				Game.godMode();
+				System.out.println();
+				System.out.println("\tYour eyes roll back, shimmering in the light.");
+				System.out.println("\tThe power of Old Ones past and present fills you.");
+			}
+			
+			// revert
+			if(userInput.equals("MAKE ME A MORTAL"))
+			{
+				Game.mortalMode();
+				System.out.println();
+				System.out.println("\tCrumpling to your knees, you gasp for breath.");
+				System.out.println("\tYou had forgotten how weak humans were....");
+			}
+			
+			// teleport
+			if(userInput.startsWith("TELEPORT"))
+			{
+				int roomID = Integer.parseInt(userInput.substring(userInput.indexOf(" ") + 1));
+				
+				System.out.println();
+				System.out.println("\tIn the blink of an eye, you find yourself in new surroundings.");
+				
+				Game.getHero().teleport(roomID);
+			}
+			
+			System.out.println();
+			return Integer.parseInt(userInput);
 			
 		} catch(Exception ex)
 		{
+			System.out.println();
 			throw new IOException();
 		}
 	}
@@ -80,7 +98,7 @@ public final class GameInput
 	 * you attempted to get input that was not valid. This is simply
 	 * a call to Scanner.nextLine().
 	 */
-	public static void advanceScanner() 
+	private static void advanceScanner() 
 	{
 		input.nextLine();
 	}

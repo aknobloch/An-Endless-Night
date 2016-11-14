@@ -1,21 +1,25 @@
 
 package main;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.CombatSystem.Hero;
+import main.CombatSystem.StatusCondition;
 import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
 import main.RoomSystem.RoomLibrary;
 /**
  * 
- * @author Aaron and Jory
+ * @author Aaron
  *
  */
 public final class Game implements Serializable
@@ -23,22 +27,33 @@ public final class Game implements Serializable
 	private static Game game;
 	private ArrayList<Room> rooms;
 	private Hero hero;
-	private static int score;
-	private static Journal journal;
+	private int score;
+	private Journal journal;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
 		this.rooms = rooms;
 		this.hero = hero;
-		score = 0;
-		journal = new Journal();
+		this.score = 0;
+		this.journal = new Journal();
 	}
 
+	/**
+	 * Returns the hero associated with this game.
+	 * 
+	 * @return The hero associated with this game.
+	 */
 	public static Hero getHero() 
 	{
 		return game.hero;
 	}
 	
+	/**
+	 * Initializes the game. If the game does not exist, it creates a new one.
+	 * If the game is already in existence, returns false.
+	 * 
+	 * @return True if the game was initialized. False if a game already exists.
+	 */
 	public static boolean initializeGame() 
 	{
 		if(game == null) 
@@ -57,64 +72,103 @@ public final class Game implements Serializable
 		}
 	}
 	
+	/**
+	 * Get the room objects (in their current state) of all the rooms in this 
+	 * Game. This is read-only, it's contents cannot be modified.
+	 * 
+	 * @return A copy of the rooms for this Game.
+	 */
 	public static ArrayList<Room> getRooms() 
 	{
-		return game.rooms;
+		return new ArrayList<Room>(game.rooms);
 	}
 	
-	public static boolean loadGame(String file) throws Exception
+	/**
+	 * Writes a file with the given filename.
+	 * @param fileName The name of the file to write.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void saveGame(String fileName) throws FileNotFoundException, IOException
 	{
-		Hero h1;
-		ArrayList<Room> rooms;
-		Journal oldJournal;
-		if(game != null) throw new Exception();
-		ObjectInputStream input;
-		try 
-		{
-			input = new ObjectInputStream(new FileInputStream(file));
-			h1  = (Hero) input.readObject();
-			rooms = (ArrayList<Room>) input.readObject();
-			oldJournal = (Journal) input.readObject();
-			game = new Game(rooms,h1);
-			score = input.readInt();
-			setScore(score);
-			setJournal(oldJournal);
-		} catch (FileNotFoundException e) 
-		{
-			System.out.println("There is no Endless Night Save Data on this Computer a new game will be created for you");
-			return false;
-		} catch (IOException e) 
-		{
-		} catch (ClassNotFoundException e) 
-		{
-			System.out.println("Thats a bummer your save data is corrupt a new game will be created for you");
-			return false;
-		}
-		return true;
+		// TODO: Check if file with name already exists.
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
+		out.writeObject(game);
+		out.close();
+	}
+	
+	/**
+	 * Loads the game passed in.
+	 * @param saveFile The file location of the game to load.
+	 * 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	public static void loadGame(File saveFile) throws FileNotFoundException, ClassNotFoundException, IOException
+	{
+		
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(saveFile));
+		game = (Game) in.readObject();
+		in.close();
+		
 	}
 
+	/**
+	 * Gets the current score.
+	 * 
+	 * @return The current score for this game.
+	 */
 	public static int getScore() 
 	{
-		return score;
-	}
-
-	public static void setScore(int newScore) 
-	{
-		score = newScore;
+		return game.score;
 	}
 	
+	/**
+	 * Increments score by the given amount. If the amount given is negative,
+	 * does not do anything.
+	 * 
+	 * @param points The points to increment by.
+	 */
+	public static void incrementScore(int points)
+	{
+		if(points <= 0)
+		{
+			return;
+		}
+		game.score += points;
+	}
+	
+	/**
+	 * Gets the Journal for modification and reading.
+	 * 
+	 * @return The journal for this hero.
+	 */
 	public static Journal getJournal()
 	{
-		return journal;
+		return game.journal;
 	}
 	
-	public static void setJournal(Journal x)
+	/***
+	 * Resets the game.
+	 */
+	public static void reset() 
 	{
-		journal = x;
+		game = null;
 	}
-	
-	public Game getGame()
-	{
-		return this;
+
+	/**
+	 * Activates cheat mode.
+	 */
+	public static void godMode() {
+		
+		game.hero.godMode(game);
+		
+	}
+
+	public static void mortalMode() {
+		
+		game.hero.mortalMode(game);
+		
 	}
 }

@@ -1,5 +1,6 @@
 package main.RoomSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.Game;
@@ -10,24 +11,18 @@ import main.Game;
  *
  */
 
-public class Door 
+public class Door implements Serializable
 {
 
 	private ArrayList<Integer> connectedRooms = new ArrayList<Integer>();
 	private int doorID;
-	//private boolean locked;
 	
 	public Door(ArrayList<Integer> connectedRooms, int doorID) 
 	{
 		this.connectedRooms = connectedRooms;
 		this.doorID = doorID;
 	}
-
-	public ArrayList<Integer> getConnectedRoomId() 
-	{
-		return connectedRooms;
-	}
-
+	
 	public int getDoorID() 
 	{
 		return doorID;
@@ -35,19 +30,19 @@ public class Door
 	
 	public ArrayList<Room> getConnectedRooms()
 	{
-		ArrayList<Integer> ids = getConnectedRoomId();
-		ArrayList<Room> gameRooms = Game.getRooms();
-		ArrayList<Room> connectedRooms = new ArrayList<Room>();
-		for(Integer x: ids)
-		{
-			for(Room y: gameRooms)
-			{
-				if(y.getRoomID() == x)
-				{
-					connectedRooms.add(y);
+		ArrayList<Room> rooms = new ArrayList<Room>();
+		for(int roomId : connectedRooms) {
+			
+			for(Room focusRoom : Game.getRooms()) {
+				
+				if(focusRoom.getRoomID() == roomId) {
+				
+					rooms.add(focusRoom);
+					
 				}
 			}
 		}
-		return connectedRooms;
+		
+		return rooms;
 	}
 }

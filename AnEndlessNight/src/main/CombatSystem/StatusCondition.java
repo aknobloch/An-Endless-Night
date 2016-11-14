@@ -24,8 +24,12 @@ public enum StatusCondition
 	 * 
 	 * KITSUNE_TAIL:	Described by Art_18.
 	 * 					All attacks have a 15% chance of missing player.
+	 * 
+	 * DEFENSE_BUFF: 	All attacks do less damage. Activated by defending in combat.
+	 * 
+	 * HEAVY_BOOTS:     Boots that cause immunity from Tengu's wind attack.
 	 */
 	IMMOBILIZED, KITSUNE_DEBUFF, RYU_DEBUFF,
-	TENGU_FAN, KITSUNE_TAIL, DEFENSE_BUFF
+	TENGU_FAN, KITSUNE_TAIL, DEFENSE_BUFF, HEAVY_BOOTS;
 }
 

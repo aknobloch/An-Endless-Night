@@ -1,7 +1,7 @@
 package main.CombatSystem;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import main.InventorySystem.Artifact;
 
 /***

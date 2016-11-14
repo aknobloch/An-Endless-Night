@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
+import main.Game;
 import main.InventorySystem.Artifact;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
@@ -32,13 +33,14 @@ public class Hero extends Character implements Serializable
 	
 	/***
 	 * Constructs a Hero.
-	 * A Hero starts with no equipped weapon or armor, 
+	 * A Hero starts with no equipped armor, 
+	 * no weapon except for their fists,
 	 * 100 health, 1 strength
 	 * and a defense value of zero. 
 	 */
 	public Hero() 
 	{
-		super(1, 100, 1,"Hyuang");
+		super(1, 120, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
@@ -69,6 +71,19 @@ public class Hero extends Character implements Serializable
 		}
 		
 		this.equippedWeapon = equippedWeapon;
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.add(StatusCondition.TENGU_FAN);
+		}
+		
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.add(StatusCondition.KITSUNE_TAIL);
+		}
+		
 		this.strength = this.strength + equippedWeapon.getStrength();
 	}
 	
@@ -79,13 +94,26 @@ public class Hero extends Character implements Serializable
 	 */
 	public void unequipWeapon() 
 	{
-		if(equippedWeapon == null) 
+		if(equippedWeapon == null || equippedWeapon.getName().equalsIgnoreCase("Fists")) 
 		{
 			return;
 		}
 		
 		this.strength = this.strength - equippedWeapon.getStrength();
 		this.addArtifactToInventory(equippedWeapon);
+		
+		// Art_17 is Tengu Fan
+		if(equippedWeapon.getArtifactID() == 17)
+		{
+			this.statusConditions.remove(StatusCondition.TENGU_FAN);
+		}
+
+		// Art_18 is Kitsune's Tail
+		if(equippedWeapon.getArtifactID() == 18)
+		{
+			this.statusConditions.remove(StatusCondition.KITSUNE_TAIL);
+		}
+		
 		this.equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 	}
 	
@@ -112,6 +140,12 @@ public class Hero extends Character implements Serializable
 			this.unequipArmor();
 		}
 		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.add(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.equippedArmor = equippedArmor;
 		this.defense = this.equippedArmor.getDefense();
 	}
@@ -127,6 +161,13 @@ public class Hero extends Character implements Serializable
 		{
 			return;
 		}
+		
+		//Art_09 is Heavy Boots
+		if(equippedWeapon.getArtifactID() == 9)
+		{
+			this.statusConditions.remove(StatusCondition.HEAVY_BOOTS);
+		}
+		
 		this.addArtifactToInventory(this.equippedArmor);
 		this.defense = 0;
 		this.equippedArmor = null;
@@ -134,12 +175,13 @@ public class Hero extends Character implements Serializable
 	
 	/**
 	 * Gets all the status conditions currently afflicting the Hero.
+	 * 
 	 * @return An ArrayList<StatusCondition> of all the conditions
-	 * currently afflicting the Hero.
+	 * currently afflicting the Hero. Read only.
 	 */
 	public ArrayList<StatusCondition> getStatusConditions() 
 	{
-		return statusConditions;
+		return new ArrayList<StatusCondition>(statusConditions);
 	}
 	
 	/**
@@ -167,25 +209,38 @@ public class Hero extends Character implements Serializable
 	}
 	
 	/**
-	 * Gets the inventory of the Hero.
+	 * Gets a copy of the inventory of the Hero. The array returned by this method is 
+	 * a copy, and all modifications will not be persistent. It is read-only. All inventory management 
+	 * should be done through the helper methods in the Hero class.
+	 * 
 	 * @return An ArrayList<InventoryItem> representing the player's inventory.
 	 */
 	public ArrayList<InventoryItem> getPlayerInventory() 
 	{
-		// TODO: Handle outside modification of inventory.
-		return playerInventory;
+		return new ArrayList<InventoryItem>(this.playerInventory);
 	}
 	
 	/**
 	 * Attempts to add the paramartized artifact to the players inventory.
+	 * Returns a message indicating whether the item was successfully added, 
+	 * or if there was a problem and it was placed in the room. The message
+	 * is not formatted, i.e. tabs or new line characters.
+	 * 
 	 * @param newItem The artifact to add.
+	 * @return A message to display to the user indicating how the method completed.
+	 * The possible messages are as follows: <br>
+	 * 'You try to cram the item in your bag, but it just won't fit.' <br>
+	 * 'You can't fit any more of this item into your bag.' <br>
+	 * 'You place the item safely in your bag.'
+	 * 
 	 */
-	public void addArtifactToInventory(Artifact newItem) 
+	public String addArtifactToInventory(Artifact newItem) 
 	{
 		if(playerInventory.size() >= MAX_INVENTORY) 
 		{
-			// TODO: handle case if inventory is full
+			return "You try to cram the item in your bag, but it just won't fit.";
 		}
+		
 		else 
 		{
 			// check if item already exists in player inventory. if so, try to increment the count
@@ -199,12 +254,58 @@ public class Hero extends Character implements Serializable
 						
 					} catch(InventoryStackFullError isfe) 
 					{
-						// TODO: What happens if inventory stack is full?
+						return "You can't fit any more of this item into your bag.";
 					}
 				}
 			}
+			
 			playerInventory.add(new InventoryItem(newItem, MAX_STACK));
 		}
+		
+		// if reaches this point, item was added properly
+		return "You place the item safely in your bag.";
+	}
+	
+	/**
+	 * Removes the given artifact from inventory. If the item is stacked, this
+	 * method decrements a stack of the item. If there is only one instance, the 
+	 * item is removed from the inventory. In either case, an instance of the 
+	 * item is placed in the current room. A message is then returned indicating 
+	 * that the item either was not found or the item was placed in room. The message
+	 * is not formatted, i.e. tabs or newline characters.
+	 * 
+	 * @param itemToRemove The item to remove
+	 * @return  A message to display to the user that the item either was not found or the item was placed in room.
+	 * The potential messages are as follows: <br>
+	 * 'You take out the <item name> from your bag and place it in the room.' <br>
+	 * 'You dig through your bag, searching for the <item name>, but can't find it.' 
+	 * 
+	 */
+	public String removeArtifactFromInventory(Artifact itemToRemove)
+	{
+		for(InventoryItem item : playerInventory)
+		{
+			if(item.getItem().equals(itemToRemove))
+			{
+				// first decrement the stack
+				int newStackAmount = item.decrementCount();
+				
+				// if the stack is now zero, remove item
+				if(newStackAmount <= 0) 
+				{
+					playerInventory.remove(item);
+				}
+				
+				// after the above, place an instance of the artifact in the current room
+				this.getRoom().getArtifactList().add(itemToRemove);
+				
+				// return message
+				return "You take out the " + itemToRemove.getName() + " from your bag and place it in the room.";
+			}
+		}
+		
+		// if reaches this far, the item wasn't found.
+		return "You dig through your bag, searching for the " + itemToRemove.getName() + ", but can't find it.";
 	}
 	
 	/**
@@ -290,6 +391,28 @@ public class Hero extends Character implements Serializable
 		// create problems. Therefore, last room is set for the current room.
 		this.lastRoom = currentRoom;
 	}
+	
+	/**
+	 * Overload. Teleports the Hero to the given location specified by the room ID.
+	 * If it cannot find the room, it places the hero in the main hallway.
+	 * 
+	 * @param roomID The new room to place the hero.
+	 */
+	public void teleport(int roomID)
+	{
+		for(Room focusRoom : Game.getRooms())
+		{
+			if(focusRoom.getRoomID() == roomID)
+			{
+				this.move(focusRoom);
+				this.lastRoom = focusRoom;
+				return;
+			}
+		}
+		
+		// if we get here, room wasn't found. default to main hallways
+		teleport(100);
+	}
 
 	/** 
 	 * Bounces the hero back to the last location. This method does not alter the last room.
@@ -301,6 +424,10 @@ public class Hero extends Character implements Serializable
 		this.currentRoom = lastRoom;
 	}
 	
+	/**
+	 * Moves the player to a new location, and ensures that the last location is recorded as well.
+	 * For all typical moves, this is the method that should be called.
+	 */
 	public void move(Room newRoom) 
 	{
 		// temp because if moving does not work properly, 
@@ -313,4 +440,26 @@ public class Hero extends Character implements Serializable
 		// set the last location to be the old one.
 		this.lastRoom = temp;
 	}
+	
+	/**
+	 * Cheat mode. Only activated by the game object, in other words
+	 * the user must type in "MAKE ME A GOD" to activate this.
+	 * @param gameObject
+	 */
+	public void godMode(Game gameObject)
+	{
+		this.health = Integer.MAX_VALUE;
+		this.strength = 500;
+		this.defense = Integer.MAX_VALUE;
+		
+	}
+
+	public void mortalMode(Game game) {
+		
+		this.health = 150;
+		this.strength = this.equippedWeapon.getStrength() + 1;
+		this.defense = this.equippedArmor.getDefense();
+		
+	}
+	
 } 
