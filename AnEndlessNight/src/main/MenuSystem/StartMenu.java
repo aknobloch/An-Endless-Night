@@ -288,6 +288,7 @@ public class StartMenu extends AbstractMenu
 		}
 		
 		System.out.println("\tDarkness envelops you…");
+		System.out.println("\n\n\n\n");
 		
 		// pause for dramatic effect!
 		try {

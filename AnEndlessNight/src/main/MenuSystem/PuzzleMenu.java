@@ -49,6 +49,9 @@ public class PuzzleMenu extends AbstractMenu
 	{
 		try 
 		{
+			System.out.println("Enter your answer:");
+			System.out.println();
+			
 			String answer = GameInput.getString();
 			
 			String solution = Game.getHero().getRoom().getPuzzle().getSolution();
@@ -88,7 +91,7 @@ public class PuzzleMenu extends AbstractMenu
 					answer();
 					if(Game.getHero().getRoom().getPuzzle().getAttemptsAllowed() == Game.getHero().getRoom().getPuzzle().getAttemptsMade())
 					{
-						System.out.println("\tYour costant attempts have fried the ancient artifact. Your way is now unblocked however, you feel "
+						System.out.println("\tYour constant attempts have fried the ancient artifact. Your way is now unblocked however, you feel "
 								+ "\n\tas if you missed out on a huge oportunity.\n");
 						inPuzzle = false;
 						MenuLoader.loadGameMenu(this);
