@@ -27,8 +27,13 @@ public class MenuLoader
 	private static final BossCombatMenu bossMenu = new BossCombatMenu(johnCena);
 
 	// the amount of time to wait before launching a new menu.
+	<<<<<<< HEAD
 	private static final long MENU_PAUSE_TIME = 1500;
 
+	=======
+			private static final long MENU_PAUSE_TIME = 1250;
+
+	>>>>>>> 6e8e03a6a7a9c222fcb0771eee8b3cc483c65c81
 	/**
 	 * You should not be able to instantiate this class. All menus, however, require that 
 	 * you pass in an object of this class. This ensures that menus are not created or managed
@@ -65,7 +70,7 @@ public class MenuLoader
 		{
 			// do nothing
 		}
-
+		clearInput();
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             COMBAT                               ");
@@ -101,7 +106,7 @@ public class MenuLoader
 		{
 			// do nothing
 		}
-
+		clearInput();
 		// no menu display, that is handled in the BossCombatMenu
 
 		new Thread(new Runnable() 
@@ -133,6 +138,7 @@ public class MenuLoader
 		{
 			// do nothing
 		}
+		clearInput();
 
 		System.out.println();
 		System.out.println("==================================================================");
@@ -169,7 +175,7 @@ public class MenuLoader
 		{
 			// do nothing
 		}
-
+		clearInput();
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             INVENTORY                            ");
@@ -205,7 +211,7 @@ public class MenuLoader
 		{
 			// do nothing
 		}
-
+		clearInput();
 		System.out.println();
 		System.out.println("==================================================================");
 		System.out.println("                             JOURNAL                              ");
@@ -233,6 +239,7 @@ public class MenuLoader
 	public static void loadStartMenu(AbstractMenu currentMenu) 
 	{
 		currentMenu.onDestroy();
+		clearInput();
 
 		new Thread(new Runnable() 
 		{
@@ -269,6 +276,7 @@ public class MenuLoader
 		System.out.println("                             PUZZLE                               ");
 		System.out.println("==================================================================");
 		System.out.println();
+		clearInput();
 
 		new Thread(new Runnable() 
 		{
@@ -280,12 +288,35 @@ public class MenuLoader
 		}).start();
 	}
 
+	/***
+	 * Starts the game by calling invoking the mainPrompt function of the start menu.
+	 */
 	public static void startGame() 
 	{
+		clearInput();
 		startMenu.mainPrompt();
 	}
 
 	/***
 	 * Starts the game by calling invoking the mainPrompt function of the start menu.
 	 */
+
+	public static void clearInput() 
+	{
+		// Reads all excess junk from stdin
+		// This is neccessary because if the user just spams enter
+		// any excess "enters" will cause
+		// an error in the main loop of this menu and cause a bunch of
+		// "not valid input"'s to be printed while it reads all the
+		// excess enters that the user spammed.
+		try {
+			while(System.in.available() > 0) 
+			{
+				System.in.read();
+			}
+		} catch (IOException e) 
+		{
+			// do nothing
+		}
+	}
 }

@@ -76,7 +76,7 @@ public class StartMenu extends AbstractMenu
 					inMainMenu = false;
 					
 					displayOpeningStory();
-					
+
 					// Reads all excess junk from stdin
 					// This is neccessary because if the user just spams enter
 					// through the beginning story, any excess "enters" will cause
@@ -93,7 +93,6 @@ public class StartMenu extends AbstractMenu
 					{
 						// do nothing
 					}
-					
 					System.out.println(INTRO_STORY);
 					// initialize game
 					Game.initializeGame();
@@ -305,6 +304,7 @@ public class StartMenu extends AbstractMenu
 		}
 		
 		System.out.println("\tDarkness envelops you…");
+		System.out.println("\n\n\n\n");
 		
 		// pause for dramatic effect!
 		try 
