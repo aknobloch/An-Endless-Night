@@ -30,17 +30,18 @@ public class Hero extends Character implements Serializable
 	private final int MAX_STACK = 5;
 	private int defense;
 	private Room lastRoom;
+	private final static int MAX_HEALTH = 120;
 	
 	/***
 	 * Constructs a Hero.
 	 * A Hero starts with no equipped armor, 
 	 * no weapon except for their fists,
-	 * 100 health, 1 strength
+	 * 120 health, 1 strength
 	 * and a defense value of zero. 
 	 */
 	public Hero() 
 	{
-		super(1, 120, 1,"Hyuang");
+		super(1, MAX_HEALTH, 1,"Hyuang");
 		statusConditions = new ArrayList<>();
 		equippedWeapon = new Weapon("Fists", "Bare fists, bruised from battle.", -1, 1);
 		equippedArmor = null;
@@ -330,6 +331,19 @@ public class Hero extends Character implements Serializable
 				}
 			}
 		}
+	}
+	
+	@Override
+	public int heal(int amount) 
+	{
+		int remainingHealth = super.heal(amount);
+		
+		if(remainingHealth > MAX_HEALTH)
+		{
+			this.health = MAX_HEALTH;
+		}
+		
+		return this.health;
 	}
 	
 	/**
