@@ -282,6 +282,9 @@ public class GameMenu extends AbstractMenu
 				// account for puzzles
 				if(possibleRooms.get(userChoice).getPuzzle() != null)
 				{
+					System.out.println("\tYou start to walk into the next room, but a demonic");
+					System.out.println("\tvoice begins cackling madly.");
+					
 					continuing = false;
 					Game.getHero().move(possibleRooms.get(userChoice));
 					

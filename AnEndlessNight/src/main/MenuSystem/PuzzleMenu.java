@@ -17,8 +17,7 @@ public class PuzzleMenu extends AbstractMenu
 	
 	private String description = "1. Enter Answer"
 			+ "\n2. View Hint"
-			+ "\n3. View Riddle"
-			+ "\n4. Go back";
+			+ "\n3. Go back";
 	
 	private boolean inPuzzle;
 
@@ -30,7 +29,7 @@ public class PuzzleMenu extends AbstractMenu
 	
 	private void flee() 
 	{
-		System.out.println("You walk back head hurting from thinking.");
+		System.out.println("\tYou walk back head hurting from thinking.");
 		
 		Game.getHero().bounceBack();
 	}
@@ -49,7 +48,7 @@ public class PuzzleMenu extends AbstractMenu
 	{
 		try 
 		{
-			System.out.println("Enter your answer:");
+			System.out.println("Type your answer:");
 			System.out.println();
 			
 			String answer = GameInput.getString();
@@ -66,13 +65,13 @@ public class PuzzleMenu extends AbstractMenu
 			if(answer.contains(solution))
 			{
 				Game.getHero().getRoom().getPuzzle().setIsSolved(true);
-				System.out.println("Your brilliance astounds even yourself");
+				System.out.println("\tYour brilliance astounds even yourself!");
 				inPuzzle = false;
 				MenuLoader.loadGameMenu(this);
 			}
 			else
 			{
-				System.out.println("The room seems to not like your muttering");
+				System.out.println("\tThe room seems to not like your muttering.");
 				Game.getHero().getRoom().getPuzzle().incrementAttemptsMade();
 			}
 		} catch (IOException e) 
@@ -110,21 +109,17 @@ public class PuzzleMenu extends AbstractMenu
 				}
 				else if(input == 3)
 				{
-					viewRiddle();
-				}
-				else if(input == 4)
-				{
 					flee();
 					inPuzzle=false;
 					MenuLoader.loadGameMenu(this);
 				}
 				else
 				{
-					System.out.println("You mumble to yourself");
+					System.out.println("\tYou mumble to yourself.");
 				}
 			} catch (IOException e) 
 			{
-				System.out.println("You mumble nonsense");
+				System.out.println("\tYou mumble nonsense.");
 			}
 		}
 	}
