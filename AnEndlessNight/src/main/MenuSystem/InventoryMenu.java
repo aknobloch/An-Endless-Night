@@ -42,15 +42,15 @@ public class InventoryMenu extends AbstractMenu
 		//display all the items to the user
 		for(int i =0;i<items.size();i++)
 		{
-			System.out.println((i+1) + ". " +items.get(i).getItem().getName());
+			System.out.println((i) + ". " +items.get(i).getItem().getName());
 		}
 		//get the users input
 		int input = GameInput.getInt();
 		//check to make sure that the input falls within the scope of the array
 		if(input >=0 && items != null && input <items.size())
 		{
-
 			System.out.println(items.get(input).getItem().getDescription());;
+			System.out.println("\t" + items.get(input).getItem().getDescription());;
 		}
 	}
 
@@ -62,22 +62,23 @@ public class InventoryMenu extends AbstractMenu
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		System.out.println("Which item would you like to drop");
-		for(InventoryItem x: items)
+		for(int i = 0; i< items.size();i++)
 		{
-			System.out.println(x.getItem().getName());
+			System.out.println(i + ". " + items.get(i).getItem().getName());
 		}
-		String input = GameInput.getString();
-
-		for(InventoryItem x: items)
-		{
-			if(x.getItem().getName().equals(input))
+		int input = GameInput.getInt();
+		
+			if(input >=0 && input < items.size())
 			{
-				System.out.println(input + " has been dropped in the room");
+				System.out.println("\t" + "Your bags feel lighter as you drop items into the room.");
 				Room room = Game.getHero().getRoom();
-				room.getArtifactList().add(x.getItem());
-				items.remove(x);
+				room.getArtifactList().add(items.get(input).getItem());
+				Game.getHero().removeArtifactFromInventory(items.get(input).getItem());
 			}
-		}
+			else
+			{
+				System.out.println("You mutter to yourself.");
+			}
 	}
 
 	/**
@@ -99,17 +100,24 @@ public class InventoryMenu extends AbstractMenu
 
 		if(input == 1)
 		{
-			System.out.println("You feel lighter no longer weighed down by the armor");
+			System.out.println("\t You feel lighter no longer weighed down by the armor");
 			Game.getHero().unequipArmor();
 		}
 		else if(input == 2)
 		{
-			System.out.println("You feel less safe with just your bare hands to defend you.");
-			Game.getHero().unequipWeapon();
+			if(Game.getHero().getEquippedWeapon().getName().equals("Fists"))
+			{
+				System.out.println("\t You foolishly attempt to pull off your own fists before thinking better of it");
+			}
+			else
+			{
+				System.out.println("\t You feel less safe with just your bare hands to defend you.");
+				Game.getHero().unequipWeapon();
+			}
 		}
 		else
 		{
-			System.out.println("You foolishly look around before realizing that you dont have anything by the name of " + input + " equipped.");
+			System.out.println("\t You mutter to yourself.");
 		}
 	}
 
@@ -129,7 +137,6 @@ public class InventoryMenu extends AbstractMenu
 
 		if(input >= 0 && input < items.size())
 		{
-
 			if(items.get(input).getItem() instanceof Weapon)
 			{
 				Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
@@ -142,6 +149,43 @@ public class InventoryMenu extends AbstractMenu
 				Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
 				System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
 			}
+				if(items.get(input).getItem() instanceof Weapon)
+				{
+					if(Game.getHero().getEquippedWeapon().getName().equals("Fists"))
+					{
+						Game.getHero().setEquippedWeapon((Weapon) items.get(input).getItem());
+						Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
+						System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
+					}
+					else
+					{
+						System.out.println("\t You remember the words of your mentor"
+								+ "\t To get you gotta give. Try unequipping before you equip.");
+					}
+				}
+				else if(items.get(input).getItem() instanceof Armor)
+				{
+					if(Game.getHero().getEquippedArmor() == null)
+					{
+						Game.getHero().setEquippedArmor((Armor) items.get(input).getItem());
+						Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
+						System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
+					}
+					else
+					{
+						System.out.println("\t You remember the words of your mentor"
+								+ "\t To get you gotta give. Try unequipping before you equip.");
+					}
+				}
+				else if(items.get(input).getItem() instanceof Consumable)
+				{
+					System.out.println("\t You cant equip that.");
+				}
+				else
+				{
+					System.out.println("\t Yout mutter to yoursef");
+				}
+			
 		}
 	}
 	/**
@@ -202,22 +246,28 @@ public class InventoryMenu extends AbstractMenu
 				if(input.equals("1"))
 				{
 					equipItem();
+					System.out.println(toString());
 				}
 				else if(input.equals("2"))
 				{
 					unEquipItem();
+					System.out.println(toString());
+					
 				}
 				else if(input.equals("3"))
 				{
 					dropItem();
+					System.out.println(toString());
 				}
 				else if(input.equals("4"))
 				{
 					viewItem();
+					System.out.println(toString());
 				}
 				else if(input.equals("5"))
 				{
 					useItem();
+					System.out.println(toString());
 				}
 				else if(input.equals("6"))
 				{
@@ -226,7 +276,7 @@ public class InventoryMenu extends AbstractMenu
 				}
 				else
 				{
-					System.out.println(input + " is not a valid input please");
+					System.out.println(input + " is utter nonsense");
 				}
 			} catch (IOException e) 
 			{

@@ -64,8 +64,6 @@ public final class Game implements Serializable
 			ArrayList<Room> newMap = RoomLibrary.roomGen();
 			Hero newHero = new Hero();
 			
-			//TODO
-			//newHero.teleport(newMap.get(0));
 			newHero.teleport(newMap.get(1));
 			
 			game = new Game(newMap, newHero);
