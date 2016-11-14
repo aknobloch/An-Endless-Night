@@ -178,13 +178,14 @@ public class BossCombatMenu extends CombatMenu {
 						System.out.println();
 						System.out.println("\tThe world begins to fade...");
 						System.out.println();
+						
 						heroDeath();
 					}
 					else if(userChoice == 2)
 					{
 						System.out.println("\tKitsune giggles, blushing profusely.");
 						System.out.println();
-						System.out.println("\tSorry, I usually am not so...forward.");
+						System.out.println("\t\"Sorry, I usually am not so...forward.\"");
 						System.out.println();
 						
 						// next attempt is made after the loop
@@ -201,25 +202,40 @@ public class BossCombatMenu extends CombatMenu {
 				 */
 				if(kitsuneAttempt == 2)
 				{
-					System.out.println("\tI understand. There is a time and a place");
+					System.out.println("\t\"There is a time and a place");
 					System.out.println("\tfor everything. And there are more pressing");
 					System.out.println("\tissues at hand. Feel free to rest here for");
-					System.out.println("\tthe night if you would like.");
+					System.out.println("\tthe night if you would like.\"");
 					System.out.println();
 					
 					System.out.println("Rest for the night? ( + 10 Max Health, -5 Defense )");
 					System.out.println("1. Yes");
 					System.out.println("2. No");
+					System.out.println();
 					
 					int userChoice = GameInput.getInt();
 					
 					if(userChoice == 1)
 					{
 						
+						System.out.println("\tYou yawn and fall into the bed,");
+						System.out.println("\tweary from hours of battle. As you");
+						System.out.println("\tslip into sleep, you begin to have");
+						System.out.println("\ta strange dream. A fox with many tails");
+						System.out.println("\tis gnawing at your flesh, chewing your");
+						System.out.println("\tinnards. It feels so real you can smell");
+						System.out.println("\tthe blood, and feel the pain.");
+						System.out.println();
+						
+						heroDeath();
+						
 					}
 					else if(userChoice == 2)
 					{
-						
+						System.out.println("\tKitsune looks troubled, and slightly annoyed.");
+						System.out.println("\tShe scrunches her eyebrows and frowns,");
+						System.out.println("\tobviously not used to dealing with rejection.");
+						System.out.println();
 						
 						// next attempt is made after the loop
 						kitsuneAttempt++;

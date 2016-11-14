@@ -37,7 +37,6 @@ public final class GameInput
 		} catch(Exception ex) 
 		{	
 			System.out.println();
-			advanceScanner();
 			throw new IOException();
 		}
 	}
