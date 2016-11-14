@@ -43,7 +43,7 @@ public class InventoryMenu extends AbstractMenu
 		//display all the items to the user
 		for(int i =0;i<items.size();i++)
 		{
-			System.out.println((i+1) + ". " +items.get(i).getItem().getName());
+			System.out.println((i) + ". " +items.get(i).getItem().getName());
 		}
 		//get the users input
 		int input = GameInput.getInt();
@@ -51,7 +51,7 @@ public class InventoryMenu extends AbstractMenu
 		if(input >=0 && items != null && input <items.size())
 		{
 			
-			System.out.println(items.get(input).getItem().getDescription());;
+			System.out.println("\t" + items.get(input).getItem().getDescription());;
 		}
 	}
 
