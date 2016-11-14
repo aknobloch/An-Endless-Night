@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import main.Game;
 import main.GameInput;
 import main.InventorySystem.Artifact;
+import main.InventorySystem.InventoryItem;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
@@ -270,7 +271,37 @@ public class GameMenu extends AbstractMenu
 
 				// decrement user choice to account for zero-index
 				userChoice = userChoice - 1;
-
+				
+				// check for study room key
+				// room 127 is the study room
+				if(possibleRooms.get(userChoice).getRoomID() == 127)
+				{
+					boolean hasKey = false;
+					
+					for(InventoryItem item : Game.getHero().getPlayerInventory())
+					{
+						// this is the study room key
+						if(item.getItem().getArtifactID() == 8)
+						{
+							hasKey = true;
+						}
+					}
+					
+					// if the user doesn't have the key, display locked status and exit
+					if( ! hasKey)
+					{
+						System.out.println("\tYou try to open the door, but it is locked.");
+						System.out.println("\tPerhaps there is a key somewhere...");
+						System.out.println();
+						return;
+					}
+					else 
+					{
+						System.out.println("\tYou use the study room key to open the door.");
+						System.out.println();
+					}
+				}
+				
 				// account for puzzles
 				if(possibleRooms.get(userChoice).getPuzzle() != null)
 				{
