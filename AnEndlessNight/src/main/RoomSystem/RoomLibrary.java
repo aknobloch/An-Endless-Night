@@ -307,7 +307,7 @@ public class RoomLibrary
 		rm_00_doors.add(d_27);
 		rm_00_doors.add(d_29);
 		rm_00_doors.add(d_F1);
-		Room rm_00 = new Room("A large hallway with wooden floors and pillars,\n\tfilled with the bodies of your fallen friends.", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(0), null);
+		Room rm_00 = new Room("A large hallway with wooden floors and pillars.", rm_00_doors, 100, false, "Main Hallway", null, MonsterFactory.setRoomMonster(0), null);
 		roomObj.add(rm_00);
 		rooms.clear();
 
@@ -317,7 +317,7 @@ public class RoomLibrary
 		rm_01_doors.add(d_02);
 		rm_01_doors.add(d_03);
 		rm_01_doors.add(d_05);
-		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), null);
+		Room rm_01 = new Room("An entrance garden, it contains a few trees and hydrangea flowers.\n\tThe otherwise beautiful scene is ruined by the\n\tstench of blood and the bodies of your fallen friends.", rm_01_doors, 101, false, "South Garden", null, MonsterFactory.setRoomMonster(1), null);
 		roomObj.add(rm_01);
 		rooms.clear();
 
