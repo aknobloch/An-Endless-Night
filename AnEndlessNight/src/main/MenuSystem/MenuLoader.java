@@ -3,7 +3,6 @@ package main.MenuSystem;
 import java.io.IOException;
 
 import main.Game;
-import main.GameInput;
 
 /***
  * Helps manage menu creation and destruction. Ensure that menus are closed 
