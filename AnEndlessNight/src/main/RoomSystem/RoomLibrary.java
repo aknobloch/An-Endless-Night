@@ -128,7 +128,7 @@ public class RoomLibrary
 		doorObj.add(d_17);
 		doors.clear();
 
-		doors.add(102);
+		doors.add(103);
 		doors.add(106);
 		Door d_18 = new Door(new ArrayList<Integer>(doors), 118);
 		doorObj.add(d_18);
