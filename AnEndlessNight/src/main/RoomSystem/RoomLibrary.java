@@ -26,251 +26,302 @@ public class RoomLibrary
 
 		// 100 = door "00" 
 		// 117 = door "17" and so on 
+		
+		//Front Door
 		doors.add(100);
 		doors.add(101);
 		Door d_01 = new Door(new ArrayList<Integer>(doors), 101);
 		doorObj.add(d_01);
 		doors.clear();
 
+		//South West Garden Door (SW)
 		doors.add(101);
 		doors.add(102);
 		Door d_02 = new Door(new ArrayList<Integer>(doors), 102);
 		doorObj.add(d_02);
 		doors.clear();
 
+		//South East Garden Door(SE)
 		doors.add(101);
 		doors.add(105);
 		Door d_03 = new Door(new ArrayList<Integer>(doors), 103);
 		doorObj.add(d_03);
 		doors.clear();
 
+		//South East Shed Door a (SE-Sa)
 		doors.add(105);
 		doors.add(107);
 		Door d_04 = new Door(new ArrayList<Integer>(doors), 104);
 		doorObj.add(d_04);
 		doors.clear();
 
+		//South East Shed Door b (SE-Sb)
 		doors.add(101);
 		doors.add(107);
 		Door d_05 = new Door(new ArrayList<Integer>(doors), 105);
 		doorObj.add(d_05);
 		doors.clear();
 
+		//Tea Door A (T)
 		doors.add(100);
 		doors.add(109);
 		Door d_06 = new Door(new ArrayList<Integer>(doors), 106);
 		doorObj.add(d_06);
 		doors.clear();
 
+		//Tea Door B(T-SE Garden)
 		doors.add(105);
 		doors.add(109);
 		Door d_07 = new Door(new ArrayList<Integer>(doors), 107);
 		doorObj.add(d_07);
 		doors.clear();
 
+		//Training Hallway Door C (NE-TH)
 		doors.add(104);
 		doors.add(117);
 		Door d_08 = new Door(new ArrayList<Integer>(doors), 108);
 		doorObj.add(d_08);
 		doors.clear();
 
+		//Training Hallway Door B (SE-TH)
 		doors.add(105);
 		doors.add(117);
 		Door d_09 = new Door(new ArrayList<Integer>(doors), 109);
 		doorObj.add(d_09);
 		doors.clear();
 
+		//Training Hallway Door A (SH-TH)
 		doors.add(116);
 		doors.add(117);
 		Door d_10 = new Door(new ArrayList<Integer>(doors), 110);
 		doorObj.add(d_10);
 		doors.clear();
 
+		//(NE-SH)
 		doors.add(104);
 		doors.add(116);
 		Door d_11 = new Door(new ArrayList<Integer>(doors), 111);
 		doorObj.add(d_11);
 		doors.clear();
 
+		//(SE-SH)
 		doors.add(105);
 		doors.add(116);
 		Door d_12 = new Door(new ArrayList<Integer>(doors), 112);
 		doorObj.add(d_12);
 		doors.clear();
 
+		//East Door
 		doors.add(100);
 		doors.add(116);
 		Door d_13 = new Door(new ArrayList<Integer>(doors), 113);
 		doorObj.add(d_13);
 		doors.clear();
 
+		//North East Garden door (NE)
 		doors.add(103);
 		doors.add(104);
 		Door d_14 = new Door(new ArrayList<Integer>(doors), 114);
 		doorObj.add(d_14);
 		doors.clear();
 
+		//Moon Door A (NE-Ma)
 		doors.add(104);
 		doors.add(108);
 		Door d_15 = new Door(new ArrayList<Integer>(doors), 115);
 		doorObj.add(d_15);
 		doors.clear();
-
+		
+		//Moon Door B (NE-Mb)
 		doors.add(103);
 		doors.add(108);
 		Door d_16 = new Door(new ArrayList<Integer>(doors), 116);
 		doorObj.add(d_16);
 		doors.clear();
 
+		//Shed NW Door A (NW-Sa)
 		doors.add(102);
 		doors.add(106);
 		Door d_17 = new Door(new ArrayList<Integer>(doors), 117);
 		doorObj.add(d_17);
 		doors.clear();
 
+		//Shed NW Door B (NW-Sb)
 		doors.add(103);
 		doors.add(106);
 		Door d_18 = new Door(new ArrayList<Integer>(doors), 118);
 		doorObj.add(d_18);
 		doors.clear();
 
+		//Northwest Garden Door (NW)
 		doors.add(102);
 		doors.add(103);
 		Door d_19 = new Door(new ArrayList<Integer>(doors), 119);
 		doorObj.add(d_19);
 		doors.clear();
 
+		//Backdoor A
 		doors.add(103);
 		doors.add(113);
 		Door d_20 = new Door(new ArrayList<Integer>(doors), 120);
 		doorObj.add(d_20);
 		doors.clear();
-
+		
+		//Backdoor B
 		doors.add(103);
 		Door d_21 = new Door(new ArrayList<Integer>(doors), 121);
 		doorObj.add(d_21);
 		doors.clear();
 
+		//Wash Door
 		doors.add(100);
 		doors.add(110);
 		Door d_22 = new Door(new ArrayList<Integer>(doors), 122);
 		doorObj.add(d_22);
 		doors.clear();
 
+		//Toilet Door
 		doors.add(110);
 		Door d_23 = new Door(new ArrayList<Integer>(doors), 123);
 		doorObj.add(d_23);
 		doors.clear();
 
+		//Bath Door
 		doors.add(110);
 		doors.add(112);
 		Door d_24 = new Door(new ArrayList<Integer>(doors), 124);
 		doorObj.add(d_24);
 		doors.clear();
 
+		//Kitchen Door (K)
 		doors.add(100);
 		doors.add(114);
 		Door d_25 = new Door(new ArrayList<Integer>(doors), 125);
 		doorObj.add(d_25);
 		doors.clear();
 
+		//Kitchen Diner Door (KD)
 		doors.add(113);
 		doors.add(114);
 		Door d_26 = new Door(new ArrayList<Integer>(doors), 126);
 		doorObj.add(d_26);
 		doors.clear();
 
+		//Diner Door (D)
 		doors.add(100);
 		doors.add(113);
 		Door d_27 = new Door(new ArrayList<Integer>(doors), 127);
 		doorObj.add(d_27);
 		doors.clear();
 
+		//Pantry Door (KP)
 		doors.add(114);
 		doors.add(115);
 		Door d_28 = new Door(new ArrayList<Integer>(doors), 128);
 		doorObj.add(d_28);
 		doors.clear();
 
+		//West Door
 		doors.add(100);
 		doors.add(102);
 		Door d_29 = new Door(new ArrayList<Integer>(doors), 129);
 		doorObj.add(d_29);
 		doors.clear();
 
+		//Servant Closet Trap Door (TD)
 		doors.add(666);
 		doors.add(120);
 		Door d_TD = new Door(new ArrayList<Integer>(doors), 666);
 		doorObj.add(d_TD);
 		doors.clear();
+		
+		//Training hall(Dojo)to Dojo roof Door (DR)
+		doors.add(117);
+		doors.add(118);
+		Door d_DR = new Door(new ArrayList<Integer>(doors), 130);
+		doorObj.add(d_DR);
+		doors.clear();
 
+		
 		//DOORS FLOOR 2
 
+		//E-Roof
 		doors.add(118);
 		doors.add(126);
 		Door d_30 = new Door(new ArrayList<Integer>(doors), 130);
 		doorObj.add(d_30);
 		doors.clear();
 
+		//Study Room Door(SR)
 		doors.add(126);
 		doors.add(127);
 		Door d_31 = new Door(new ArrayList<Integer>(doors), 131);
 		doorObj.add(d_31);
 		doors.clear();
 
+		//Bedroom Door(B)
 		doors.add(124);
 		doors.add(126);
 		Door d_32 = new Door(new ArrayList<Integer>(doors), 132);
 		doorObj.add(d_32);
 		doors.clear();
 
+		//Bedroom Closet Door(BC)
 		doors.add(124);
 		doors.add(125);
 		Door d_33 = new Door(new ArrayList<Integer>(doors), 133);
 		doorObj.add(d_33);
 		doors.clear();
 
+		//Guest 1 Door(G1)
 		doors.add(121);
 		doors.add(126);
 		Door d_34 = new Door(new ArrayList<Integer>(doors), 134);
 		doorObj.add(d_34);
 		doors.clear();
 
+		//Guest 2 Door(G2)
 		doors.add(122);
 		doors.add(126);
 		Door d_35 = new Door(new ArrayList<Integer>(doors), 135);
 		doorObj.add(d_35);
 		doors.clear();
 
+		//Guest 2 Closet Door(G2C)
 		doors.add(123);
 		doors.add(122);
 		Door d_36 = new Door(new ArrayList<Integer>(doors), 136);
 		doorObj.add(d_36);
 		doors.clear();
 
+		//Guest 1 - 2 Door(G1-G2)
 		doors.add(121);
 		doors.add(122);
 		Door d_37 = new Door(new ArrayList<Integer>(doors), 137);
 		doorObj.add(d_37);
 		doors.clear();
 
+		//Servant Room(S)
 		doors.add(119);
 		doors.add(126);
 		Door d_38 = new Door(new ArrayList<Integer>(doors), 138);
 		doorObj.add(d_38);
 		doors.clear();
 
+		//Servant Closet(SC)
 		doors.add(119);
 		doors.add(120);
 		Door d_39 = new Door(new ArrayList<Integer>(doors), 139);
 		doorObj.add(d_39);
 		doors.clear();
 
+		//2nd floor stair
 		doors.add(126);
 		Door d_F1 = new Door(new ArrayList<Integer>(doors), 601);
 		doorObj.add(d_F1);
 		doors.clear();
 
+		//Observatory stair
 		doors.add(126);
 		doors.add(128);
 		Door d_F2 = new Door(new ArrayList<Integer>(doors), 602);
@@ -279,6 +330,7 @@ public class RoomLibrary
 
 		//DOORS FLOOR 3
 
+		//Balcony Door
 		doors.add(129);
 		doors.add(128);
 		Door d_40 = new Door(new ArrayList<Integer>(doors), 140);
@@ -486,13 +538,14 @@ public class RoomLibrary
 		roomObj.add(rm_16);
 		rooms.clear();
 
-		// d_08, d_09, d_10
+		// d_08, d_09, d_10, d_DR
 		// art_13
 		// puz_03
 		ArrayList<Door> rm_17_doors = new ArrayList<>();
 		rm_17_doors.add(d_08);
 		rm_17_doors.add(d_09);
 		rm_17_doors.add(d_10);
+		rm_17_doors.add(d_DR);
 		ArrayList<Artifact> rm_17_art = new ArrayList<>();
 		rm_17_art.add(ArtifactFactory.getArtifactsList().get(12));
 		Room rm_17 = new Room("A large training hall to practice kendo.\n\tThe floors are clean and there is an odd smell", rm_17_doors, 117, false, "Dojo", puz_03, null, rm_17_art);
@@ -501,9 +554,10 @@ public class RoomLibrary
 
 		//ROOMS FLOOR 2
 
-		// d_30
+		// d_30, d_DR
 		ArrayList<Door> rm_18_doors = new ArrayList<>();
 		rm_18_doors.add(d_30);
+		rm_18_doors.add(d_DR);
 		Room rm_18 = new Room("A vast view of the outside the castle.\n\tThere's a hallway that splits the two gardens.", rm_18_doors, 118, false, "Dojo Roof", null, MonsterFactory.setRoomMonster(18), null);
 		roomObj.add(rm_18);
 		rooms.clear();
