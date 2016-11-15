@@ -29,6 +29,7 @@ public class PuzzleMenu extends AbstractMenu
 	private void flee() 
 	{
 		System.out.println("\tYou walk back head hurting from thinking.");
+		System.out.println();
 		
 		Game.getHero().bounceBack();
 	}
@@ -36,11 +37,13 @@ public class PuzzleMenu extends AbstractMenu
 	private void viewRiddle() 
 	{
 		System.out.println(Game.getHero().getRoom().getPuzzle().getDescription());
+		System.out.println();
 	}
 
 	private void getHint() 
 	{
 		System.out.println("\n\t" + Game.getHero().getRoom().getPuzzle().getHint() + "\n");
+		System.out.println();
 	}
 
 	private void answer() 
@@ -65,12 +68,14 @@ public class PuzzleMenu extends AbstractMenu
 			{
 				Game.getHero().getRoom().getPuzzle().setIsSolved(true);
 				System.out.println("\tYour brilliance astounds even yourself!");
+				System.out.println();
 				inPuzzle = false;
 				MenuLoader.loadGameMenu(this);
 			}
 			else
 			{
 				System.out.println("\tThe room seems to not like your muttering.");
+				System.out.println();
 				Game.getHero().getRoom().getPuzzle().incrementAttemptsMade();
 			}
 		} catch (IOException e) 
@@ -98,6 +103,7 @@ public class PuzzleMenu extends AbstractMenu
 					{
 						System.out.println("\tYour constant attempts have fried the ancient artifact. Your way is now unblocked however, you feel "
 								+ "\n\tas if you missed out on a huge oportunity.\n");
+						System.out.println();
 						inPuzzle = false;
 						MenuLoader.loadGameMenu(this);
 					}
@@ -115,10 +121,12 @@ public class PuzzleMenu extends AbstractMenu
 				else
 				{
 					System.out.println("\tYou mumble to yourself.");
+					System.out.println();
 				}
 			} catch (IOException e) 
 			{
 				System.out.println("\tYou mumble nonsense.");
+				System.out.println();
 			}
 		}
 	}
