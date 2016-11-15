@@ -1,14 +1,15 @@
 package main.MenuSystem;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import main.Game;
 import main.GameInput;
-import main.CombatSystem.*;
+import main.CombatSystem.Armor;
+import main.InventorySystem.Artifact;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
 import main.InventorySystem.Weapon;
 import main.RoomSystem.Room;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class InventoryMenu extends AbstractMenu
 {
@@ -35,21 +36,36 @@ public class InventoryMenu extends AbstractMenu
 	public void viewItem() throws IOException 
 	{
 		// get the current hero inventory
-		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
+		ArrayList<Artifact> items = new ArrayList<>();
+		
+		for(InventoryItem inventoryItem : Game.getHero().getPlayerInventory())
+		{
+			items.add(inventoryItem.getItem());
+		}
+		
+		if(Game.getHero().getEquippedArmor() != null)
+		{
+			items.add(Game.getHero().getEquippedArmor());
+		}
+		// if not the fists
+		if( ! Game.getHero().getEquippedWeapon().getName().equalsIgnoreCase("fists"))
+		{
+			items.add(Game.getHero().getEquippedWeapon());
+		}
 
 		//prompt the user to indicate which item they want more information on.
 		System.out.println("Which item would you like to look at?");
 		//display all the items to the user
 		for(int i =0;i<items.size();i++)
 		{
-			System.out.println((i) + ". " +items.get(i).getItem().getName());
+			System.out.println((i) + ". " +items.get(i).getName());
 		}
 		//get the users input
 		int input = GameInput.getInt();
 		//check to make sure that the input falls within the scope of the array
 		if(input >=0 && items != null && input <items.size())
 		{
-			System.out.println("\t" + items.get(input).getItem().getDescription());
+			System.out.println("\t" + items.get(input).getDescription());
 			System.out.println();
 		}
 	}
@@ -163,59 +179,43 @@ public class InventoryMenu extends AbstractMenu
 		{
 			if(temp.get(input).getItem() instanceof Weapon)
 			{
-				Game.getHero().setEquippedWeapon((Weapon) temp.get(input).getItem());
-				Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
-				System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
-				System.out.println();
-			}
-			else if(temp.get(input).getItem() instanceof Armor)
-			{
-				Game.getHero().setEquippedArmor((Armor) temp.get(input).getItem());
-				Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
-				System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
-				System.out.println();
-			}
-				if(temp.get(input).getItem() instanceof Weapon)
+				if(Game.getHero().getEquippedWeapon().getName().equals("Fists"))
 				{
-					if(Game.getHero().getEquippedWeapon().getName().equals("Fists"))
-					{
-						Game.getHero().setEquippedWeapon((Weapon) temp.get(input).getItem());
-						Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
-						System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
-					}
-					else
-					{
-						System.out.println("\t You remember the words of your mentor"
-								+ "\t To get you gotta give. Try unequipping before you equip.");
-						System.out.println();
-					}
-				}
-				else if(temp.get(input).getItem() instanceof Armor)
-				{
-					if(Game.getHero().getEquippedArmor() == null)
-					{
-						Game.getHero().setEquippedArmor((Armor) temp.get(input).getItem());
-						Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
-						System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
-						System.out.println();
-					}
-					else
-					{
-						System.out.println("\t You remember the words of your mentor"
-								+ "\t To get you gotta give. Try unequipping before you equip.");
-						System.out.println();
-					}
-				}
-				else if(temp.get(input).getItem() instanceof Consumable)
-				{
-					System.out.println("\t You cant equip that.");
+					Game.getHero().setEquippedWeapon((Weapon) temp.get(input).getItem());
+					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedWeapon());
+					System.out.println("\t You feel stronger after equipping " + Game.getHero().getEquippedWeapon().getName());
 					System.out.println();
 				}
+				else
+				{
+					System.out.println("\t You remember the words of your mentor"
+							+ "\t To get you gotta give. Try unequipping before you equip.");
+					System.out.println();
+				}
+			}
 			
+			else 
+			{
+				if(Game.getHero().getEquippedArmor() == null)
+				{
+					Game.getHero().setEquippedArmor((Armor) temp.get(input).getItem());
+					Game.getHero().removeArtifactFromInventory(Game.getHero().getEquippedArmor());
+					System.out.println("\t You feel safer after equipping " + Game.getHero().getEquippedArmor().getName());
+					System.out.println();
+				}
+				else
+				{
+					System.out.println("\t You remember the words of your mentor"
+							+ "\t To get you gotta give. Try unequipping before you equip.");
+					System.out.println();
+				}
+			}
+
 		}
 		else
 		{
 			System.out.println("You mutter to yourself");
+			System.out.println();
 		}
 	}
 	/**
@@ -232,30 +232,30 @@ public class InventoryMenu extends AbstractMenu
 		}
 		int input = GameInput.getInt();
 
-		
-			if(input >=0 && input < items.size())
+
+		if(input >=0 && input < items.size())
+		{
+			if(items.get(input).getItem() instanceof Weapon)
 			{
-				if(items.get(input).getItem() instanceof Weapon)
-				{
-					System.out.println("\t How does one use a weapon out in combat?");
-					System.out.println();
-				}
-				else if(items.get(input).getItem() instanceof Armor)
-				{
-					System.out.println("\t How does one use armor out of combat?");
-					System.out.println();
-				}
-				else if(items.get(input).getItem() instanceof Consumable)
-				{
-					Consumable use = (Consumable) items.get(input).getItem();
-					Game.getHero().useConsumable(use);
-					System.out.println("\t You feel your wounds melt away as if by magic."
-							+ "\t Not bad for something you found on the floor!");
-					System.out.println();
-				}
+				System.out.println("\t How does one use a weapon out in combat?");
+				System.out.println();
+			}
+			else if(items.get(input).getItem() instanceof Armor)
+			{
+				System.out.println("\t How does one use armor out of combat?");
+				System.out.println();
+			}
+			else if(items.get(input).getItem() instanceof Consumable)
+			{
+				Consumable use = (Consumable) items.get(input).getItem();
+				Game.getHero().useConsumable(use);
+				System.out.println("\t You feel your wounds melt away as if by magic."
+						+ "\t Not bad for something you found on the floor!");
+				System.out.println();
 			}
 		}
-	
+	}
+
 
 	/**
 	 * returns a string containing the description.
@@ -286,7 +286,7 @@ public class InventoryMenu extends AbstractMenu
 				{
 					unEquipItem();
 					System.out.println(toString());
-					
+
 				}
 				else if(input.equals("3"))
 				{
