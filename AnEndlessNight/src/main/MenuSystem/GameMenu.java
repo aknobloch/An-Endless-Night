@@ -1,5 +1,6 @@
 package main.MenuSystem;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -424,10 +425,58 @@ public class GameMenu extends AbstractMenu
 				System.out.println("\tIn order to immortalize your legacy, tell the Old Ones your name.");
 
 				String fileName = GameInput.getString();
-
+				
+				// check if the save file already exists.
+				for(File existingFile : new File(".").listFiles())
+				{
+					String existingFileName = existingFile.getName();
+					if(existingFileName.endsWith(".gsave"))
+					{
+						// if the existing file has the same name 
+						if(existingFileName.substring(0, existingFileName.indexOf(".gsave")).equals(fileName))
+						{
+							boolean madeDecision = false;
+							while( ! madeDecision)
+							{
+								System.out.println("A file with this name already exists.");
+								System.out.println("Would you like to overwrite?");
+								
+								System.out.println("1. Yes");
+								System.out.println("2. No");
+								System.out.println();
+							
+								try {
+									int overwriteChoice = GameInput.getInt();
+									
+									if(overwriteChoice == 2)
+									{
+										System.out.println("\tYou decide your legacy should not be rewritten yet.");
+										System.out.println();
+										return;
+									}
+									else if(overwriteChoice == 1)
+									{
+										madeDecision = true;
+									}
+									else 
+									{
+										throw new IOException();
+									}
+								}
+								catch(IOException ioe)
+								{
+									System.out.println("Input not recognized.");
+								}
+							}
+							
+						}
+					}
+				}
+				
 				Game.saveGame(fileName);
 
-				System.out.println("\tThe Old Ones approved your request. Your legacy is now written for generations past and present.");
+				System.out.println("\tThe Old Ones approved your request.");
+				System.out.println("\tYour legacy is now written for generations past and present.");
 				validInput = true;
 
 			} catch(IOException ioe) 

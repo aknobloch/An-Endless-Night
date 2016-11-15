@@ -32,6 +32,7 @@ public final class GameInput
 		try 
 		{	
 			String userInput = input.nextLine();
+			System.out.println();
 			return userInput;
 
 		} catch(Exception ex) 

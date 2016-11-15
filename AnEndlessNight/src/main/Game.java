@@ -94,7 +94,6 @@ public final class Game implements Serializable
 	 */
 	public static void saveGame(String fileName) throws FileNotFoundException, IOException
 	{
-		// TODO: Check if file with name already exists.
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
 		out.writeObject(game);
 		out.close();
