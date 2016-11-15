@@ -105,7 +105,6 @@ public class InventoryMenu extends AbstractMenu
 				System.out.println("\t" + "Your bags feel lighter as you drop items into the room.");
 				System.out.println();
 				Room room = Game.getHero().getRoom();
-				room.getArtifactList().add(items.get(input).getItem());
 				Game.getHero().removeArtifactFromInventory(items.get(input).getItem());
 			}
 			else
