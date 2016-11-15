@@ -33,6 +33,12 @@ public final class GameInput
 		{	
 			String userInput = input.nextLine();
 			System.out.println();
+			
+			if(userInput.equalsIgnoreCase("help")) 
+			{
+				Game.printHelp();
+			}
+			
 			return userInput;
 
 		} catch(Exception ex) 
@@ -53,6 +59,7 @@ public final class GameInput
 		try 
 		{
 			String userInput = input.nextLine();
+			System.out.println();
 
 			// cheat mode
 			if(userInput.equals("MAKE ME A GOD")) 
@@ -82,8 +89,13 @@ public final class GameInput
 
 				Game.getHero().teleport(roomID);
 			}
+			
+			// help
+			if(userInput.equalsIgnoreCase("help"))
+			{
+				Game.printHelp();
+			}
 
-			System.out.println();
 			return Integer.parseInt(userInput);
 
 		} catch(Exception ex)
@@ -91,15 +103,5 @@ public final class GameInput
 			System.out.println();
 			throw new IOException();
 		}
-	}
-
-	/**
-	 * Advances the scanner to the next line. This must be called if 
-	 * you attempted to get input that was not valid. This is simply
-	 * a call to Scanner.nextLine().
-	 */
-	private static void advanceScanner() 
-	{
-		input.nextLine();
 	}
 }
