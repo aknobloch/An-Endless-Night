@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.CombatSystem.Hero;
-import main.CombatSystem.StatusCondition;
+import main.CombatSystem.Monster;
 import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
@@ -31,6 +31,9 @@ public final class Game implements Serializable
 	private Journal journal;
 	// keeps track if user has seen past kitsunes disguise yet.
 	public static boolean solvedKitsune = false;
+	private int monsterDeaths;
+	private int bossDeaths;
+	private int heroDeaths;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
@@ -38,6 +41,9 @@ public final class Game implements Serializable
 		this.hero = hero;
 		this.score = 0;
 		this.journal = new Journal();
+		this.monsterDeaths = 0;
+		this.bossDeaths = 0;
+		this.heroDeaths = 0;
 	}
 
 	/**
@@ -65,6 +71,7 @@ public final class Game implements Serializable
 			Hero newHero = new Hero();
 			
 			newHero.teleport(newMap.get(1));
+			newMap.get(1).setVisited(true);
 			
 			game = new Game(newMap, newHero);
 			return true;
@@ -235,5 +242,52 @@ public final class Game implements Serializable
 		System.out.println("\n");
 		System.out.println("******~~~~~----------------------------------------------------~~~~~******");
 		
+	}
+
+	public static int getMonsterDeaths() 
+	{
+		return game.monsterDeaths;
+	}
+	
+	public static void incrementMonsterDeaths(Monster deadMonster)
+	{
+		if(deadMonster.isBoss())
+		{
+			game.bossDeaths++;
+		}
+		else 
+		{
+			game.monsterDeaths++;
+		}
+	}
+
+	public static int getBossDeaths() 
+	{
+		return game.bossDeaths;
+	}
+
+	public static int getRoomsDiscovered() 
+	{
+		int count = 0;
+		
+		for(Room room : game.rooms)
+		{
+			if(room.getVisited())
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}
+
+	public static int getHeroDeaths() 
+	{
+		return game.heroDeaths;
+	}
+
+	public static void incrementHeroDeaths()
+	{
+		game.heroDeaths++;
 	}
 }

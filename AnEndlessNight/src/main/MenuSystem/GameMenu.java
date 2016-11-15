@@ -42,7 +42,7 @@ public class GameMenu extends AbstractMenu
 				System.out.println("1. Move Rooms");
 				System.out.println("2. Search Room");
 				System.out.println("3. Manage Inventory");
-				System.out.println("4. View Score");
+				System.out.println("4. View Stats");
 				System.out.println("5. View Journal");
 				System.out.println("6. Save Game");
 				System.out.println("7. Exit Game");
@@ -63,7 +63,7 @@ public class GameMenu extends AbstractMenu
 				}
 				else if(userInput == 4)
 				{
-					viewScore();
+					viewStats();
 				}
 				else if(userInput == 5)
 				{
@@ -395,16 +395,46 @@ public class GameMenu extends AbstractMenu
 	private void viewInventory() 
 	{
 		continuing = false;
+		System.out.println("\tYou kneel down, opening your bag.");
+		System.out.println();
+		
 		MenuLoader.loadInventoryMenu(this);
 	}
 
 	/**
 	 * Displays the current score.
 	 */
-	private void viewScore() 
+	private void viewStats() 
 	{
-		System.out.println("\tYou're not often one to track your progress with such meaningless numbers,");
-		System.out.println("\tbut this is an exception. You have " + Game.getScore() + " imaginary points.");
+		System.out.println("\tYou're not often one to track your progress with");
+		System.out.println("\tsuch meaningless numbers, but this is an exception. ");
+		System.out.println();
+		
+		// if weapon is equipped
+		if( ! Game.getHero().getEquippedWeapon().getName().equalsIgnoreCase("fists"))
+		{
+			System.out.println("\tYou have " + Game.getHero().getEquippedWeapon().getName() + " equipped as a weapon.");
+		}
+		else 
+		{
+			System.out.println("\tYou have no weapon equipped.");
+		}
+		
+		// if armor is equipped
+		if(Game.getHero().getEquippedArmor() != null)
+		{
+			System.out.println("\tYou have " + Game.getHero().getEquippedWeapon().getName() + " equipped for armor.");
+		}
+		else
+		{
+			System.out.println("\tYou have no armor equipped.");
+		}
+		
+		System.out.println("\tYou have " + Game.getScore() + " points accrued.");
+		System.out.println("\tYou have killed " + Game.getMonsterDeaths() + " demons.");
+		System.out.println("\tYou have killed " + Game.getBossDeaths() + " bosses.");
+		System.out.println("\tYou have discovered " + Game.getRoomsDiscovered() + " rooms.");
+		System.out.println("\tYou have died " + Game.getHeroDeaths() + " times.");
 		System.out.println();
 	}
 
