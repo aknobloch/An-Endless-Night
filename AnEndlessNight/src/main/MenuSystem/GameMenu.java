@@ -1,11 +1,13 @@
 package main.MenuSystem;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import main.Game;
 import main.GameInput;
 import main.InventorySystem.Artifact;
+import main.InventorySystem.InventoryItem;
 import main.RoomSystem.Door;
 import main.RoomSystem.Room;
 import main.RoomSystem.SearchRoomControl;
@@ -40,7 +42,7 @@ public class GameMenu extends AbstractMenu
 				System.out.println("1. Move Rooms");
 				System.out.println("2. Search Room");
 				System.out.println("3. Manage Inventory");
-				System.out.println("4. View Score");
+				System.out.println("4. View Stats");
 				System.out.println("5. View Journal");
 				System.out.println("6. Save Game");
 				System.out.println("7. Exit Game");
@@ -61,7 +63,7 @@ public class GameMenu extends AbstractMenu
 				}
 				else if(userInput == 4)
 				{
-					viewScore();
+					viewStats();
 				}
 				else if(userInput == 5)
 				{
@@ -161,7 +163,10 @@ public class GameMenu extends AbstractMenu
 
 					// pick up item, add to inventory and remove from room
 					String resultMessage = Game.getHero().addArtifactToInventory(roomItems.get(userChoice));
-					Game.getHero().getRoom().getArtifactList().remove(userChoice);
+					if(resultMessage.equals("You place the item safely in your bag."))
+					{
+						Game.getHero().getRoom().getArtifactList().remove(userChoice);
+					}
 
 					pickedUpItem = true;
 
@@ -270,7 +275,37 @@ public class GameMenu extends AbstractMenu
 
 				// decrement user choice to account for zero-index
 				userChoice = userChoice - 1;
-
+				
+				// check for study room key
+				// room 127 is the study room
+				if(possibleRooms.get(userChoice).getRoomID() == 127)
+				{
+					boolean hasKey = false;
+					
+					for(InventoryItem item : Game.getHero().getPlayerInventory())
+					{
+						// this is the study room key
+						if(item.getItem().getArtifactID() == 8)
+						{
+							hasKey = true;
+						}
+					}
+					
+					// if the user doesn't have the key, display locked status and exit
+					if( ! hasKey)
+					{
+						System.out.println("\tYou try to open the door, but it is locked.");
+						System.out.println("\tPerhaps there is a key somewhere...");
+						System.out.println();
+						return;
+					}
+					else 
+					{
+						System.out.println("\tYou use the study room key to open the door.");
+						System.out.println();
+					}
+				}
+				
 				// account for puzzles
 				if(possibleRooms.get(userChoice).getPuzzle() != null)
 				{
@@ -360,16 +395,46 @@ public class GameMenu extends AbstractMenu
 	private void viewInventory() 
 	{
 		continuing = false;
+		System.out.println("\tYou kneel down, opening your bag.");
+		System.out.println();
+		
 		MenuLoader.loadInventoryMenu(this);
 	}
 
 	/**
 	 * Displays the current score.
 	 */
-	private void viewScore() 
+	private void viewStats() 
 	{
-		System.out.println("\tYou're not often one to track your progress with such meaningless numbers,");
-		System.out.println("\tbut this is an exception. You have " + Game.getScore() + " imaginary points.");
+		System.out.println("\tYou're not often one to track your progress with");
+		System.out.println("\tsuch meaningless numbers, but this is an exception. ");
+		System.out.println();
+		
+		// if weapon is equipped
+		if( ! Game.getHero().getEquippedWeapon().getName().equalsIgnoreCase("fists"))
+		{
+			System.out.println("\tYou have " + Game.getHero().getEquippedWeapon().getName() + " equipped as a weapon.");
+		}
+		else 
+		{
+			System.out.println("\tYou have no weapon equipped.");
+		}
+		
+		// if armor is equipped
+		if(Game.getHero().getEquippedArmor() != null)
+		{
+			System.out.println("\tYou have " + Game.getHero().getEquippedWeapon().getName() + " equipped for armor.");
+		}
+		else
+		{
+			System.out.println("\tYou have no armor equipped.");
+		}
+		
+		System.out.println("\tYou have " + Game.getScore() + " points accrued.");
+		System.out.println("\tYou have killed " + Game.getMonsterDeaths() + " demons.");
+		System.out.println("\tYou have killed " + Game.getBossDeaths() + " bosses.");
+		System.out.println("\tYou have discovered " + Game.getRoomsDiscovered() + " rooms.");
+		System.out.println("\tYou have died " + Game.getHeroDeaths() + " times.");
 		System.out.println();
 	}
 
@@ -390,10 +455,58 @@ public class GameMenu extends AbstractMenu
 				System.out.println("\tIn order to immortalize your legacy, tell the Old Ones your name.");
 
 				String fileName = GameInput.getString();
-
+				
+				// check if the save file already exists.
+				for(File existingFile : new File(".").listFiles())
+				{
+					String existingFileName = existingFile.getName();
+					if(existingFileName.endsWith(".gsave"))
+					{
+						// if the existing file has the same name 
+						if(existingFileName.substring(0, existingFileName.indexOf(".gsave")).equals(fileName))
+						{
+							boolean madeDecision = false;
+							while( ! madeDecision)
+							{
+								System.out.println("A file with this name already exists.");
+								System.out.println("Would you like to overwrite?");
+								
+								System.out.println("1. Yes");
+								System.out.println("2. No");
+								System.out.println();
+							
+								try {
+									int overwriteChoice = GameInput.getInt();
+									
+									if(overwriteChoice == 2)
+									{
+										System.out.println("\tYou decide your legacy should not be rewritten yet.");
+										System.out.println();
+										return;
+									}
+									else if(overwriteChoice == 1)
+									{
+										madeDecision = true;
+									}
+									else 
+									{
+										throw new IOException();
+									}
+								}
+								catch(IOException ioe)
+								{
+									System.out.println("Input not recognized.");
+								}
+							}
+							
+						}
+					}
+				}
+				
 				Game.saveGame(fileName);
 
-				System.out.println("\tThe Old Ones approved your request. Your legacy is now written for generations past and present.");
+				System.out.println("\tThe Old Ones approved your request.");
+				System.out.println("\tYour legacy is now written for generations past and present.");
 				validInput = true;
 
 			} catch(IOException ioe) 

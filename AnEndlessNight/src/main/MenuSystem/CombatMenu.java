@@ -108,6 +108,7 @@ public class CombatMenu extends AbstractMenu
 
 			// TODO: Better score system
 			Game.incrementScore(currentMonster.getStrength());
+			Game.incrementMonsterDeaths(currentMonster);
 
 			// if the monster has items, display hint to user
 			if(currentMonster.getDroppedItems().size() != 0)
@@ -202,6 +203,9 @@ public class CombatMenu extends AbstractMenu
 
 	protected void heroDeath() 
 	{
+		
+		Game.incrementHeroDeaths();
+		
 		try 
 		{
 			Thread.sleep(2500);

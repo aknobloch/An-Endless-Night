@@ -114,8 +114,7 @@ public abstract class Character implements Serializable
 	 */
 	public void move(Room newRoom) 
 	{
-		// TODO: error handling if room id does not exist or 
-		//       is not logically feasible
 		this.currentRoom = newRoom;
+		newRoom.setVisited(true);
 	}
 }

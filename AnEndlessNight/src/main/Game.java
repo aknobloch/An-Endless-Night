@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.CombatSystem.Hero;
-import main.CombatSystem.StatusCondition;
+import main.CombatSystem.Monster;
 import main.InventorySystem.ArtifactFactory;
 import main.InventorySystem.Journal;
 import main.RoomSystem.Room;
@@ -31,6 +31,9 @@ public final class Game implements Serializable
 	private Journal journal;
 	// keeps track if user has seen past kitsunes disguise yet.
 	public static boolean solvedKitsune = false;
+	private int monsterDeaths;
+	private int bossDeaths;
+	private int heroDeaths;
 
 	private Game(ArrayList<Room> rooms, Hero hero)
 	{
@@ -38,6 +41,9 @@ public final class Game implements Serializable
 		this.hero = hero;
 		this.score = 0;
 		this.journal = new Journal();
+		this.monsterDeaths = 0;
+		this.bossDeaths = 0;
+		this.heroDeaths = 0;
 	}
 
 	/**
@@ -65,6 +71,7 @@ public final class Game implements Serializable
 			Hero newHero = new Hero();
 			
 			newHero.teleport(newMap.get(1));
+			newMap.get(1).setVisited(true);
 			
 			game = new Game(newMap, newHero);
 			return true;
@@ -94,7 +101,6 @@ public final class Game implements Serializable
 	 */
 	public static void saveGame(String fileName) throws FileNotFoundException, IOException
 	{
-		// TODO: Check if file with name already exists.
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName + ".gsave"));
 		out.writeObject(game);
 		out.close();
@@ -169,5 +175,119 @@ public final class Game implements Serializable
 	public static void mortalMode() 
 	{
 		game.hero.mortalMode(game);
+	}
+
+	public static void printHelp() {
+		
+		System.out.println("******~~~~~------------------MENU INFORMATION------------------~~~~~******");
+		System.out.println("\n");
+		/*
+		 * MENU INFORMATION GOES HERE
+		 */
+		
+		System.out.println("Start Menu:");
+		System.out.println();
+		System.out.println("\tThe start menu is the first menu encountered when starting the");
+		System.out.println("\tgame. It allows the player to start a new game or load a previously");
+		System.out.println("\tsaved game.");
+		System.out.println("\n");
+		
+		System.out.println("Game Menu:");
+		System.out.println();
+		System.out.println("\tThe game menu is the main hub of An Endless Night,");
+		System.out.println("\tand provides the player with the means for navigating");
+		System.out.println("\tthe world. It allows the user to move and search rooms,");
+		System.out.println("\tview their player and hero's status, as well as save and");
+		System.out.println("\texit their game. It also serves as the sole entry point");
+		System.out.println("\tfor the Inventory Menu as well as the Journal Menu.");
+		System.out.println("\n");
+		
+		System.out.println("Combat Menu:");
+		System.out.println();
+		System.out.println("\tThe combat menu is the only menu accessible to the player");
+		System.out.println("\twhile currently enganged in combat. It allows the player to");
+		System.out.println("\tattack a monster, brace themselves for an attack, attempt to");
+		System.out.println("\tflee the encounter (taking them to the previous room), and to");
+		System.out.println("\tuse any consumable items.");
+		System.out.println("\n");
+		
+		System.out.println("Inventory Menu:");
+		System.out.println();
+		System.out.println("\tThe inventory menu is the menu responsible for allowing the");
+		System.out.println("\tplayer to access and manage their hero's inventory. It allows");
+		System.out.println("\tthe player to equip and unequip armors and weapons, drop items");
+		System.out.println("\tinto the room, view the descriptions of items in their inventory,");
+		System.out.println("\tand to use a consumable item in their inventory.");
+		System.out.println("\n");
+		
+		System.out.println("Journal Menu:");
+		System.out.println();
+		System.out.println("\tThe journal menu allows the user to document their experiences");
+		System.out.println("\tin the game. It can be used to keep a log of travels, and ");
+		System.out.println("\tdocument anything else the player would like. It allows the player");
+		System.out.println("\tto add and remove entries from the journal, as well as read");
+		System.out.println("\tall entries currently in the journal.");
+		System.out.println("\n");
+		
+		System.out.println("Puzzle Menu:");
+		System.out.println();
+		System.out.println("\tThe puzzle menu is the menu shown when the player encounters a puzzle.");
+		System.out.println("\tIt allows them to enter in an attempt at a puzzle, as well as view a");
+		System.out.println("\thint. Exiting the puzzle without completing it returns the player");
+		System.out.println("\tto the previous room.");
+		
+		/*
+		 * NOTHING GOES PAST HERE
+		 */
+		System.out.println("\n");
+		System.out.println("******~~~~~----------------------------------------------------~~~~~******");
+		
+	}
+
+	public static int getMonsterDeaths() 
+	{
+		return game.monsterDeaths;
+	}
+	
+	public static void incrementMonsterDeaths(Monster deadMonster)
+	{
+		if(deadMonster.isBoss())
+		{
+			game.bossDeaths++;
+		}
+		else 
+		{
+			game.monsterDeaths++;
+		}
+	}
+
+	public static int getBossDeaths() 
+	{
+		return game.bossDeaths;
+	}
+
+	public static int getRoomsDiscovered() 
+	{
+		int count = 0;
+		
+		for(Room room : game.rooms)
+		{
+			if(room.getVisited())
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}
+
+	public static int getHeroDeaths() 
+	{
+		return game.heroDeaths;
+	}
+
+	public static void incrementHeroDeaths()
+	{
+		game.heroDeaths++;
 	}
 }
