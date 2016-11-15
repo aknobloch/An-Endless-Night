@@ -66,8 +66,23 @@ public class InventoryMenu extends AbstractMenu
 		//check to make sure that the input falls within the scope of the array
 		if(input >=0 && items != null && input <items.size())
 		{
-			System.out.println("\t" + items.get(input).getDescription());
+			
+			Artifact chosenItem = items.get(input);
+			System.out.println("\t" + chosenItem.getDescription());
 			System.out.println();
+			
+			//print out contextual help
+			if(chosenItem instanceof Consumable)
+			{
+				System.out.println("\tThis looks like something you could use to improve your condition.");
+				System.out.println();
+			}
+			else 
+			{
+				System.out.println("\tThis looks like something you'd equip for battle.");
+				System.out.println();
+			}
+			
 		}
 	}
 
