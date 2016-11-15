@@ -49,8 +49,7 @@ public class InventoryMenu extends AbstractMenu
 		//check to make sure that the input falls within the scope of the array
 		if(input >=0 && items != null && input <items.size())
 		{
-			System.out.println(items.get(input).getItem().getDescription());;
-			System.out.println("\t" + items.get(input).getItem().getDescription());;
+			System.out.println("\t" + items.get(input).getItem().getDescription());
 			System.out.println();
 		}
 	}
