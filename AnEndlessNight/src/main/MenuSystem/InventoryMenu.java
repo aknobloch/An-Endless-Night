@@ -190,8 +190,8 @@ public class InventoryMenu extends AbstractMenu
 				}
 				else
 				{
-					System.out.println("\t You remember the words of your mentor"
-							+ "\t To get you gotta give. Try unequipping before you equip.");
+					System.out.println("\t You remember the words of your mentor,"
+							+ "\tto get you have to give. Try unequipping before you equip.");
 					System.out.println();
 				}
 			}
