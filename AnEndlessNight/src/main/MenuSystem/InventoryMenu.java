@@ -306,6 +306,8 @@ public class InventoryMenu extends AbstractMenu
 				else if(input.equals("6"))
 				{
 					inInventory = false;
+					System.out.println("\tYou close your bag, standing back up.");
+					System.out.println();
 					MenuLoader.loadGameMenu(this);
 				}
 				else
