@@ -156,6 +156,6 @@ public class MonsterFactory
 			break;
 		}
 
-		return monsterList.get(winningMonster);
+		return new Monster(monsterList.get(winningMonster));
 	}
 }

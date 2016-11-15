@@ -430,6 +430,7 @@ public class GameMenu extends AbstractMenu
 			System.out.println("\tYou have no armor equipped.");
 		}
 		
+		System.out.println("\tYou have " + Game.getHero().getHealth() + " health left.");
 		System.out.println("\tYou have " + Game.getScore() + " points accrued.");
 		System.out.println("\tYou have killed " + Game.getMonsterDeaths() + " demons.");
 		System.out.println("\tYou have killed " + Game.getBossDeaths() + " bosses.");

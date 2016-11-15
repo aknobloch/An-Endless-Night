@@ -34,6 +34,14 @@ public class Monster extends Character
 		this.droppedItems = droppedItem;
 		this.isBoss = isBoss;
 	}
+	
+	public Monster(Monster inMonster)
+	{
+		super(inMonster.characterID, inMonster.health, inMonster.strength, inMonster.name);
+		this.probabilityOfAppearance = inMonster.probabilityOfAppearance;
+		this.droppedItems = inMonster.droppedItems;
+		this.isBoss = inMonster.isBoss;
+	}
 
 	/**
 	 * Gets the probability of this Monster appearing.

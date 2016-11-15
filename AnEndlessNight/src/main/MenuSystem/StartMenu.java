@@ -202,16 +202,19 @@ public class StartMenu extends AbstractMenu
 			catch(ClassNotFoundException cnf)
 			{
 				System.out.println("\tWe're sorry, that file must be corrupted.");
+				System.out.println();
 				return;
 			}
 			catch(FileNotFoundException fnf)
 			{
 				System.out.println("\tWe're sorry, that file must be corrupted.");
+				System.out.println();
 				return;
 			}
 			catch(IOException ioe)
 			{
 				System.out.println("\tNot a valid file. Please try again.");
+				System.out.println();
 			}
 			
 		} while( ! validInput);
