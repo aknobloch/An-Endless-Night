@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import main.Game;
 import main.GameInput;
 import main.CombatSystem.Armor;
+import main.CombatSystem.Hero;
 import main.InventorySystem.Artifact;
 import main.InventorySystem.Consumable;
 import main.InventorySystem.InventoryItem;
@@ -104,42 +105,82 @@ public class InventoryMenu extends AbstractMenu
 	 */
 	public void unEquipItem() throws IOException 
 	{
-		System.out.println("Which item would you like to unequip?");
-		if(Game.getHero().getEquippedArmor() != null)
-		{	
-			System.out.println("1. " + Game.getHero().getEquippedArmor().getName());
-		}
-		if(Game.getHero().getEquippedWeapon() != null)
+		
+		Hero gameHero = Game.getHero();
+		
+		ArrayList<Artifact> equippedItems = new ArrayList<>();
+		
+		// add armor to equipped items
+		if(gameHero.getEquippedArmor() != null)
 		{
-			System.out.println("2. " + Game.getHero().getEquippedWeapon().getName());
+			equippedItems.add(gameHero.getEquippedArmor());
 		}
-		int input = GameInput.getInt();
-
-		if(input == 1)
+		
+		// if equipped weapon is not fists
+		if( ! gameHero.getEquippedWeapon().getName().equalsIgnoreCase("fists"))
 		{
-			System.out.println("\t You feel lighter no longer weighed down by the armor");
+			equippedItems.add(gameHero.getEquippedWeapon());
+		}
+		
+		// if no items equipped, return
+		if(equippedItems.size() == 0)
+		{
+			System.out.println("\tYou have nothing equipped.");
 			System.out.println();
-			Game.getHero().unequipArmor();
+			return;
 		}
-		else if(input == 2)
+		
+		boolean validInput = false;
+		
+		// print all options and prompt for which to unequip
+		do
 		{
-			if(Game.getHero().getEquippedWeapon().getName().equals("Fists"))
+			try
 			{
-				System.out.println("\t You foolishly attempt to pull off your own fists before thinking better of it");
+				System.out.println("What would you like to remove?");
+				
+				// print all options
+				for(int i = 0; i < equippedItems.size(); i++)
+				{
+					System.out.println( (i + 1) + ". " + equippedItems.get(i).getName());
+				}
+				
+				int userChoice = GameInput.getInt();
+				
+				// decrement user choice for zero index
+				userChoice = userChoice - 1;
+				
+				if(userChoice >= 0 && userChoice < equippedItems.size())
+				{
+					validInput = true;
+					
+					Artifact chosenItem = equippedItems.get(userChoice);
+					
+					if(chosenItem instanceof Weapon)
+					{
+						gameHero.unequipWeapon();
+					}
+					else
+					{
+						gameHero.unequipArmor();
+					}
+					
+					System.out.println("\tYou unequip your " + chosenItem.getName() + ".");
+				}
+				else 
+				{
+					// not valid input
+					throw new IOException();
+				}
+				
+			}
+			catch(IOException ioe)
+			{
+				System.out.println("\tYou mutter to yourself, trying to remember what you wanted to do...");
 				System.out.println();
 			}
-			else
-			{
-				System.out.println("\t You feel less safe with just your bare hands to defend you.");
-				System.out.println();
-				Game.getHero().unequipWeapon();
-			}
-		}
-		else
-		{
-			System.out.println("\t You mutter to yourself.");
-			System.out.println();
-		}
+		} while( ! validInput);
+		
 	}
 
 	/**
