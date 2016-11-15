@@ -150,7 +150,7 @@ public class InventoryMenu extends AbstractMenu
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		ArrayList<InventoryItem> temp = new ArrayList<InventoryItem>();
-		System.out.println("Which item would you like to equip");
+		
 		//add all armor and weapons to the temp array list
 		for(int i = 0; i <items.size();i++)
 		{
@@ -167,6 +167,8 @@ public class InventoryMenu extends AbstractMenu
 			System.out.println();
 			return;
 		}
+		
+		System.out.println("Which item would you like to equip");
 		
 		// output all of the armor and weapons to the user
 		for(int i =0; i < temp.size(); i++)
