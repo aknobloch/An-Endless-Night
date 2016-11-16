@@ -1,15 +1,21 @@
 package main.MenuSystem;
 
 import java.io.IOException;
+import java.util.Random;
 
 import main.Game;
 import main.GameInput;
 import main.CombatSystem.DamageHandler;
+import main.CombatSystem.Hero;
 import main.CombatSystem.Monster;
 import main.CombatSystem.StatusCondition;
 
 public class BossCombatMenu extends CombatMenu 
 {
+	
+	// keeps track of ryu's rain storm
+	public static int ryuRainStormTurns = 0;
+	
 	public BossCombatMenu(MenuLoader menuLoader) 
 	{
 		super(menuLoader);
@@ -349,9 +355,95 @@ public class BossCombatMenu extends CombatMenu
 
 	private void ryuAttack() 
 	{
-		// TODO Auto-generated method stub
-		System.out.println("Need to implement ryu fight.");
-		super.monsterAttack();
+		
+		Monster ryu = Game.getHero().getRoom().getMonster();
+		Hero hero = Game.getHero();
+		
+		// increases storm count if currently debuffed
+		if(hero.getStatusConditions().contains(StatusCondition.RYU_DEBUFF))
+		{
+			ryuRainStormTurns++;
+		}
+		
+		// if storm has lasted 2 turns, roll to remove buff and reset counter
+		if(ryuRainStormTurns >= 2)
+		{
+			// if has lasted 5 turns, remove. or if roll is successful.
+			if(ryuRainStormTurns >= 5 || Math.random() > 0.5)
+			{
+				ryuRainStormTurns = 0;
+				hero.removeStatusCondition(StatusCondition.RYU_DEBUFF);
+			}
+		}
+		
+		/*
+		 * RAIN STORM
+		 */
+		// if not currently debuffed and ryu's health is above 50, has a 30 percent chance of making rain
+		if( ! hero.getStatusConditions().contains(StatusCondition.RYU_DEBUFF) 
+				&& ryu.getHealth() > 50 
+				&& Math.random() < 0.3)
+		{
+			System.out.println("\tRyu growls and twists, the storm seeming to throb");
+			System.out.println("\tin response. The rainfall increases, blocking your");
+			System.out.println("\tvision and weighing you down. It will be harder to");
+			System.out.println("\tconnect a solid hit on Ryu in this terrible storm.");
+			System.out.println();
+			
+			hero.addStatusCondition(StatusCondition.RYU_DEBUFF);
+		}
+		/*
+		 * LIGHTNING BOLT
+		 */
+		else 
+		{
+			
+			DamageHandler combatHandler = new DamageHandler();
+			
+			System.out.println("\tRyu curls back and lets loose a roar, his voice");
+			System.out.println("\tcracking the sky like thunder. The heavens open up");
+			System.out.println("\tin response, lightning pouring forth from the clouds,");
+			System.out.println("\tdescending upon you.");
+			System.out.println();
+			
+			// first get number of lightning bolts
+			Random randomGenerator = new Random();
+			
+			int numberOfBolts = randomGenerator.nextInt(4) + 2;
+			int heroHealth = hero.getHealth();
+			
+			// for each bolt, 50% chance of hitting
+			for(int i = 0; i < numberOfBolts; i++)
+			{
+				if(Math.random() < 0.5)
+				{
+					System.out.println("\tA lightning bolt strikes you!");
+					System.out.println();
+					
+					heroHealth = combatHandler.guaranteedAttackHero(25);
+					
+				}
+			}
+			
+			if(heroHealth <= 0)
+			{
+				System.out.println("\tThe strength of Ryu was too much to bear.");
+				System.out.println("\tYou collapse to your knees as the Old One");
+				System.out.println("\troars with the voice of thunder.");
+				System.out.println();
+				heroDeath();
+			}
+			else 
+			{
+				System.out.println("\tYou've managed to survive the onslaught,");
+				System.out.println("\tbut how much of it was sheer luck?");
+				System.out.println();
+				System.out.println("\tYou have " + heroHealth + " health remaining.");
+				System.out.println();
+			}
+			
+		}
+		
 	}
 
 	private void attackHero(int attackAmount)
