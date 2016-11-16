@@ -102,23 +102,35 @@ public class InventoryMenu extends AbstractMenu
 	public void dropItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
-		System.out.println("Which item would you like to drop");
-		for(int i = 0; i< items.size();i++)
-		{
-			System.out.println(i + ". " + items.get(i).getItem().getName());
-		}
-		int input = GameInput.getInt();
 		
-			if(input >=0 && input < items.size())
-			{
-				System.out.println("\t" + "Your bags feel lighter as you drop items into the room.");
-				System.out.println();
-				Game.getHero().removeArtifactFromInventory(items.get(input).getItem());
+		if(items.isEmpty())
+		{
+			System.out.println("Your inventory is empty");
+			System.out.println();
+			return;
+		}
+		
+		while(true)
+		{
+			System.out.println("Which item would you like to drop");
+			for(int i = 0; i< items.size();i++)
+			{	
+				System.out.println(i + ". " + items.get(i).getItem().getName());
 			}
-			else
-			{
-				System.out.println("You mutter to yourself.");
-			}
+			int input = GameInput.getInt();
+		
+				if(input >=0 && input < items.size())
+				{
+					System.out.println("\t" + "Your bags feel lighter as you drop items into the room.");
+					System.out.println();
+					Game.getHero().removeArtifactFromInventory(items.get(input).getItem());
+					return;
+				}
+				else
+				{	
+					System.out.println("You mutter to yourself, trying to remember what you wanted to do...");
+				}
+		}
 	}
 
 	/**
