@@ -292,10 +292,9 @@ public class MenuLoader
 		startMenu.mainPrompt();
 	}
 
-	/***
-	 * Starts the game by calling invoking the mainPrompt function of the start menu.
+	/**
+	 * Attempts to clear the input from excessive spamming.
 	 */
-
 	public static void clearInput() 
 	{
 		// Reads all excess junk from stdin

@@ -276,6 +276,41 @@ public class GameMenu extends AbstractMenu
 				// decrement user choice to account for zero-index
 				userChoice = userChoice - 1;
 				
+				// check for ladder in room 117, the training hall
+				// if the user is in the training hall trying to get to the roof, 
+				// make sure that they have the ladder in inventory
+				if(Game.getHero().getRoom().getRoomID() == 117 
+						&& possibleRooms.get(userChoice).getRoomID() == 118)
+				{
+					boolean hasLadder = false;
+					
+					for(InventoryItem item : Game.getHero().getPlayerInventory())
+					{
+						// this is the ladder
+						if(item.getItem().getArtifactID() == 16)
+						{
+							hasLadder = true;
+						}
+					}
+					
+					if( ! hasLadder)
+					{
+						System.out.println("\tYou can see a hatch leading to a room upstairs.");
+						System.out.println("\tHowever, you cannot reach it.");
+						System.out.println("\tIf only you had a ladder...");
+						System.out.println();
+						return;
+					}
+					else 
+					{
+						System.out.println("\tYou spot a hatch in the roof.");
+						System.out.println("\tPulling out your ladder, you prop it against");
+						System.out.println("\tthe wall and ascend into the next room.");
+						System.out.println();
+					}
+					
+				}
+				
 				// check for study room key
 				// room 127 is the study room
 				if(possibleRooms.get(userChoice).getRoomID() == 127)
