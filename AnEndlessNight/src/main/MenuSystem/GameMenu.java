@@ -307,7 +307,8 @@ public class GameMenu extends AbstractMenu
 				}
 				
 				// account for puzzles
-				if(possibleRooms.get(userChoice).getPuzzle() != null)
+				// if room  contains a puzzle that is also not solved.
+				if(possibleRooms.get(userChoice).getPuzzle() != null && ! possibleRooms.get(userChoice).getPuzzle().getIsSolved())
 				{
 					System.out.println("\tYou start to walk into the next room, but a demonic");
 					System.out.println("\tvoice begins cackling madly.");
