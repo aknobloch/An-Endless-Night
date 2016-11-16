@@ -15,17 +15,17 @@ import main.InventorySystem.ArtifactFactory;
 public class RoomLibrary 
 {
 	/**
-     * Method:roomGen()
-     * 
-     * This method creates doors, rooms and puzzles that correspond
-     * to the correct rooms. The output is an array list of type Room.
-     * 
-     * @return roomObj
-     * 
-     */
+	 * Method:roomGen()
+	 * 
+	 * This method creates doors, rooms and puzzles that correspond
+	 * to the correct rooms. The output is an array list of type Room.
+	 * 
+	 * @return roomObj
+	 * 
+	 */
 	public static ArrayList<Room> roomGen()
 	{
-		
+
 		ArrayList<Integer> doors = new ArrayList<Integer>();
 		ArrayList<Door> doorObj = new ArrayList<Door>();
 
@@ -140,7 +140,7 @@ public class RoomLibrary
 		Door d_15 = new Door(new ArrayList<Integer>(doors), 115);
 		doorObj.add(d_15);
 		doors.clear();
-		
+
 		//Moon Door B (NE-Mb)
 		doors.add(103);
 		doors.add(108);
@@ -175,7 +175,7 @@ public class RoomLibrary
 		Door d_20 = new Door(new ArrayList<Integer>(doors), 120);
 		doorObj.add(d_20);
 		doors.clear();
-		
+
 		//Backdoor B
 		doors.add(103);
 		Door d_21 = new Door(new ArrayList<Integer>(doors), 121);
@@ -243,7 +243,7 @@ public class RoomLibrary
 		Door d_TD = new Door(new ArrayList<Integer>(doors), 666);
 		doorObj.add(d_TD);
 		doors.clear();
-		
+
 		//Training hall(Dojo)to Dojo roof Door (DR)
 		doors.add(117);
 		doors.add(118);
@@ -251,7 +251,7 @@ public class RoomLibrary
 		doorObj.add(d_DR);
 		doors.clear();
 
-		
+
 		//DOORS FLOOR 2
 
 		//E-Roof
@@ -384,7 +384,7 @@ public class RoomLibrary
 
 		// d_02, d_17, d_19, d_29
 		// art_08
-		//puz_01
+		// puz_01
 		ArrayList<Door> rm_02_doors = new ArrayList<>();
 		rm_02_doors.add(d_02);
 		rm_02_doors.add(d_17);
@@ -527,7 +527,7 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_28, d_TD  
-		//art_14
+		// art_14
 		ArrayList<Door> rm_15_doors = new ArrayList<>();
 		rm_15_doors.add(d_28);
 		rm_15_doors.add(d_TD);
@@ -656,7 +656,7 @@ public class RoomLibrary
 		rooms.clear();
 
 		// d_31
-		//art_11
+		// art_11
 		// puz_07
 		ArrayList<Door> rm_27_doors = new ArrayList<>();
 		rm_27_doors.add(d_31);
