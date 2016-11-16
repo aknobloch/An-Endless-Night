@@ -14,8 +14,18 @@ import main.InventorySystem.ArtifactFactory;
 
 public class RoomLibrary 
 {
+	/**
+     * Method:roomGen()
+     * 
+     * This method creates doors, rooms and puzzles that correspond
+     * to the correct rooms. The output is an array list of type Room.
+     * 
+     * @return roomObj
+     * 
+     */
 	public static ArrayList<Room> roomGen()
 	{
+		
 		ArrayList<Integer> doors = new ArrayList<Integer>();
 		ArrayList<Door> doorObj = new ArrayList<Door>();
 
@@ -24,12 +34,11 @@ public class RoomLibrary
 
 		//FLOOR 1 Doors
 
-		// 100 = door "00" 
-		// 117 = door "17" and so on 
-		
 		//Front Door
+		//doors.add(100); is passing in a room ID, "100" corresponds to room ID "rm_00"
 		doors.add(100);
 		doors.add(101);
+		//in constructor for this door, the number "101" corresponds to door ID "d_01"
 		Door d_01 = new Door(new ArrayList<Integer>(doors), 101);
 		doorObj.add(d_01);
 		doors.clear();
