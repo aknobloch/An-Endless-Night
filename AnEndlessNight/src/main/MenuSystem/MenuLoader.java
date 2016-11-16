@@ -135,11 +135,34 @@ public class MenuLoader
 		}
 		clearInput();
 
-		System.out.println();
-		System.out.println("==================================================================");
-		System.out.println("                             MAIN MENU                            ");
-		System.out.println("==================================================================");
-		System.out.println();
+		// PRINT OUT FLOOR LEVEL
+		int currentRoomID = Game.getHero().getRoom().getRoomID();
+		
+		if(currentRoomID <= 117 )
+		{
+			System.out.println();
+			System.out.println("==================================================================");
+			System.out.println("                     MAIN MENU - FIRST FLOOR                      ");
+			System.out.println("==================================================================");
+			System.out.println();
+		}
+		else if(currentRoomID <= 127)
+		{
+			System.out.println();
+			System.out.println("==================================================================");
+			System.out.println("                     MAIN MENU - SECOND FLOOR                     ");
+			System.out.println("==================================================================");
+			System.out.println();
+		}
+		else
+		{
+			System.out.println();
+			System.out.println("==================================================================");
+			System.out.println("                     MAIN MENU - THIRD FLOOR                      ");
+			System.out.println("==================================================================");
+			System.out.println();
+		}
+		
 
 		new Thread(new Runnable() 
 		{

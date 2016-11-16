@@ -38,7 +38,7 @@ public class BossCombatMenu extends CombatMenu
 		{
 			System.out.println();
 			System.out.println("==================================================================");
-			System.out.println("                             MAIN MENU                            ");
+			System.out.println("                     MAIN MENU - SECOND FLOOR                     ");
 			System.out.println("==================================================================");
 			System.out.println();
 
