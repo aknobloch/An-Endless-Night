@@ -35,6 +35,11 @@ public class Monster extends Character
 		this.isBoss = isBoss;
 	}
 	
+	
+	/**
+	 * This returns the monster back to its starting status
+	 * @param inMonster
+	 */
 	public Monster(Monster inMonster)
 	{
 		super(inMonster.characterID, inMonster.health, inMonster.strength, inMonster.name);

@@ -8,7 +8,7 @@ import main.InventorySystem.ArtifactFactory;
 
 /**
  * 
- * @author Estephanie Gonzalez and Caleb Sears
+ * @author Estephanie Gonzalez
  *
  */
 
