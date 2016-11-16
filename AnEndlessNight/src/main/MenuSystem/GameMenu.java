@@ -276,69 +276,9 @@ public class GameMenu extends AbstractMenu
 				// decrement user choice to account for zero-index
 				userChoice = userChoice - 1;
 				
-				// check for ladder in room 117, the training hall
-				// if the user is in the training hall trying to get to the roof, 
-				// make sure that they have the ladder in inventory
-				if(Game.getHero().getRoom().getRoomID() == 117 
-						&& possibleRooms.get(userChoice).getRoomID() == 118)
-				{
-					boolean hasLadder = false;
-					
-					for(InventoryItem item : Game.getHero().getPlayerInventory())
-					{
-						// this is the ladder
-						if(item.getItem().getArtifactID() == 16)
-						{
-							hasLadder = true;
-						}
-					}
-					
-					if( ! hasLadder)
-					{
-						System.out.println("\tYou can see a hatch leading to a room upstairs.");
-						System.out.println("\tHowever, you cannot reach it.");
-						System.out.println("\tIf only you had a ladder...");
-						System.out.println();
-						return;
-					}
-					else 
-					{
-						System.out.println("\tYou spot a hatch in the roof.");
-						System.out.println("\tPulling out your ladder, you prop it against");
-						System.out.println("\tthe wall and ascend into the next room.");
-						System.out.println();
-					}
-					
-				}
-				
-				// check for study room key
-				// room 127 is the study room
-				if(possibleRooms.get(userChoice).getRoomID() == 127)
-				{
-					boolean hasKey = false;
-					
-					for(InventoryItem item : Game.getHero().getPlayerInventory())
-					{
-						// this is the study room key
-						if(item.getItem().getArtifactID() == 8)
-						{
-							hasKey = true;
-						}
-					}
-					
-					// if the user doesn't have the key, display locked status and exit
-					if( ! hasKey)
-					{
-						System.out.println("\tYou try to open the door, but it is locked.");
-						System.out.println("\tPerhaps there is a key somewhere...");
-						System.out.println();
-						return;
-					}
-					else 
-					{
-						System.out.println("\tYou use the study room key to open the door.");
-						System.out.println();
-					}
+				// check desired room for locked doors.
+				if(doorIsLocked(possibleRooms.get(userChoice))) {
+					return;
 				}
 				
 				// account for puzzles
@@ -423,6 +363,85 @@ public class GameMenu extends AbstractMenu
 
 		} while( ! validInput);
 
+	}
+
+	/**
+	 * Checks against the selected room to make sure it's not locked.
+	 * Displays a message relevant to the specific scenario.
+	 * 
+	 * @param selectedRoom The room that the player is attempting to enter
+	 * @return True if the door is locked, false otherwise.
+	 */
+	private boolean doorIsLocked(Room selectedRoom) 
+	{
+		
+		// check for ladder in room 117, the training hall
+		// if the user is in the training hall trying to get to the roof, 
+		// make sure that they have the ladder in inventory
+		if(Game.getHero().getRoom().getRoomID() == 117 
+				&& selectedRoom.getRoomID() == 118)
+		{
+			boolean hasLadder = false;
+			
+			for(InventoryItem item : Game.getHero().getPlayerInventory())
+			{
+				// this is the ladder
+				if(item.getItem().getArtifactID() == 16)
+				{
+					hasLadder = true;
+				}
+			}
+			
+			if( ! hasLadder)
+			{
+				System.out.println("\tYou can see a hatch leading to a room upstairs.");
+				System.out.println("\tHowever, you cannot reach it.");
+				System.out.println("\tIf only you had a ladder...");
+				System.out.println();
+				return true;
+			}
+			else 
+			{
+				System.out.println("\tYou spot a hatch in the roof.");
+				System.out.println("\tPulling out your ladder, you prop it against");
+				System.out.println("\tthe wall and ascend into the next room.");
+				System.out.println();
+			}
+			
+		}
+		
+		// check for study room key
+		// room 127 is the study room
+		if(selectedRoom.getRoomID() == 127)
+		{
+			boolean hasKey = false;
+			
+			for(InventoryItem item : Game.getHero().getPlayerInventory())
+			{
+				// this is the study room key
+				if(item.getItem().getArtifactID() == 8)
+				{
+					hasKey = true;
+				}
+			}
+			
+			// if the user doesn't have the key, display locked status and exit
+			if( ! hasKey)
+			{
+				System.out.println("\tYou try to open the door, but it is locked.");
+				System.out.println("\tPerhaps there is a key somewhere...");
+				System.out.println();
+				return true;
+			}
+			else 
+			{
+				System.out.println("\tYou use the study room key to open the door.");
+				System.out.println();
+			}
+		}
+		
+		// if made it this far, door is not locked.
+		return false;
 	}
 
 	/**
