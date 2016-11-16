@@ -105,7 +105,7 @@ public class InventoryMenu extends AbstractMenu
 		
 		if(items.isEmpty())
 		{
-			System.out.println("Your inventory is empty");
+			System.out.println("\t Your inventory is empty");
 			System.out.println();
 			return;
 		}
