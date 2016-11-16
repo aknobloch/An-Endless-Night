@@ -118,7 +118,7 @@ public class DamageHandler
 	 */
 	public int attackMonster() 
 	{
-		int damage = gameHero.getStrength() + gameHero.getEquippedWeapon().getStrength();
+		int damage = gameHero.getStrength();
 
 		// Kitsune debuff reduces game hero attack strength by 5%
 		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_DEBUFF)) 

@@ -1,12 +1,14 @@
 package main.InventorySystem;
 
+import java.io.Serializable;
+
 /***
  * Keeps track of item information for the player inventory. 
  * Holds the Artifact as well as a reference to how many of that item the player is holding.
  * @author Aaron
  */
 
-public class InventoryItem 
+public class InventoryItem implements Serializable
 {
 	private Artifact item;
 	private int count;
