@@ -479,12 +479,12 @@ public class GameMenu extends AbstractMenu
 		// if armor is equipped
 		if(Game.getHero().getEquippedArmor() != null)
 		{
-<<<<<<< HEAD
+
 			System.out.println("\tYou have " + Game.getHero().getEquippedWeapon().getName() + " equipped for armor.");
 			
-=======
+
 			System.out.println("\tYou have " + Game.getHero().getEquippedArmor().getName() + " equipped for armor.");
->>>>>>> 7eaaf9855eed5d36dbdb05782f74012d5751ef87
+
 		}
 		else
 		{
@@ -492,12 +492,12 @@ public class GameMenu extends AbstractMenu
 		}
 		
 		System.out.println("\tYou have " + Game.getHero().getHealth() + " health left.");
-<<<<<<< HEAD
+
 		System.out.println("\tYour Defense is " + Game.getHero().getDefense());
 		System.out.println("\tYour Strength is " + Game.getHero().getStrength());
-=======
+
 		System.out.println("\tYou have " + Game.getHero().getStrength() + " attack strength.");
->>>>>>> 7eaaf9855eed5d36dbdb05782f74012d5751ef87
+
 		System.out.println("\tYou have " + Game.getScore() + " points accrued.");
 		System.out.println("\tYou have killed " + Game.getMonsterDeaths() + " demons.");
 		System.out.println("\tYou have killed " + Game.getBossDeaths() + " bosses.");
