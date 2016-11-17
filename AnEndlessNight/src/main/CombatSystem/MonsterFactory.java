@@ -11,25 +11,36 @@ import main.InventorySystem.ArtifactFactory;
 
 
 /**
- * 
- * @author Caleb and Aaron
+ * Class: MonsterFactory.java
  *
+ * @author Caleb Sears and Aaron
+ * @version 4.0
+ *          <p>
+ * Course : ITEC 3860 Fall 2016
+ * Written: Nov 14, 2016
+ *
+ *
+ *  This class – This class generates monsters
+ *
+ *  Purpose: – is to create Monsters
+ *  
  */
+
 public class MonsterFactory 
 {
 	private static String[] monsterNameArray = 
 		{
-		"Maneki-neko",
-		"Karakasa", 
-		"Futakuchi-onna", 
-		"Kappa", 
-		"Tanuki", 
-		"Yatagarasu", 
-		"Oni", 
-		"Shisa", 
-		"Tengu", 
-		"Kitsune", 
-		"Ryu"
+				"Maneki-neko",
+				"Karakasa", 
+				"Futakuchi-onna", 
+				"Kappa", 
+				"Tanuki", 
+				"Yatagarasu", 
+				"Oni", 
+				"Shisa", 
+				"Tengu", 
+				"Kitsune", 
+				"Ryu"
 		};
 
 	private static ArrayList<ArrayList<Artifact>> monsterItemAssignments;
@@ -39,12 +50,15 @@ public class MonsterFactory
 	private MonsterFactory() 
 	{}
 
-	// generates Monsters
+	/**
+	 * This method creates all the monsters in the game.
+	 */
 	public static void initializeFactory() 
 	{
 		monsterItemAssignments = new ArrayList<ArrayList<Artifact>>();
 		monsterList = new ArrayList<Monster>();
 
+		// test to make sure the monster is the correct monster in the text file.
 		for (int j = 0; j < monsterNameArray.length; j++)
 		{
 			try 
@@ -52,6 +66,7 @@ public class MonsterFactory
 				File f = new File("MonstersNames.txt");
 				Scanner scan = new Scanner(f);
 
+				// read through file to get the artifactID and its percent chance of dropping.
 				while(scan.hasNextLine()) 
 				{
 					String line = scan.nextLine();
@@ -61,6 +76,7 @@ public class MonsterFactory
 					{
 						ArrayList<String> monsterDropList = new ArrayList<String>();
 
+						// calculate if the monster will drop any of its possible items.
 						for (int i = 1; i < parts.length; i = i + 2) 
 						{
 							Random r = new Random();
@@ -68,12 +84,14 @@ public class MonsterFactory
 							int percentChance = Integer.parseInt(parts[i + 1]);
 							int randomNum = r.nextInt(100);
 
+							// add a monster's drop items to an string array list
 							if(randomNum < percentChance)
 							{
 								monsterDropList.add(parts[i]);
 							}
 						}
 
+						// add items that each monster will drop to an artifact array lists.
 						ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
 
 						while (!monsterDropList.isEmpty())
@@ -85,6 +103,7 @@ public class MonsterFactory
 							artifactList.add(a);
 						}
 
+						// add items that each monster will drop to an array list of artifact array lists.
 						monsterItemAssignments.add(artifactList);
 					}
 				}
@@ -98,19 +117,19 @@ public class MonsterFactory
 		}
 
 		// adds monsters to the monsterList
-		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 1, monsterItemAssignments.get(0), false);
+		Monster mon = new Monster(1, 1, 0, "Maneki-neko", 5, monsterItemAssignments.get(0), false);
 		monsterList.add(mon);
-		mon = new Monster(2, 15, 3, "Karakasa", 30, monsterItemAssignments.get(1), false);
+		mon = new Monster(2, 15, 3, "Karakasa", 20, monsterItemAssignments.get(1), false);
 		monsterList.add(mon);
-		mon = new Monster(3, 25, 5, "Futakuchi-onna", 40, monsterItemAssignments.get(2), false);
+		mon = new Monster(3, 25, 5, "Futakuchi-onna", 20, monsterItemAssignments.get(2), false);
 		monsterList.add(mon);
 		mon = new Monster(4, 35, 8, "Kappa", 30, monsterItemAssignments.get(3), false);
 		monsterList.add(mon);
-		mon = new Monster(5, 40, 10, "Tanuki", 40, monsterItemAssignments.get(4), false);
+		mon = new Monster(5, 40, 10, "Tanuki", 20, monsterItemAssignments.get(4), false);
 		monsterList.add(mon);
-		mon = new Monster(6, 25, 8, "Yatagarasu", 20, monsterItemAssignments.get(5), false);
+		mon = new Monster(6, 25, 8, "Yatagarasu", 50, monsterItemAssignments.get(5), false);
 		monsterList.add(mon);
-		mon = new Monster(7, 60, 15, "Oni", 50, monsterItemAssignments.get(6), false);
+		mon = new Monster(7, 60, 15, "Oni", 40, monsterItemAssignments.get(6), false);
 		monsterList.add(mon);
 		mon = new Monster(8, 70, 18, "Shisa", 50, monsterItemAssignments.get(7), false);
 		monsterList.add(mon);
@@ -122,6 +141,14 @@ public class MonsterFactory
 		monsterList.add(mon);
 	}
 
+	/**
+	 * Method: setRoomMonster
+	 * 
+	 * This method takes a room id, selects the propper monster, and returns that monster
+	 * 
+	 * @param roomID
+	 * @return Monster
+	 */
 	public static Monster setRoomMonster(int roomID) // roomID must not be 01 format.
 	{
 		if(monsterList == null) 
@@ -131,13 +158,14 @@ public class MonsterFactory
 
 		int winningMonster = 0;
 
+		// identifies the winningMonster
 		switch (roomID)
 		{
-		case 18: winningMonster = 8; 
+		case 18: winningMonster = 8; //boss 1
 		break;
-		case 24: winningMonster = 9;
+		case 24: winningMonster = 9; //boss 2
 		break;
-		case 29: winningMonster = 10;
+		case 29: winningMonster = 10; //boss 3
 		break;
 		default: 
 			for (int i = 0; i < monsterList.size()-3; i++) // -3 to prevent bosses from being selected.

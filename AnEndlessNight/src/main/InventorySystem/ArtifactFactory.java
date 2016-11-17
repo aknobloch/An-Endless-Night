@@ -9,30 +9,50 @@ import main.CombatSystem.Armor;
 
 
 /**
- * author: Caleb Sears
+ * Class: MonsterFactory.java
+ *
+ * @author Caleb Sears
+ * @version 4.0
+ *          <p>
+ * Course : ITEC 3860 Fall 2016
+ * Written: Nov 14, 2016
+ *
+ *
+ *  This class – This class generates artifacts
+ *
+ *  Purpose: – is to create artifacts
+ *  
+ */
+/**
+ * @author lonnies
+ *
+ */
+/**
+ * @author lonnies
+ *
  */
 public class ArtifactFactory 
 {
 	private static String[] artifactNameArray = 
 		{
-		"Magic Mirror",
-		"Katana",
-		"Odachi",
-		"Bo/Jo",
-		"Healing Potion",
-		"Journal",
-		"Celestial Globe",
-		"Study Room Key",
-		"Kegutsu",
-		"Kikko",
-		"Mempo",
-		"Kaiken",
-		"Kusarigama",
-		"Daruma Doll",
-		"Kokeshi Doll", 
-		"Ladder",
-		"Tengu’s Fan",
-		"Kitsune’s Tail"
+				"Magic Mirror",
+				"Katana",
+				"Odachi",
+				"Bo/Jo",
+				"Healing Potion",
+				"Journal",
+				"Celestial Globe",
+				"Study Room Key",
+				"Kegutsu",
+				"Kikko",
+				"Mempo",
+				"Kaiken",
+				"Kusarigama",
+				"Daruma Doll",
+				"Kokeshi Doll", 
+				"Ladder",
+				"Tengu’s Fan",
+				"Kitsune’s Tail"
 		};
 
 	private static ArrayList<Artifact> keyArtifactsList;
@@ -43,6 +63,9 @@ public class ArtifactFactory
 
 	private ArtifactFactory(){}
 
+	/**
+	 * This initializes all of the Artifacts in the game.
+	 */
 	public static void initializeArtifacts() 
 	{
 		artifactsList = new ArrayList<Artifact>();
@@ -108,6 +131,9 @@ public class ArtifactFactory
 		}
 	}
 
+	/**
+	 * @return the artifactsList
+	 */
 	public static ArrayList<Artifact> getArtifactsList() 
 	{
 		if(artifactsList.isEmpty()) 
@@ -116,113 +142,5 @@ public class ArtifactFactory
 		}
 
 		return artifactsList;
-	}
-
-	public static ArrayList<Artifact> getKeyArtifactsList() 
-	{
-		if(keyArtifactsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		return keyArtifactsList;
-	}
-
-	public static ArrayList<Weapon> getWeaponsList() 
-	{
-		if(weaponsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		return weaponsList;
-	}
-
-	public static ArrayList<Consumable> getConsumablesList() 
-	{
-		if(consumablesList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		return consumablesList;
-	}
-
-	public static ArrayList<Armor> getArmorsList() 
-	{
-		if(armorsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		return armorsList;
-	}
-
-	public static Weapon getWeapon(int artID) 
-	{
-		if(weaponsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		for (int i = 0; i < weaponsList.size(); i++)
-		{
-			if (artID == weaponsList.get(i).getArtifactID())
-			{
-				return weaponsList.get(i);
-			}
-		}
-		return null;
-	}
-
-	public static Armor getArmor(int artID) 
-	{
-		if(armorsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		for (int i = 0; i < armorsList.size(); i++)
-		{
-			if (artID == armorsList.get(i).getArtifactID())
-			{
-				return armorsList.get(i);
-			}
-		}
-		return null;
-	}
-
-	public static Consumable getConsumable(int artID) 
-	{
-		if(consumablesList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		for (int i = 0; i < consumablesList.size(); i++)
-		{
-			if (artID == consumablesList.get(i).getArtifactID())
-			{
-				return consumablesList.get(i);
-			}
-		}
-		return null;
-	}
-
-	public static Artifact getKeyArtifact(int artID) 
-	{
-		if(keyArtifactsList == null) 
-		{
-			initializeArtifacts();
-		}
-
-		for (int i = 0; i < keyArtifactsList.size(); i++)
-		{
-			if (artID == keyArtifactsList.get(i).getArtifactID())
-			{
-				return keyArtifactsList.get(i);
-			}
-		}
-		return null;
 	}
 }

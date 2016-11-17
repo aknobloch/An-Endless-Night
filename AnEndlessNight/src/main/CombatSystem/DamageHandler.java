@@ -64,7 +64,6 @@ public class DamageHandler
 
 		if(remainingHealth <= 0) 
 		{
-			// TODO: Handle case if hero dies
 			return -1;
 		}
 		else 
@@ -102,7 +101,6 @@ public class DamageHandler
 
 		if(remainingHealth <= 0) 
 		{
-			// TODO: Handle case if hero dies
 			return -1;
 		}
 		else 
@@ -120,7 +118,7 @@ public class DamageHandler
 	 */
 	public int attackMonster() 
 	{
-		int damage = gameHero.getStrength() + gameHero.getEquippedWeapon().getStrength();
+		int damage = gameHero.getStrength();
 
 		// Kitsune debuff reduces game hero attack strength by 5%
 		if(gameHero.getStatusConditions().contains(StatusCondition.KITSUNE_DEBUFF)) 
@@ -137,6 +135,28 @@ public class DamageHandler
 		}
 
 		int remainingHealth = battleMonster.attack(damage);
+
+		if(remainingHealth <= 0) 
+		{
+			return -1;
+		}
+		else 
+		{
+			return remainingHealth;
+		}
+	}
+	
+	/*
+	 * For attacks that the hero has no chance of dodging.
+	 */
+	public int guaranteedAttackHero(int damage)
+	{
+		if(gameHero.getStatusConditions().contains(StatusCondition.DEFENSE_BUFF)) 
+		{
+			damage = damage - (damage / 3);
+		}
+
+		int remainingHealth = gameHero.attack(damage);
 
 		if(remainingHealth <= 0) 
 		{

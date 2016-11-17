@@ -118,6 +118,22 @@ public class CombatMenu extends AbstractMenu
 				System.out.println();
 			}
 
+			// if ryu, game is finished!
+			if(currentMonster.getName().equals("Ryu"))
+			{
+				System.out.println("\tRyu lets loose a loud roar, his wounds gushing with");
+				System.out.println("\tblood. The skies began to clear as the serpentine diety");
+				System.out.println("\tcollapses, his breath escaping him. You stare in astonishment,");
+				System.out.println("\tyour fingers pulsing with adrenaline.");
+				System.out.println();
+				System.out.println("\tAs Ryu takes his final breath, the sun begins to rise...");
+				System.out.println();
+				
+				battleContinuing = false;
+				MenuLoader.loadStartMenu(this);
+				return;
+			}
+			
 			Game.getHero().getRoom().destroyMonster();
 
 			battleContinuing = false;
@@ -350,12 +366,15 @@ public class CombatMenu extends AbstractMenu
 			System.out.println("\tAs rain begins to plummet your weary face,");
 			System.out.println("\ta movement in the darkened clouds catches your eye.");
 			System.out.println("\tSlowly, you begin to make out a figure...");
-			System.out.println("\tserpentine in form, moving through the air like a snake through grass. ");
+			System.out.println();
+			System.out.println("\tSerpentine in form, moving through the air like a snake through grass. ");
 			System.out.println("\tFear strikes deep in your heart as the realization dawns on you.");
+			System.out.println();
 			System.out.println("\tSurely,this cannot be.");
+			System.out.println();
 			System.out.println("\tAn Old God, one whos very name is only whispered in passing nightmares");
-			System.out.println("\tand muttered curses.");
-			System.out.println("\tThe ground shakes as Ryu, the serpentine water deity, lands.");
+			System.out.println("\tand muttered curses. The ground shakes as Ryu,");
+			System.out.println("\tthe serpentine water deity, lands.");
 			break;
 		default :
 			// not yet implemented, must be a bug

@@ -120,6 +120,7 @@ public final class Game implements Serializable
 		game = (Game) in.readObject();
 		in.close();
 	}
+	
 
 	/**
 	 * Gets the current score.
