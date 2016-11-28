@@ -30,7 +30,14 @@ public class Journal implements Serializable
 	 */
 	public void removeEntry(int x)
 	{
-		entries.remove(x);
+		if(x >=0 && x < entries.size())
+		{
+			entries.remove(x);
+		}
+		else
+		{
+			System.out.println("ArrayList out of bounds.");
+		}
 	}
 
 	/**
