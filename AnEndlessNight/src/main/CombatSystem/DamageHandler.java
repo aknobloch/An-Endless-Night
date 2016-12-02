@@ -146,7 +146,7 @@ public class DamageHandler
 		}
 	}
 	
-	/*
+	/**
 	 * For attacks that the hero has no chance of dodging.
 	 */
 	public int guaranteedAttackHero(int damage)
