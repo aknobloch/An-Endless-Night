@@ -20,9 +20,9 @@ import main.InventorySystem.ArtifactFactory;
  * Written: Nov 14, 2016
  *
  *
- *  This class – This class generates monsters
+ *  This class  This class generates monsters
  *
- *  Purpose: – is to create Monsters
+ *  Purpose: is to create Monsters
  *  
  */
 

@@ -18,9 +18,9 @@ import main.CombatSystem.Armor;
  * Written: Nov 14, 2016
  *
  *
- *  This class – This class generates artifacts
+ *  This class  This class generates artifacts
  *
- *  Purpose: – is to create artifacts
+ *  Purpose: is to create artifacts
  *  
  */
 /**
@@ -51,8 +51,8 @@ public class ArtifactFactory
 				"Daruma Doll",
 				"Kokeshi Doll", 
 				"Ladder",
-				"Tengu’s Fan",
-				"Kitsune’s Tail"
+				"Tengu's Fan",
+				"Kitsune's Tail"
 		};
 
 	private static ArrayList<Artifact> keyArtifactsList;

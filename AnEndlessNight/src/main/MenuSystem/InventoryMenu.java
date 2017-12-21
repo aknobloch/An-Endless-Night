@@ -312,6 +312,8 @@ public class InventoryMenu extends AbstractMenu
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
 		System.out.println("Which item would you like to use");
+
+
 		for(int i =0;i < items.size();i++)
 		{
 			System.out.println(i + ". " + items.get(i).getItem().getName());

@@ -14,5 +14,5 @@ Kusarigama  Weapon  13  A sickle attached to a chain. A master of this will be u
 Daruma Doll  Consumable  14  A round doll modeled after Zen founder, Bodhidharma.  10
 Kokeshi Doll  Consumable  15  A wooden doll depicting a maiden.  10
 Ladder  Key  16  A ladder used for climbing.
-Tengu’s Fan  Armor  17  One of the large fans used by Tengu, you might be able to use it in evasion.  0
-Kitsune’s Tail  Armor  18  One of the tails of the Fox demon, Kitsune. You can use it to confuse enemies.  0
+Tengu's Fan  Armor  17  One of the large fans used by Tengu, you might be able to use it in evasion.  0
+Kitsune's Tail  Armor  18  One of the tails of the Fox demon, Kitsune. You can use it to confuse enemies.  0
