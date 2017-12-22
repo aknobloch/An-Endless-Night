@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import main.FileLoader;
 import main.InventorySystem.Artifact;
 import main.InventorySystem.ArtifactFactory;
 
@@ -61,58 +63,47 @@ public class MonsterFactory
 		// test to make sure the monster is the correct monster in the text file.
 		for (int j = 0; j < monsterNameArray.length; j++)
 		{
-			try 
-			{
-				File f = new File("MonstersNames.txt");
-				Scanner scan = new Scanner(f);
+			String monsterNames = new FileLoader().getFileContents("MonstersNames.txt");
 
-				// read through file to get the artifactID and its percent chance of dropping.
-				while(scan.hasNextLine()) 
+			// read through file to get the artifactID and its percent chance of dropping.
+			for(String monster : monsterNames.split("\n"))
+			{
+				String[] parts = monster.split(" ");
+
+				if (parts[0].equals(monsterNameArray[j]))
 				{
-					String line = scan.nextLine();
-					String[] parts = line.split(" ");
+					ArrayList<String> monsterDropList = new ArrayList<String>();
 
-					if(parts[0].equals(monsterNameArray[j])) 
+					// calculate if the monster will drop any of its possible items.
+					for (int i = 1; i < parts.length; i = i + 2)
 					{
-						ArrayList<String> monsterDropList = new ArrayList<String>();
+						Random r = new Random();
 
-						// calculate if the monster will drop any of its possible items.
-						for (int i = 1; i < parts.length; i = i + 2) 
+						int percentChance = Integer.parseInt(parts[i + 1]);
+						int randomNum = r.nextInt(100);
+
+						// add a monster's drop items to an string array list
+						if (randomNum < percentChance)
 						{
-							Random r = new Random();
-
-							int percentChance = Integer.parseInt(parts[i + 1]);
-							int randomNum = r.nextInt(100);
-
-							// add a monster's drop items to an string array list
-							if(randomNum < percentChance)
-							{
-								monsterDropList.add(parts[i]);
-							}
+							monsterDropList.add(parts[i]);
 						}
-
-						// add items that each monster will drop to an artifact array lists.
-						ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
-
-						while (!monsterDropList.isEmpty())
-						{
-							int itemForMonster = Integer.parseInt(monsterDropList.remove(0));
-
-							Artifact a = ArtifactFactory.getArtifactsList().get(itemForMonster - 1);
-
-							artifactList.add(a);
-						}
-
-						// add items that each monster will drop to an array list of artifact array lists.
-						monsterItemAssignments.add(artifactList);
 					}
+
+					// add items that each monster will drop to an artifact array lists.
+					ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
+
+					while (!monsterDropList.isEmpty())
+					{
+						int itemForMonster = Integer.parseInt(monsterDropList.remove(0));
+
+						Artifact a = ArtifactFactory.getArtifactsList().get(itemForMonster - 1);
+
+						artifactList.add(a);
+					}
+
+					// add items that each monster will drop to an array list of artifact array lists.
+					monsterItemAssignments.add(artifactList);
 				}
-
-				scan.close();
-
-			} catch (FileNotFoundException e) 
-			{
-				e.printStackTrace();
 			}
 		}
 

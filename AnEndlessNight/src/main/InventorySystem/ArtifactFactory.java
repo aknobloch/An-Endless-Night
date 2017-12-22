@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import main.CombatSystem.Armor;
+import main.FileLoader;
 
 
 /**
@@ -76,57 +77,50 @@ public class ArtifactFactory
 
 		for (int i = 0; i < artifactNameArray.length; i++)
 		{
-			try 
+
+			String artifacts = new FileLoader().getFileContents("ArtifactID.txt");
+
+			for(String line : artifacts.split("\n"))
 			{
-				File f = new File("ArtifactID.txt");
-				Scanner scan = new Scanner(f);
+				String[] parts = line.split("  ");
 
-				while(scan.hasNextLine()) 
+				if(parts[0].equals(artifactNameArray[i]))
 				{
-					String line = scan.nextLine();
-					String[] parts = line.split("  ");
+					int itemID = Integer.parseInt(parts[2]);
+					String itemDesc = parts[3];
+					int healAmount;
+					int strength;
+					int defense;
 
-					if(parts[0].equals(artifactNameArray[i])) 
+					Artifact item;
+
+					switch (parts[1])
 					{
-						int itemID = Integer.parseInt(parts[2]);
-						String itemDesc = parts[3];
-						int healAmount;
-						int strength;
-						int defense;
-						Artifact item = new Artifact(artifactNameArray[i], itemDesc, itemID);
-
-						switch (parts[1])
-						{
 						case "Key":
 							item = new Artifact(artifactNameArray[i], itemDesc, itemID);
 							keyArtifactsList.add(item);
 							artifactsList.add(item);
 							break;
-						case "Consumable": 
+						case "Consumable":
 							healAmount = Integer.parseInt(parts[4]);
 							item = new Consumable(artifactNameArray[i], itemDesc, itemID, healAmount);
 							consumablesList.add((Consumable) item);
 							artifactsList.add(item);
 							break;
-						case "Weapon": 
+						case "Weapon":
 							strength = Integer.parseInt(parts[4]);
 							item = new Weapon(artifactNameArray[i], itemDesc, itemID, strength);
 							weaponsList.add((Weapon) item);
 							artifactsList.add(item);
 							break;
-						case "Armor": 
+						case "Armor":
 							defense = Integer.parseInt(parts[4]);
 							item = new Armor(artifactNameArray[i], itemDesc, itemID, defense);
 							armorsList.add((Armor) item);
 							artifactsList.add(item);
 							break;
-						}
 					}
 				}
-				scan.close();
-			} catch (FileNotFoundException e) 
-			{
-				e.printStackTrace();
 			}
 		}
 	}
