@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
@@ -30,7 +31,7 @@ public final class GameInput
 	public static String getString() throws IOException 
 	{
 		try 
-		{	
+		{
 			String userInput = input.nextLine();
 			System.out.println();
 			
@@ -38,7 +39,7 @@ public final class GameInput
 			{
 				Game.printHelp();
 			}
-			
+
 			return userInput;
 
 		} catch(Exception ex) 
@@ -47,6 +48,7 @@ public final class GameInput
 			throw new IOException();
 		}
 	}
+
 
 	/***
 	 * Gets a int input from the user.
@@ -58,6 +60,7 @@ public final class GameInput
 	{
 		try 
 		{
+
 			String userInput = input.nextLine();
 			System.out.println();
 
@@ -103,5 +106,24 @@ public final class GameInput
 			System.out.println();
 			throw new IOException();
 		}
+	}
+
+
+	/**
+	 * Clears the input by reading excess input until a newline is reached.
+	 */
+	private static void clearInputBuffer()
+	{
+		char excessInput;
+		try
+		{
+			do
+			{
+				excessInput = (char) System.in.read();
+			}
+			while(excessInput != '\n');
+		}
+		catch(IOException ioe) {}
+
 	}
 }

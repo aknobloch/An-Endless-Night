@@ -348,13 +348,13 @@ public class RoomLibrary
 
 		//PUZZLES
 
-		Puzzle puz_01 = new Puzzle("\tI have no eyes, but I once did see. I once had thoughts, \n\tbut now I’m white and empty. What am I?\n\t", "Skull", false, 0, "Bones!", 1, 3);
+		Puzzle puz_01 = new Puzzle("\tI have no eyes, but I once did see. I once had thoughts, \n\tbut now I'm white and empty. What am I?\n\t", "Skull", false, 0, "Bones!", 1, 3);
 		Puzzle puz_02 = new Puzzle("\tWhen you have me, you want to share me. When you share me, \n\tyou no longer have me. What am I?\n\t", "Secret", false, 0, "I am not known or seen or not to be known or seen by others", 2, 3);
 		Puzzle puz_03 = new Puzzle("\tThe more of me you take, the more of me you leave behind. What am I?\n\t", "Footsteps", false, 0, "Think quick on your feet!", 3, 3);
 		Puzzle puz_04 = new Puzzle("\tWhat flies without wings?\n", "Time", false, 0, "Not a living thing", 4, 3);
-		Puzzle puz_05 = new Puzzle("\tWhat constellation is currently seen in the night skies?\n\t", "Monoceros", false, 0, "Must Interact with the “Celestial Globe” for answer.", 5, 3);
+		Puzzle puz_05 = new Puzzle("\tWhat constellation is currently seen in the night skies?\n\t", "Monoceros", false, 0, "Must Interact with the 'Celestial Globe' for answer.", 5, 3);
 		Puzzle puz_06 = new Puzzle("\tAn old man was murdered and left his wealth behind.\n\tIn his will, he stated that each of his four children would split his gold coins. \n\tThey should be divided as follows:\n\n\tThe eldest should receive 1/2 of the gold pieces.\n\tThe 2nd child would receive 1/4, and then 3rd child would get 1/5 of the gold.\n\tFinally, he states that the youngest will get the remaining 49 gold coins. \n\tHow many gold coins did the old man have at death?\n", "980", false, 0, "Remaining fraction", 6, 3);
-		Puzzle puz_07 = new Puzzle("\tYou come across a servant’s diary. \n\tInside it describes the theft of her favorite locket. \n\tShe knows it was one of the other servants. \n\tShe asks each servant who took the locket. \n\tTheir responses were..\n\tServant 1: It wasn’t Servant 5, it was servant 2!\n\tServant 2: It wasn’t Servant 3, it wasn’t Servant 5!\n\tServant 3: It was Servant 5, it wasn’t Servant 1!\n\tServant 4: It was Servant 3, it was Servant 2!\n\tServant 5: It was Servant 4, it wasn’t Servant 1!\n\tEach servant was known to tell exactly one lie.\n\tWhich servant took her locket?\n\t", "3", false, 0, "Ask 2 and 4", 7, 3);
+		Puzzle puz_07 = new Puzzle("\tYou come across a servant's diary. \n\tInside it describes the theft of her favorite locket. \n\tShe knows it was one of the other servants. \n\tShe asks each servant who took the locket. \n\tTheir responses were..\n\tServant 1: It wasn't Servant 5, it was servant 2!\n\tServant 2: It wasn't Servant 3, it wasn't Servant 5!\n\tServant 3: It was Servant 5, it wasn't Servant 1!\n\tServant 4: It was Servant 3, it was Servant 2!\n\tServant 5: It was Servant 4, it wasn't Servant 1!\n\tEach servant was known to tell exactly one lie.\n\tWhich servant took her locket?\n\t", "3", false, 0, "Ask 2 and 4", 7, 3);
 
 		//ROOMS FLOOR 1
 
@@ -437,7 +437,7 @@ public class RoomLibrary
 		rm_06_doors.add(d_18);
 		ArrayList<Artifact> rm_06_art = new ArrayList<>();
 		rm_06_art.add(ArtifactFactory.getArtifactsList().get(15));
-		Room rm_06 = new Room("Many tools lie here, most of them are used to care for the gardens.\n\tThere’s a ladder here.", rm_06_doors, 106, false, "Northwest Shed", null, MonsterFactory.setRoomMonster(6), rm_06_art);
+		Room rm_06 = new Room("Many tools lie here, most of them are used to care for the gardens.\n\tThere's a ladder here.", rm_06_doors, 106, false, "Northwest Shed", null, MonsterFactory.setRoomMonster(6), rm_06_art);
 		roomObj.add(rm_06);
 		rooms.clear();
 
@@ -514,7 +514,7 @@ public class RoomLibrary
 		roomObj.add(rm_13);
 		rooms.clear();
 
-		// d_25, d_26, d_28 
+		// d_25, d_26, d_28
 		// art_12
 		ArrayList<Door> rm_14_doors = new ArrayList<>();
 		rm_14_doors.add(d_25);
@@ -526,7 +526,7 @@ public class RoomLibrary
 		roomObj.add(rm_14);
 		rooms.clear();
 
-		// d_28, d_TD  
+		// d_28, d_TD
 		// art_14
 		ArrayList<Door> rm_15_doors = new ArrayList<>();
 		rm_15_doors.add(d_28);
@@ -614,7 +614,7 @@ public class RoomLibrary
 		// d_36
 		ArrayList<Door> rm_23_doors = new ArrayList<>();
 		rm_23_doors.add(d_36);
-		Room rm_23 = new Room("A small room.\n\tAt least, small in width. But the length is long.\n\tIt’s able to hold a dozen of clothes,\n\tfor guests that plan to stay for more than a few weeks.", rm_23_doors, 123, false, "Guest room 2 Closet", null, MonsterFactory.setRoomMonster(23), null);
+		Room rm_23 = new Room("A small room.\n\tAt least, small in width. But the length is long.\n\tIt's able to hold a dozen of clothes,\n\tfor guests that plan to stay for more than a few weeks.", rm_23_doors, 123, false, "Guest room 2 Closet", null, MonsterFactory.setRoomMonster(23), null);
 		roomObj.add(rm_23);
 		rooms.clear();
 

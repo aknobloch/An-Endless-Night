@@ -332,6 +332,7 @@ public class InventoryMenu extends AbstractMenu
 			int input = GameInput.getInt();
 
 
+
 			if(input >=0 && input < items.size())
 			{
 				if(items.get(input).getItem() instanceof Weapon)
