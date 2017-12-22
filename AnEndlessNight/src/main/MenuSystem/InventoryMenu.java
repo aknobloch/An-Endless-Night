@@ -55,6 +55,7 @@ public class InventoryMenu extends AbstractMenu
 				{
 					System.out.println(i + ". " + items.get(i).getItem().getName());
 				}
+					System.out.println(items.size() + ". " + " return to inventory" );
 				// get the players input
 				int input = GameInput.getInt();
 				//check to see that it falls within the range of appropreate input
@@ -85,6 +86,8 @@ public class InventoryMenu extends AbstractMenu
 						System.out.println();
 						return;
 					}
+				} else if (input == items.size()) {
+					return;
 				}
 				else
 				{
@@ -117,6 +120,7 @@ public class InventoryMenu extends AbstractMenu
 			{	
 				System.out.println(i + ". " + items.get(i).getItem().getName());
 			}
+			System.out.println(items.size() + ". " + " return to inventory" );
 			int input = GameInput.getInt();
 		
 				if(input >=0 && input < items.size())
@@ -124,6 +128,8 @@ public class InventoryMenu extends AbstractMenu
 					System.out.println("\t" + "Your bags feel lighter as you drop items into the room.");
 					System.out.println();
 					Game.getHero().removeArtifactFromInventory(items.get(input).getItem());
+					return;
+				} else if (input == items.size()) {
 					return;
 				}
 				else
@@ -176,13 +182,11 @@ public class InventoryMenu extends AbstractMenu
 				// print all options
 				for(int i = 0; i < equippedItems.size(); i++)
 				{
-					System.out.println( (i + 1) + ". " + equippedItems.get(i).getName());
+					System.out.println( i+ ". " + equippedItems.get(i).getName());
 				}
+				System.out.println(equippedItems.size() + ". " + " return to inventory" );
 				
 				int userChoice = GameInput.getInt();
-				
-				// decrement user choice for zero index
-				userChoice = userChoice - 1;
 				
 				if(userChoice >= 0 && userChoice < equippedItems.size())
 				{
@@ -193,13 +197,17 @@ public class InventoryMenu extends AbstractMenu
 					if(chosenItem instanceof Weapon)
 					{
 						gameHero.unequipWeapon();
+						
 					}
 					else
 					{
 						gameHero.unequipArmor();
+						
 					}
 					
 					System.out.println("\tYou unequip your " + chosenItem.getName() + ".");
+				} else if (userChoice == equippedItems.size()) {
+					return;
 				}
 				else 
 				{
@@ -253,6 +261,7 @@ public class InventoryMenu extends AbstractMenu
 			{
 				System.out.println((i) + ". " +temp.get(i).getItem().getName());
 			}
+			System.out.println(temp.size() + ". " + " return to inventory" );
 			int input = GameInput.getInt();
 
 			if(input >= 0 && input < temp.size())
@@ -295,6 +304,8 @@ public class InventoryMenu extends AbstractMenu
 					}
 				}
 			
+			} else if (temp.size() == input) {
+				return;
 			}
 			else
 			{
@@ -311,35 +322,45 @@ public class InventoryMenu extends AbstractMenu
 	public void useItem() throws IOException 
 	{
 		ArrayList<InventoryItem> items = Game.getHero().getPlayerInventory();
-		System.out.println("Which item would you like to use");
-		for(int i =0;i < items.size();i++)
-		{
-			System.out.println(i + ". " + items.get(i).getItem().getName());
-		}
-		int input = GameInput.getInt();
+		if (items.size() > 0) {
+			System.out.println("Which item would you like to use");
+			for(int i =0;i < items.size();i++)
+			{
+				System.out.println(i + ". " + items.get(i).getItem().getName());
+			}
+			System.out.println(items.size() + ". " + " return to inventory" );
+			int input = GameInput.getInt();
 
 
-		if(input >=0 && input < items.size())
-		{
-			if(items.get(input).getItem() instanceof Weapon)
+			if(input >=0 && input < items.size())
 			{
-				System.out.println("\t How does one use a weapon out in combat?");
+				if(items.get(input).getItem() instanceof Weapon)
+				{
+					System.out.println("\t How does one use a weapon out in combat?");
+					System.out.println();
+				}
+				else if(items.get(input).getItem() instanceof Armor)
+				{
+					System.out.println("\t How does one use armor out of combat?");
+					System.out.println();
+				}
+				else if(items.get(input).getItem() instanceof Consumable)
+				{
+					Consumable use = (Consumable) items.get(input).getItem();
+					Game.getHero().useConsumable(use);
+					System.out.println("\t You feel your wounds melt away as if by magic."
+							+ "\t Not bad for something you found on the floor!");
+					System.out.println();
+				}
+			} 
+			else if (items.size() == input) 
+			{
+				return;
+			}
+			} else {
+				System.out.println("There are no items in your inventory");
 				System.out.println();
 			}
-			else if(items.get(input).getItem() instanceof Armor)
-			{
-				System.out.println("\t How does one use armor out of combat?");
-				System.out.println();
-			}
-			else if(items.get(input).getItem() instanceof Consumable)
-			{
-				Consumable use = (Consumable) items.get(input).getItem();
-				Game.getHero().useConsumable(use);
-				System.out.println("\t You feel your wounds melt away as if by magic."
-						+ "\t Not bad for something you found on the floor!");
-				System.out.println();
-			}
-		}
 	}
 	
 	/**
@@ -375,7 +396,7 @@ public class InventoryMenu extends AbstractMenu
 			{
 				System.out.println( i + ". " + items.get(i).getName());
 			}
-			
+			System.out.println(items.size() + ". " + " return to inventory" );
 			int input = GameInput.getInt();
 			
 			if(input >= 0 && input < items.size())
@@ -401,6 +422,8 @@ public class InventoryMenu extends AbstractMenu
 					System.out.println("\t Yout mutter to yourself, trying to remember what you wanted to do...");
 				}
 				
+			} else if (input == items.size()) {
+				return;
 			}
 		}
 		
