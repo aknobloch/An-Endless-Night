@@ -38,6 +38,8 @@ public final class GameInput
 			{
 				Game.printHelp();
 			}
+
+			clearInputBuffer();
 			
 			return userInput;
 
@@ -96,6 +98,8 @@ public final class GameInput
 				Game.printHelp();
 			}
 
+			clearInputBuffer();
+
 			return Integer.parseInt(userInput);
 
 		} catch(Exception ex)
@@ -103,5 +107,24 @@ public final class GameInput
 			System.out.println();
 			throw new IOException();
 		}
+	}
+
+
+	/**
+	 * Clears the input by reading excess input until a newline is reached.
+	 */
+	private static void clearInputBuffer()
+	{
+		try
+		{
+			char excessInput;
+			do
+			{
+				excessInput = (char) System.in.read();
+			}
+			while (excessInput != '\n');
+		}
+		catch(IOException ioe) {}
+
 	}
 }
